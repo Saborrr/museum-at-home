@@ -2,151 +2,295 @@
 
 # 🎨 Art Gallery Screensaver
 
-**Beautiful screensaver for LG webOS TVs (3.0+) displaying masterpieces from world museums**
+**Красивая заставка с шедеврами мировой живописи для телевизоров LG (webOS) и Android**
 
 <p>
-  <img src="https://img.shields.io/badge/platform-webOS%203.0%2B-blue" alt="Platform">
-  <img src="https://img.shields.io/badge/status-in%20development-orange" alt="Status">
-  <img src="https://img.shields.io/badge/license-Proprietary-red" alt="License">
+  <img src="https://img.shields.io/badge/webOS-3.0+-blue" alt="webOS">
+  <img src="https://img.shields.io/badge/Android-5.0+-green" alt="Android">
+  <img src="https://img.shields.io/badge/картин-50-orange" alt="50 картин">
+  <img src="https://img.shields.io/badge/лицензия-Все_права_защищены-red" alt="Лицензия">
 </p>
 
 </div>
 
-## ✨ Features
+## 🖼️ Что это?
 
-- 🖼️ **Fullscreen art display** with smooth transitions (fade, slide, zoom)
-- 🏛️ **Two museum APIs** — Rijksmuseum (Amsterdam) & Metropolitan Museum (New York)
-- 📴 **Offline fallback** — bundled collection works without internet
-- ⏱️ **Customizable** — interval, transition style, info display, collection filters
-- 🎮 **TV remote control** — navigate with arrow keys, OK, back
-- 🕐 **Subtle clock** — always know the time
-- ❤️ **Favorites** — save artworks to a local collection
-- 💾 **Persistent settings** — everything saved to localStorage
+Экранная заставка, которая показывает 50 самых известных картин мира — Мона Лиза, Звёздная ночь, Рождение Венеры, Крик и другие. Картины плавно сменяются с эффектом Ken Burns (плавный наезд камеры, как в Apple TV).
 
-## 🧪 How to Test
+**Две версии:**
+- 📺 **webOS** (LG телевизоры) — папка корня репозитория
+- 📱 **Android** (телефоны, планшеты, Android TV) — папка `android/`
 
-### In any browser (recommended)
-Simply open `index.html` in Chrome, Firefox, or Safari. The app works as a regular web page — no server needed.
+---
 
-```bash
-# Clone the repo
-git clone https://github.com/Saborrr/art-screensaver-webos.git
-cd art-screensaver-webos
+## ✨ Что умеет
 
-# Open in browser
-open index.html        # macOS
-xdg-open index.html    # Linux
-start index.html       # Windows
+- 🖼️ 50 шедевров в высоком разрешении (HD, 4K, 8K)
+- 🎬 Эффект Ken Burns — плавный наезд/панорама как в Apple TV
+- 🏛️ Картины из лучших музеев мира (Метрополитен, Лувр, Рейксмюзеум и др.)
+- 📴 Работает без интернета (все картины в комплекте)
+- ⏱️ Настраиваемый интервал смены (15 сек — 5 мин)
+- ❤️ Избранное — сохраняйте любимые картины
+- 🕐 Часы на экране
+- 🎮 Управление пультом ТВ или касанием
+
+---
+
+## 🧪 Как запустить (пошагово)
+
+### Вариант 1: Просто в браузере (самый быстрый способ)
+
+Это самый простой способ — не нужно ничего устанавливать, работает на любом компьютере.
+
+1. Скачайте репозиторий:
+   - Нажмите зелёную кнопку **Code** → **Download ZIP** на этой странице
+   - Или через терминал (нужен Git):
+   ```
+   git clone https://github.com/Saborrr/art-screensaver-webos.git
+   ```
+
+2. Откройте файл `index.html` в любом браузере (Chrome, Firefox, Safari):
+   - **Windows:** два раза кликните по файлу `index.html`
+   - **Mac:** то же самое, или перетащите файл на иконку браузера
+   - **Linux:** выполните в терминале:
+   ```
+   xdg-open index.html
+   ```
+
+3. Готово! Картины будут сменяться автоматически.
+
+> ⚠️ Если открыли просто файлом — коллекция загрузится из локального файла. Для работы с API музеев нужен HTTP-сервер (см. ниже).
+
+### Вариант 2: Через HTTP-сервер (для полного функционала)
+
+Если хотите, чтобы приложение подгружало картины из API музеев (интернет):
+
+1. Установите Python (если нет): [python.org](https://python.org)
+2. Откройте терминал в папке проекта
+3. Запустите сервер:
+   ```
+   python -m http.server 8080
+   ```
+4. Откройте в браузере: `http://localhost:8080`
+
+### Вариант 3: На телевизоре LG (webOS)
+
+**Что нужно:**
+- Телевизор LG с webOS 3.0 или новее
+- Компьютер с Node.js (версия 16+)
+- Кабель интернета (желательно)
+
+**Шаг 1 — установите инструменты разработчика:**
+
+Откройте терминал на компьютере и выполните:
 ```
-
-> ⚠️ **Note:** Met Museum API works without a key. Rijksmuseum requires a free API key — see setup below.
-
-### Local HTTP server (for full API support)
-```bash
-# Python
-python3 -m http.server 8080
-
-# Node.js
-npx serve .
-
-# Then open http://localhost:8080
-```
-
-### On a real LG TV
-```bash
-# 1. Install webOS CLI
 npm install -g @webos-tools/cli
+```
+*(нужен Node.js — скачайте с [nodejs.org](https://nodejs.org))*
 
-# 2. Enable Developer Mode on TV (LG Developer app from Content Store)
+**Шаг 2 — включите режим разработчика на ТВ:**
 
-# 3. Package
+1. На телевизоре откройте **LG Content Store**
+2. Найдите и установите приложение **Developer Mode**
+3. Запустите его и запомните IP адрес телевизора
+4. На компьютере выполните:
+```
+webos-cli device --add YOUR_TV_IP
+```
+*(замените YOUR_TV_IP на IP вашего телевизора)*
+
+**Шаг 3 — соберите приложение:**
+
+В папке проекта (где файл `appinfo.json`):
+```
 webos-cli package .
+```
+Эта команда создаст файл `com.artscreen.gallery_1.0.0_all.ipk`
 
-# 4. Install on TV
-webos-cli install --device YOUR_TV_NAME com.artscreen.gallery
+**Шаг 4 — установите на телевизор:**
+```
+webos-cli install --device YOUR_TV com.artscreen.gallery_1.0.0_all.ipk
 ```
 
-## 🔧 Setup
+**Шаг 5 — запустите:**
 
-### Rijksmuseum API Key (free, recommended)
-1. Go to [data.rijksmuseum.nl](https://data.rijksmuseum.nl/)
-2. Register for a free API key
-3. Paste it in `js/museum-api.js` → `RIJKS_KEY`
+Найдите приложение "Art Gallery Screensaver" в списке приложений на ТВ.
 
-### Met Museum API
-No key needed — works out of the box!
+### Вариант 4: На Android
 
-## 🎮 Controls
+**Что нужно:**
+- Компьютер с Node.js (16+)
+- Android телефон/планшет (для теста)
+- Или аккаунт Google Play (для публикации)
 
-| Key | Action |
+**Шаг 1 — установите зависимости:**
+
+Откройте терминал и выполните:
+```
+cd android
+npm install
+```
+*(это скачает все нужные библиотеки — потребуется интернет, ~1 минута)*
+
+**Шаг 2 — проверьте на телефоне (через Expo Go):**
+
+1. Установите приложение **Expo Go** на телефон из Google Play
+2. Запустите сервер:
+   ```
+   npx expo start
+   ```
+3. Отсканируйте QR-код из терминала приложением Expo Go
+4. Приложение откроется на телефоне!
+
+**Шаг 3 — соберите APK (для установки без Google Play):**
+```
+npx expo export --platform android
+```
+*(создаст файл в папке `android/dist/`)*
+
+**Шаг 4 — опубликуйте в Google Play (опционально):**
+
+Зарегистрируйтесь на [Google Play Console](https://play.google.com/console) ($25 разово), загрузите APK/AAB.
+
+---
+
+## 🎮 Управление
+
+### На телевизоре (пульт):
+| Кнопка | Действие |
 |:---:|:---|
-| ← / → | Previous / Next artwork |
-| ↑ | ❤️ Save to favorites |
-| ↓ | Show info briefly |
-| OK / Back | Open settings |
+| ◀️ / ▶️ | Предыдущая / Следующая картина |
+| ⬆️ | ❤️ Сохранить в избранное |
+| ⬇️ | Показать информацию |
+| OK / Назад | Открыть настройки |
 
-## 📁 Project Structure
+### На телефоне (касания):
+| Действие | Результат |
+|:---|:---|
+| Тап слева / справа | Предыдущая / Следующая |
+| Тап сверху | Сохранить в избранное |
+| Тап снизу | Показать информацию |
+| Долгое нажатие центр | Настройки |
+
+---
+
+## 📁 Структура проекта
 
 ```
 art-screensaver-webos/
-├── appinfo.json          # webOS app manifest
-├── index.html            # Main entry point
+├── index.html              ← Версия для webOS (главная страница)
+├── appinfo.json            ← Манифест приложения webOS
 ├── css/
-│   └── style.css         # All styles (dark theme, transitions)
+│   └── style.css           ← Стили (тёмная тема, анимации)
 ├── js/
-│   ├── museum-api.js     # Rijksmuseum & Met Museum API client
-│   ├── cache.js          # Image preload & favorites storage
-│   └── app.js            # Main app logic & UI controller
+│   ├── museum-api.js       ← Подключение к API музеев
+│   ├── cache.js            ← Кэширование + избранное
+│   └── app.js              ← Главная логика приложения
 ├── img/
-│   ├── icon80x80.png     # App icon (webOS)
-│   ├── icon130x130.png   # Large icon (webOS)
-│   ├── splash.png        # Splash screen (webOS)
-│   └── icon_source.png   # Source file for icons
-└── data/
-    └── collection.json   # Bundled offline collection (fallback)
+│   ├── icon80x80.png       ← Иконка приложения (webOS)
+│   ├── icon130x130.png     ← Большая иконка (webOS)
+│   └── splash.png          ← Заставка при запуске (webOS)
+├── data/
+│   └── collection.json     ← 50 картин (офлайн-коллекция)
+│
+└── android/                ← Версия для Android
+    ├── App.js              ← Точка входа
+    ├── app.json            ← Настройки Expo
+    ├── components/
+    │   └── Screensaver.js  ← Экран заставки (React Native)
+    ├── data/
+    │   └── collection.json ← Та же коллекция картин
+    └── package.json        ← Зависимости Android-версии
 ```
 
-## 🏛️ Art Sources
+---
 
-| Source | API | Key Required | Images |
-|:---|:---|:---:|:---:|
-| [Rijksmuseum](https://www.rijksmuseum.nl/) (Amsterdam) | [Rijksmuseum API](https://data.rijksmuseum.nl/) | ✅ Free | ~800,000 objects |
-| [Metropolitan Museum](https://www.metmuseum.org/) (New York) | [Met Open Access](https://metmuseum.github.io/) | ❌ None | ~500,000 objects |
-| Bundled collection | `data/collection.json` | ❌ None | Local file |
+## 🏛️ Откуда картины
 
-All artworks are public domain / open access. Images are loaded at 1920px for TV quality.
+| Источник | Разрешение | Нужен ключ? |
+|:---|:---:|:---:|
+| Wikimedia Commons / Google Art Project | до 8K | ❌ |
+| Metropolitan Museum (Нью-Йорк) | до 4K | ❌ |
 
-## 📺 webOS Deployment
+Все картины — общественное достояние (public domain / CC0). Используются легально.
 
-### Requirements
-- LG TV with webOS 3.0+
-- [Developer Mode](https://webostv.developer.lge.com/) enabled
-- `@webos-tools/cli` npm package
+**Некоторые из 50 картин:**
+- 🌌 Звёздная ночь — Ван Гог
+- 👩 Мона Лиза — Леонардо да Винчи
+- 🌊 Рождение Венеры — Боттичелли
+- 😱 Крик — Мунк
+- 💋 Поцелуй — Климт
+- 🌊 Большая волна в Канагаве — Хокусай
+- 🏛️ Сотворение Адама — Микеланджело
+- 🌻 Подсолнухи — Ван Гог
+- 🦉 Ночные ястребы — Хоппер
+- 🎭 Герника — Пикассо
+- + ещё 40 шедевров
 
-### Publishing to LG Content Store
-1. Register at [seller.lgappstv.com](https://seller.lgappstv.com) (free)
-2. Package as `.ipk`
-3. Provide: screenshots, icons ✅, description, UX scenario
-4. Submit for QA review (~1-2 weeks)
-5. Published in LG Content Store
+---
 
-## 🗺️ Roadmap
+## 📺 Публикация
 
-- [x] Core slideshow with transitions
-- [x] Rijksmuseum & Met Museum API integration
-- [x] Offline fallback collection
-- [x] TV remote control
-- [x] Favorites with local storage
-- [ ] Ken Burns effect (slow pan/zoom)
-- [ ] Background music option
-- [ ] More museums (Europeana, WikiArt)
-- [ ] Premium collections (monetization)
-- [ ] Android version (React Native)
-- [ ] LG Content Store submission
+### LG Content Store (бесплатно)
+1. Зарегистрируйтесь на [seller.lgappstv.com](https://seller.lgappstv.com)
+2. Загрузите `.ipk` файл
+3. LG проверяет ~1-2 недели
+4. Если прошло — появится в магазине LG
 
-## ⚖️ License
+### Google Play ($25 разово)
+1. Зарегистрируйтесь на [play.google.com/console](https://play.google.com/console)
+2. Загрузите AAB файл (собирается через Expo EAS)
+3. Проверка ~1-7 дней
+4. Публикация в Google Play
 
-All rights reserved. This project and its source code are the property of the author.  
-Unauthorized copying, distribution, or modification is prohibited without written permission.
+---
 
-Artwork images belong to their respective museums and are used under open access / public domain terms.
+## 🗺️ Что планируется
+
+- [x] Основная заставка с анимациями
+- [x] 50 шедевров из лучших музеев
+- [x] Офлайн-коллекция
+- [x] Эффект Ken Burns
+- [x] Избранное
+- [x] Версия для webOS
+- [x] Версия для Android
+- [ ] Фоновая музыка
+- [ ] Больше музеев (Europeana, WikiArt)
+- [ ] Премиум-коллекции (монетизация)
+- [ ] Публикация в LG Content Store
+- [ ] Публикация в Google Play
+
+---
+
+## 🔧 Для разработчиков
+
+### Как добавить свои картины
+
+Откройте файл `data/collection.json` и добавьте запись:
+```json
+{
+  "id": "custom-1",
+  "title": "Название картины",
+  "artist": "Имя художника",
+  "year": "Год",
+  "museum": "Название музея",
+  "image": "https://ссылка-на-картину-в-высоком-качестве.jpg",
+  "thumb": "https://ссылка-на-превью.jpg",
+  "source": "custom"
+}
+```
+
+### Как получить ключ Rijksmuseum API (опционально)
+
+Бесплатный ключ даёт доступ к 800,000+ объектов из Рейксмюзеума (Амстердам):
+1. Перейдите на [data.rijksmuseum.nl](https://data.rijksmuseum.nl/)
+2. Зарегистрируйтесь (бесплатно)
+3. Вставьте ключ в файл `js/museum-api.js` → поле `RIJKS_KEY`
+
+---
+
+## ⚖️ Лицензия
+
+Все права защищены. Проект и исходный код принадлежат автору. Копирование, распространение и модификация без письменного разрешения запрещены.
+
+Изображения картин принадлежат соответствующим музеям и используются на условиях open access / public domain.
