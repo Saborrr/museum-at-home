@@ -1,0 +1,18 @@
+{
+  "id": "com.artscreen.gallery",
+  "version": "1.0.0",
+  "type": "web",
+  "main": "index.html",
+  "title": "Art Gallery Screensaver",
+  "appDescription": "Beautiful art screensaver with masterpieces from world museums",
+  "icon": "img/icon80x80.png",
+  "largeIcon": "img/icon130x130.png",
+  "vendor": "ArtScreen",
+  "resolution": "1920x1080",
+  "splashBackground": "img/splash.png",
+  "transparent": false,
+  "requiredMemory": 20,
+  "requiredPermissions": ["time.query", "media.operation"],
+  "trustLevel": "net",
+  "support360Content": false
+}

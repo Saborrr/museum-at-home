@@ -1,0 +1,52 @@
+[
+  {
+    "id": "rijks-SK-A-2344",
+    "title": "The Night Watch",
+    "artist": "Rembrandt van Rijn",
+    "year": "1642",
+    "museum": "Rijksmuseum, Amsterdam",
+    "image": "https://lh3.googleusercontent.com/J-mO3BwUkidvSxnVw7IJxM1JFoYFjsGf5sAkcS4k-dCJ0w-TIku0kn6CjJ3qKg=tk=s1920",
+    "thumb": "",
+    "source": "rijksmuseum"
+  },
+  {
+    "id": "rijks-SK-C-5",
+    "title": "The Milkmaid",
+    "artist": "Johannes Vermeer",
+    "year": "c. 1660",
+    "museum": "Rijksmuseum, Amsterdam",
+    "image": "https://lh3.googleusercontent.com/myp-0s45I6jcD4d3gk0LM2dp0RYX6alks3B8SydVYbm16DqFsWfmeJ3iGFBfmJ1wWmHQIA=s1920",
+    "thumb": "",
+    "source": "rijksmuseum"
+  },
+  {
+    "id": "rijks-SK-A-317",
+    "title": "The Jewish Bride",
+    "artist": "Rembrandt van Rijn",
+    "year": "c. 1665",
+    "museum": "Rijksmuseum, Amsterdam",
+    "image": "https://lh3.googleusercontent.com/6BEhQVvaJf_QmVuB5cBfBG9FKyQSFdlXMO3SOzUcUPBf0i4dxjM0d0NUFQk-Lig4-g=s1920",
+    "thumb": "",
+    "source": "rijksmuseum"
+  },
+  {
+    "id": "rijks-SK-A-1505",
+    "title": "Girl with a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "year": "c. 1665",
+    "museum": "Mauritshuis, The Hague",
+    "image": "https://lh3.googleusercontent.com/SK-A-1505-placeholder=s1920",
+    "thumb": "",
+    "source": "rijksmuseum"
+  },
+  {
+    "id": "rijks-SK-A-676",
+    "title": "The Syndics of the Drapers' Guild",
+    "artist": "Rembrandt van Rijn",
+    "year": "1662",
+    "museum": "Rijksmuseum, Amsterdam",
+    "image": "https://lh3.googleusercontent.com/SK-A-676-placeholder=s1920",
+    "thumb": "",
+    "source": "rijksmuseum"
+  }
+]
