@@ -10,6 +10,8 @@ const App = {
   settings: {},
   infoTimeout: null,
   isSettingsOpen: false,
+  kenBurnsClass: null,
+  kenBurnsCount: 6,
   
   // DOM refs
   els: {},
@@ -90,8 +92,8 @@ const App = {
 
     // Transition out
     const transition = this.settings.transition;
-    
-    if (transition === 'fade') {
+
+    if (transition === 'fade' || transition === 'kenburns') {
       this.els.image.classList.add('fade-out');
       await this.wait(800);
     }
@@ -110,16 +112,33 @@ const App = {
       }
     }
 
+    // Remove previous Ken Burns class
+    if (this.kenBurnsClass) {
+      this.els.image.classList.remove(this.kenBurnsClass);
+      this.kenBurnsClass = null;
+    }
+
     // Set image
     this.els.image.src = art.image;
 
     // Transition in
-    if (transition === 'fade') {
+    if (transition === 'kenburns') {
+      // Pick a random Ken Burns variant
+      const variant = Math.floor(Math.random() * this.kenBurnsCount) + 1;
+      this.kenBurnsClass = `ken-burns-${variant}`;
       this.els.image.classList.remove('fade-out');
+      this.els.image.classList.add(this.kenBurnsClass);
+      // Set animation duration to match slideshow interval
+      this.els.image.style.animationDuration = `${this.settings.interval}s`;
+    } else if (transition === 'fade') {
+      this.els.image.classList.remove('fade-out');
+      this.els.image.style.animationDuration = '';
     } else if (transition === 'slide') {
       this.els.image.className = 'slide-in';
+      this.els.image.style.animationDuration = '';
     } else if (transition === 'zoom') {
       this.els.image.className = 'zoom-in';
+      this.els.image.style.animationDuration = '';
     }
 
     // Update info

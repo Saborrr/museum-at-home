@@ -21,20 +21,82 @@ body {
   height: 100%;
 }
 
-/* --- Main Image --- */
+/* --- Main Image Container (Ken Burns wrapper) --- */
+#art-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
 #art-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   background: #000;
   transition: opacity 1.5s ease-in-out;
+  will-change: transform;
 }
 
 #art-image.fade-out {
   opacity: 0;
+}
+
+/* --- Ken Burns Effect --- */
+.ken-burns-1 {
+  animation: kenBurns1 25s ease-in-out forwards;
+}
+.ken-burns-2 {
+  animation: kenBurns2 25s ease-in-out forwards;
+}
+.ken-burns-3 {
+  animation: kenBurns3 25s ease-in-out forwards;
+}
+.ken-burns-4 {
+  animation: kenBurns4 25s ease-in-out forwards;
+}
+.ken-burns-5 {
+  animation: kenBurns5 25s ease-in-out forwards;
+}
+.ken-burns-6 {
+  animation: kenBurns6 25s ease-in-out forwards;
+}
+
+/* Slow zoom in + pan right */
+@keyframes kenBurns1 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.15) translate(2%, -1%); }
+}
+/* Slow zoom in + pan left */
+@keyframes kenBurns2 {
+  0%   { transform: scale(1.12) translate(2%, 0); }
+  100% { transform: scale(1.0) translate(-1%, 1%); }
+}
+/* Slow zoom in from top */
+@keyframes kenBurns3 {
+  0%   { transform: scale(1.0) translate(0, 2%); }
+  100% { transform: scale(1.18) translate(-1%, -1%); }
+}
+/* Slow zoom out to bottom-right */
+@keyframes kenBurns4 {
+  0%   { transform: scale(1.15) translate(-2%, -1%); }
+  100% { transform: scale(1.0) translate(1%, 2%); }
+}
+/* Pan left to right with slight zoom */
+@keyframes kenBurns5 {
+  0%   { transform: scale(1.08) translate(-3%, 0); }
+  100% { transform: scale(1.12) translate(3%, 0); }
+}
+/* Slow zoom in center */
+@keyframes kenBurns6 {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.2); }
 }
 
 /* --- Art Info Overlay --- */
@@ -49,6 +111,7 @@ body {
   opacity: 1;
   transition: opacity 0.8s ease;
   pointer-events: none;
+  z-index: 10;
 }
 
 #art-info.hidden {
@@ -87,6 +150,7 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
   opacity: 0.4;
   letter-spacing: 2px;
+  z-index: 10;
 }
 
 /* --- Favorite Hint (popup) --- */
@@ -128,6 +192,7 @@ body {
   opacity: 0.35;
   cursor: pointer;
   transition: opacity 0.2s;
+  z-index: 10;
 }
 
 #fav-badge:hover {
@@ -258,7 +323,7 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* --- Transition effects --- */
+/* --- Old transition effects (still available) --- */
 .slide-in {
   animation: slideIn 1.2s ease-out forwards;
 }
