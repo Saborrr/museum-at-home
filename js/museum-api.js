@@ -98,9 +98,14 @@ const MuseumAPI = {
   },
 
   /**
-   * Load artworks from a bundled JSON file (offline fallback)
+   * Load artworks from bundled collection (works offline & with file://)
    */
   async fetchBundled() {
+    // Use inline bundled data (works with file:// protocol)
+    if (typeof BUNDLED_ART !== 'undefined' && BUNDLED_ART.length > 0) {
+      return BUNDLED_ART;
+    }
+    // Fallback: try fetch (works on web server)
     try {
       const resp = await fetch('data/collection.json');
       return await resp.json();

@@ -46,11 +46,14 @@ const App = {
     // Update favorites badge
     this.updateFavBadge();
 
-    // Load artworks from APIs
+    // Load artworks from APIs (with 8s timeout)
     try {
-      this.artworks = await MuseumAPI.getArtworks(this.settings.collection);
+      this.artworks = await Promise.race([
+        MuseumAPI.getArtworks(this.settings.collection),
+        new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 8000))
+      ]);
     } catch (e) {
-      console.error('Failed to load artworks');
+      console.warn('API failed:', e.message);
     }
 
     if (this.artworks.length === 0) {
