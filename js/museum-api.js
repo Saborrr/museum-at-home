@@ -80,7 +80,7 @@ const MuseumAPI = {
               artist: obj.artistDisplayName || 'Unknown',
               year: obj.objectDate || '',
               museum: 'Metropolitan Museum of Art, New York',
-              image: obj.primaryImage.replace('/original/', '/web-large/'),
+              image: obj.primaryImage,
               thumb: obj.primaryImageSmall || obj.primaryImage,
               source: 'met'
             });
