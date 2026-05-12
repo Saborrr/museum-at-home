@@ -82,6 +82,55 @@ const App = {
 
     // Setup input handlers
     this.setupInput();
+
+    // Reposition info on resize
+    window.addEventListener('resize', () => this.positionInfo());
+  },
+
+  /**
+   * Position art info inside the actual painting bounds
+   */
+  positionInfo() {
+    const img = this.els.image;
+    const info = this.els.info;
+
+    if (!img.naturalWidth || !img.naturalHeight) {
+      // Image not loaded yet, fallback
+      info.style.bottom = '20px';
+      info.style.padding = '0 60px';
+      return;
+    }
+
+    const containerW = img.clientWidth;
+    const containerH = img.clientHeight;
+    const imgRatio = img.naturalWidth / img.naturalHeight;
+    const boxRatio = containerW / containerH;
+
+    let renderedW, renderedH, offsetX, offsetY;
+
+    if (imgRatio > boxRatio) {
+      // Image is wider — fills width, bars top/bottom
+      renderedW = containerW;
+      renderedH = containerW / imgRatio;
+      offsetX = 0;
+      offsetY = (containerH - renderedH) / 2;
+    } else {
+      // Image is taller — fills height, bars left/right
+      renderedH = containerH;
+      renderedW = containerH * imgRatio;
+      offsetX = (containerW - renderedW) / 2;
+      offsetY = 0;
+    }
+
+    // Position info at the bottom of the actual painting area
+    const infoBottom = containerH - offsetY - renderedH;
+    const infoLeft = offsetX;
+    const infoWidth = renderedW;
+
+    info.style.bottom = `${Math.max(infoBottom + 12, 8)}px`;
+    info.style.left = `${infoLeft}px`;
+    info.style.width = `${infoWidth}px`;
+    info.style.padding = '0';
   },
 
   /**
@@ -156,6 +205,9 @@ const App = {
 
     // Show/hide info based on settings
     this.showInfo();
+
+    // Position info inside painting bounds (after image loads)
+    requestAnimationFrame(() => this.positionInfo());
 
     // Preload next images
     ImageCache.preloadNext(this.artworks, index);
