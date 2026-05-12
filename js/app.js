@@ -36,6 +36,12 @@ const App = {
       favCount: document.getElementById('fav-count')
     };
 
+    // Recalculate text position when image actually renders
+    this.els.image.addEventListener('load', () => {
+      // Small delay to let layout settle after paint
+      setTimeout(() => this.positionInfo(), 50);
+    });
+
     // Load saved settings
     this.settings = ImageCache.loadSettings();
     this.applySettingsUI();
@@ -97,30 +103,38 @@ const App = {
 
     if (!img.naturalWidth || !img.naturalHeight) return;
 
-    const containerW = img.clientWidth;
-    const containerH = img.clientHeight;
+    // The image element fills 100% of #art-wrapper via CSS,
+    // so use the wrapper (parent) as the container reference
+    const container = img.parentElement;
+    const containerW = container.clientWidth;
+    const containerH = container.clientHeight;
     const imgRatio = img.naturalWidth / img.naturalHeight;
     const boxRatio = containerW / containerH;
 
     let renderedW, renderedH, offsetX, offsetY;
 
     if (imgRatio > boxRatio) {
+      // Landscape/wider image — fills width, bars top/bottom
       renderedW = containerW;
       renderedH = containerW / imgRatio;
       offsetX = 0;
       offsetY = (containerH - renderedH) / 2;
     } else {
+      // Portrait/taller image — fills height, bars left/right
       renderedH = containerH;
       renderedW = containerH * imgRatio;
       offsetX = (containerW - renderedW) / 2;
       offsetY = 0;
     }
 
+    // Clamp: never position outside the painting area
     const infoBottom = containerH - offsetY - renderedH;
+    const infoLeft = offsetX;
+    const infoWidth = renderedW;
 
-    info.style.bottom = `${Math.max(infoBottom + 16, 8)}px`;
-    info.style.left = `${offsetX + 20}px`;
-    info.style.width = `${renderedW - 40}px`;
+    info.style.bottom = `${Math.round(Math.max(infoBottom + 14, 6))}px`;
+    info.style.left = `${Math.round(infoLeft + 20)}px`;
+    info.style.width = `${Math.round(infoWidth - 40)}px`;
   },
 
   /**
