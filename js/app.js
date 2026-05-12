@@ -53,21 +53,8 @@ const App = {
     // Update favorites badge
     this.updateFavBadge();
 
-    // Load artworks from APIs (with 8s timeout)
-    try {
-      this.artworks = await Promise.race([
-        MuseumAPI.getArtworks(this.settings.collection),
-        new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 8000))
-      ]);
-    } catch (e) {
-      console.warn('API failed:', e.message);
-    }
-
-    if (this.artworks.length === 0) {
-      // Fallback: show bundled collection
-      this.els.loading.querySelector('p').textContent = 'Using offline collection...';
-      this.artworks = await MuseumAPI.fetchBundled();
-    }
+    // Load artworks — skip API, go straight to bundled (all local)
+    this.artworks = await MuseumAPI.fetchBundled();
 
     if (this.artworks.length === 0) {
       this.els.loading.querySelector('p').textContent = 'No artworks found. Check connection.';

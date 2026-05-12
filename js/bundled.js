@@ -1,1 +1,262 @@
-const BUNDLED_ART = [{"id": "wiki-the-starry-night", "title": "The Starry Night", "artist": "Vincent van Gogh", "year": "1889", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/400px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg", "source": "wikimedia"}, {"id": "wiki-the-bedroom", "title": "The Bedroom", "artist": "Vincent van Gogh", "year": "1888", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg/1920px-Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg/400px-Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg", "source": "wikimedia"}, {"id": "wiki-sunflowers", "title": "Sunflowers", "artist": "Vincent van Gogh", "year": "1888", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Vincent_Willem_van_Gogh_127.jpg/1920px-Vincent_Willem_van_Gogh_127.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Vincent_Willem_van_Gogh_127.jpg/400px-Vincent_Willem_van_Gogh_127.jpg", "source": "wikimedia"}, {"id": "wiki-café-terrace-at-night", "title": "Café Terrace at Night", "artist": "Vincent van Gogh", "year": "1888", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Cafe_terras_met_van_Gogh.jpg/1920px-Vincent_van_Gogh_-_Cafe_terras_met_van_Gogh.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Cafe_terras_met_van_Gogh.jpg/400px-Vincent_van_Gogh_-_Cafe_terras_met_van_Gogh.jpg", "source": "wikimedia"}, {"id": "wiki-the-night-café", "title": "The Night Café", "artist": "Vincent van Gogh", "year": "1888", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Le_caf%C3%A9_de_nuit_%28The_Night_Caf%C3%A9%29_by_Vincent_van_Gogh.jpeg/1920px-Le_caf%C3%A9_de_nuit_%28The_Night_Caf%C3%A9%29_by_Vincent_van_Gogh.jpeg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Le_caf%C3%A9_de_nuit_%28The_Night_Caf%C3%A9%29_by_Vincent_van_Gogh.jpeg/400px-Le_caf%C3%A9_de_nuit_%28The_Night_Caf%C3%A9%29_by_Vincent_van_Gogh.jpeg", "source": "wikimedia"}, {"id": "wiki-almond-blossoms", "title": "Almond Blossoms", "artist": "Vincent van Gogh", "year": "1890", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1920px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/400px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg", "source": "wikimedia"}, {"id": "wiki-mona-lisa", "title": "Mona Lisa", "artist": "Leonardo da Vinci", "year": "c. 1503–1519", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1920px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/400px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg", "source": "wikimedia"}, {"id": "wiki-the-last-supper", "title": "The Last Supper", "artist": "Leonardo da Vinci", "year": "c. 1495–1498", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_da_Vinci_-_High_Resolution.jpg/1920px-The_Last_Supper_-_Leonardo_da_Vinci_-_High_Resolution.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_da_Vinci_-_High_Resolution.jpg/400px-The_Last_Supper_-_Leonardo_da_Vinci_-_High_Resolution.jpg", "source": "wikimedia"}, {"id": "wiki-the-creation-of-adam", "title": "The Creation of Adam", "artist": "Michelangelo", "year": "c. 1508–1512", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Creaci%C3%B3n_de_Ad%C3%A1m.jpg/1920px-Creaci%C3%B3n_de_Ad%C3%A1m.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Creaci%C3%B3n_de_Ad%C3%A1m.jpg/400px-Creaci%C3%B3n_de_Ad%C3%A1m.jpg", "source": "wikimedia"}, {"id": "wiki-the-birth-of-venus", "title": "The Birth of Venus", "artist": "Sandro Botticelli", "year": "c. 1485", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1920px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/400px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg", "source": "wikimedia"}, {"id": "wiki-primavera", "title": "Primavera", "artist": "Sandro Botticelli", "year": "c. 1480", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sandro_Botticelli_-_La_Primavera_%281%29.jpg/1920px-Sandro_Botticelli_-_La_Primavera_%281%29.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sandro_Botticelli_-_La_Primavera_%281%29.jpg/400px-Sandro_Botticelli_-_La_Primavera_%281%29.jpg", "source": "wikimedia"}, {"id": "wiki-the-scream", "title": "The Scream", "artist": "Edvard Munch", "year": "1893", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/1920px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/400px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg", "source": "wikimedia"}, {"id": "wiki-girl-with-a-pearl-earring", "title": "Girl with a Pearl Earring", "artist": "Johannes Vermeer", "year": "c. 1665", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/1920px-Meisje_met_de_parel.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/400px-Meisje_met_de_parel.jpg", "source": "wikimedia"}, {"id": "wiki-the-great-wave-off-kanagawa", "title": "The Great Wave off Kanagawa", "artist": "Katsushika Hokusai", "year": "c. 1831", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1920px-Tsunami_by_hokusai_19th_century.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/400px-Tsunami_by_hokusai_19th_century.jpg", "source": "wikimedia"}, {"id": "wiki-the-kiss", "title": "The Kiss", "artist": "Gustav Klimt", "year": "1907–1908", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg/1920px-The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg/400px-The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg", "source": "wikimedia"}, {"id": "wiki-the-persistence-of-memory", "title": "The Persistence of Memory", "artist": "Salvador Dalí", "year": "1931", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/The_Persistence_of_Memory.jpg/1920px-The_Persistence_of_Memory.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/The_Persistence_of_Memory.jpg/400px-The_Persistence_of_Memory.jpg", "source": "wikimedia"}, {"id": "wiki-american-gothic", "title": "American Gothic", "artist": "Grant Wood", "year": "1930", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg/1920px-Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg/400px-Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg", "source": "wikimedia"}, {"id": "wiki-nighthawks", "title": "Nighthawks", "artist": "Edward Hopper", "year": "1942", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nighthawks.jpg/1920px-Nighthawks.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nighthawks.jpg/400px-Nighthawks.jpg", "source": "wikimedia"}, {"id": "wiki-impression-sunrise", "title": "Impression, Sunrise", "artist": "Claude Monet", "year": "1872", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1920px-Monet_-_Impression%2C_Sunrise.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/400px-Monet_-_Impression%2C_Sunrise.jpg", "source": "wikimedia"}, {"id": "wiki-water-lilies-(nymphéas)", "title": "Water Lilies (Nymphéas)", "artist": "Claude Monet", "year": "1906", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_%281906%29.jpg/1920px-Claude_Monet_-_Water_Lilies_%281906%29.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_%281906%29.jpg/400px-Claude_Monet_-_Water_Lilies_%281906%29.jpg", "source": "wikimedia"}, {"id": "wiki-guernica", "title": "Guernica", "artist": "Pablo Picasso", "year": "1937", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Guernica_Picasso.jpg/1920px-Guernica_Picasso.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Guernica_Picasso.jpg/400px-Guernica_Picasso.jpg", "source": "wikimedia"}, {"id": "wiki-the-school-of-athens", "title": "The School of Athens", "artist": "Raphael", "year": "1509–1511", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Raphael_-_School_of_Athens.jpg/1920px-Raphael_-_School_of_Athens.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Raphael_-_School_of_Athens.jpg/400px-Raphael_-_School_of_Athens.jpg", "source": "wikimedia"}, {"id": "wiki-the-third-of-may-1808", "title": "The Third of May 1808", "artist": "Francisco Goya", "year": "1814", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/El_Tres_de_Mayo_by_Goya.jpg/1920px-El_Tres_de_Mayo_by_Goya.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/El_Tres_de_Mayo_by_Goya.jpg/400px-El_Tres_de_Mayo_by_Goya.jpg", "source": "wikimedia"}, {"id": "wiki-the-fighting-temeraire", "title": "The Fighting Temeraire", "artist": "J.M.W. Turner", "year": "1839", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Fighting_Temeraire.jpg/1920px-The_Fighting_Temeraire.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Fighting_Temeraire.jpg/400px-The_Fighting_Temeraire.jpg", "source": "wikimedia"}, {"id": "wiki-christina's-world", "title": "Christina's World", "artist": "Andrew Wyeth", "year": "1948", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Christina%27s_World_by_Andrew_Wyeth.png/1920px-Christina%27s_World_by_Andrew_Wyeth.png", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Christina%27s_World_by_Andrew_Wyeth.png/400px-Christina%27s_World_by_Andrew_Wyeth.png", "source": "wikimedia"}, {"id": "wiki-wanderer-above-the-sea-of-fog", "title": "Wanderer above the Sea of Fog", "artist": "Caspar David Friedrich", "year": "c. 1818", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/1920px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/400px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg", "source": "wikimedia"}, {"id": "wiki-composition-vii", "title": "Composition VII", "artist": "Wassily Kandinsky", "year": "1913", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Vassily_Kandinsky%2C_1913_-_Composition_7.jpg/1920px-Vassily_Kandinsky%2C_1913_-_Composition_7.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Vassily_Kandinsky%2C_1913_-_Composition_7.jpg/400px-Vassily_Kandinsky%2C_1913_-_Composition_7.jpg", "source": "wikimedia"}, {"id": "wiki-composition-with-red-blue-and-", "title": "Composition with Red, Blue, and Yellow", "artist": "Piet Mondrian", "year": "1930", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue_and_Yellow.jpg/1920px-Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue_and_Yellow.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue_and_Yellow.jpg/400px-Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue_and_Yellow.jpg", "source": "wikimedia"}, {"id": "wiki-the-son-of-man", "title": "The Son of Man", "artist": "René Magritte", "year": "1964", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Magritte_TheSonOfMan.jpg/1920px-Magritte_TheSonOfMan.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Magritte_TheSonOfMan.jpg/400px-Magritte_TheSonOfMan.jpg", "source": "wikimedia"}, {"id": "wiki-bal-du-moulin-de-la-galette", "title": "Bal du moulin de la Galette", "artist": "Pierre-Auguste Renoir", "year": "1876", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pierre-Auguste_Renoir%2C_Bal_du_moulin_de_la_Galette%2C_c._1876_%28The_Frick_Pittsburgh%29.jpg/1920px-Pierre-Auguste_Renoir%2C_Bal_du_moulin_de_la_Galette%2C_c._1876_%28The_Frick_Pittsburgh%29.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pierre-Auguste_Renoir%2C_Bal_du_moulin_de_la_Galette%2C_c._1876_%28The_Frick_Pittsburgh%29.jpg/400px-Pierre-Auguste_Renoir%2C_Bal_du_moulin_de_la_Galette%2C_c._1876_%28The_Frick_Pittsburgh%29.jpg", "source": "wikimedia"}, {"id": "wiki-the-sleeping-gypsy", "title": "The Sleeping Gypsy", "artist": "Henri Rousseau", "year": "1897", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Henri_Rousseau_-_The_Sleeping_Gypsy_-_1897.jpg/1920px-Henri_Rousseau_-_The_Sleeping_Gypsy_-_1897.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Henri_Rousseau_-_The_Sleeping_Gypsy_-_1897.jpg/400px-Henri_Rousseau_-_The_Sleeping_Gypsy_-_1897.jpg", "source": "wikimedia"}, {"id": "wiki-whistler's-mother", "title": "Whistler's Mother", "artist": "James Abbott McNeill Whistler", "year": "1871", "museum": "Wikimedia Commons / Google Art Project", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Whistlers_Mother_high_res.jpg/1920px-Whistlers_Mother_high_res.jpg", "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Whistlers_Mother_high_res.jpg/400px-Whistlers_Mother_high_res.jpg", "source": "wikimedia"}, {"id": "met-436535", "title": "Wheat Field with Cypresses", "artist": "Vincent van Gogh", "year": "1889", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-42549-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-42549-001.jpg", "source": "met"}, {"id": "met-436528", "title": "Irises", "artist": "Vincent van Gogh", "year": "1890", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP346474.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP346474.jpg", "source": "met"}, {"id": "met-436532", "title": "Self-Portrait with a Straw Hat (obverse: The Potato Peeler)", "artist": "Vincent van Gogh", "year": "1887", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DT1502_cropped2.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1502_cropped2.jpg", "source": "met"}, {"id": "met-437394", "title": "Aristotle with a Bust of Homer", "artist": "Rembrandt (Rembrandt van Rijn)", "year": "1653", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-30758-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-30758-001.jpg", "source": "met"}, {"id": "met-437397", "title": "Self-Portrait", "artist": "Rembrandt (Rembrandt van Rijn)", "year": "1660", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-16323-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-16323-001.jpg", "source": "met"}, {"id": "met-437881", "title": "Young Woman with a Water Pitcher", "artist": "Johannes Vermeer", "year": "ca. 1662", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP353257.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP353257.jpg", "source": "met"}, {"id": "met-436575", "title": "View of Toledo", "artist": "El Greco (Domenikos Theotokopoulos)", "year": "ca. 1599–1600", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP349564.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP349564.jpg", "source": "met"}, {"id": "met-436573", "title": "Cardinal Fernando Niño de Guevara (1541–1609)", "artist": "El Greco (Domenikos Theotokopoulos)", "year": "ca. 1600", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-17777-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-17777-001.jpg", "source": "met"}, {"id": "met-436105", "title": "The Death of Socrates", "artist": "Jacques Louis David", "year": "1787", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-13139-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-13139-001.jpg", "source": "met"}, {"id": "met-436106", "title": "Antoine Laurent Lavoisier (1743–1794) and Marie Anne Lavoisier (Marie Anne Pierrette Paulze, 1758–1836)", "artist": "Jacques Louis David", "year": "1788", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-19709-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-19709-001.jpg", "source": "met"}, {"id": "met-435844", "title": "The Musicians", "artist": "Caravaggio (Michelangelo Merisi)", "year": "1597", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-687-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-687-001.jpg", "source": "met"}, {"id": "met-435809", "title": "The Harvesters", "artist": "Pieter Bruegel the Elder", "year": "1565", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP119115.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP119115.jpg", "source": "met"}, {"id": "met-435868", "title": "The Card Players", "artist": "Paul Cézanne", "year": "1890–92", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP231550.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP231550.jpg", "source": "met"}, {"id": "met-435882", "title": "Still Life with Apples and a Pot of Primroses", "artist": "Paul Cézanne", "year": "ca. 1890", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DT47.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DT47.jpg", "source": "met"}, {"id": "met-438817", "title": "The Dance Class", "artist": "Edgar Degas", "year": "1874", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-20101-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-20101-001.jpg", "source": "met"}, {"id": "met-436947", "title": "Boating", "artist": "Edouard Manet", "year": "1874", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-25466-001.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-25466-001.jpg", "source": "met"}, {"id": "met-437430", "title": "By the Seashore", "artist": "Auguste Renoir", "year": "1883", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-14936-039.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14936-039.jpg", "source": "met"}, {"id": "met-437654", "title": "Circus Sideshow (Parade de cirque)", "artist": "Georges Seurat", "year": "1887–88", "museum": "Metropolitan Museum of Art, New York", "image": "https://images.metmuseum.org/CRDImages/ep/original/DP375450_cropped.jpg", "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP375450_cropped.jpg", "source": "met"}];
+const BUNDLED_ART = [
+  {
+    "id": "wiki-the-starry-night",
+    "title": "The Starry Night",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-the-starry-night.jpg",
+    "thumb": "img/paintings/wiki-the-starry-night.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "wiki-the-bedroom",
+    "title": "The Bedroom",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-the-bedroom.jpg",
+    "thumb": "img/paintings/wiki-the-bedroom.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "wiki-sunflowers",
+    "title": "Sunflowers",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-sunflowers.jpg",
+    "thumb": "img/paintings/wiki-sunflowers.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "wiki-mona-lisa",
+    "title": "Mona Lisa",
+    "artist": "Leonardo da Vinci",
+    "year": "c. 1503–1519",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-mona-lisa.jpg",
+    "thumb": "img/paintings/wiki-mona-lisa.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "wiki-the-birth-of-venus",
+    "title": "The Birth of Venus",
+    "artist": "Sandro Botticelli",
+    "year": "c. 1485",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-the-birth-of-venus.jpg",
+    "thumb": "img/paintings/wiki-the-birth-of-venus.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "wiki-the-great-wave-off-kanagawa",
+    "title": "The Great Wave off Kanagawa",
+    "artist": "Katsushika Hokusai",
+    "year": "c. 1831",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-the-great-wave-off-kanagawa.jpg",
+    "thumb": "img/paintings/wiki-the-great-wave-off-kanagawa.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "wiki-the-kiss",
+    "title": "The Kiss",
+    "artist": "Gustav Klimt",
+    "year": "1907–1908",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-the-kiss.jpg",
+    "thumb": "img/paintings/wiki-the-kiss.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "wiki-wanderer-above-the-sea-of-fog",
+    "title": "Wanderer above the Sea of Fog",
+    "artist": "Caspar David Friedrich",
+    "year": "c. 1818",
+    "museum": "Wikimedia Commons / Google Art Project",
+    "image": "img/paintings/wiki-wanderer-above-the-sea-of-fog.jpg",
+    "thumb": "img/paintings/wiki-wanderer-above-the-sea-of-fog.jpg",
+    "source": "wikimedia"
+  },
+  {
+    "id": "met-436535",
+    "title": "Wheat Field with Cypresses",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436535.jpg",
+    "thumb": "img/paintings/met-436535.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-436528",
+    "title": "Irises",
+    "artist": "Vincent van Gogh",
+    "year": "1890",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436528.jpg",
+    "thumb": "img/paintings/met-436528.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-436532",
+    "title": "Self-Portrait with a Straw Hat (obverse: The Potato Peeler)",
+    "artist": "Vincent van Gogh",
+    "year": "1887",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436532.jpg",
+    "thumb": "img/paintings/met-436532.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-437394",
+    "title": "Aristotle with a Bust of Homer",
+    "artist": "Rembrandt (Rembrandt van Rijn)",
+    "year": "1653",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-437394.jpg",
+    "thumb": "img/paintings/met-437394.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-437397",
+    "title": "Self-Portrait",
+    "artist": "Rembrandt (Rembrandt van Rijn)",
+    "year": "1660",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-437397.jpg",
+    "thumb": "img/paintings/met-437397.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-437881",
+    "title": "Young Woman with a Water Pitcher",
+    "artist": "Johannes Vermeer",
+    "year": "ca. 1662",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-437881.jpg",
+    "thumb": "img/paintings/met-437881.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-436575",
+    "title": "View of Toledo",
+    "artist": "El Greco (Domenikos Theotokopoulos)",
+    "year": "ca. 1599–1600",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436575.jpg",
+    "thumb": "img/paintings/met-436575.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-436573",
+    "title": "Cardinal Fernando Niño de Guevara (1541–1609)",
+    "artist": "El Greco (Domenikos Theotokopoulos)",
+    "year": "ca. 1600",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436573.jpg",
+    "thumb": "img/paintings/met-436573.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-436105",
+    "title": "The Death of Socrates",
+    "artist": "Jacques Louis David",
+    "year": "1787",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436105.jpg",
+    "thumb": "img/paintings/met-436105.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-436106",
+    "title": "Antoine Laurent Lavoisier (1743–1794) and Marie Anne Lavoisier (Marie Anne Pierrette Paulze, 1758–1836)",
+    "artist": "Jacques Louis David",
+    "year": "1788",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436106.jpg",
+    "thumb": "img/paintings/met-436106.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-435844",
+    "title": "The Musicians",
+    "artist": "Caravaggio (Michelangelo Merisi)",
+    "year": "1597",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-435844.jpg",
+    "thumb": "img/paintings/met-435844.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-435809",
+    "title": "The Harvesters",
+    "artist": "Pieter Bruegel the Elder",
+    "year": "1565",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-435809.jpg",
+    "thumb": "img/paintings/met-435809.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-435868",
+    "title": "The Card Players",
+    "artist": "Paul Cézanne",
+    "year": "1890–92",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-435868.jpg",
+    "thumb": "img/paintings/met-435868.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-435882",
+    "title": "Still Life with Apples and a Pot of Primroses",
+    "artist": "Paul Cézanne",
+    "year": "ca. 1890",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-435882.jpg",
+    "thumb": "img/paintings/met-435882.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-438817",
+    "title": "The Dance Class",
+    "artist": "Edgar Degas",
+    "year": "1874",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-438817.jpg",
+    "thumb": "img/paintings/met-438817.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-436947",
+    "title": "Boating",
+    "artist": "Edouard Manet",
+    "year": "1874",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-436947.jpg",
+    "thumb": "img/paintings/met-436947.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-437430",
+    "title": "By the Seashore",
+    "artist": "Auguste Renoir",
+    "year": "1883",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-437430.jpg",
+    "thumb": "img/paintings/met-437430.jpg",
+    "source": "met"
+  },
+  {
+    "id": "met-437654",
+    "title": "Circus Sideshow (Parade de cirque)",
+    "artist": "Georges Seurat",
+    "year": "1887–88",
+    "museum": "Metropolitan Museum of Art, New York",
+    "image": "img/paintings/met-437654.jpg",
+    "thumb": "img/paintings/met-437654.jpg",
+    "source": "met"
+  }
+];
