@@ -38,7 +38,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   background: #000;
   transition: opacity 1.5s ease-in-out;
   will-change: transform;
@@ -71,32 +71,32 @@ body {
 /* Slow zoom in + pan right */
 @keyframes kenBurns1 {
   0%   { transform: scale(1.0) translate(0, 0); }
-  100% { transform: scale(1.15) translate(2%, -1%); }
+  100% { transform: scale(1.05) translate(1%, -0.5%); }
 }
 /* Slow zoom in + pan left */
 @keyframes kenBurns2 {
-  0%   { transform: scale(1.12) translate(2%, 0); }
-  100% { transform: scale(1.0) translate(-1%, 1%); }
+  0%   { transform: scale(1.04) translate(1%, 0); }
+  100% { transform: scale(1.0) translate(-0.5%, 0.5%); }
 }
 /* Slow zoom in from top */
 @keyframes kenBurns3 {
-  0%   { transform: scale(1.0) translate(0, 2%); }
-  100% { transform: scale(1.18) translate(-1%, -1%); }
+  0%   { transform: scale(1.0) translate(0, 1%); }
+  100% { transform: scale(1.06) translate(-0.5%, -0.5%); }
 }
 /* Slow zoom out to bottom-right */
 @keyframes kenBurns4 {
-  0%   { transform: scale(1.15) translate(-2%, -1%); }
-  100% { transform: scale(1.0) translate(1%, 2%); }
+  0%   { transform: scale(1.05) translate(-1%, -0.5%); }
+  100% { transform: scale(1.0) translate(0.5%, 1%); }
 }
 /* Pan left to right with slight zoom */
 @keyframes kenBurns5 {
-  0%   { transform: scale(1.08) translate(-3%, 0); }
-  100% { transform: scale(1.12) translate(3%, 0); }
+  0%   { transform: scale(1.02) translate(-1.5%, 0); }
+  100% { transform: scale(1.04) translate(1.5%, 0); }
 }
 /* Slow zoom in center */
 @keyframes kenBurns6 {
   0%   { transform: scale(1.0); }
-  100% { transform: scale(1.2); }
+  100% { transform: scale(1.06); }
 }
 
 /* --- Art Info Overlay --- */
