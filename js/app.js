@@ -29,8 +29,9 @@ const App = {
       loading: document.getElementById('loading'),
       clock: document.getElementById('clock'),
       favHint: document.getElementById('fav-hint'),
-      favHeart: document.getElementById('fav-heart'),
+      favIcon: document.getElementById('fav-icon'),
       favText: document.getElementById('fav-text'),
+      favFlash: document.getElementById('fav-flash'),
       favBadge: document.getElementById('fav-badge'),
       favCount: document.getElementById('fav-count')
     };
@@ -127,9 +128,9 @@ const App = {
     const infoLeft = offsetX;
     const infoWidth = renderedW;
 
-    info.style.bottom = `${Math.max(infoBottom + 12, 8)}px`;
-    info.style.left = `${infoLeft}px`;
-    info.style.width = `${infoWidth}px`;
+    info.style.bottom = `${Math.max(infoBottom + 16, 8)}px`;
+    info.style.left = `${infoLeft + 20}px`;
+    info.style.width = `${infoWidth - 40}px`;
     info.style.padding = '0';
   },
 
@@ -275,7 +276,7 @@ const App = {
   },
 
   /**
-   * Toggle favorite for current artwork
+   * Toggle favorite for current artwork — with particle burst
    */
   async toggleFavorite() {
     const art = this.artworks[this.currentIndex];
@@ -287,14 +288,70 @@ const App = {
     this.els.image.classList.toggle('is-fav', added);
     this.updateFavBadge();
 
-    // Show hint animation
-    this.els.favHeart.textContent = added ? '❤️' : '💔';
+    // Flash effect
+    this.els.favFlash.classList.remove('show');
+    void this.els.favFlash.offsetWidth; // reflow
+    if (added) this.els.favFlash.classList.add('show');
+
+    // Heart animation
+    this.els.favIcon.textContent = added ? '❤️' : '💔';
     this.els.favText.textContent = added ? 'Saved!' : 'Removed';
-    this.els.favHint.classList.add('show');
-    
+    this.els.favHint.classList.remove('show', 'hide');
+    void this.els.favHint.offsetWidth; // reflow
+    this.els.favHint.classList.add(added ? 'show' : 'hide');
+
+    // Particle burst (only on add)
+    if (added) {
+      this.spawnParticles(8);
+    }
+
     setTimeout(() => {
-      this.els.favHint.classList.remove('show');
+      this.els.favHint.classList.remove('show', 'hide');
+      this.els.favFlash.classList.remove('show');
+      // Clean particles
+      document.querySelectorAll('.fav-particle').forEach(p => p.remove());
     }, 1500);
+  },
+
+  /**
+   * Spawn particle burst around center
+   */
+  spawnParticles(count) {
+    const colors = ['#ff4466', '#ff6688', '#ff88aa', '#ff2244', '#ffaacc', '#ffffff'];
+    const screensaver = document.getElementById('screensaver');
+    
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'fav-particle';
+      const angle = (360 / count) * i;
+      const distance = 60 + Math.random() * 40;
+      const dx = Math.cos(angle * Math.PI / 180) * distance;
+      const dy = Math.sin(angle * Math.PI / 180) * distance;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = 4 + Math.random() * 6;
+      
+      p.style.width = `${size}px`;
+      p.style.height = `${size}px`;
+      p.style.background = color;
+      p.style.boxShadow = `0 0 6px ${color}`;
+      p.style.setProperty('--dx', `${dx}px`);
+      p.style.setProperty('--dy', `${dy}px`);
+      p.style.animation = 'none';
+      
+      screensaver.appendChild(p);
+      
+      // Animate with unique direction
+      p.style.animation = `none`;
+      void p.offsetWidth;
+      p.animate([
+        { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.2)`, opacity: 0 }
+      ], {
+        duration: 600 + Math.random() * 300,
+        easing: 'ease-out',
+        fill: 'forwards'
+      });
+    }
   },
 
   updateFavBadge() {
