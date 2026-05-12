@@ -346,17 +346,21 @@ const App = {
       
       screensaver.appendChild(p);
       
-      // Animate with unique direction
-      p.style.animation = `none`;
-      void p.offsetWidth;
-      p.animate([
-        { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.2)`, opacity: 0 }
-      ], {
-        duration: 600 + Math.random() * 300,
-        easing: 'ease-out',
-        fill: 'forwards'
-      });
+      // Animate with unique direction (fallback for old browsers without .animate())
+      try {
+        p.animate([
+          { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+          { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.2)`, opacity: 0 }
+        ], {
+          duration: 600 + Math.random() * 300,
+          easing: 'ease-out',
+          fill: 'forwards'
+        });
+      } catch(e) {
+        p.style.transition = 'all 0.6s ease-out';
+        p.style.opacity = '0';
+        p.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.2)`;
+      }
     }
   },
 
@@ -546,4 +550,9 @@ const App = {
 };
 
 // Start the app
-document.addEventListener('DOMContentLoaded', () => App.init());
+window.onerror = function(msg, url, line) {
+  var el = document.getElementById('loading');
+  if (el) el.querySelector('p').textContent = 'Error: ' + msg;
+};
+
+document.addEventListener('DOMContentLoaded', function() { App.init(); });
