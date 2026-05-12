@@ -204,7 +204,7 @@ body {
 #fav-hint #fav-icon svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 30px rgba(255,50,80,0.7)) drop-shadow(0 0 60px rgba(255,50,80,0.3));
+  filter: drop-shadow(0 0 25px rgba(200,140,160,0.5)) drop-shadow(0 0 50px rgba(200,140,160,0.2));
 }
 
 #fav-hint #fav-icon.remove-icon svg {

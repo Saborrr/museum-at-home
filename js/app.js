@@ -95,12 +95,7 @@ const App = {
     const img = this.els.image;
     const info = this.els.info;
 
-    if (!img.naturalWidth || !img.naturalHeight) {
-      // Image not loaded yet, fallback
-      info.style.bottom = '20px';
-      info.style.padding = '0 60px';
-      return;
-    }
+    if (!img.naturalWidth || !img.naturalHeight) return;
 
     const containerW = img.clientWidth;
     const containerH = img.clientHeight;
@@ -110,28 +105,22 @@ const App = {
     let renderedW, renderedH, offsetX, offsetY;
 
     if (imgRatio > boxRatio) {
-      // Image is wider — fills width, bars top/bottom
       renderedW = containerW;
       renderedH = containerW / imgRatio;
       offsetX = 0;
       offsetY = (containerH - renderedH) / 2;
     } else {
-      // Image is taller — fills height, bars left/right
       renderedH = containerH;
       renderedW = containerH * imgRatio;
       offsetX = (containerW - renderedW) / 2;
       offsetY = 0;
     }
 
-    // Position info at the bottom of the actual painting area
     const infoBottom = containerH - offsetY - renderedH;
-    const infoLeft = offsetX;
-    const infoWidth = renderedW;
 
     info.style.bottom = `${Math.max(infoBottom + 16, 8)}px`;
-    info.style.left = `${infoLeft + 20}px`;
-    info.style.width = `${infoWidth - 40}px`;
-    info.style.padding = '0';
+    info.style.left = `${offsetX + 20}px`;
+    info.style.width = `${renderedW - 40}px`;
   },
 
   /**
@@ -297,9 +286,9 @@ const App = {
     if (added) {
       this.els.favIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#ff6b8a"/>
-          <stop offset="50%" style="stop-color:#ff2d55"/>
-          <stop offset="100%" style="stop-color:#e0154a"/>
+          <stop offset="0%" style="stop-color:#f0a0b0"/>
+          <stop offset="50%" style="stop-color:#d4708a"/>
+          <stop offset="100%" style="stop-color:#b85570"/>
         </linearGradient></defs>
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#hg)"/>
       </svg>`;
@@ -333,7 +322,7 @@ const App = {
    * Spawn particle burst around center
    */
   spawnParticles(count) {
-    const colors = ['#ff4466', '#ff6688', '#ff88aa', '#ff2244', '#ffaacc', '#ffffff'];
+    const colors = ['#d4708a', '#c08090', '#e0a0b0', '#b86078', '#ddb8c4', '#ffffff'];
     const screensaver = document.getElementById('screensaver');
     
     for (let i = 0; i < count; i++) {
