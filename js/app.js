@@ -294,7 +294,23 @@ const App = {
     if (added) this.els.favFlash.classList.add('show');
 
     // Heart animation
-    this.els.favIcon.textContent = added ? '❤️' : '💔';
+    if (added) {
+      this.els.favIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ff6b8a"/>
+          <stop offset="50%" style="stop-color:#ff2d55"/>
+          <stop offset="100%" style="stop-color:#e0154a"/>
+        </linearGradient></defs>
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#hg)"/>
+      </svg>`;
+      this.els.favIcon.classList.remove('remove-icon');
+    } else {
+      this.els.favIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#555" stroke="#888" stroke-width="0.5"/>
+        <line x1="6" y1="6" x2="18" y2="18" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>`;
+      this.els.favIcon.classList.add('remove-icon');
+    }
     this.els.favText.textContent = added ? 'Saved!' : 'Removed';
     this.els.favHint.classList.remove('show', 'hide');
     void this.els.favHint.offsetWidth; // reflow
