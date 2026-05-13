@@ -91,9 +91,26 @@
     <div id="clock"></div>
   </div>
 
-  <script src="js/bundled.js"></script>
-  <script src="js/museum-api.js"></script>
-  <script src="js/cache.js"></script>
-  <script src="js/app.js"></script>
+  <script>
+// Debug: log to page for old browsers
+window.__log = [];
+var origError = window.onerror;
+window.onerror = function(m,u,l) {
+  window.__log.push('ERROR: ' + m + ' line:' + l);
+  var el = document.getElementById('loading');
+  if(el) el.querySelector('p').textContent = 'Error L'+l+': '+m;
+};
+console.log = (function(orig) {
+  return function() {
+    var args = Array.prototype.slice.call(arguments);
+    window.__log.push(args.join(' '));
+    orig.apply(console, args);
+  };
+})(console.log);
+</script>
+<script src="js/bundled.es5.js"></script>
+  <script src="js/museum-api.es5.js"></script>
+  <script src="js/cache.es5.js"></script>
+  <script src="js/app.es5.js"></script>
 </body>
 </html>
