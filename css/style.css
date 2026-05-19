@@ -126,6 +126,8 @@ body {
   margin-bottom: 3px;
   display: block;
   text-shadow: 0 0 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.95);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 #art-info p {
@@ -135,6 +137,8 @@ body {
   line-height: 1.4;
   display: block;
   text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.95);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 #art-artist {

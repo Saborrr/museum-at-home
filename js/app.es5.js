@@ -114,10 +114,19 @@ var App = {
   /**
    * Position art info inside the actual painting bounds
    */
-  positionInfo: function positionInfo() {
+  positionInfo: function positionInfo(retryCount) {
+    var self = this;
     var img = this.els.image;
     var info = this.els.info;
-    if (!img.naturalWidth || !img.naturalHeight) return;
+    var count = retryCount || 0;
+    if (!img.naturalWidth || !img.naturalHeight) {
+      if (count < 20) {
+        setTimeout(function () {
+          self.positionInfo(count + 1);
+        }, 100);
+      }
+      return;
+    }
 
     // The image element fills 100% of #art-wrapper via CSS,
     // so use the wrapper (parent) as the container reference
