@@ -120,6 +120,30 @@ if (!Array.from) {
     return Array.prototype.slice.call(object);
   };
 }
+if (!String.prototype.padStart) {
+  String.prototype.padStart = function(targetLength, padString) {
+    var str = String(this);
+    targetLength = targetLength >> 0;
+    padString = String(typeof padString !== 'undefined' ? padString : ' ');
+    if (str.length >= targetLength) return str;
+    var padding = '';
+    var needed = targetLength - str.length;
+    while (padding.length < needed) padding += padString;
+    return padding.slice(0, needed) + str;
+  };
+}
+if (!String.prototype.padEnd) {
+  String.prototype.padEnd = function(targetLength, padString) {
+    var str = String(this);
+    targetLength = targetLength >> 0;
+    padString = String(typeof padString !== 'undefined' ? padString : ' ');
+    if (str.length >= targetLength) return str;
+    var padding = '';
+    var needed = targetLength - str.length;
+    while (padding.length < needed) padding += padString;
+    return str + padding.slice(0, needed);
+  };
+}
 </script>
 <script src="js/es6-promise.auto.min.js"></script>
 <script src="js/fetch.umd.js"></script>
