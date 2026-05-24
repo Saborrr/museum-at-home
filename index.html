@@ -104,9 +104,22 @@ console.log = (function(orig) {
   return function() {
     var args = Array.prototype.slice.call(arguments);
     window.__log.push(args.join(' '));
-    orig.apply(console, args);
+    if (orig && orig.apply) orig.apply(console, args);
   };
 })(console.log);
+
+// Polyfills for legacy browsers (webOS 3.0 / Chromium 38)
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+if (window.HTMLCollection && !HTMLCollection.prototype.forEach) {
+  HTMLCollection.prototype.forEach = Array.prototype.forEach;
+}
+if (!Array.from) {
+  Array.from = function(object) {
+    return Array.prototype.slice.call(object);
+  };
+}
 </script>
 <script src="js/es6-promise.auto.min.js"></script>
 <script src="js/fetch.umd.js"></script>

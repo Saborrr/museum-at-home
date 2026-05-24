@@ -631,5 +631,9 @@ window.onerror = function (msg, url, line) {
   if (el) el.querySelector('p').textContent = 'Error: ' + msg;
 };
 document.addEventListener('DOMContentLoaded', function () {
-  App.init();
+  App.init()["catch"](function (err) {
+    console.error('App init error:', err);
+    var el = document.getElementById('loading');
+    if (el) el.querySelector('p').textContent = 'Init Error: ' + err.message;
+  });
 });
