@@ -124,9 +124,9 @@ const App = {
     const infoLeft = offsetX;
     const infoWidth = renderedW;
 
-    info.style.bottom = `${Math.round(Math.max(infoBottom + 14, 6))}px`;
-    info.style.left = `${Math.round(infoLeft + 20)}px`;
-    info.style.width = `${Math.round(infoWidth - 40)}px`;
+    info.style.bottom = `${Math.round(Math.max(infoBottom + 40, 20))}px`;
+    info.style.left = `${Math.round(infoLeft + 60)}px`;
+    info.style.width = `${Math.round(infoWidth - 120)}px`;
   },
 
   /**

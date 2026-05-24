@@ -154,9 +154,9 @@ var App = {
     var infoBottom = containerH - offsetY - renderedH;
     var infoLeft = offsetX;
     var infoWidth = renderedW;
-    info.style.bottom = "".concat(Math.round(Math.max(infoBottom + 14, 6)), "px");
-    info.style.left = "".concat(Math.round(infoLeft + 20), "px");
-    info.style.width = "".concat(Math.round(infoWidth - 40), "px");
+    info.style.bottom = "".concat(Math.round(Math.max(infoBottom + 40, 20)), "px");
+    info.style.left = "".concat(Math.round(infoLeft + 60), "px");
+    info.style.width = "".concat(Math.round(infoWidth - 120), "px");
   },
   /**
    * Display artwork at index
