@@ -30,23 +30,23 @@ const BUNDLED_ART = [
     "source": "wikimedia"
   },
   {
-    "id": "wiki-café-terrace-at-night",
+    "id": "wiki-cafe-terrace-at-night",
     "title": "Café Terrace at Night",
     "artist": "Vincent van Gogh",
     "year": "1888",
     "museum": "Wikimedia Commons / Google Art Project",
-    "image": "img/paintings/wiki-café-terrace-at-night.jpg",
-    "thumb": "img/paintings/wiki-café-terrace-at-night.jpg",
+    "image": "img/paintings/wiki-cafe-terrace-at-night.jpg",
+    "thumb": "img/paintings/wiki-cafe-terrace-at-night.jpg",
     "source": "wikimedia"
   },
   {
-    "id": "wiki-the-night-café",
+    "id": "wiki-the-night-cafe",
     "title": "The Night Café",
     "artist": "Vincent van Gogh",
     "year": "1888",
     "museum": "Wikimedia Commons / Google Art Project",
-    "image": "img/paintings/wiki-the-night-café.jpg",
-    "thumb": "img/paintings/wiki-the-night-café.jpg",
+    "image": "img/paintings/wiki-the-night-cafe.jpg",
+    "thumb": "img/paintings/wiki-the-night-cafe.jpg",
     "source": "wikimedia"
   },
   {
@@ -190,13 +190,13 @@ const BUNDLED_ART = [
     "source": "wikimedia"
   },
   {
-    "id": "wiki-water-lilies-(nymphéas)",
+    "id": "wiki-water-lilies-(nympheas)",
     "title": "Water Lilies (Nymphéas)",
     "artist": "Claude Monet",
     "year": "1906",
     "museum": "Wikimedia Commons / Google Art Project",
-    "image": "img/paintings/wiki-water-lilies-(nymphéas).jpg",
-    "thumb": "img/paintings/wiki-water-lilies-(nymphéas).jpg",
+    "image": "img/paintings/wiki-water-lilies-(nympheas).jpg",
+    "thumb": "img/paintings/wiki-water-lilies-(nympheas).jpg",
     "source": "wikimedia"
   },
   {
