@@ -98,6 +98,16 @@ const MuseumAPI = {
   },
 
   /**
+   * Decide whether a Met object is a painting.
+   * Accepts Paintings classification OR an objectName that starts with "Painting".
+   */
+  isPainting(obj) {
+    const cls = (obj.classification || '').toLowerCase();
+    const name = (obj.objectName || '').toLowerCase();
+    return cls === 'paintings' || name.startsWith('painting');
+  },
+
+  /**
    * Load artworks from bundled collection (works offline & with file://)
    */
   async fetchBundled() {
