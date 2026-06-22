@@ -73,7 +73,7 @@ const MuseumAPI = {
           const resp = await fetch(`${this.MET_BASE}/objects/${id}`);
           const obj = await resp.json();
           
-          if (obj.primaryImage && obj.isPublicDomain) {
+          if (obj.primaryImage && obj.isPublicDomain && this.isPainting(obj)) {
             artworks.push({
               id: `met-${obj.objectID}`,
               title: obj.title,

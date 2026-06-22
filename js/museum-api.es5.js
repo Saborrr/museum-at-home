@@ -135,7 +135,7 @@ var MuseumAPI = {
             return resp.json();
           case 9:
             obj = _context2.v;
-            if (obj.primaryImage && obj.isPublicDomain) {
+            if (obj.primaryImage && obj.isPublicDomain && _this2.isPainting(obj)) {
               artworks.push({
                 id: "met-".concat(obj.objectID),
                 title: obj.title,
