@@ -178,6 +178,15 @@ var MuseumAPI = {
     }))();
   },
   /**
+   * Decide whether a Met object is a painting.
+   * Accepts Paintings classification OR an objectName that starts with "Painting".
+   */
+  isPainting: function (obj) {
+    var cls = (obj.classification || '').toLowerCase();
+    var name = (obj.objectName || '').toLowerCase();
+    return cls === 'paintings' || name.indexOf('painting') === 0;
+  },
+  /**
    * Load artworks from bundled collection (works offline & with file://)
    */
   fetchBundled: function fetchBundled() {
