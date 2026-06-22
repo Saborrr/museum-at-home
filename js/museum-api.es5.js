@@ -99,7 +99,7 @@ var MuseumAPI = {
             query = collection || 'paintings';
             _context2.p = 1;
             // Step 1: Search for objects
-            searchUrl = "".concat(_this2.MET_BASE, "/search?q=").concat(encodeURIComponent(query), "&hasImages=true&isHighlight=true");
+            searchUrl = "".concat(_this2.MET_BASE, "/search?q=").concat(encodeURIComponent(query), "&hasImages=true&isHighlight=true&medium=Paintings");
             _context2.n = 2;
             return fetch(searchUrl);
           case 2:

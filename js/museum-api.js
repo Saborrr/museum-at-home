@@ -58,7 +58,7 @@ const MuseumAPI = {
     
     try {
       // Step 1: Search for objects
-      const searchUrl = `${this.MET_BASE}/search?q=${encodeURIComponent(query)}&hasImages=true&isHighlight=true`;
+      const searchUrl = `${this.MET_BASE}/search?q=${encodeURIComponent(query)}&hasImages=true&isHighlight=true&medium=Paintings`;
       const searchResp = await fetch(searchUrl);
       const searchData = await searchResp.json();
       
