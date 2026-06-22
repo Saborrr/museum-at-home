@@ -190,17 +190,6 @@
       "quality": "Ultra HD (up to 8K)"
     },
     {
-      "id": "wiki-nighthawks",
-      "title": "Nighthawks",
-      "artist": "Edward Hopper",
-      "year": "1942",
-      "museum": "Wikimedia Commons / Google Art Project",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nighthawks.jpg/1920px-Nighthawks.jpg",
-      "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nighthawks.jpg/500px-Nighthawks.jpg",
-      "source": "wikimedia",
-      "quality": "Ultra HD (up to 8K)"
-    },
-    {
       "id": "wiki-impression-sunrise",
       "title": "Impression, Sunrise",
       "artist": "Claude Monet",
@@ -219,17 +208,6 @@
       "museum": "Wikimedia Commons / Google Art Project",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1920px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg",
       "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/500px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg",
-      "source": "wikimedia",
-      "quality": "Ultra HD (up to 8K)"
-    },
-    {
-      "id": "wiki-guernica",
-      "title": "Guernica",
-      "artist": "Pablo Picasso",
-      "year": "1937",
-      "museum": "Wikimedia Commons / Google Art Project",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Pablo_Picasso%27s_Guernica.jpg/1920px-Pablo_Picasso%27s_Guernica.jpg",
-      "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Pablo_Picasso%27s_Guernica.jpg/500px-Pablo_Picasso%27s_Guernica.jpg",
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)"
     },
@@ -263,17 +241,6 @@
       "museum": "Wikimedia Commons / Google Art Project",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg/1920px-The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg",
       "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg/500px-The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg",
-      "source": "wikimedia",
-      "quality": "Ultra HD (up to 8K)"
-    },
-    {
-      "id": "wiki-christina's-world",
-      "title": "Christina's World",
-      "artist": "Andrew Wyeth",
-      "year": "1948",
-      "museum": "Wikimedia Commons / Google Art Project",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/ME18_Olson_House%2C_Maine.jpg/1920px-ME18_Olson_House%2C_Maine.jpg",
-      "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/ME18_Olson_House%2C_Maine.jpg/500px-ME18_Olson_House%2C_Maine.jpg",
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)"
     },
@@ -551,6 +518,36 @@
       "thumb": "https://images.metmuseum.org/CRDImages/ep/web-large/DP375450_cropped.jpg",
       "source": "met",
       "quality": "HD (up to 4K)"
+    },
+    {
+      "id": "met-437998",
+      "title": "Olive Trees",
+      "artist": "Vincent van Gogh",
+      "year": "1889",
+      "museum": "The Metropolitan Museum of Art",
+      "image": "img/paintings/met-437998.jpg",
+      "thumb": "img/paintings/met-437998.jpg",
+      "source": "met"
+    },
+    {
+      "id": "met-437852",
+      "title": "Saltash with the Water Ferry, Cornwall",
+      "artist": "Joseph Mallord William Turner",
+      "year": "1811",
+      "museum": "The Metropolitan Museum of Art",
+      "image": "img/paintings/met-437852.jpg",
+      "thumb": "img/paintings/met-437852.jpg",
+      "source": "met"
+    },
+    {
+      "id": "met-459092",
+      "title": "Trees and Houses Near the Jas de Bouffan",
+      "artist": "Paul Cézanne",
+      "year": "1885–86",
+      "museum": "The Metropolitan Museum of Art",
+      "image": "img/paintings/met-459092.jpg",
+      "thumb": "img/paintings/met-459092.jpg",
+      "source": "met"
     }
   ]
 }
