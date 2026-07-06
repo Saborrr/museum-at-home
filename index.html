@@ -23,10 +23,10 @@
     
     <!-- Settings panel (hidden by default) -->
     <div id="settings-panel" class="hidden">
-      <h2>Settings</h2>
+      <h2 data-i18n="settingsTitle">Settings</h2>
       
       <div class="setting-row">
-        <label>Change interval</label>
+        <label data-i18n="settingsInterval">Change interval</label>
         <div class="setting-options" data-setting="interval">
           <button data-value="15">15s</button>
           <button data-value="30" class="active">30s</button>
@@ -37,7 +37,7 @@
       </div>
       
       <div class="setting-row">
-        <label>Transition</label>
+        <label data-i18n="settingsTransition">Transition</label>
         <div class="setting-options" data-setting="transition">
           <button data-value="fade" class="active">Fade</button>
           <button data-value="slide">Slide</button>
@@ -47,7 +47,7 @@
       </div>
       
       <div class="setting-row">
-        <label>Show info</label>
+        <label data-i18n="settingsShowInfo">Show info</label>
         <div class="setting-options" data-setting="showInfo">
           <button data-value="always" class="active">Always</button>
           <button data-value="brief">Brief</button>
@@ -55,71 +55,194 @@
         </div>
       </div>
       
-      <div class="setting-row">
-        <label>Collection</label>
+      <div class="setting-row multi-select">
+        <label>Collection <span style="opacity:0.5;font-size:14px;">(multi)</span></label>
         <div class="setting-options" data-setting="collection">
           <button data-value="all" class="active">All</button>
           <button data-value="impressionism">Impressionism</button>
           <button data-value="renaissance">Renaissance</button>
+          <button data-value="baroque">Baroque</button>
           <button data-value="modern">Modern</button>
+          <button data-value="romantic">Romantic</button>
+          <button data-value="contemporary">Contemporary</button>
           <button data-value="favorites">❤️ Favorites</button>
         </div>
       </div>
+
+      <div class="setting-row">
+        <label data-i18n="settingsLanguage">Language</label>
+        <div class="setting-options" data-setting="language">
+          <button data-value="en" class="active">English</button>
+          <button data-value="ru">Русский</button>
+        </div>
+      </div>
       
-      <p class="settings-hint">Press BACK or OK to close</p>
+      <p class="settings-hint" data-i18n="settingsHint">Press BACK or OK to close</p>
+
+      <div style="text-align:center;margin-top:30px;">
+        <button id="settings-close-btn" data-action="close" style="background:rgba(255,80,80,0.25);border:2px solid rgba(255,120,120,0.7);color:#fff;padding:14px 36px;font-size:24px;border-radius:8px;cursor:pointer;font-family:'Helvetica Neue',sans-serif;" data-i18n="settingsClose">✕ Close Settings</button>
+      </div>
     </div>
     
     <!-- Loading indicator -->
     <div id="loading">
       <div class="spinner"></div>
-      <p>Loading art...</p>
+      <p data-i18n="loading">Loading art...</p>
     </div>
     
     <!-- Favorite button hint -->
     <div id="fav-hint">
       <span id="fav-icon">❤️</span>
-      <span id="fav-text">Saved!</span>
+      <span id="fav-text" data-i18n="saved">Saved!</span>
     </div>
 
     <!-- Screen flash on favorite -->
     <div id="fav-flash"></div>
     
-    <!-- Favorites badge -->
-    <div id="fav-badge">❤️ <span id="fav-count">0</span></div>
+    <!-- Favorites badge (white heart when empty, RED glowing heart when any favs) -->
+    <div id="fav-badge"><span id="badge-fav-icon">🤍</span> <span id="fav-count">0</span></div>
     
     <!-- Clock (subtle, bottom-right) -->
     <div id="clock"></div>
+
+    <!-- Description panel (shown on DOWN; full text about the painting) -->
+    <div id="description-panel" class="hidden">
+      <button id="desc-close">✕</button>
+      <h1 id="desc-title"></h1>
+      <h2 id="desc-artist"></h2>
+      <p id="desc-meta"></p>
+      <p id="desc-body"></p>
+    </div>
+
+    <!-- Debug overlay (top-center, shows last 3 key events) -->
+    <div id="debug-overlay" style="position:absolute;top:80px;left:50%;transform:translateX(-50%);font-family:monospace;font-size:18px;color:#0f0;background:rgba(0,0,0,0.7);padding:6px 14px;border-radius:6px;z-index:200;opacity:0.85;pointer-events:none;display:none;"></div>
   </div>
 
   <script>
-// Debug: log to page for old browsers
+// Save reference to native console.log BEFORE overriding
+var __nativeConsoleLog = console.log.bind(console);
+// Override: also push to window.__log so debug overlay can show it
 window.__log = [];
-var origError = window.onerror;
-window.onerror = function(m,u,l) {
-  window.__log.push('ERROR: ' + m + ' line:' + l);
-  var el = document.getElementById('loading');
-  if(el) el.querySelector('p').textContent = 'Error L'+l+': '+m;
+console.log = function() {
+  var args = Array.prototype.slice.call(arguments);
+  window.__log.push(args.join(' '));
+  // Always call native so ares-inspect sees it too
+  if (__nativeConsoleLog) __nativeConsoleLog.apply(console, args);
 };
-console.log = (function(orig) {
-  return function() {
-    var args = Array.prototype.slice.call(arguments);
-    window.__log.push(args.join(' '));
-    if (orig && orig.apply) orig.apply(console, args);
-  };
-})(console.log);
+// Forward errors to debug overlay; full handler in app.es5.js
+window.onerror = function(m, u, l, c, e) {
+  window.__log.push('ERROR ' + l + ':' + c + ' ' + m);
+  var dbg = document.getElementById('debug-overlay');
+  if (dbg) {
+    dbg.style.display = 'block';
+    dbg.style.background = 'rgba(120,0,0,0.85)';
+    dbg.textContent = 'ERR L' + l + ': ' + m;
+  }
+};
 
 // Polyfills for legacy browsers (webOS 3.0 / Chromium 38)
+// 1. NodeList.forEach (Chromium 38 lacks it; added in Chrome 51)
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
 if (window.HTMLCollection && !HTMLCollection.prototype.forEach) {
   HTMLCollection.prototype.forEach = Array.prototype.forEach;
 }
+// 2. Array.from (Chromium 38 has it, but just in case)
 if (!Array.from) {
   Array.from = function(object) {
     return Array.prototype.slice.call(object);
   };
 }
+// 3. Array.findIndex (added in Chrome 45, missing in Chromium 38)
+if (!Array.prototype.findIndex) {
+  Array.prototype.findIndex = function(predicate, thisArg) {
+    for (var i = 0; i < this.length; i++) {
+      if (predicate.call(thisArg, this[i], i, this)) return i;
+    }
+    return -1;
+  };
+}
+// 4. Array.includes (added in Chrome 47, missing in Chromium 38)
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function(search, start) {
+    return this.indexOf(search, start) !== -1;
+  };
+}
+// 5. Object.assign (added in Chrome 45, missing in Chromium 38)
+if (!Object.assign) {
+  Object.assign = function(target) {
+    if (target == null) throw new TypeError('Cannot convert null/undefined to object');
+    var to = Object(target);
+    for (var i = 1; i < arguments.length; i++) {
+      var src = arguments[i];
+    if (src != null) {
+      for (var k in src) if (Object.prototype.hasOwnProperty.call(src, k)) to[k] = src[k];
+    }
+    }
+    return to;
+  };
+}
+// 6. Element.closest (added in Chrome 41, missing in Chromium 38) — main culprit
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function(selector) {
+    var el = this;
+    var match = (typeof Element.prototype.matches === 'function')
+      ? Element.prototype.matches
+      : (typeof Element.prototype.msMatchesSelector === 'function')
+        ? Element.prototype.msMatchesSelector
+        : null;
+    while (el && el.nodeType === 1) {
+      if (match && match.call(el, selector)) return el;
+      // Manual selector check fallback for very old engines
+      if (el.id === selector.replace('#', '') ||
+          ('.' + (el.className || '').split(' ').join('.') + '.').indexOf(selector + '.') !== -1) {
+        return el;
+      }
+      el = el.parentElement || el.parentNode;
+    }
+    return null;
+  };
+}
+// 7. Element.matches (added in Chrome 39, may be missing in 38)
+if (!Element.prototype.matches) {
+  Element.prototype.matches = Element.prototype.webkitMatchesSelector ||
+                              Element.prototype.mozMatchesSelector ||
+                              Element.prototype.msMatchesSelector ||
+                              function(selector) {
+    var parent = this.parentNode || this.document;
+    if (!parent) return false;
+    var nodes = parent.querySelectorAll(selector);
+    return Array.prototype.indexOf.call(nodes, this) !== -1;
+  };
+}
+// 8. requestAnimationFrame cancelAnimationFrame
+if (!window.requestAnimationFrame) {
+  window.requestAnimationFrame = function(cb) { return setTimeout(cb, 16); };
+}
+if (!window.cancelAnimationFrame) {
+  window.cancelAnimationFrame = function(id) { clearTimeout(id); };
+}
+// 9. CRITICAL: NodeList/HTMLCollection lack [Symbol.iterator] on Chromium 38,
+// which crashes babel-transpiled `...nodeList` spread (e.g. _toConsumableArray(...))
+(function () {
+  function makeIterator(items) {
+    var i = 0;
+    return function () {
+      return i < items.length ? { value: items[i++], done: false } : { value: undefined, done: true };
+    };
+  }
+  var proto = (typeof Symbol !== 'undefined' && Symbol.iterator) || '@@iterator';
+  if (window.NodeList && !NodeList.prototype[proto]) {
+    NodeList.prototype[proto] = makeIterator;
+  }
+  if (window.HTMLCollection && !HTMLCollection.prototype[proto]) {
+    HTMLCollection.prototype[proto] = makeIterator;
+  }
+  if (window.Arguments && !Arguments.prototype[proto]) {
+    try { Arguments.prototype[proto] = makeIterator; } catch (e) {}
+  }
+})();
 if (!String.prototype.padStart) {
   String.prototype.padStart = function(targetLength, padString) {
     var str = String(this);

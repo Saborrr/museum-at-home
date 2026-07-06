@@ -10,6 +10,17 @@ Thumbs.db
 
 # webOS build output
 *.ipk
+*.ipk.bak-*
+
+# Gradle
+.gradle/
+art-gallery-android/.gradle/
 
 # Dependencies (if added later)
 node_modules/
+
+# Android build artifacts
+art-gallery-android/app/build/
+art-gallery-android/.gradle/
+*.ipk.bak-*
+com.artscreen.gallery_1.0.0_all.ipk.bak-*

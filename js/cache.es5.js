@@ -140,7 +140,8 @@ var ImageCache = {
       interval: 30,
       transition: 'fade',
       showInfo: 'always',
-      collection: 'all'
+      collection: 'all', // 'all' | 'favorites' | ['impressionism','renaissance',...]
+      language: 'en'
     };
   },
   /**
@@ -180,29 +181,32 @@ var ImageCache = {
             localStorage.setItem('artscreen-favorites', JSON.stringify(favs));
             return _context2.a(2, false);
           case 1:
-            _context2.p = 1;
-            _context2.n = 2;
-            return _this3.imageToBase64(artwork.image);
-          case 2:
-            base64 = _context2.v;
-            favArt = _objectSpread(_objectSpread({}, artwork), {}, {
-              imageB64: base64,
-              savedAt: Date.now()
-            });
-            delete favArt.image; // Use base64 instead
-            favs.push(favArt);
-            localStorage.setItem('artscreen-favorites', JSON.stringify(favs));
-            return _context2.a(2, true);
+            // Save just metadata + path; never embed base64 (would overflow localStorage quota on webOS TV).
+            // We rely on img/paintings/ being bundled in the .ipk, so the image is always available.
+            try {
+              var slimArt = {
+                id: artwork.id,
+                title: artwork.title,
+                artist: artwork.artist,
+                year: artwork.year,
+                museum: artwork.museum,
+                image: artwork.image,
+                thumb: artwork.thumb,
+                source: artwork.source,
+                savedAt: Date.now()
+              };
+              favs.push(slimArt);
+              localStorage.setItem('artscreen-favorites', JSON.stringify(favs));
+              return _context2.a(2, true);
+            } catch (e) {
+              console.warn('Save favorite failed (storage?):', e && e.message);
+              return _context2.a(2, false);
+            }
           case 3:
             _context2.p = 3;
             _t = _context2.v;
-            console.error('Failed to save favorite:', _t);
-            // Save without base64 (will need internet)
-            favs.push(_objectSpread(_objectSpread({}, artwork), {}, {
-              savedAt: Date.now()
-            }));
-            localStorage.setItem('artscreen-favorites', JSON.stringify(favs));
-            return _context2.a(2, true);
+            console.warn('Failed to save favorite:', _t);
+            return _context2.a(2, false);
           case 4:
             return _context2.a(2);
         }

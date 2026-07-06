@@ -225,7 +225,7 @@ var MuseumAPI = {
     var _arguments3 = arguments,
       _this3 = this;
     return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var collection, favs, tag, _yield$Promise$all, _yield$Promise$all2, rijks, met, all, bundled;
+      var collection, favs, bundled, filtered;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.n) {
           case 0:
@@ -234,7 +234,7 @@ var MuseumAPI = {
               _context4.n = 1;
               break;
             }
-            favs = ImageCache.getFavorites(); // Convert saved favorites back to artwork format
+            favs = ImageCache.getFavorites();
             return _context4.a(2, favs.map(function (f) {
               return {
                 id: f.id,
@@ -242,33 +242,42 @@ var MuseumAPI = {
                 artist: f.artist,
                 year: f.year,
                 museum: f.museum,
-                image: f.imageB64 || f.image,
-                // Use base64 if available (offline!)
-                thumb: f.thumb || '',
+                image: f.image,
+                thumb: f.thumb || f.image,
                 source: 'favorites'
               };
             }));
           case 1:
-            tag = _this3.collections[collection] || ''; // Try both APIs in parallel
+            // API fallback path - we don't expect these to work on webOS TV.
             _context4.n = 2;
-            return Promise.all([_this3.fetchRijks(tag, 15), _this3.fetchMet(tag, 15)]);
-          case 2:
-            _yield$Promise$all = _context4.v;
-            _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
-            rijks = _yield$Promise$all2[0];
-            met = _yield$Promise$all2[1];
-            all = [].concat(_toConsumableArray(rijks), _toConsumableArray(met)); // If APIs failed or returned nothing, use bundled
-            if (!(all.length < 5)) {
-              _context4.n = 4;
-              break;
-            }
-            _context4.n = 3;
             return _this3.fetchBundled();
-          case 3:
+          case 2:
             bundled = _context4.v;
-            all = [].concat(_toConsumableArray(all), _toConsumableArray(bundled));
-          case 4:
-            return _context4.a(2, _this3.shuffle(all));
+            // Filter by collection:
+            // - 'all' or empty: show everything
+            // - Array of tag names: show artworks where tags ∩ selection ≠ ∅
+            // - String tag name (legacy): show only matching
+            if (!collection || collection === 'all') {
+              filtered = bundled;
+            } else if (Array.isArray(collection)) {
+              if (collection.length === 0) {
+                filtered = bundled;
+              } else {
+                filtered = bundled.filter(function (a) {
+                  var tags = a.tags || [];
+                  for (var i = 0; i < collection.length; i++) {
+                    if (tags.indexOf(collection[i]) !== -1) return true;
+                  }
+                  return false;
+                });
+              }
+            } else {
+              // legacy single-string: match by tag or by source
+              filtered = bundled.filter(function (a) {
+                return (a.tags || []).indexOf(collection) !== -1 || a.source === collection;
+              });
+            }
+            return _context4.a(2, _this3.shuffle(filtered));
         }
       }, _callee4);
     }))();

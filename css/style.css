@@ -183,19 +183,20 @@ body {
 }
 
 #fav-hint.show {
-  animation: heartBurst 1.2s ease-out forwards;
+  animation: heartBurst 3.0s ease-out forwards;
 }
 
 #fav-hint.hide {
-  animation: heartShrink 0.6s ease-in forwards;
+  animation: heartShrink 1.2s ease-in forwards;
 }
 
 @keyframes heartBurst {
   0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-  15%  { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
-  30%  { transform: translate(-50%, -50%) scale(0.95); opacity: 1; }
-  45%  { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
-  60%  { transform: translate(-50%, -50%) scale(1.0); opacity: 1; }
+  8%   { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
+  18%  { transform: translate(-50%, -50%) scale(0.95); opacity: 1; }
+  28%  { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+  40%  { transform: translate(-50%, -50%) scale(1.0); opacity: 1; }
+  85%  { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
   100% { transform: translate(-50%, -50%) scale(1.0); opacity: 0; }
 }
 
@@ -260,7 +261,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255,255,255,0.08);
+  background: radial-gradient(circle at center, rgba(255,150,170,0.45) 0%, rgba(255,100,130,0.15) 50%, transparent 80%);
   pointer-events: none;
   opacity: 0;
   z-index: 89;
@@ -280,21 +281,76 @@ body {
   position: absolute;
   top: 30px;
   left: 40px;
-  font-size: 24px;
+  font-size: 28px;
   font-family: 'Helvetica Neue', sans-serif;
   opacity: 0.35;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: opacity 0.4s ease;
   z-index: 10;
+  user-select: none;
 }
-
 #fav-badge:hover {
-  opacity: 0.7;
+  opacity: 0.85;
+}
+/* When ANY artwork is favorited, the badge (with count) becomes fully visible.
+   The heart icon stays white-outline unless the CURRENTLY shown painting
+   is itself a favorite (see .current-fav below). */
+#fav-badge.has-favs {
+  opacity: 1;
+}
+/* The red filled heart + pulse + glow only when the CURRENTLY shown painting
+   is in favorites — so the badge accurately reflects "is THIS painting fav?". */
+#fav-badge.current-fav #badge-fav-icon {
+  filter:
+    drop-shadow(0 0 10px rgba(255,80,120,0.95))
+    drop-shadow(0 0 24px rgba(255,80,120,0.65));
+  animation: fav-badge-pulse 1.3s ease-in-out infinite;
+}
+@keyframes fav-badge-pulse {
+  0%, 100% { transform: scale(1); }
+  10% { transform: scale(1.25); }
+  20% { transform: scale(1); }
+  30% { transform: scale(1.18); }
+  40% { transform: scale(1); }
+}
+/* Empty (no favs) icon stays as outline heart */
+#fav-badge #badge-fav-icon {
+  display: inline-block;
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0.6;
+}
+#fav-badge.has-favs #badge-fav-icon {
+  opacity: 1;
+}
+#fav-badge #fav-count {
+  font-size: 22px;
+  font-weight: 300;
+  vertical-align: middle;
+  margin-left: 4px;
 }
 
 /* --- Already-favorited indicator on image --- */
-#art-image.is-fav {
-  box-shadow: inset 0 0 100px rgba(255, 50, 50, 0.05);
+/* ONLY the heart icon — no red frame, no red glow on the picture itself */
+#art-image.is-fav::after {
+  content: '❤️';
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  font-size: 56px;
+  filter: drop-shadow(0 0 16px rgba(255,80,120,1)) drop-shadow(0 0 4px rgba(255,255,255,0.6));
+  z-index: 5;
+  pointer-events: none;
+  animation: heartbeat 1.3s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  10% { transform: scale(1.30); }
+  20% { transform: scale(1); }
+  30% { transform: scale(1.18); }
+  40% { transform: scale(1); }
+  50% { transform: scale(1.10); }
+  60% { transform: scale(1); }
 }
 
 /* --- Settings Panel --- */
@@ -359,7 +415,8 @@ body {
 
 .setting-options button.active {
   background: rgba(100, 140, 255, 0.4);
-  border-color: rgba(100, 140, 255, 0.8);
+  border-color: rgba(100, 140, 255, 0.9);
+  box-shadow: 0 0 18px rgba(100, 140, 255, 0.5);
 }
 
 .setting-options button.focused {
@@ -367,12 +424,31 @@ body {
   box-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
+/* Close Settings button — also gets a focused highlight when selected */
+#settings-close-btn.focused {
+  background: rgba(255,120,140,0.55) !important;
+  border-color: #fff !important;
+  box-shadow: 0 0 20px rgba(255,200,200,0.6);
+  transform: scale(1.05);
+}
+
 .settings-hint {
   text-align: center;
   font-size: 20px;
-  opacity: 0.4;
+  opacity: 0.55;
   margin-top: 40px;
   font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Multi-select hint shown next to a multi-select group */
+.setting-row.multi-select::after {
+  content: '✓ можно выбрать несколько';
+  display: block;
+  text-align: right;
+  font-size: 14px;
+  opacity: 0.5;
+  color: #8af;
+  font-style: italic;
 }
 
 /* --- Loading --- */
@@ -414,6 +490,140 @@ body {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* --- Description panel (full screen overlay) --- */
+#description-panel {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  padding: 80px 140px 60px;
+  z-index: 150;
+  overflow-y: auto;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #fff;
+  box-sizing: border-box;
+}
+#description-panel.hidden { display: none; }
+#description-panel #desc-close {
+  position: absolute;
+  top: 24px; right: 36px;
+  background: rgba(255,80,80,0.25);
+  border: 2px solid rgba(255,120,120,0.7);
+  color: #fff;
+  font-size: 28px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#description-panel #desc-close.focused {
+  background: rgba(255,120,140,0.55);
+  box-shadow: 0 0 20px rgba(255,200,200,0.6);
+}
+#description-panel h1 {
+  font-family: 'Georgia', serif;
+  font-size: 56px;
+  font-weight: 300;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+#description-panel h2 {
+  font-family: 'Georgia', serif;
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+#description-panel #desc-meta {
+  font-size: 22px;
+  opacity: 0.7;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 18px;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+#description-panel #desc-body {
+  font-size: 32px;
+  line-height: 1.55;
+  opacity: 0.92;
+  max-width: 1500px;
+  font-family: 'Georgia', serif;
+  text-shadow: 0 0 20px rgba(255,220,180,0.25);
+}
+#description-panel #desc-body.typewriter-active {
+  /* Soft warm glow during reveal — no blinking cursor, smoother feel.
+     The blinking border-right was making the text feel jerky. */
+  text-shadow:
+    0 0 8px rgba(255,210,150,0.6),
+    0 0 20px rgba(255,180,120,0.4);
+}
+@keyframes cursor-blink {
+  0%, 100% { border-color: rgba(255,200,150,0.9); }
+  50% { border-color: rgba(255,200,150,0.0); }
+}
+
+/* Smooth word reveal — pure opacity fade, no movement. The wave of clarity
+   passes through the text gently (was: jerky translateY+scale per word). */
+#description-panel #desc-body .smooth-word {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* Legacy .tw-word class kept for any older code; falls back to smooth-word. */
+#description-panel #desc-body .tw-word {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes tw-word-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    text-shadow:
+      0 0 6px rgba(255,210,150,0.0),
+      0 0 18px rgba(255,180,120,0.0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+    text-shadow:
+      0 0 8px rgba(255,210,150,0.9),
+      0 0 22px rgba(255,180,120,0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    text-shadow:
+      0 0 4px rgba(255,210,150,0.25),
+      0 0 14px rgba(255,180,120,0.12);
+  }
+}
+/* Spark-like glow flash on the most recent word */
+#description-panel #desc-body .tw-word:last-child {
+  animation: tw-word-in 360ms cubic-bezier(0.18, 0.9, 0.3, 1) forwards, tw-spark 700ms ease-out forwards;
+}
+@keyframes tw-spark {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(255,210,150,1)) drop-shadow(0 0 30px rgba(255,180,120,0.8));
+    text-shadow:
+      0 0 8px rgba(255,210,150,1),
+      0 0 24px rgba(255,180,120,0.8);
+  }
+  100% {
+    filter: drop-shadow(0 0 0px rgba(255,210,150,0));
+    text-shadow:
+      0 0 4px rgba(255,210,150,0.25),
+      0 0 14px rgba(255,180,120,0.12);
+  }
+}
+#description-panel #desc-title {
+  text-shadow: 0 0 30px rgba(255,220,180,0.4), 0 2px 4px rgba(0,0,0,0.8);
+  background: linear-gradient(135deg, #fff 0%, #ffe8c8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* --- Old transition effects (still available) --- */

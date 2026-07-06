@@ -1,0 +1,422 @@
+/* ===== Art Gallery Screensaver — Styles ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  overflow: hidden;
+  width: 1920px;
+  height: 1080px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #fff;
+}
+
+#screensaver {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Main Image Container (Ken Burns wrapper) --- */
+#art-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+#art-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  transition: opacity 1.5s ease-in-out;
+  will-change: transform;
+}
+
+#art-image.fade-out {
+  opacity: 0;
+}
+
+/* --- Ken Burns Effect --- */
+.ken-burns-1 {
+  animation: kenBurns1 25s ease-in-out forwards;
+}
+.ken-burns-2 {
+  animation: kenBurns2 25s ease-in-out forwards;
+}
+.ken-burns-3 {
+  animation: kenBurns3 25s ease-in-out forwards;
+}
+.ken-burns-4 {
+  animation: kenBurns4 25s ease-in-out forwards;
+}
+.ken-burns-5 {
+  animation: kenBurns5 25s ease-in-out forwards;
+}
+.ken-burns-6 {
+  animation: kenBurns6 25s ease-in-out forwards;
+}
+
+/* Slow zoom in + pan right */
+@keyframes kenBurns1 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.05) translate(1%, -0.5%); }
+}
+/* Slow zoom in + pan left */
+@keyframes kenBurns2 {
+  0%   { transform: scale(1.04) translate(1%, 0); }
+  100% { transform: scale(1.0) translate(-0.5%, 0.5%); }
+}
+/* Slow zoom in from top */
+@keyframes kenBurns3 {
+  0%   { transform: scale(1.0) translate(0, 1%); }
+  100% { transform: scale(1.06) translate(-0.5%, -0.5%); }
+}
+/* Slow zoom out to bottom-right */
+@keyframes kenBurns4 {
+  0%   { transform: scale(1.05) translate(-1%, -0.5%); }
+  100% { transform: scale(1.0) translate(0.5%, 1%); }
+}
+/* Pan left to right with slight zoom */
+@keyframes kenBurns5 {
+  0%   { transform: scale(1.02) translate(-1.5%, 0); }
+  100% { transform: scale(1.04) translate(1.5%, 0); }
+}
+/* Slow zoom in center */
+@keyframes kenBurns6 {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.06); }
+}
+
+/* --- Art Info Overlay --- */
+#art-info {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  opacity: 1;
+  transition: opacity 0.8s ease, bottom 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+  text-align: left;
+}
+
+#art-info.hidden {
+  opacity: 0;
+}
+
+#art-info h1 {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+  display: block;
+  text-shadow: 0 0 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.95);
+}
+
+#art-info p {
+  font-size: 14px;
+  opacity: 0.8;
+  font-style: italic;
+  line-height: 1.4;
+  display: block;
+  text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.95);
+}
+
+#art-artist {
+  font-size: 15px !important;
+  font-style: normal !important;
+  opacity: 0.9 !important;
+  margin-bottom: 2px;
+}
+
+/* --- Clock --- */
+#clock {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 48px;
+  font-weight: 300;
+  font-family: 'Helvetica Neue', sans-serif;
+  opacity: 0.4;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+
+/* --- Favorite Hint (popup) — Instagram/Twitter style heart burst --- */
+#fav-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 90;
+}
+
+#fav-hint.show {
+  animation: heartBurst 1.2s ease-out forwards;
+}
+
+#fav-hint.hide {
+  animation: heartShrink 0.6s ease-in forwards;
+}
+
+@keyframes heartBurst {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  15%  { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+  30%  { transform: translate(-50%, -50%) scale(0.95); opacity: 1; }
+  45%  { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  60%  { transform: translate(-50%, -50%) scale(1.0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.0); opacity: 0; }
+}
+
+@keyframes heartShrink {
+  0%   { transform: translate(-50%, -50%) scale(1.0); opacity: 1; }
+  50%  { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+}
+
+#fav-hint #fav-icon {
+  font-size: 0;
+  display: block;
+  text-align: center;
+  width: 100px;
+  height: 90px;
+  margin: 0 auto;
+  background: none;
+}
+
+#fav-hint #fav-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 25px rgba(200,140,160,0.5)) drop-shadow(0 0 50px rgba(200,140,160,0.2));
+}
+
+#fav-hint #fav-icon.remove-icon svg {
+  filter: drop-shadow(0 0 20px rgba(100,100,100,0.5));
+}
+
+#fav-hint #fav-text {
+  display: block;
+  font-size: 24px;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-align: center;
+  margin-top: 8px;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+/* Heart ring burst particles */
+.fav-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 91;
+  animation: particleBurst 0.8s ease-out forwards;
+}
+
+@keyframes particleBurst {
+  0%   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Screen flash on fav */
+#fav-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.08);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 89;
+}
+
+#fav-flash.show {
+  animation: favFlash 0.4s ease-out forwards;
+}
+
+@keyframes favFlash {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* --- Favorites Badge (top-left) --- */
+#fav-badge {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  font-size: 24px;
+  font-family: 'Helvetica Neue', sans-serif;
+  opacity: 0.35;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+#fav-badge:hover {
+  opacity: 0.7;
+}
+
+/* --- Already-favorited indicator on image --- */
+#art-image.is-fav {
+  box-shadow: inset 0 0 100px rgba(255, 50, 50, 0.05);
+}
+
+/* --- Settings Panel --- */
+#settings-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 300px;
+  z-index: 100;
+  transition: opacity 0.3s ease;
+}
+
+#settings-panel.hidden {
+  display: none;
+}
+
+#settings-panel h2 {
+  font-size: 48px;
+  margin-bottom: 50px;
+  font-weight: 300;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.setting-row label {
+  font-size: 28px;
+  font-family: 'Helvetica Neue', sans-serif;
+  min-width: 250px;
+}
+
+.setting-options {
+  display: flex;
+  gap: 12px;
+}
+
+.setting-options button {
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.setting-options button.active {
+  background: rgba(100, 140, 255, 0.4);
+  border-color: rgba(100, 140, 255, 0.8);
+}
+
+.setting-options button.focused {
+  border-color: #fff;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+.settings-hint {
+  text-align: center;
+  font-size: 20px;
+  opacity: 0.4;
+  margin-top: 40px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* --- Loading --- */
+#loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  z-index: 50;
+  transition: opacity 0.5s ease;
+}
+
+#loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#loading p {
+  font-size: 24px;
+  opacity: 0.6;
+  margin-top: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(255,255,255,0.1);
+  border-top-color: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Old transition effects (still available) --- */
+.slide-in {
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.zoom-in {
+  animation: zoomIn 1.5s ease-out forwards;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(1.15); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

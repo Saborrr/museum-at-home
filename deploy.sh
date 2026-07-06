@@ -34,7 +34,10 @@ for art in artworks:
         'museum': art.get('museum'),
         'image': f'img/paintings/{id_name}.jpg',
         'thumb': f'img/paintings/{id_name}.jpg',
-        'source': art.get('source')
+        'source': art.get('source'),
+        'description': art.get('description', ''),
+        'descriptionRu': art.get('descriptionRu', ''),
+        'tags': art.get('tags', [])
     })
 with open('$WORKSPACE/js/bundled.js', 'w') as f:
     f.write('const BUNDLED_ART = ' + json.dumps(bundled, indent=2, ensure_ascii=False) + ';\n')

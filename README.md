@@ -33,6 +33,10 @@
 - ❤️ Избранное — сохраняйте любимые картины
 - 🕐 Часы на экране
 - 🎮 Управление пультом ТВ или касанием
+- 🌍 Двуязычный интерфейс (EN/RU) с автоматическим определением языка
+- 📝 Описания каждой картины на двух языках
+- 🏷️ Фильтрация по стилям: Impressionism, Renaissance, Baroque, Modern, Romantic
+- 🎯 Множественный выбор коллекций в настройках
 
 ---
 
@@ -180,20 +184,32 @@ npx expo export --platform android
 art-screensaver-webos/
 ├── index.html              ← Версия для webOS (главная страница)
 ├── appinfo.json            ← Манифест приложения webOS
+├── deploy.sh               ← 1-click скрипт сборки и деплоя
 ├── css/
-│   └── style.css           ← Стили (тёмная тема, анимации)
+│   └── style.css           ← Стили (тёмная тема, анимации, адаптивность)
 ├── js/
 │   ├── museum-api.js       ← Подключение к API музеев
 │   ├── cache.js            ← Кэширование + избранное
-│   └── app.js              ← Главная логика приложения
+│   ├── app.js              ← Главная логика приложения
+│   ├── bundled.js          ← Встроенная коллекция (50 картин)
+│   └── *.es5.js            ← ES5-транспилированные версии (webOS 3.x)
 ├── img/
 │   ├── icon80x80.png       ← Иконка приложения (webOS)
 │   ├── icon130x130.png     ← Большая иконка (webOS)
-│   └── splash.png          ← Заставка при запуске (webOS)
+│   ├── splash.png          ← Заставка при запуске (webOS)
+│   └── paintings/          ← Локальные копии картин (Met Museum)
 ├── data/
-│   └── collection.json     ← 50 картин (офлайн-коллекция)
+│   └── collection.json     ← 50 картин с описаниями (EN/RU) и тегами
+├── tests/
+│   └── museum-api.test.js  ← Юнит-тесты
+├── docs/
+│   └── plans/              ← Документация и планы развития
+├── art-gallery-android/    ← Нативная Android-версия (Kotlin + Jetpack Compose)
+│   ├── app/src/main/       ← Исходный код Android
+│   ├── build.gradle.kts    ← Конфиг сборки Gradle
+│   └── gradlew             ← Gradle wrapper
 │
-└── android/                ← Версия для Android
+└── android/                ← Версия на React Native (Expo)
     ├── App.js              ← Точка входа
     ├── app.json            ← Настройки Expo
     ├── components/
@@ -253,7 +269,12 @@ art-screensaver-webos/
 - [x] Эффект Ken Burns
 - [x] Избранное
 - [x] Версия для webOS
-- [x] Версия для Android
+- [x] Версия для Android (React Native + нативная Kotlin)
+- [x] Двуязычный интерфейс (EN/RU)
+- [x] Описания картин на двух языках
+- [x] Фильтрация по стилям живописи
+- [x] ES5-транспиляция для webOS 3.x (Chromium 38)
+- [x] Юнит-тесты
 - [ ] Фоновая музыка
 - [ ] Больше музеев (Europeana, WikiArt)
 - [ ] Премиум-коллекции (монетизация)
@@ -276,9 +297,14 @@ art-screensaver-webos/
   "museum": "Название музея",
   "image": "https://ссылка-на-картину-в-высоком-качестве.jpg",
   "thumb": "https://ссылка-на-превью.jpg",
-  "source": "custom"
+  "source": "custom",
+  "description": "Description in English",
+  "descriptionRu": "Описание на русском",
+  "tags": ["impressionism", "wikimedia"]
 }
 ```
+
+**Доступные теги:** `impressionism`, `renaissance`, `baroque`, `modern`, `romantic`, `wikimedia`, `met`
 
 ### Как получить ключ Rijksmuseum API (опционально)
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Art Gallery Screensaver</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Main fullscreen canvas -->
+  <div id="screensaver">
+    <div id="art-wrapper">
+      <img id="art-image" src="" alt="">
+    </div>
+    
+    <!-- Art info overlay (fades in/out) -->
+    <div id="art-info">
+      <h1 id="art-title"></h1>
+      <p id="art-artist"></p>
+      <p id="art-year"></p>
+      <p id="art-museum"></p>
+    </div>
+    
+    <!-- Settings panel (hidden by default) -->
+    <div id="settings-panel" class="hidden">
+      <h2>Settings</h2>
+      
+      <div class="setting-row">
+        <label>Change interval</label>
+        <div class="setting-options" data-setting="interval">
+          <button data-value="15">15s</button>
+          <button data-value="30" class="active">30s</button>
+          <button data-value="60">1 min</button>
+          <button data-value="120">2 min</button>
+          <button data-value="300">5 min</button>
+        </div>
+      </div>
+      
+      <div class="setting-row">
+        <label>Transition</label>
+        <div class="setting-options" data-setting="transition">
+          <button data-value="fade" class="active">Fade</button>
+          <button data-value="slide">Slide</button>
+          <button data-value="zoom">Zoom</button>
+          <button data-value="kenburns">Ken Burns</button>
+        </div>
+      </div>
+      
+      <div class="setting-row">
+        <label>Show info</label>
+        <div class="setting-options" data-setting="showInfo">
+          <button data-value="always" class="active">Always</button>
+          <button data-value="brief">Brief</button>
+          <button data-value="never">Never</button>
+        </div>
+      </div>
+      
+      <div class="setting-row">
+        <label>Collection</label>
+        <div class="setting-options" data-setting="collection">
+          <button data-value="all" class="active">All</button>
+          <button data-value="impressionism">Impressionism</button>
+          <button data-value="renaissance">Renaissance</button>
+          <button data-value="modern">Modern</button>
+          <button data-value="favorites">❤️ Favorites</button>
+        </div>
+      </div>
+      
+      <p class="settings-hint">Press BACK or OK to close</p>
+    </div>
+    
+    <!-- Loading indicator -->
+    <div id="loading">
+      <div class="spinner"></div>
+      <p>Loading art...</p>
+    </div>
+    
+    <!-- Favorite button hint -->
+    <div id="fav-hint">
+      <span id="fav-icon">❤️</span>
+      <span id="fav-text">Saved!</span>
+    </div>
+
+    <!-- Screen flash on favorite -->
+    <div id="fav-flash"></div>
+    
+    <!-- Favorites badge -->
+    <div id="fav-badge">❤️ <span id="fav-count">0</span></div>
+    
+    <!-- Clock (subtle, bottom-right) -->
+    <div id="clock"></div>
+  </div>
+
+  <script src="js/bundled.js"></script>
+  <script src="js/museum-api.js"></script>
+  <script src="js/cache.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
