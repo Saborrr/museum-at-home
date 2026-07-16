@@ -37,14 +37,15 @@ jobs:
 
       - name: Package IPK files
         run: |
-          mkdir -p artifacts
-          ares-package dist/webos-1080 -o artifacts
-          ares-package dist/webos-720 -o artifacts
+          mkdir -p artifacts/1080 artifacts/720
+          ares-package dist/webos-1080 -o artifacts/1080
+          ares-package dist/webos-720 -o artifacts/720
+          test "$(find artifacts -type f -name '*.ipk' | wc -l)" -eq 2
 
       - name: Upload installable packages
         uses: actions/upload-artifact@v4
         with:
           name: museum-at-home-webos
-          path: artifacts/*.ipk
+          path: artifacts/**/*.ipk
           if-no-files-found: error
           retention-days: 14
