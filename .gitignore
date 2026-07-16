@@ -1,26 +1,19 @@
-# OS
+# Generated output
+dist/
+*.ipk
+
+# Dependencies and tooling
+node_modules/
 .DS_Store
 Thumbs.db
-
-# Editor
-*.swp
-*.swo
-.vscode/
 .idea/
+.vscode/
+*.swp
 
-# webOS build output
-*.ipk
-*.ipk.bak-*
-
-# Gradle
+# Android experiments
 .gradle/
+android/node_modules/
+android/.expo/
+android/dist/
 art-gallery-android/.gradle/
-
-# Dependencies (if added later)
-node_modules/
-
-# Android build artifacts
 art-gallery-android/app/build/
-art-gallery-android/.gradle/
-*.ipk.bak-*
-com.artscreen.gallery_1.0.0_all.ipk.bak-*

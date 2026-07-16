@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="44%" r="68%">
+      <stop offset="0" stop-color="#1c1a14"/>
+      <stop offset="1" stop-color="#080807"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2d28c"/>
+      <stop offset="1" stop-color="#b98b3c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <g transform="translate(760 235) scale(6.25)">
+    <path fill="url(#gold)" d="M8 25L32 9l24 16H8zm5 5h38v5H13v-5zm4 9h6v13h-6V39zm12 0h6v13h-6V39zm12 0h6v13h-6V39zM9 55h46v4H9v-4z"/>
+  </g>
+  <text x="960" y="735" text-anchor="middle" fill="#f7f3e9" font-family="Georgia, serif" font-size="88">Museum at Home</text>
+  <text x="960" y="805" text-anchor="middle" fill="#aa9e84" font-family="Arial, sans-serif" font-size="28" letter-spacing="7">ART · HISTORY · HOME</text>
+</svg>

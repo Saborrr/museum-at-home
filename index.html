@@ -1,278 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1920, initial-scale=1.0">
-  <title>Art Gallery Screensaver</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1920, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#080807">
+  <title>Museum at Home</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <!-- Main fullscreen canvas -->
-  <div id="screensaver">
-    <div id="art-wrapper">
-      <img id="art-image" src="" alt="">
+<body tabindex="0">
+  <main id="app" aria-label="Museum at Home">
+    <div id="art-stage" aria-live="polite">
+      <img id="art-layer-a" class="art-layer active" alt="">
+      <img id="art-layer-b" class="art-layer" alt="">
+      <div class="edge-vignette"></div>
     </div>
-    
-    <!-- Art info overlay (fades in/out) -->
-    <div id="art-info">
-      <h1 id="art-title"></h1>
-      <p id="art-artist"></p>
-      <p id="art-year"></p>
-      <p id="art-museum"></p>
-    </div>
-    
-    <!-- Settings panel (hidden by default) -->
-    <div id="settings-panel" class="hidden">
-      <h2 data-i18n="settingsTitle">Settings</h2>
-      
-      <div class="setting-row">
-        <label data-i18n="settingsInterval">Change interval</label>
-        <div class="setting-options" data-setting="interval">
-          <button data-value="15">15s</button>
-          <button data-value="30" class="active">30s</button>
-          <button data-value="60">1 min</button>
-          <button data-value="120">2 min</button>
-          <button data-value="300">5 min</button>
+
+    <header class="topbar">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8 25L32 9l24 16H8zm5 5h38v5H13v-5zm4 9h6v13h-6V39zm12 0h6v13h-6V39zm12 0h6v13h-6V39zM9 55h46v4H9v-4z"></path>
+        </svg>
+        <div>
+          <span class="brand-name">Museum at Home</span>
+          <span id="category-name" class="category-name">Все коллекции</span>
         </div>
       </div>
-      
-      <div class="setting-row">
-        <label data-i18n="settingsTransition">Transition</label>
-        <div class="setting-options" data-setting="transition">
-          <button data-value="fade" class="active">Fade</button>
-          <button data-value="slide">Slide</button>
-          <button data-value="zoom">Zoom</button>
-          <button data-value="kenburns">Ken Burns</button>
-        </div>
-      </div>
-      
-      <div class="setting-row">
-        <label data-i18n="settingsShowInfo">Show info</label>
-        <div class="setting-options" data-setting="showInfo">
-          <button data-value="always" class="active">Always</button>
-          <button data-value="brief">Brief</button>
-          <button data-value="never">Never</button>
-        </div>
-      </div>
-      
-      <div class="setting-row multi-select">
-        <label>Collection <span style="opacity:0.5;font-size:14px;">(multi)</span></label>
-        <div class="setting-options" data-setting="collection">
-          <button data-value="all" class="active">All</button>
-          <button data-value="impressionism">Impressionism</button>
-          <button data-value="renaissance">Renaissance</button>
-          <button data-value="baroque">Baroque</button>
-          <button data-value="modern">Modern</button>
-          <button data-value="romantic">Romantic</button>
-          <button data-value="contemporary">Contemporary</button>
-          <button data-value="favorites">❤️ Favorites</button>
-        </div>
-      </div>
+      <time id="clock" class="clock"></time>
+    </header>
 
-      <div class="setting-row">
-        <label data-i18n="settingsLanguage">Language</label>
-        <div class="setting-options" data-setting="language">
-          <button data-value="en" class="active">English</button>
-          <button data-value="ru">Русский</button>
-        </div>
+    <section id="art-info" class="art-info">
+      <div class="art-copy">
+        <h1 id="art-title"></h1>
+        <p id="art-artist" class="artist"></p>
+        <p id="art-meta" class="meta"></p>
       </div>
-      
-      <p class="settings-hint" data-i18n="settingsHint">Press BACK or OK to close</p>
+      <button id="favorite-button" class="favorite-button" type="button" aria-label="Добавить в избранное">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 55S8 41 8 23C8 14 14 9 22 9c5 0 9 3 10 7 2-4 6-7 11-7 8 0 14 5 14 14 0 18-25 32-25 32z"></path>
+        </svg>
+        <span id="favorite-label">В избранное</span>
+      </button>
+    </section>
 
-      <div style="text-align:center;margin-top:30px;">
-        <button id="settings-close-btn" data-action="close" style="background:rgba(255,80,80,0.25);border:2px solid rgba(255,120,120,0.7);color:#fff;padding:14px 36px;font-size:24px;border-radius:8px;cursor:pointer;font-family:'Helvetica Neue',sans-serif;" data-i18n="settingsClose">✕ Close Settings</button>
-      </div>
-    </div>
-    
-    <!-- Loading indicator -->
-    <div id="loading">
-      <div class="spinner"></div>
-      <p data-i18n="loading">Loading art...</p>
-    </div>
-    
-    <!-- Favorite button hint -->
-    <div id="fav-hint">
-      <span id="fav-icon">❤️</span>
-      <span id="fav-text" data-i18n="saved">Saved!</span>
+    <div id="controls-hint" class="controls-hint">
+      <span>← → Картины</span>
+      <span>↑ Избранное</span>
+      <span>↓ О картине</span>
+      <span>OK Коллекции</span>
     </div>
 
-    <!-- Screen flash on favorite -->
-    <div id="fav-flash"></div>
-    
-    <!-- Favorites badge (white heart when empty, RED glowing heart when any favs) -->
-    <div id="fav-badge"><span id="badge-fav-icon">🤍</span> <span id="fav-count">0</span></div>
-    
-    <!-- Clock (subtle, bottom-right) -->
-    <div id="clock"></div>
+    <section id="empty-state" class="empty-state hidden" aria-live="assertive">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 55S8 41 8 23C8 14 14 9 22 9c5 0 9 3 10 7 2-4 6-7 11-7 8 0 14 5 14 14 0 18-25 32-25 32z"></path>
+      </svg>
+      <h2 id="empty-title">В избранном пока ничего нет</h2>
+      <p id="empty-text">Вернитесь к картинам и нажмите кнопку вверх.</p>
+      <button class="focusable" data-action="category" data-value="all" data-row="0" data-col="0">Показать все картины</button>
+    </section>
 
-    <!-- Description panel (shown on DOWN; full text about the painting) -->
-    <div id="description-panel" class="hidden">
-      <button id="desc-close">✕</button>
-      <h1 id="desc-title"></h1>
-      <h2 id="desc-artist"></h2>
-      <p id="desc-meta"></p>
-      <p id="desc-body"></p>
-    </div>
+    <section id="details-panel" class="overlay details-panel" aria-hidden="true">
+      <div class="details-card">
+        <div class="details-heading">
+          <span id="details-kicker" class="details-kicker">История картины</span>
+          <h2 id="details-title"></h2>
+          <p id="details-byline"></p>
+        </div>
+        <div id="details-scroll" class="details-scroll">
+          <p id="details-description" class="reveal-block"></p>
+          <p id="details-museum" class="reveal-block muted"></p>
+          <p id="details-rights" class="reveal-block rights"></p>
+        </div>
+        <div class="overlay-hint">↑ ↓ Прокрутка · Back Закрыть</div>
+      </div>
+    </section>
 
-    <!-- Debug overlay (top-center, shows last 3 key events) -->
-    <div id="debug-overlay" style="position:absolute;top:80px;left:50%;transform:translateX(-50%);font-family:monospace;font-size:18px;color:#0f0;background:rgba(0,0,0,0.7);padding:6px 14px;border-radius:6px;z-index:200;opacity:0.85;pointer-events:none;display:none;"></div>
-  </div>
+    <section id="menu-panel" class="overlay menu-panel" aria-hidden="true">
+      <div class="menu-card">
+        <div class="menu-header">
+          <div>
+            <span id="menu-kicker" class="details-kicker">Museum at Home</span>
+            <h2 id="menu-title">Выберите коллекцию</h2>
+          </div>
+          <span id="art-count" class="art-count"></span>
+        </div>
 
-  <script>
-// Save reference to native console.log BEFORE overriding
-var __nativeConsoleLog = console.log.bind(console);
-// Override: also push to window.__log so debug overlay can show it
-window.__log = [];
-console.log = function() {
-  var args = Array.prototype.slice.call(arguments);
-  window.__log.push(args.join(' '));
-  // Always call native so ares-inspect sees it too
-  if (__nativeConsoleLog) __nativeConsoleLog.apply(console, args);
-};
-// Forward errors to debug overlay; full handler in app.es5.js
-window.onerror = function(m, u, l, c, e) {
-  window.__log.push('ERROR ' + l + ':' + c + ' ' + m);
-  var dbg = document.getElementById('debug-overlay');
-  if (dbg) {
-    dbg.style.display = 'block';
-    dbg.style.background = 'rgba(120,0,0,0.85)';
-    dbg.textContent = 'ERR L' + l + ': ' + m;
-  }
-};
+        <div class="menu-section">
+          <h3 id="collections-heading">Коллекции</h3>
+          <div class="button-grid">
+            <button class="menu-button focusable" data-action="category" data-value="all" data-row="0" data-col="0">Все картины</button>
+            <button class="menu-button focusable" data-action="category" data-value="russian" data-row="0" data-col="1">Русское искусство</button>
+            <button class="menu-button focusable" data-action="category" data-value="world" data-row="0" data-col="2">Мировое искусство</button>
+            <button class="menu-button focusable" data-action="category" data-value="favorites" data-row="0" data-col="3">Избранное</button>
+          </div>
+        </div>
 
-// Polyfills for legacy browsers (webOS 3.0 / Chromium 38)
-// 1. NodeList.forEach (Chromium 38 lacks it; added in Chrome 51)
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
-if (window.HTMLCollection && !HTMLCollection.prototype.forEach) {
-  HTMLCollection.prototype.forEach = Array.prototype.forEach;
-}
-// 2. Array.from (Chromium 38 has it, but just in case)
-if (!Array.from) {
-  Array.from = function(object) {
-    return Array.prototype.slice.call(object);
-  };
-}
-// 3. Array.findIndex (added in Chrome 45, missing in Chromium 38)
-if (!Array.prototype.findIndex) {
-  Array.prototype.findIndex = function(predicate, thisArg) {
-    for (var i = 0; i < this.length; i++) {
-      if (predicate.call(thisArg, this[i], i, this)) return i;
-    }
-    return -1;
-  };
-}
-// 4. Array.includes (added in Chrome 47, missing in Chromium 38)
-if (!Array.prototype.includes) {
-  Array.prototype.includes = function(search, start) {
-    return this.indexOf(search, start) !== -1;
-  };
-}
-// 5. Object.assign (added in Chrome 45, missing in Chromium 38)
-if (!Object.assign) {
-  Object.assign = function(target) {
-    if (target == null) throw new TypeError('Cannot convert null/undefined to object');
-    var to = Object(target);
-    for (var i = 1; i < arguments.length; i++) {
-      var src = arguments[i];
-    if (src != null) {
-      for (var k in src) if (Object.prototype.hasOwnProperty.call(src, k)) to[k] = src[k];
-    }
-    }
-    return to;
-  };
-}
-// 6. Element.closest (added in Chrome 41, missing in Chromium 38) — main culprit
-if (!Element.prototype.closest) {
-  Element.prototype.closest = function(selector) {
-    var el = this;
-    var match = (typeof Element.prototype.matches === 'function')
-      ? Element.prototype.matches
-      : (typeof Element.prototype.msMatchesSelector === 'function')
-        ? Element.prototype.msMatchesSelector
-        : null;
-    while (el && el.nodeType === 1) {
-      if (match && match.call(el, selector)) return el;
-      // Manual selector check fallback for very old engines
-      if (el.id === selector.replace('#', '') ||
-          ('.' + (el.className || '').split(' ').join('.') + '.').indexOf(selector + '.') !== -1) {
-        return el;
-      }
-      el = el.parentElement || el.parentNode;
-    }
-    return null;
-  };
-}
-// 7. Element.matches (added in Chrome 39, may be missing in 38)
-if (!Element.prototype.matches) {
-  Element.prototype.matches = Element.prototype.webkitMatchesSelector ||
-                              Element.prototype.mozMatchesSelector ||
-                              Element.prototype.msMatchesSelector ||
-                              function(selector) {
-    var parent = this.parentNode || this.document;
-    if (!parent) return false;
-    var nodes = parent.querySelectorAll(selector);
-    return Array.prototype.indexOf.call(nodes, this) !== -1;
-  };
-}
-// 8. requestAnimationFrame cancelAnimationFrame
-if (!window.requestAnimationFrame) {
-  window.requestAnimationFrame = function(cb) { return setTimeout(cb, 16); };
-}
-if (!window.cancelAnimationFrame) {
-  window.cancelAnimationFrame = function(id) { clearTimeout(id); };
-}
-// 9. CRITICAL: NodeList/HTMLCollection lack [Symbol.iterator] on Chromium 38,
-// which crashes babel-transpiled `...nodeList` spread (e.g. _toConsumableArray(...))
-(function () {
-  function makeIterator(items) {
-    var i = 0;
-    return function () {
-      return i < items.length ? { value: items[i++], done: false } : { value: undefined, done: true };
-    };
-  }
-  var proto = (typeof Symbol !== 'undefined' && Symbol.iterator) || '@@iterator';
-  if (window.NodeList && !NodeList.prototype[proto]) {
-    NodeList.prototype[proto] = makeIterator;
-  }
-  if (window.HTMLCollection && !HTMLCollection.prototype[proto]) {
-    HTMLCollection.prototype[proto] = makeIterator;
-  }
-  if (window.Arguments && !Arguments.prototype[proto]) {
-    try { Arguments.prototype[proto] = makeIterator; } catch (e) {}
-  }
-})();
-if (!String.prototype.padStart) {
-  String.prototype.padStart = function(targetLength, padString) {
-    var str = String(this);
-    targetLength = targetLength >> 0;
-    padString = String(typeof padString !== 'undefined' ? padString : ' ');
-    if (str.length >= targetLength) return str;
-    var padding = '';
-    var needed = targetLength - str.length;
-    while (padding.length < needed) padding += padString;
-    return padding.slice(0, needed) + str;
-  };
-}
-if (!String.prototype.padEnd) {
-  String.prototype.padEnd = function(targetLength, padString) {
-    var str = String(this);
-    targetLength = targetLength >> 0;
-    padString = String(typeof padString !== 'undefined' ? padString : ' ');
-    if (str.length >= targetLength) return str;
-    var padding = '';
-    var needed = targetLength - str.length;
-    while (padding.length < needed) padding += padString;
-    return str + padding.slice(0, needed);
-  };
-}
-</script>
-<script src="js/es6-promise.auto.min.js"></script>
-<script src="js/fetch.umd.js"></script>
-<script src="js/bundled.es5.js"></script>
-  <script src="js/museum-api.es5.js"></script>
-  <script src="js/cache.es5.js"></script>
+        <div class="menu-section compact">
+          <h3 id="styles-heading">Жанры и эпохи</h3>
+          <div class="button-grid">
+            <button class="menu-button focusable" data-action="category" data-value="style:landscape" data-row="1" data-col="0">Пейзаж</button>
+            <button class="menu-button focusable" data-action="category" data-value="style:impressionism" data-row="1" data-col="1">Импрессионизм</button>
+            <button class="menu-button focusable" data-action="category" data-value="style:renaissance" data-row="1" data-col="2">Возрождение</button>
+            <button class="menu-button focusable" data-action="category" data-value="style:baroque" data-row="1" data-col="3">Барокко</button>
+            <button class="menu-button focusable" data-action="category" data-value="style:romantic" data-row="2" data-col="0">Романтизм</button>
+            <button class="menu-button focusable" data-action="category" data-value="style:realism" data-row="2" data-col="1">Реализм</button>
+            <button class="menu-button focusable" data-action="category" data-value="style:modern" data-row="2" data-col="2">Модернизм</button>
+            <button class="menu-button focusable" data-action="category" data-value="style:portrait" data-row="2" data-col="3">Портрет</button>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <div class="setting-block">
+            <h3 id="interval-heading">Смена картины</h3>
+            <div class="segmented">
+              <button class="segment focusable" data-action="interval" data-value="15" data-row="3" data-col="0">15 с</button>
+              <button class="segment focusable" data-action="interval" data-value="30" data-row="3" data-col="1">30 с</button>
+              <button class="segment focusable" data-action="interval" data-value="60" data-row="3" data-col="2">1 мин</button>
+              <button class="segment focusable" data-action="interval" data-value="120" data-row="3" data-col="3">2 мин</button>
+            </div>
+          </div>
+          <div class="setting-block">
+            <h3 id="motion-heading">Движение</h3>
+            <div class="segmented">
+              <button class="segment focusable" data-action="motion" data-value="gentle" data-row="4" data-col="0">Плавное</button>
+              <button class="segment focusable" data-action="motion" data-value="off" data-row="4" data-col="1">Выключено</button>
+            </div>
+          </div>
+          <div class="setting-block">
+            <h3 id="language-heading">Язык</h3>
+            <div class="segmented">
+              <button class="segment focusable" data-action="language" data-value="auto" data-row="5" data-col="0">Авто</button>
+              <button class="segment focusable" data-action="language" data-value="ru" data-row="5" data-col="1">Русский</button>
+              <button class="segment focusable" data-action="language" data-value="en" data-row="5" data-col="2">English</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="overlay-hint">Стрелки Выбор · OK Применить · Back Закрыть</div>
+      </div>
+    </section>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <section id="loading" class="loading">
+      <svg class="loading-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M8 25L32 9l24 16H8zm5 5h38v5H13v-5zm4 9h6v13h-6V39zm12 0h6v13h-6V39zm12 0h6v13h-6V39zM9 55h46v4H9v-4z"></path>
+      </svg>
+      <h2>Museum at Home</h2>
+      <p id="loading-text">Готовим вашу галерею…</p>
+    </section>
+  </main>
+
+  <script src="js/catalog.es5.js"></script>
+  <script src="js/core.es5.js"></script>
   <script src="js/app.es5.js"></script>
 </body>
 </html>
