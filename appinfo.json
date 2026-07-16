@@ -1,18 +1,20 @@
 {
-  "id": "com.artscreen.gallery",
-  "version": "1.0.0",
+  "id": "com.saborrr.museumathome",
+  "version": "2.0.0",
   "type": "web",
   "main": "index.html",
-  "title": "Art Gallery Screensaver",
-  "appDescription": "Beautiful art screensaver with masterpieces from world museums",
+  "title": "Museum at Home",
+  "appDescription": "A calm, curated museum gallery for your television",
   "icon": "img/icon80x80.png",
   "largeIcon": "img/icon130x130.png",
-  "vendor": "ArtScreen",
+  "vendor": "Saborrr",
   "resolution": "1920x1080",
   "splashBackground": "img/splash.png",
+  "splashColor": "#080807",
   "transparent": false,
-  "requiredMemory": 20,
-  "requiredPermissions": ["time.query", "media.operation"],
-  "trustLevel": "net",
-  "support360Content": false
+  "disableBackHistoryAPI": true,
+  "screenSaverProperties": {
+    "preferredType": 3
+  },
+  "useGalleryMode": true
 }

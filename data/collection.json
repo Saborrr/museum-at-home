@@ -1,5 +1,5 @@
 {
-  "_comment": "50 masterpieces — Met Museum + Wikimedia/Google Art Project, public domain, HD/4K/8K",
+  "_comment": "World art catalog. Commercial builds include only records with verified commercialUseAllowed=true; disputed works are excluded.",
   "_count": 50,
   "artworks": [
     {
@@ -17,7 +17,12 @@
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-bedroom",
@@ -34,7 +39,12 @@
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-sunflowers",
@@ -47,11 +57,16 @@
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
       "description": "Part of a series Van Gogh painted to decorate his house in Arles in anticipation of Gauguin's visit. He hoped Gauguin would share the house — the flowers were meant as a gesture of welcome. The series shows the flowers at different stages of life, from full bloom to withering.",
-      "descriptionRu": "Часть серии, которую Ван Гог написал для украшения дома в Арле в ожидании приезда Гогена. Цветы должны были стать жестом гостеприимства. Серия показывает цветы на разных стадиях — от полного цветения до увядания.",
+      "descriptionRu": "Эта картина входит в серию подсолнухов, которую Ван Гог создавал в Арле для украшения Желтого дома перед приездом Поля Гогена. Яркие цветы должны были стать знаком дружбы и гостеприимства. Художник ограничил палитру множеством оттенков желтого и показал растения на разных стадиях: от полного цветения до увядания. Плотные мазки и почти плоский фон делают букет особенно выразительным. Для Ван Гога подсолнухи стали символом благодарности, надежды и короткой, но интенсивной красоты жизни.",
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_127.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-cafe-terrace-at-night",
@@ -68,7 +83,12 @@
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Cafe_Terrace_at_Night_(1888).jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-night-cafe",
@@ -85,7 +105,12 @@
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Le_caf%C3%A9_de_nuit_(The_Night_Caf%C3%A9)_by_Vincent_van_Gogh.jpeg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-almond-blossoms",
@@ -98,11 +123,16 @@
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
       "description": "Painted in February 1890 to celebrate the birth of his nephew Theo (named after his brother). Branches of almond trees against an azure sky — a Japanese theme he loved. It was a gift for his sister-in-law Jo.",
-      "descriptionRu": "Написана в феврале 1890 в честь рождения племянника Тео (названного в честь брата). Ветви миндаля на лазурном небе — японская тема, которую он любил. Подарок невестке Йо.",
+      "descriptionRu": "Ван Гог написал цветущие ветви миндаля в феврале 1890 года в честь рождения племянника, которого брат Тео и его жена Йо назвали Винсентом. Миндаль распускается одним из первых и поэтому стал здесь образом новой жизни. Крупные светлые цветы расположены на чистом лазурном небе без привычной глубокой перспективы. Такая композиция напоминает любимые художником японские гравюры. Картина предназначалась для детской комнаты и была особенно дорога семье, а сегодня воспринимается как одна из самых спокойных и светлых работ Ван Гога.",
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-mona-lisa",
@@ -115,12 +145,17 @@
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
       "description": "Painted by Leonardo da Vinci between about 1503 and 1519. The subject is Lisa Gherardini, wife of Florentine silk merchant Francesco del Giocondo. Her famously enigmatic smile has been the subject of art-historical debate for five centuries. Hangs in the Louvre behind bulletproof glass.",
-      "descriptionRu": "Написана Леонардо да Винчи между 1503 и 1519 годами. На портрете — Лиза Герардини, жена флорентийского торговца шёлком Франческо дель Джокондо. Её загадочная улыбка пять веков будоражит искусствоведов. Находится в Лувре за пуленепробиваемым стеклом.",
+      "descriptionRu": "Леонардо да Винчи работал над портретом приблизительно с 1503 года и, вероятно, продолжал совершенствовать его много лет. На картине обычно узнают Лизу Герардини, жену флорентийского торговца Франческо дель Джокондо. Мягкие переходы света и тени, выполненные в технике сфумато, делают выражение лица изменчивым: улыбка то появляется, то исчезает в зависимости от направления взгляда. Фантастический горный пейзаж за фигурой усиливает ощущение тайны. Сегодня картина хранится в Лувре и стала одним из самых узнаваемых произведений мирового искусства.",
       "tags": [
         "wikimedia",
         "italian",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-last-supper",
@@ -138,7 +173,12 @@
         "wikimedia",
         "italian",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-creation-of-adam",
@@ -151,12 +191,17 @@
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
       "description": "Part of Michelangelo's Sistine Chapel ceiling, painted 1508–1512. The fingers of God and Adam almost touching is one of the most reproduced images in art history. The pink cloak around God is anatomically a human brain — Michelangelo, a sculptor, knew anatomy intimately.",
-      "descriptionRu": "Часть потолка Сикстинской капеллы Микеланджело, 1508–1512. Пальцы Бога и Адама, почти соприкасающиеся, — один из самых воспроизводимых образов в истории искусства. Розовый плащ Бога — анатомически человеческий мозг; Микеланджело, скульптор, досконально знал анатомию.",
+      "descriptionRu": "Фреска создана Микеланджело между 1508 и 1512 годами для потолка Сикстинской капеллы. Художник показал момент, когда Бог передает жизнь первому человеку. Их пальцы почти соприкасаются, но небольшой промежуток между ними сохраняет напряжение и превращает простой жест в главный смысл композиции. Адам лежит тяжело и спокойно, тогда как фигура Бога окружена энергичным движением. Исследователи предлагали разные толкования очертаний красного плаща, включая сходство с человеческим мозгом, однако это остается гипотезой. Образ стал одним из самых узнаваемых символов Возрождения.",
       "tags": [
         "wikimedia",
         "italian",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Creation_of_Adam_perspective_fix.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-birth-of-venus",
@@ -174,7 +219,12 @@
         "wikimedia",
         "italian",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-primavera",
@@ -192,7 +242,12 @@
         "wikimedia",
         "italian",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_Primavera_-_Google_Art_Project.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-scream",
@@ -210,7 +265,12 @@
         "expressionism",
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-girl-with-a-pearl-earring",
@@ -228,7 +288,12 @@
         "wikimedia",
         "dutch",
         "baroque"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meisje_met_de_parel.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-great-wave-off-kanagawa",
@@ -241,12 +306,17 @@
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
       "description": "Hokusai's 1831 woodblock print. A great wave threatens three boats while Mount Fuji sits small in the background. Made as part of a series of 36 views of the same mountain. The foam of the wave inspired Debussy and many Impressionists.",
-      "descriptionRu": "Гравюра Хокусая 1831 года. Огромная волна угрожает трём лодкам, а Фудзи сидит маленьким на заднем плане. Сделана в серии «36 видов Фудзи». Пена волны вдохновила Дебюсси и многих импрессионистов.",
+      "descriptionRu": "Хокусай создал эту цветную ксилографию около 1831 года как часть серии «Тридцать шесть видов Фудзи». Огромная волна нависает над тремя быстрыми лодками, а священная гора кажется маленькой и неподвижной вдали. Изогнутые края пены напоминают когти и усиливают ощущение опасности. Художник соединил традиционную японскую композицию с европейскими приемами перспективы и новым берлинским синим пигментом. Контраст между мгновенным движением воды и устойчивостью Фудзи сделал лист всемирно известным и заметно повлиял на европейское искусство конца XIX века.",
       "tags": [
         "wikimedia",
         "romantic",
         "japanese"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsunami_by_hokusai_19th_century.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-kiss",
@@ -264,7 +334,12 @@
         "expressionism",
         "wikimedia",
         "modern"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-persistence-of-memory",
@@ -275,13 +350,19 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png/1920px-Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png",
       "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png/500px-Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png",
       "source": "wikimedia",
+      "commercialUseAllowed": false,
+      "rightsNote": "Excluded from commercial builds: MoMA lists active copyright and requires licensing.",
       "quality": "Ultra HD (up to 8K)",
       "description": "Dalí's 1931 surrealist painting in MoMA, New York. The melting clocks are sometimes interpreted as a Camembert cheese melting in the sun. Dalí said the landscape was inspired by the cliffs of Cap de Creus in Catalonia, near his home in Port Lligat.",
       "descriptionRu": "Сюрреалистическая картина Дали 1931 года в MoMA, Нью-Йорк. Тающие часы иногда интерпретируют как камамбер, плавящийся на солнце. Дали говорил, что пейзаж вдохновлён утёсами мыса Кап-де-Креус в Каталонии, рядом с его домом в Порт-Льигате.",
       "tags": [
         "wikimedia",
         "modern"
-      ]
+      ],
+      "license": "Separate artwork license required",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png/1920px-Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "blocked"
     },
     {
       "id": "wiki-american-gothic",
@@ -298,7 +379,12 @@
       "tags": [
         "wikimedia",
         "modern"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grant_DeVolson_Wood_-_American_Gothic.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-impression-sunrise",
@@ -311,11 +397,16 @@
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
       "description": "The 1872 painting that gave Impressionism its name. A critic mockingly called Monet's hazy harbour scene \"impression\" — the artists adopted the insult. Le Havre, Monet's hometown, is depicted. It hangs in the Musée Marmottan, Paris.",
-      "descriptionRu": "Картина 1872 года, давшая импрессионизму название. Критик презрительно назвал туманный пейзаж Моне с гаванью «впечатлением» — художники приняли оскорбление. Изображён Гавр, родной город Моне. Находится в Музее Мармоттан, Париж.",
+      "descriptionRu": "Моне написал гавань Гавра на рассвете в 1872 году, передав не столько точный вид порта, сколько изменчивое впечатление от света, тумана и воды. Холодные голубые и серые мазки объединяют небо, лодки и промышленные силуэты, а оранжевое солнце создает единственный резкий цветовой акцент. Название картины стало поводом для насмешки критика Луи Леруа над выставкой 1874 года. Художники приняли слово «импрессионисты», и оно дало имя целому направлению. Работа хранится в парижском музее Мармоттан-Моне.",
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-water-lilies-(nympheas)",
@@ -333,7 +424,12 @@
         "wikimedia",
         "modern",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-school-of-athens",
@@ -351,7 +447,12 @@
         "wikimedia",
         "italian",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-third-of-may-1808",
@@ -368,7 +469,12 @@
       "tags": [
         "wikimedia",
         "romantic"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Tres_de_Mayo,_by_Francisco_de_Goya,_from_Prado_thin_black_margin.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-fighting-temeraire",
@@ -385,7 +491,12 @@
       "tags": [
         "wikimedia",
         "romantic"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Fighting_Temeraire,_JMW_Turner,_National_Gallery.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-wanderer-above-the-sea-of-fog",
@@ -398,11 +509,16 @@
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
       "description": "Caspar David Friedrich's c.1818 painting. A man in a frock coat stands on a rocky outcrop, his back to us, gazing over a sea of fog with distant mountains. The figure has never been identified. Hangs in the Kunsthalle Hamburg.",
-      "descriptionRu": "Картина Каспара Давида Фридриха ок. 1818 года. Человек в сюртуке стоит на скале спиной к нам, глядя на море тумана с далёкими горами. Фигура так и не была идентифицирована. Находится в Гамбургском Кунстхалле.",
+      "descriptionRu": "Каспар Давид Фридрих написал картину около 1818 года. Путник стоит на вершине скалы спиной к зрителю и смотрит на горы, частично скрытые морем тумана. Такой прием, называемый фигурой со спины, приглашает мысленно занять место героя и разделить его взгляд. Человек кажется одновременно властным и очень маленьким перед бесконечным пространством природы. Линии скал направляют внимание к центру, но туман не дает увидеть надежный путь вперед. Картина стала важным образом романтизма и хранится в Гамбургском Кунстхалле.",
       "tags": [
         "wikimedia",
         "romantic"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-composition-vii",
@@ -419,7 +535,12 @@
       "tags": [
         "wikimedia",
         "modern"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Composition_VII_-_Wassily_Kandinsky,_GAC.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-composition-with-red-blue-and-",
@@ -436,7 +557,12 @@
       "tags": [
         "wikimedia",
         "modern"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-son-of-man",
@@ -447,6 +573,8 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Noun_project_-_The_Son_of_Man_-_in_frame_colored.png/1920px-Noun_project_-_The_Son_of_Man_-_in_frame_colored.png",
       "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Noun_project_-_The_Son_of_Man_-_in_frame_colored.png/500px-Noun_project_-_The_Son_of_Man_-_in_frame_colored.png",
       "source": "wikimedia",
+      "commercialUseAllowed": false,
+      "rightsNote": "Excluded from commercial builds until artwork and reproduction rights are documented.",
       "quality": "Ultra HD (up to 8K)",
       "description": "Magritte's 1964 self-portrait. A man in an overcoat and bowler hat — Magritte's recurring Everyman — has an apple floating in front of his face. Magritte called it a \"self-portrait\" because \"we all see the apple differently\"; everything hides something.",
       "descriptionRu": "Автопортрет Магритта 1964 года. Человек в пальто и котелке — повторяющийся «каждый человек» Магритта — с яблоком, парящим перед лицом. Магритт называл её «автопортретом», потому что «мы все видим яблоко по-разному»; всё что-то скрывает.",
@@ -454,7 +582,11 @@
         "surrealism",
         "wikimedia",
         "contemporary"
-      ]
+      ],
+      "license": "Separate artwork license required",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Noun_project_-_The_Son_of_Man_-_in_frame_colored.png/1920px-Noun_project_-_The_Son_of_Man_-_in_frame_colored.png",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "blocked"
     },
     {
       "id": "wiki-bal-du-moulin-de-la-galette",
@@ -471,7 +603,12 @@
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Renoir,_Pierre-Auguste_-_Dance_at_Le_Moulin_de_la_Galette,_1876.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-the-sleeping-gypsy",
@@ -488,7 +625,12 @@
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Boh%C3%A9mienne_endormie.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "wiki-whistler's-mother",
@@ -505,7 +647,12 @@
       "tags": [
         "wikimedia",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whistlers_Mother_high_res.jpg",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436535",
@@ -522,7 +669,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436535",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436528",
@@ -539,7 +691,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436528",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436532",
@@ -556,7 +713,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436532",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-437394",
@@ -574,7 +736,12 @@
         "dutch",
         "met",
         "baroque"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437394",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-437397",
@@ -592,7 +759,12 @@
         "dutch",
         "met",
         "baroque"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437397",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-437881",
@@ -610,7 +782,12 @@
         "dutch",
         "met",
         "baroque"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437881",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436575",
@@ -627,7 +804,12 @@
       "tags": [
         "met",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436575",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436573",
@@ -644,7 +826,12 @@
       "tags": [
         "met",
         "baroque"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436573",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436105",
@@ -661,7 +848,12 @@
       "tags": [
         "romantic",
         "met"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436105",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436106",
@@ -678,7 +870,12 @@
       "tags": [
         "romantic",
         "met"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436106",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-435844",
@@ -696,7 +893,12 @@
         "italian",
         "met",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435844",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-435809",
@@ -713,7 +915,12 @@
       "tags": [
         "met",
         "renaissance"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435809",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-435868",
@@ -730,7 +937,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435868",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-435882",
@@ -747,7 +959,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435882",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-438817",
@@ -764,7 +981,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/438817",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-436947",
@@ -781,7 +1003,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436947",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-437430",
@@ -798,7 +1025,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437430",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-437654",
@@ -815,7 +1047,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437654",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-437998",
@@ -831,7 +1068,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437998",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-437852",
@@ -847,7 +1089,12 @@
       "tags": [
         "romantic",
         "met"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437852",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     },
     {
       "id": "met-459092",
@@ -863,7 +1110,12 @@
       "tags": [
         "met",
         "impressionism"
-      ]
+      ],
+      "commercialUseAllowed": true,
+      "license": "CC0 — The Met Open Access",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/459092",
+      "rightsVerifiedAt": "2026-07-16",
+      "rightsStatus": "verified"
     }
   ]
 }

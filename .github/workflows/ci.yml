@@ -1,0 +1,50 @@
+name: Museum at Home CI
+
+on:
+  push:
+    branches: [main, "agent/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Test ES5 runtime and catalog
+        run: npm test
+
+      - name: Validate content, rights and local fallbacks
+        run: npm run validate
+
+      - name: Build 1080p and 720p webOS apps
+        run: npm run build
+
+      - name: Install official webOS CLI
+        run: npm install --global @webos-tools/cli
+
+      - name: Package IPK files
+        run: |
+          mkdir -p artifacts
+          ares-package dist/webos-1080 -o artifacts
+          ares-package dist/webos-720 -o artifacts
+
+      - name: Upload installable packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-at-home-webos
+          path: artifacts/*.ipk
+          if-no-files-found: error
+          retention-days: 14

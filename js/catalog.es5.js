@@ -1,6 +1,6 @@
 "use strict";
 
-var BUNDLED_ART = [
+window.MUSEUM_CATALOG = [
   {
     "id": "wiki-the-starry-night",
     "title": "The Starry Night",
@@ -8,14 +8,20 @@ var BUNDLED_ART = [
     "year": "1889",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-starry-night.jpg",
-    "thumb": "img/paintings/wiki-the-starry-night.jpg",
     "source": "wikimedia",
     "description": "Written in June 1889 from the window of his room at the asylum in Saint-Rémy-de-Provence. The view includes an imaginary village; the cypress in the foreground reaches like a dark flame toward a swirling sky over an imaginary constellation. Van Gogh wrote to his brother Theo: \"It always consoles me to think of the stars.\"",
     "descriptionRu": "Написана в июне 1889 года из окна палаты в лечебнице Сен-Поль-де-Мозоль в Сен-Реми-де-Прованс. На картине — воображаемая деревня; кипарис на переднем плане тянется тёмным пламенем к завихрённому небу над вымышленным созвездием. Ван Гог писал брату Тео: «Меня всегда утешает мысль о звёздах».",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-bedroom",
@@ -24,14 +30,20 @@ var BUNDLED_ART = [
     "year": "1888",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-bedroom.jpg",
-    "thumb": "img/paintings/wiki-the-bedroom.jpg",
     "source": "wikimedia",
     "description": "Van Gogh's intimate bedroom in the Yellow House in Arles, painted in October 1888. The skewed perspective was deliberate — he wanted absolute flatness, writing to Gauguin that \"the shadows are suppressed, painted with pure colours like Japanese prints.\" He signed it simply: \"VINCENT\".",
     "descriptionRu": "Интимная спальня Ван Гога в Жёлтом доме в Арле, написана в октябре 1888 года. Искажённая перспектива была намеренной — он хотел абсолютной плоскости, писал Гогену: «тени подавлены, написаны чистыми цветами, как японские гравюры». Подписал просто: «VINCENT».",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-sunflowers",
@@ -40,14 +52,20 @@ var BUNDLED_ART = [
     "year": "1888",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-sunflowers.jpg",
-    "thumb": "img/paintings/wiki-sunflowers.jpg",
     "source": "wikimedia",
     "description": "Part of a series Van Gogh painted to decorate his house in Arles in anticipation of Gauguin's visit. He hoped Gauguin would share the house — the flowers were meant as a gesture of welcome. The series shows the flowers at different stages of life, from full bloom to withering.",
-    "descriptionRu": "Часть серии, которую Ван Гог написал для украшения дома в Арле в ожидании приезда Гогена. Цветы должны были стать жестом гостеприимства. Серия показывает цветы на разных стадиях — от полного цветения до увядания.",
+    "descriptionRu": "Эта картина входит в серию подсолнухов, которую Ван Гог создавал в Арле для украшения Желтого дома перед приездом Поля Гогена. Яркие цветы должны были стать знаком дружбы и гостеприимства. Художник ограничил палитру множеством оттенков желтого и показал растения на разных стадиях: от полного цветения до увядания. Плотные мазки и почти плоский фон делают букет особенно выразительным. Для Ван Гога подсолнухи стали символом благодарности, надежды и короткой, но интенсивной красоты жизни.",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_127.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-cafe-terrace-at-night",
@@ -56,14 +74,20 @@ var BUNDLED_ART = [
     "year": "1888",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-cafe-terrace-at-night.jpg",
-    "thumb": "img/paintings/wiki-cafe-terrace-at-night.jpg",
     "source": "wikimedia",
     "description": "Painted in September 1888 in Arles. The café is now called Café Van Gogh. Van Gogh wrote to his sister Willemien: \"It amuses me enormously to paint the night right on the spot.\" It is the first painting in which he used a starry background without a sky overhead.",
     "descriptionRu": "Написана в сентябре 1888 в Арле. Сейчас это кафе называется «Кафе Ван Гог». Ван Гог писал сестре Виллемиен: «Меня невероятно увлекает писать ночь прямо на месте». Это первая картина, где он использовал звёздный фон без неба над головой.",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Cafe_Terrace_at_Night_(1888).jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-night-cafe",
@@ -72,14 +96,20 @@ var BUNDLED_ART = [
     "year": "1888",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-night-cafe.jpg",
-    "thumb": "img/paintings/wiki-the-night-cafe.jpg",
     "source": "wikimedia",
     "description": "Van Gogh called it \"one of the ugliest I've done\" and wrote: \"I have tried to express the terrible passions of humanity... the idea that the café is a place where one can ruin oneself, go mad, or commit a crime.\"",
     "descriptionRu": "Ван Гог назвал её «одной из самых уродливых, что я сделал» и писал: «Я пытался выразить ужасные страсти человечества... идею, что кафе — это место, где можно погубить себя, сойти с ума или совершить преступление».",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Le_caf%C3%A9_de_nuit_(The_Night_Caf%C3%A9)_by_Vincent_van_Gogh.jpeg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-almond-blossoms",
@@ -88,14 +118,20 @@ var BUNDLED_ART = [
     "year": "1890",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-almond-blossoms.jpg",
-    "thumb": "img/paintings/wiki-almond-blossoms.jpg",
     "source": "wikimedia",
     "description": "Painted in February 1890 to celebrate the birth of his nephew Theo (named after his brother). Branches of almond trees against an azure sky — a Japanese theme he loved. It was a gift for his sister-in-law Jo.",
-    "descriptionRu": "Написана в феврале 1890 в честь рождения племянника Тео (названного в честь брата). Ветви миндаля на лазурном небе — японская тема, которую он любил. Подарок невестке Йо.",
+    "descriptionRu": "Ван Гог написал цветущие ветви миндаля в феврале 1890 года в честь рождения племянника, которого брат Тео и его жена Йо назвали Винсентом. Миндаль распускается одним из первых и поэтому стал здесь образом новой жизни. Крупные светлые цветы расположены на чистом лазурном небе без привычной глубокой перспективы. Такая композиция напоминает любимые художником японские гравюры. Картина предназначалась для детской комнаты и была особенно дорога семье, а сегодня воспринимается как одна из самых спокойных и светлых работ Ван Гога.",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-mona-lisa",
@@ -104,15 +140,21 @@ var BUNDLED_ART = [
     "year": "c. 1503–1519",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-mona-lisa.jpg",
-    "thumb": "img/paintings/wiki-mona-lisa.jpg",
     "source": "wikimedia",
     "description": "Painted by Leonardo da Vinci between about 1503 and 1519. The subject is Lisa Gherardini, wife of Florentine silk merchant Francesco del Giocondo. Her famously enigmatic smile has been the subject of art-historical debate for five centuries. Hangs in the Louvre behind bulletproof glass.",
-    "descriptionRu": "Написана Леонардо да Винчи между 1503 и 1519 годами. На портрете — Лиза Герардини, жена флорентийского торговца шёлком Франческо дель Джокондо. Её загадочная улыбка пять веков будоражит искусствоведов. Находится в Лувре за пуленепробиваемым стеклом.",
+    "descriptionRu": "Леонардо да Винчи работал над портретом приблизительно с 1503 года и, вероятно, продолжал совершенствовать его много лет. На картине обычно узнают Лизу Герардини, жену флорентийского торговца Франческо дель Джокондо. Мягкие переходы света и тени, выполненные в технике сфумато, делают выражение лица изменчивым: улыбка то появляется, то исчезает в зависимости от направления взгляда. Фантастический горный пейзаж за фигурой усиливает ощущение тайны. Сегодня картина хранится в Лувре и стала одним из самых узнаваемых произведений мирового искусства.",
     "tags": [
       "wikimedia",
       "italian",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-last-supper",
@@ -121,15 +163,21 @@ var BUNDLED_ART = [
     "year": "c. 1495–1498",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-last-supper.jpg",
-    "thumb": "img/paintings/wiki-the-last-supper.jpg",
     "source": "wikimedia",
     "description": "Leonardo da Vinci's mural painted 1495–1498 on the refectory wall of Santa Maria delle Grazie, Milan. It depicts the moment Jesus says \"One of you will betray me\" — you can see the shock ripple through the apostles. Leonardo experimented with tempera on dry wall instead of fresco, which is why it has deteriorated badly.",
     "descriptionRu": "Фреска Леонардо да Винчи 1495–1498 годов в трапезной монастыря Санта-Мария-делле-Грацие в Милане. Изображает момент, когда Иисус говорит «Один из вас предаст меня» — шок пробегает по апостолам. Леонардо экспериментировал с темперой по сухой стене вместо фрески, поэтому она сильно пострадала.",
     "tags": [
       "wikimedia",
       "italian",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-creation-of-adam",
@@ -138,15 +186,21 @@ var BUNDLED_ART = [
     "year": "c. 1508–1512",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-creation-of-adam.jpg",
-    "thumb": "img/paintings/wiki-the-creation-of-adam.jpg",
     "source": "wikimedia",
     "description": "Part of Michelangelo's Sistine Chapel ceiling, painted 1508–1512. The fingers of God and Adam almost touching is one of the most reproduced images in art history. The pink cloak around God is anatomically a human brain — Michelangelo, a sculptor, knew anatomy intimately.",
-    "descriptionRu": "Часть потолка Сикстинской капеллы Микеланджело, 1508–1512. Пальцы Бога и Адама, почти соприкасающиеся, — один из самых воспроизводимых образов в истории искусства. Розовый плащ Бога — анатомически человеческий мозг; Микеланджело, скульптор, досконально знал анатомию.",
+    "descriptionRu": "Фреска создана Микеланджело между 1508 и 1512 годами для потолка Сикстинской капеллы. Художник показал момент, когда Бог передает жизнь первому человеку. Их пальцы почти соприкасаются, но небольшой промежуток между ними сохраняет напряжение и превращает простой жест в главный смысл композиции. Адам лежит тяжело и спокойно, тогда как фигура Бога окружена энергичным движением. Исследователи предлагали разные толкования очертаний красного плаща, включая сходство с человеческим мозгом, однако это остается гипотезой. Образ стал одним из самых узнаваемых символов Возрождения.",
     "tags": [
       "wikimedia",
       "italian",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Creation_of_Adam_perspective_fix.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-birth-of-venus",
@@ -155,15 +209,21 @@ var BUNDLED_ART = [
     "year": "c. 1485",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-birth-of-venus.jpg",
-    "thumb": "img/paintings/wiki-the-birth-of-venus.jpg",
     "source": "wikimedia",
     "description": "Botticelli's 1485 painting for the Medici family. Venus stands on a shell after her birth from the sea. It was revolutionary in its time — a life-size nude figure in a secular (non-religious) context, drawn from classical mythology rather than the Bible.",
     "descriptionRu": "Картина Боттичелли 1485 года для семьи Медичи. Венера стоит на раковине после рождения из моря. По тем временам это было революционно — обнажённая фигура в натуральную величину в светском (нерелигиозном) контексте, по мотивам классической мифологии, а не Библии.",
     "tags": [
       "wikimedia",
       "italian",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-primavera",
@@ -172,15 +232,21 @@ var BUNDLED_ART = [
     "year": "c. 1480",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-primavera.jpg",
-    "thumb": "img/paintings/wiki-primavera.jpg",
     "source": "wikimedia",
     "description": "Also known as 'Allegory of Spring', Botticelli's c.1480 painting for the Medici cousin Lorenzo di Pierfrancesco. The composition shows around 500 identified plant species, making it one of the most botanically detailed artworks in history. Venus stands in the centre while the Three Graces dance on her right.",
     "descriptionRu": "Известна также как «Аллегория весны». Написана Боттичелли около 1480 года для кузена Медичи Лоренцо ди Пьерфранческо. На картине изображено около 500 идентифицируемых видов растений — одна из самых ботанически насыщенных картин в истории. Венера стоит в центре, а три Грации танцуют справа от неё.",
     "tags": [
       "wikimedia",
       "italian",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_Primavera_-_Google_Art_Project.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-scream",
@@ -189,15 +255,21 @@ var BUNDLED_ART = [
     "year": "1893",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-scream.jpg",
-    "thumb": "img/paintings/wiki-the-scream.jpg",
     "source": "wikimedia",
     "description": "Munch's 1893 work (one of four versions). The figure is on a bridge over Oslo fjord, hands pressed to its face. The artist wrote: \"I was walking along a path with two friends — the sun was setting — suddenly the sky turned blood red — I paused, feeling exhausted, and leaned on the fence — there was blood and tongues of fire above the blue-black fjord...\"",
     "descriptionRu": "Работа Мунка 1893 года (одна из четырёх версий). Фигура на мосту через Осло-фьорд прижимает руки к лицу. Художник писал: «Я шёл по тропинке с двумя друзьями — солнце садилось — вдруг небо стало кроваво-красным — я остановился, почувствовал усталость, опёрся на забор — над сине-чёрным фьордом была кровь и языки огня...»",
     "tags": [
       "expressionism",
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-girl-with-a-pearl-earring",
@@ -206,15 +278,21 @@ var BUNDLED_ART = [
     "year": "c. 1665",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-girl-with-a-pearl-earring.jpg",
-    "thumb": "img/paintings/wiki-girl-with-a-pearl-earring.jpg",
     "source": "wikimedia",
     "description": "Vermeer's c.1665 tronie (character study) of an imaginary girl in exotic dress, wearing an oversized pearl earring — which is actually polished tin, not a pearl. Known as \"the Mona Lisa of the North\". Hangs in the Mauritshuis, The Hague.",
     "descriptionRu": "Трони Вермеера ок. 1665 года (характерный этюд) — воображаемая девушка в экзотическом наряде, с огромной серьгой — на самом деле серьга из полированного олова, а не жемчуга. Известна как «Северная Мона Лиза». Находится в Маурицхёйсе, Гаага.",
     "tags": [
       "wikimedia",
       "dutch",
-      "baroque"
-    ]
+      "baroque",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meisje_met_de_parel.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-great-wave-off-kanagawa",
@@ -223,15 +301,22 @@ var BUNDLED_ART = [
     "year": "c. 1831",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-great-wave-off-kanagawa.jpg",
-    "thumb": "img/paintings/wiki-the-great-wave-off-kanagawa.jpg",
     "source": "wikimedia",
     "description": "Hokusai's 1831 woodblock print. A great wave threatens three boats while Mount Fuji sits small in the background. Made as part of a series of 36 views of the same mountain. The foam of the wave inspired Debussy and many Impressionists.",
-    "descriptionRu": "Гравюра Хокусая 1831 года. Огромная волна угрожает трём лодкам, а Фудзи сидит маленьким на заднем плане. Сделана в серии «36 видов Фудзи». Пена волны вдохновила Дебюсси и многих импрессионистов.",
+    "descriptionRu": "Хокусай создал эту цветную ксилографию около 1831 года как часть серии «Тридцать шесть видов Фудзи». Огромная волна нависает над тремя быстрыми лодками, а священная гора кажется маленькой и неподвижной вдали. Изогнутые края пены напоминают когти и усиливают ощущение опасности. Художник соединил традиционную японскую композицию с европейскими приемами перспективы и новым берлинским синим пигментом. Контраст между мгновенным движением воды и устойчивостью Фудзи сделал лист всемирно известным и заметно повлиял на европейское искусство конца XIX века.",
     "tags": [
       "wikimedia",
       "romantic",
-      "japanese"
-    ]
+      "japanese",
+      "world",
+      "romanticism"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsunami_by_hokusai_19th_century.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-kiss",
@@ -240,31 +325,21 @@ var BUNDLED_ART = [
     "year": "1907–1908",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-kiss.jpg",
-    "thumb": "img/paintings/wiki-the-kiss.jpg",
     "source": "wikimedia",
     "description": "Klimt's 1907–1908 masterpiece in the Belvedere, Vienna. The embracing couple dissolves into golden rectangles — clothing, flesh, and landscape merge. Made during his so-called \"Golden Period\" when he used real gold leaf. Painted during his secret affair with Emilie Flöge.",
     "descriptionRu": "Шедевр Климта 1907–1908 годов в Бельведере, Вена. Обнимающаяся пара растворяется в золотых прямоугольниках — одежда, плоть, пейзаж сливаются. Создан в его «золотой период», когда он использовал настоящее золото. Написан во время тайного романа с Эмили Флёге.",
     "tags": [
       "expressionism",
       "wikimedia",
-      "modern"
-    ]
-  },
-  {
-    "id": "wiki-the-persistence-of-memory",
-    "title": "The Persistence of Memory",
-    "artist": "Salvador Dalí",
-    "year": "1931",
-    "museum": "Wikimedia Commons / Google Art Project",
-    "image": "img/paintings/wiki-the-persistence-of-memory.jpg",
-    "thumb": "img/paintings/wiki-the-persistence-of-memory.jpg",
-    "source": "wikimedia",
-    "description": "Dalí's 1931 surrealist painting in MoMA, New York. The melting clocks are sometimes interpreted as a Camembert cheese melting in the sun. Dalí said the landscape was inspired by the cliffs of Cap de Creus in Catalonia, near his home in Port Lligat.",
-    "descriptionRu": "Сюрреалистическая картина Дали 1931 года в MoMA, Нью-Йорк. Тающие часы иногда интерпретируют как камамбер, плавящийся на солнце. Дали говорил, что пейзаж вдохновлён утёсами мыса Кап-де-Креус в Каталонии, рядом с его домом в Порт-Льигате.",
-    "tags": [
-      "wikimedia",
-      "modern"
-    ]
+      "modern",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-american-gothic",
@@ -273,14 +348,20 @@ var BUNDLED_ART = [
     "year": "1930",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-american-gothic.jpg",
-    "thumb": "img/paintings/wiki-american-gothic.jpg",
     "source": "wikimedia",
     "description": "Grant Wood's 1930 painting of a farmer and his daughter in front of a wooden house in Iowa. The house is real — it's the Dibble House in Eldon, Iowa. The models were the artist's sister Nan and his dentist Dr. McKean. Wood said it was meant as a tribute to rural America, not satire.",
     "descriptionRu": "Картина Гранта Вуда 1930 года — фермер и его дочь перед деревянным домом в Айове. Дом реальный — это дом Дибблов в Элдоне, Айова. Моделями были сестра художника Нэн и его дантист доктор Маккин. Вуд говорил, что картина — дань сельской Америке, не сатира.",
     "tags": [
       "wikimedia",
-      "modern"
-    ]
+      "modern",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grant_DeVolson_Wood_-_American_Gothic.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-impression-sunrise",
@@ -289,14 +370,20 @@ var BUNDLED_ART = [
     "year": "1872",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-impression-sunrise.jpg",
-    "thumb": "img/paintings/wiki-impression-sunrise.jpg",
     "source": "wikimedia",
     "description": "The 1872 painting that gave Impressionism its name. A critic mockingly called Monet's hazy harbour scene \"impression\" — the artists adopted the insult. Le Havre, Monet's hometown, is depicted. It hangs in the Musée Marmottan, Paris.",
-    "descriptionRu": "Картина 1872 года, давшая импрессионизму название. Критик презрительно назвал туманный пейзаж Моне с гаванью «впечатлением» — художники приняли оскорбление. Изображён Гавр, родной город Моне. Находится в Музее Мармоттан, Париж.",
+    "descriptionRu": "Моне написал гавань Гавра на рассвете в 1872 году, передав не столько точный вид порта, сколько изменчивое впечатление от света, тумана и воды. Холодные голубые и серые мазки объединяют небо, лодки и промышленные силуэты, а оранжевое солнце создает единственный резкий цветовой акцент. Название картины стало поводом для насмешки критика Луи Леруа над выставкой 1874 года. Художники приняли слово «импрессионисты», и оно дало имя целому направлению. Работа хранится в парижском музее Мармоттан-Моне.",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-water-lilies-(nympheas)",
@@ -305,15 +392,21 @@ var BUNDLED_ART = [
     "year": "1906",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-water-lilies-(nympheas).jpg",
-    "thumb": "img/paintings/wiki-water-lilies-(nympheas).jpg",
     "source": "wikimedia",
     "description": "Monet's massive series of about 250 paintings of his garden pond at Giverny, painted from the late 1890s until his death in 1926. By then almost blind from cataracts. The giant panels in the Orangerie, Paris, are oval rooms where the paintings wrap around you.",
     "descriptionRu": "Огромная серия Моне из примерно 250 картин пруда в его саду в Живерни, написанных с конца 1890-х до самой смерти в 1926 году. К тому времени он был почти слеп из-за катаракты. Гигантские панно в Оранжери, Париж — овальные залы, где картины окружают вас.",
     "tags": [
       "wikimedia",
       "modern",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-school-of-athens",
@@ -322,15 +415,21 @@ var BUNDLED_ART = [
     "year": "1509–1511",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-school-of-athens.jpg",
-    "thumb": "img/paintings/wiki-the-school-of-athens.jpg",
     "source": "wikimedia",
     "description": "Raphael's 1509–1511 fresco in the Vatican's Apostolic Palace. Plato and Aristotle walk in the centre, surrounded by every great philosopher and scientist of the classical world — many of them painted with the faces of Raphael's contemporaries, including Leonardo da Vinci as Plato.",
     "descriptionRu": "Фреска Рафаэля 1509–1511 годов в Апостольском дворце Ватикана. Платон и Аристотель идут в центре, окружённые всеми великими философами и учёными классического мира — многие из них написаны с лиц современников Рафаэля, в том числе Леонардо да Винчи в роли Платона.",
     "tags": [
       "wikimedia",
       "italian",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-third-of-may-1808",
@@ -339,14 +438,21 @@ var BUNDLED_ART = [
     "year": "1814",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-third-of-may-1808.jpg",
-    "thumb": "img/paintings/wiki-the-third-of-may-1808.jpg",
     "source": "wikimedia",
     "description": "Goya's 1814 painting commemorating Spanish resistance to Napoleon's troops. The man with arms raised faces a French firing squad. The lantern on the ground is the only light source — like Caravaggio, Goya uses dramatic chiaroscuro to make the horror immediate. Hangs in the Prado, Madrid.",
     "descriptionRu": "Картина Гойи 1814 года в память об испанском сопротивлении войскам Наполеона. Человек с поднятыми руками смотрит в лицо французскому расстрельному взводу. Фонарь на земле — единственный источник света — как Караваджо, Гойя использует драматический chiaroscuro. Находится в Прадо, Мадрид.",
     "tags": [
       "wikimedia",
-      "romantic"
-    ]
+      "romantic",
+      "world",
+      "romanticism"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Tres_de_Mayo,_by_Francisco_de_Goya,_from_Prado_thin_black_margin.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-fighting-temeraire",
@@ -355,14 +461,21 @@ var BUNDLED_ART = [
     "year": "1839",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-fighting-temeraire.jpg",
-    "thumb": "img/paintings/wiki-the-fighting-temeraire.jpg",
     "source": "wikimedia",
     "description": "Turner's 1839 painting of the warship HMS Temeraire being towed to the breaker's yard at Rotherhithe. The ship had fought at Trafalgar in 1805, but 34 years later was already obsolete and being scrapped. Ruskin called it 'the noblest sea-piece Turner ever painted'. Hangs in the National Gallery, London.",
     "descriptionRu": "Картина Тёрнера 1839 года — военный корабль «Темерер» буксируют на слом в Ротерхайт. Корабль сражался при Трафальгаре в 1805 году, но 34 года спустя устарел и идёт на разборку. Раскин назвал её «самой благородной морской картиной, которую Тёрнер когда-либо писал». Находится в Национальной галерее, Лондон.",
     "tags": [
       "wikimedia",
-      "romantic"
-    ]
+      "romantic",
+      "world",
+      "romanticism"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Fighting_Temeraire,_JMW_Turner,_National_Gallery.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-wanderer-above-the-sea-of-fog",
@@ -371,14 +484,21 @@ var BUNDLED_ART = [
     "year": "c. 1818",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-wanderer-above-the-sea-of-fog.jpg",
-    "thumb": "img/paintings/wiki-wanderer-above-the-sea-of-fog.jpg",
     "source": "wikimedia",
     "description": "Caspar David Friedrich's c.1818 painting. A man in a frock coat stands on a rocky outcrop, his back to us, gazing over a sea of fog with distant mountains. The figure has never been identified. Hangs in the Kunsthalle Hamburg.",
-    "descriptionRu": "Картина Каспара Давида Фридриха ок. 1818 года. Человек в сюртуке стоит на скале спиной к нам, глядя на море тумана с далёкими горами. Фигура так и не была идентифицирована. Находится в Гамбургском Кунстхалле.",
+    "descriptionRu": "Каспар Давид Фридрих написал картину около 1818 года. Путник стоит на вершине скалы спиной к зрителю и смотрит на горы, частично скрытые морем тумана. Такой прием, называемый фигурой со спины, приглашает мысленно занять место героя и разделить его взгляд. Человек кажется одновременно властным и очень маленьким перед бесконечным пространством природы. Линии скал направляют внимание к центру, но туман не дает увидеть надежный путь вперед. Картина стала важным образом романтизма и хранится в Гамбургском Кунстхалле.",
     "tags": [
       "wikimedia",
-      "romantic"
-    ]
+      "romantic",
+      "world",
+      "romanticism"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-composition-vii",
@@ -387,14 +507,20 @@ var BUNDLED_ART = [
     "year": "1913",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-composition-vii.jpg",
-    "thumb": "img/paintings/wiki-composition-vii.jpg",
     "source": "wikimedia",
     "description": "Kandinsky's 1913 abstract painting, said to be one of the most expensive paintings ever sold. A chaotic explosion of shapes, lines, and colours that Kandinsky saw as a cosmic storm — or perhaps the Last Judgment, or the Resurrection of the Dead. Hangs in the Tretyakov Gallery, Moscow.",
     "descriptionRu": "Абстрактная картина Кандинского 1913 года, считается одной из самых дорогих когда-либо проданных картин. Хаотический взрыв форм, линий и цветов, который Кандинский видел как космическую бурю — или, возможно, Страшный суд, или Воскресение мёртвых. Находится в Третьяковской галерее, Москва.",
     "tags": [
       "wikimedia",
-      "modern"
-    ]
+      "modern",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Composition_VII_-_Wassily_Kandinsky,_GAC.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-composition-with-red-blue-and-",
@@ -403,31 +529,20 @@ var BUNDLED_ART = [
     "year": "1930",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-composition-with-red-blue-and-.jpg",
-    "thumb": "img/paintings/wiki-composition-with-red-blue-and-.jpg",
     "source": "wikimedia",
     "description": "Piet Mondrian's 1930 painting, one of the most expensive artworks ever sold at auction ($70M in 2014 to a private collector). It is the largest of a series of similar compositions he painted in 1930, with bold black lines dividing the canvas into red, white, blue, and yellow rectangles.",
     "descriptionRu": "Картина Пита Мондриана 1930 года — одна из самых дорогих картин, когда-либо проданных на аукционе ($70 млн в 2014 году частному коллекционеру). Это самая большая из серии похожих композиций, написанных им в 1930 году, с жирными чёрными линиями, делящими холст на красные, белые, синие и жёлтые прямоугольники.",
     "tags": [
       "wikimedia",
-      "modern"
-    ]
-  },
-  {
-    "id": "wiki-the-son-of-man",
-    "title": "The Son of Man",
-    "artist": "René Magritte",
-    "year": "1964",
-    "museum": "Wikimedia Commons / Google Art Project",
-    "image": "img/paintings/wiki-the-son-of-man.jpg",
-    "thumb": "img/paintings/wiki-the-son-of-man.jpg",
-    "source": "wikimedia",
-    "description": "Magritte's 1964 self-portrait. A man in an overcoat and bowler hat — Magritte's recurring Everyman — has an apple floating in front of his face. Magritte called it a \"self-portrait\" because \"we all see the apple differently\"; everything hides something.",
-    "descriptionRu": "Автопортрет Магритта 1964 года. Человек в пальто и котелке — повторяющийся «каждый человек» Магритта — с яблоком, парящим перед лицом. Магритт называл её «автопортретом», потому что «мы все видим яблоко по-разному»; всё что-то скрывает.",
-    "tags": [
-      "surrealism",
-      "wikimedia",
-      "contemporary"
-    ]
+      "modern",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-bal-du-moulin-de-la-galette",
@@ -436,14 +551,20 @@ var BUNDLED_ART = [
     "year": "1876",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-bal-du-moulin-de-la-galette.jpg",
-    "thumb": "img/paintings/wiki-bal-du-moulin-de-la-galette.jpg",
     "source": "wikimedia",
     "description": "Renoir's 1876 painting of a Sunday afternoon at the Moulin de la Galette dance hall in Montmartre, Paris. The version in the Musée d'Orsay is considered the masterpiece; a smaller version is in a private collection. Renoir took the unusual step of painting outdoors (en plein air) on a large canvas.",
     "descriptionRu": "Картина Ренуара 1876 года — воскресный день в танцевальном зале «Мулен де ла Галетт» на Монмартре, Париж. Версия в Музее Орсе считается шедевром; меньшая версия — в частной коллекции. Ренуар необычно решил писать на пленэре на большом холсте.",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Renoir,_Pierre-Auguste_-_Dance_at_Le_Moulin_de_la_Galette,_1876.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-the-sleeping-gypsy",
@@ -452,14 +573,20 @@ var BUNDLED_ART = [
     "year": "1897",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-the-sleeping-gypsy.jpg",
-    "thumb": "img/paintings/wiki-the-sleeping-gypsy.jpg",
     "source": "wikimedia",
     "description": "Henri Rousseau's 1897 painting. A lion stands over a sleeping gypsy in the moonlight of the Sahara. Rousseau claimed to have painted it after a visit to the Jardin des Plantes zoo in Paris. The painting left France in the 1930s and is now in the Museum of Modern Art, New York.",
     "descriptionRu": "Картина Анри Руссо 1897 года. Лев стоит над спящей цыганкой при лунном свете в Сахаре. Руссо утверждал, что написал её после посещения зоопарка Jardin des Plantes в Париже. Картина покинула Францию в 1930-х годах и сейчас находится в Музее современного искусства, Нью-Йорк.",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Boh%C3%A9mienne_endormie.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "wiki-whistler's-mother",
@@ -468,14 +595,20 @@ var BUNDLED_ART = [
     "year": "1871",
     "museum": "Wikimedia Commons / Google Art Project",
     "image": "img/paintings/wiki-whistler's-mother.jpg",
-    "thumb": "img/paintings/wiki-whistler's-mother.jpg",
     "source": "wikimedia",
     "description": "Officially titled 'Arrangement in Grey and Black No. 1', Whistler's 1871 painting of his mother. Almost rejected by the Royal Academy; Whistler had to repaint the background. Sold to the French state in 1891 after Whistler went bankrupt trying to sue critic John Ruskin for libel. Hangs in the Musée d'Orsay.",
     "descriptionRu": "Официальное название — «Композиция в сером и чёрном № 1». Картина Уистлера 1871 года, изображающая его мать. Почти была отклонена Королевской академией; Уистлеру пришлось переписать фон. Продана французскому государству в 1891 году после того, как Уистлер обанкротился, пытаясь подать в суд на критика Джона Рескина за клевету. Находится в Музее Орсе.",
     "tags": [
       "wikimedia",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whistlers_Mother_high_res.jpg",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436535",
@@ -484,14 +617,20 @@ var BUNDLED_ART = [
     "year": "1889",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436535.jpg",
-    "thumb": "img/paintings/met-436535.jpg",
     "source": "met",
     "description": "Van Gogh's 'Wheat Field with Cypresses' was painted in September 1889 during his stay at the Saint-Paul-de-Mausole asylum. The painting exists in three versions — the National Gallery in London owns the largest, with smaller versions at the Met and in a private collection. Van Gogh considered it one of his best summer paintings.",
     "descriptionRu": "«Пшеничное поле с кипарисами» Ван Гога написано в сентябре 1889 года во время его пребывания в лечебнице Сен-Поль-де-Мозоль. Картина существует в трёх версиях — самая большая находится в Национальной галерее в Лондоне, меньшие версии — в Музее Метрополитен и в частной коллекции. Ван Гог считал её одной из лучших своих летних работ.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436535",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436528",
@@ -500,14 +639,20 @@ var BUNDLED_ART = [
     "year": "1890",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436528.jpg",
-    "thumb": "img/paintings/met-436528.jpg",
     "source": "met",
     "description": "Van Gogh painted Irises in May 1889, just days after his admission to the Saint-Paul-de-Mausole asylum at Saint-Rémy. He considered it a study, and the painting was effectively a 'preliminary' to the doctor he wanted to impress. Sold for $53.9 million in 1987 — at the time the most expensive painting ever sold.",
     "descriptionRu": "Ван Гог написал «Ирисы» в мае 1889 года, через несколько дней после поступления в лечебницу Сен-Поль-де-Мозоль в Сен-Реми. Он считал её этюдом, и картина была, по сути, «пробной» для врача, которого хотел впечатлить. Продана в 1987 году за $53,9 млн — на тот момент самая дорогая картина.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436528",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436532",
@@ -516,14 +661,20 @@ var BUNDLED_ART = [
     "year": "1887",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436532.jpg",
-    "thumb": "img/paintings/met-436532.jpg",
     "source": "met",
     "description": "Van Gogh's 1887 self-portrait from his Paris period, painted on the back of another painting ('The Potato Peeler') — X-ray analysis in 2009 revealed the obscured peasant woman on the reverse. The straw hat was typical of his self-presentation in Paris, echoing his love for Japanese prints.",
     "descriptionRu": "Автопортрет Ван Гога 1887 года, парижского периода, написан на обратной стороне другой картины («Чистильщица картофеля») — рентгеновский анализ в 2009 году обнаружил скрытую крестьянку на обороте. Соломенная шляпа была типична для его самопрезентации в Париже, перекликаясь с любовью к японским гравюрам.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436532",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-437394",
@@ -532,15 +683,21 @@ var BUNDLED_ART = [
     "year": "1653",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-437394.jpg",
-    "thumb": "img/paintings/met-437394.jpg",
     "source": "met",
     "description": "Rembrandt's 1653 painting of Aristotle contemplating the bust of Homer, meditating on worldly fame versus artistic immortality. The gold chain was added in 1693 to elevate Aristotle to Alexander the Great's tutor. The Met bought the painting at auction in 1961 for $2.3M, then a record price for any painting.",
     "descriptionRu": "Картина Рембрандта 1653 года — Аристотель созерцает бюст Гомера, размышляя о мирской славе и художественном бессмертии. Золотая цепь была добавлена в 1693 году, чтобы возвысить Аристотеля до наставника Александра Македонского. Мет купил картину на аукционе в 1961 году за $2,3 млн — тогда рекордная цена для любой картины.",
     "tags": [
       "dutch",
       "met",
-      "baroque"
-    ]
+      "baroque",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/437394",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-437397",
@@ -549,15 +706,21 @@ var BUNDLED_ART = [
     "year": "1660",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-437397.jpg",
-    "thumb": "img/paintings/met-437397.jpg",
     "source": "met",
     "description": "Rembrandt's 1660 self-portrait, painted when he was around 54 — by then bankrupt, having lost his wife and three of his children. The face is unusually raw: bags under the eyes, deep wrinkles, a resigned but unflinching gaze. X-ray analysis shows he originally painted a more flattering costume before scraping it away.",
     "descriptionRu": "Автопортрет Рембрандта 1660 года, написанный, когда ему было около 54 лет — к тому времени он был разорён, потерял жену и троих детей. Лицо необычно суровое: мешки под глазами, глубокие морщины, покорный, но непоколебимый взгляд. Рентгеновский анализ показывает, что изначально он написал более лестный костюм, а потом соскоблил его.",
     "tags": [
       "dutch",
       "met",
-      "baroque"
-    ]
+      "baroque",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/437397",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-437881",
@@ -566,15 +729,21 @@ var BUNDLED_ART = [
     "year": "ca. 1662",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-437881.jpg",
-    "thumb": "img/paintings/met-437881.jpg",
     "source": "met",
     "description": "Vermeer's c.1662 painting of a young woman pouring water — one of his most celebrated works. It was nearly lost during the 1713 bankruptcy of the Rotterdam merchant who owned it. Marcel Proust considered it Vermeer's masterpiece, and called the painting's yellow-blue tones 'the fairest in the world'.",
     "descriptionRu": "Картина Вермеера ок. 1662 года — молодая женщина наливает воду — одна из самых знаменитых его работ. Она едва не была потеряна во время банкротства 1713 года роттердамского купца, который владел ею. Марсель Пруст считал её шедевром Вермеера и называл жёлто-голубые тона картины «прекраснейшими в мире».",
     "tags": [
       "dutch",
       "met",
-      "baroque"
-    ]
+      "baroque",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/437881",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436575",
@@ -583,14 +752,20 @@ var BUNDLED_ART = [
     "year": "ca. 1599–1600",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436575.jpg",
-    "thumb": "img/paintings/met-436575.jpg",
     "source": "met",
     "description": "El Greco painted 'View of Toledo' around 1596-1600, the only landscape of the city El Greco ever made. The dramatic stormy sky and unnatural greenish earth reflect the spiritual intensity of his religious work. Painted on commission for the chapel of the Hospital de la Caridad in Illescas, near Madrid.",
     "descriptionRu": "Эль Греко написал «Вид Толедо» около 1596–1600 годов — единственный пейзаж города, который он когда-либо создал. Драматическое грозовое небо и неестественная зеленоватая земля отражают духовную интенсивность его религиозных работ. Написана на заказ для часовни Больницы Каридад в Ильескасе, недалеко от Мадрида.",
     "tags": [
       "met",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436575",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436573",
@@ -599,14 +774,20 @@ var BUNDLED_ART = [
     "year": "ca. 1600",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436573.jpg",
-    "thumb": "img/paintings/met-436573.jpg",
     "source": "met",
     "description": "El Greco's c.1600 portrait of Cardinal Fernando Niño de Guevara, Grand Inquisitor of Spain and a powerful figure in the Counter-Reformation. The cardinal's anxious, intense gaze is one of the most psychologically penetrating portraits of the era. He holds a paper with the tenet 'Attend vnto the things which thou hast heard' (St. Paul's letter to Timothy).",
     "descriptionRu": "Портрет Эль Греко ок. 1600 года кардинала Фернандо Ниньо де Гевара, Великого инквизитора Испании и влиятельной фигуры Контрреформации. Тревожный, напряжённый взгляд кардинала — один из самых психологически проницательных портретов эпохи. В руке у него бумага с изречением «Внемли тому, что ты слышал» (из послания апостола Павла Тимофею).",
     "tags": [
       "met",
-      "baroque"
-    ]
+      "baroque",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436573",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436105",
@@ -615,14 +796,21 @@ var BUNDLED_ART = [
     "year": "1787",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436105.jpg",
-    "thumb": "img/paintings/met-436105.jpg",
     "source": "met",
     "description": "Jacques-Louis David's 1787 painting 'The Death of Socrates' — a defining work of Neoclassicism. It shows Socrates about to drink the hemlock, his hand reaching for the cup while he lectures his disciples about the immortality of the soul. The 1964 film 'The Hunger' borrowed the composition for a key scene.",
     "descriptionRu": "«Смерть Сократа» Жака-Луи Давида 1787 года — определяющая работа неоклассицизма. Сократ изображён в момент принятия цикуты, его рука тянется к чаше, пока он читает ученикам лекцию о бессмертии души. Фильм «Голод» 1964 года позаимствовал эту композицию для ключевой сцены.",
     "tags": [
       "romantic",
-      "met"
-    ]
+      "met",
+      "world",
+      "romanticism"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436105",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436106",
@@ -631,14 +819,21 @@ var BUNDLED_ART = [
     "year": "1788",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436106.jpg",
-    "thumb": "img/paintings/met-436106.jpg",
     "source": "met",
     "description": "David's 1788 double portrait of the French chemist Antoine Lavoisier and his wife Marie-Anne. Marie-Anne, painted as an equal partner, gazes at her husband with admiration. Both hold pens and his paper is open to chemical formulas. The painting was confiscated during the Revolution and Lavoisier was guillotined in 1794.",
     "descriptionRu": "Двойной портрет 1788 года кисти Давида — французский химик Антуан Лавуазье с женой Мари-Анн. Мари-Анн, написанная как равноправная партнёрша, смотрит на мужа с восхищением. Оба держат перья, и его бумага открыта химическими формулами. Картина была конфискована во время Революции, а Лавуазье был гильотинирован в 1794 году.",
     "tags": [
       "romantic",
-      "met"
-    ]
+      "met",
+      "world",
+      "romanticism"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436106",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-435844",
@@ -647,15 +842,21 @@ var BUNDLED_ART = [
     "year": "1597",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-435844.jpg",
-    "thumb": "img/paintings/met-435844.jpg",
     "source": "met",
     "description": "Caravaggio's 1597 painting of four boys in a musical rehearsal, with a crow symbolising death playing an out-of-tune lute. It was probably a self-portrait, possibly inspired by a lost 1480 painting by Leonardo da Vinci. The painting was specifically mentioned in the 2006 novel 'Caravaggio' by Andrew Greeley.",
     "descriptionRu": "Картина Караваджо 1597 года — четыре мальчика на музыкальной репетиции, с вороной, символизирующей смерть, играющей расстроенную лютню. Вероятно, это автопортрет, возможно вдохновлённый утерянной картиной Леонардо да Винчи 1480 года. Картина конкретно упоминается в романе Эндрю Грили «Караваджо» 2006 года.",
     "tags": [
       "italian",
       "met",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/435844",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-435809",
@@ -664,14 +865,20 @@ var BUNDLED_ART = [
     "year": "1565",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-435809.jpg",
-    "thumb": "img/paintings/met-435809.jpg",
     "source": "met",
     "description": "Pieter Bruegel the Elder's 1565 painting 'The Harvesters' — part of a series of six showing the seasons of the year, only five of which survive. The harvesters take a midday nap under a pear tree; a man on the right drinks from a jug. The series hangs in the Metropolitan Museum and the Kunsthistorisches Museum, Vienna.",
     "descriptionRu": "Картина Питера Брейгеля Старшего 1565 года «Жатва» — часть серии из шести картин, изображающих времена года; сохранились только пять. Косцы спят после полуденного отдыха под грушевым деревом; человек справа пьёт из кувшина. Серия находится в Музее Метрополитен и в Музее истории искусств в Вене.",
     "tags": [
       "met",
-      "renaissance"
-    ]
+      "renaissance",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/435809",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-435868",
@@ -680,14 +887,20 @@ var BUNDLED_ART = [
     "year": "1890–92",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-435868.jpg",
-    "thumb": "img/paintings/met-435868.jpg",
     "source": "met",
     "description": "Cézanne's c.1890-92 'The Card Players' — one of five paintings of working men playing cards. In 2012 the Qatar royal family reportedly purchased the most valuable version for around $250 million, briefly making it the most expensive painting ever sold. Cézanne spent years working and reworking the composition, making hundreds of preparatory drawings.",
     "descriptionRu": "«Игроки в карты» Сезанна ок. 1890–92 — одна из пяти картин с рабочими, играющими в карты. В 2012 году королевская семья Катара предположительно купила самую дорогую версию примерно за $250 миллионов, что ненадолго сделало её самой дорогой проданной картиной. Сезанн годами работал и перерабатывал композицию, делая сотни подготовительных рисунков.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/435868",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-435882",
@@ -696,14 +909,20 @@ var BUNDLED_ART = [
     "year": "ca. 1890",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-435882.jpg",
-    "thumb": "img/paintings/met-435882.jpg",
     "source": "met",
     "description": "Cézanne's c.1890 still life, painted in his studio in Aix-en-Provence. The tilted table is a deliberate Cézannian device, showing multiple viewpoints simultaneously — a precursor to Cubism. The primroses in the pot bloom in winter, suggesting the still life was painted in Cézanne's last years when he was mostly housebound.",
     "descriptionRu": "Натюрморт Сезанна ок. 1890 года, написан в его мастерской в Экс-ан-Провансе. Наклонённый стол — сознательный приём Сезанна, показывающий несколько точек зрения одновременно — это предтеча кубизма. Примулы в горшке цветут зимой, что говорит о том, что натюрморт был написан в последние годы Сезанна, когда он был в основном привязан к дому.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/435882",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-438817",
@@ -712,14 +931,20 @@ var BUNDLED_ART = [
     "year": "1874",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-438817.jpg",
-    "thumb": "img/paintings/met-438817.jpg",
     "source": "met",
     "description": "Degas's 1874 painting 'The Dance Class' — the first of his many ballet scenes. It was commissioned by his patron Jean-Baptiste Faure. The unusual cropping (some dancers cut off, others turned away) reflects Degas's love of Japanese prints and his interest in candid, photographic framing.",
     "descriptionRu": "«Танцевальный класс» Дега 1874 года — первая из многих его балетных сцен. Картина была заказана его покровителем Жан-Батистом Фором. Необычное кадрирование (некоторые танцовщицы обрезаны, другие отвернулись) отражает любовь Дега к японским гравюрам и его интерес к откровенному, фотографическому кадрированию.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/438817",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-436947",
@@ -728,14 +953,20 @@ var BUNDLED_ART = [
     "year": "1874",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-436947.jpg",
-    "thumb": "img/paintings/met-436947.jpg",
     "source": "met",
     "description": "Manet's 1874 'Boating' painted at Argenteuil, just west of Paris. It was rejected by the Salon in 1875 — by then Manet had been accepted since 1861. He sent it to the second Impressionist exhibition instead. His wife Suzanne served as the model; she is shown with the painter's initials on her bodice.",
     "descriptionRu": "«Гребля» Мане 1874 года, написанная в Аржантейе, к западу от Парижа. Картина была отклонена Салоном в 1875 году — к тому времени Мане был принят с 1861 года. Он отправил её на вторую выставку импрессионистов вместо этого. Его жена Сюзанна позировала; на её корсаже видны инициалы художника.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/436947",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-437430",
@@ -744,14 +975,20 @@ var BUNDLED_ART = [
     "year": "1883",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-437430.jpg",
-    "thumb": "img/paintings/met-437430.jpg",
     "source": "met",
     "description": "Renoir's 1883 'By the Seashore' painted during a holiday at Berck-sur-Mer on the Normandy coast. The model is Aline Charigot, who later became his wife. She is fully dressed in the latest Parisian fashion — Renoir was famous for insisting that even bathing scenes should look elegant.",
     "descriptionRu": "«У моря» Ренуара 1883 года, написанное во время отпуска в Берк-сюр-Мер на побережье Нормандии. Модель — Алин Шариго, позже ставшая его женой. Она полностью одета по последней парижской моде — Ренуар был известен тем, что настаивал: даже сцены купания должны выглядеть элегантно.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/437430",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-437654",
@@ -760,14 +997,20 @@ var BUNDLED_ART = [
     "year": "1887–88",
     "museum": "Metropolitan Museum of Art, New York",
     "image": "img/paintings/met-437654.jpg",
-    "thumb": "img/paintings/met-437654.jpg",
     "source": "met",
     "description": "Seurat's 1887-88 'Circus Sideshow' — his last major work before his early death at 31. Unlike 'A Sunday Afternoon' with its static figures, this painting shows a parade of dancers, musicians and acrobats under artificial gaslight. He made many oil sketches studying how gaslight affected colour, which influenced the new Pointillism movement he co-founded.",
     "descriptionRu": "«Цирковое представление» Сёра 1887–88 годов — его последняя крупная работа перед ранней смертью в 31 год. В отличие от «Воскресного дня», где фигуры статичны, эта картина показывает парад танцоров, музыкантов и акробатов при искусственном газовом освещении. Он сделал много масляных эскизов, изучая, как газовое освещение влияет на цвет, что повлияло на новое движение пуантилизма, одним из основателей которого он был.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/437654",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-437998",
@@ -776,14 +1019,20 @@ var BUNDLED_ART = [
     "year": "1889",
     "museum": "The Metropolitan Museum of Art",
     "image": "img/paintings/met-437998.jpg",
-    "thumb": "img/paintings/met-437998.jpg",
     "source": "met",
     "description": "Van Gogh's 'Olive Trees' (1889) painted in June, the month of his sister's birthday. The gnarled trunks and shimmering sky reflected his reading of theosophy, where the trees were symbols of spiritual struggle. Van Gogh considered the sky 'more important than the trees' — they would be nothing without it. He painted it during a calm period between major breakdowns.",
     "descriptionRu": "«Оливковые деревья» Ван Гога (1889), написанные в июне — в день рождения его сестры. Скрученные стволы и мерцающее небо отражали его увлечение теософией, где деревья символизировали духовную борьбу. Ван Гог считал небо «важнее деревьев» — без него они были бы ничем. Он написал её в спокойный период между крупными приступами.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/437998",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-437852",
@@ -792,14 +1041,21 @@ var BUNDLED_ART = [
     "year": "1811",
     "museum": "The Metropolitan Museum of Art",
     "image": "img/paintings/met-437852.jpg",
-    "thumb": "img/paintings/met-437852.jpg",
     "source": "met",
     "description": "J.M.W. Turner's 1811 painting 'Saltash with the Water Ferry, Cornwall' — a quiet landscape made in his late style. The little ferry carries the artist's niece and her husband. Turner painted standing in the rain, finishing it in one sitting. The painting is associated with his lost love Sarah Danby, mother of his two daughters.",
     "descriptionRu": "«Солташ с водным паромом, Корнуолл» Тёрнера 1811 года — тихий пейзаж позднего стиля. Маленький паром перевозит племянницу художника и её мужа. Тёрнер писал стоя под дождём, закончив за один сеанс. Картина связана с его потерянной любовью Сарой Дэнби, матерью двух его дочерей.",
     "tags": [
       "romantic",
-      "met"
-    ]
+      "met",
+      "world",
+      "romanticism"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/437852",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
   },
   {
     "id": "met-459092",
@@ -808,13 +1064,196 @@ var BUNDLED_ART = [
     "year": "1885–86",
     "museum": "The Metropolitan Museum of Art",
     "image": "img/paintings/met-459092.jpg",
-    "thumb": "img/paintings/met-459092.jpg",
     "source": "met",
     "description": "Cézanne's 'Trees and Houses Near the Jas de Bouffan' (1885-86) painted at his family's estate outside Aix-en-Provence. The painting shows the long view through pine trees of the family's country house. Cézanne used the estate as a subject repeatedly for 20 years — until he inherited it in 1886 and his mother finally agreed to let him work outdoors.",
     "descriptionRu": "«Деревья и дома у Жас де Буффана» Сезанна (1885-86), написанная в семейном поместье под Экс-ан-Провансом. Картина показывает вид через сосны на загородный дом семьи. Сезанн использовал поместье как сюжет снова и снова 20 лет — пока не унаследовал его в 1886 году и его мать наконец не разрешила ему работать на открытом воздухе.",
     "tags": [
       "met",
-      "impressionism"
-    ]
+      "impressionism",
+      "world"
+    ],
+    "commercialUseAllowed": true,
+    "license": "CC0 — The Met Open Access",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/459092",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified",
+    "region": "world"
+  },
+  {
+    "id": "ru-aivazovsky-ninth-wave",
+    "title": "The Ninth Wave",
+    "titleRu": "Девятый вал",
+    "artist": "Ivan Aivazovsky",
+    "artistRu": "Иван Айвазовский",
+    "year": "1850",
+    "museum": "State Russian Museum, Saint Petersburg",
+    "museumRu": "Государственный Русский музей, Санкт-Петербург",
+    "image": "img/paintings/ru-aivazovsky-ninth-wave.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hovhannes_Aivazovsky_-_The_Ninth_Wave_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "commercialUseAllowed": true,
+    "region": "russian",
+    "tags": [
+      "russian",
+      "romanticism",
+      "landscape",
+      "sea",
+      "romantic"
+    ],
+    "description": "Aivazovsky painted The Ninth Wave in 1850, turning a shipwreck into a scene of fear and hope. Survivors cling to broken masts after a night storm while the largest wave approaches. The wreckage forms a cross-like shape, and the warm sunrise softens the danger with golden and rose light. Aivazovsky was famous for painting the sea from memory rather than directly from nature. Here he combines precise observation of waves with theatrical colour, making the water feel both destructive and luminous. The painting became one of the defining images of Russian Romanticism and remains in the State Russian Museum.",
+    "descriptionRu": "Айвазовский написал «Девятый вал» в 1850 году, превратив кораблекрушение в сцену страха и надежды. Пережившие ночную бурю люди держатся за обломки мачты, пока к ним приближается самая мощная волна. Обломки складываются в форму, напоминающую крест, а теплый рассвет смягчает драму золотистым и розовым светом. Айвазовский обычно писал море по памяти, соединяя точное наблюдение за волнами с театральной выразительностью цвета. Поэтому вода здесь кажется одновременно разрушительной и сияющей. Картина стала одним из главных образов русского романтизма и хранится в Государственном Русском музее.",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified"
+  },
+  {
+    "id": "ru-shishkin-morning-pine-forest",
+    "title": "Morning in a Pine Forest",
+    "titleRu": "Утро в сосновом лесу",
+    "artist": "Ivan Shishkin and Konstantin Savitsky",
+    "artistRu": "Иван Шишкин и Константин Савицкий",
+    "year": "1889",
+    "museum": "State Tretyakov Gallery, Moscow",
+    "museumRu": "Государственная Третьяковская галерея, Москва",
+    "image": "img/paintings/ru-shishkin-morning-pine-forest.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Utro_v_sosnovom_lesu.jpg",
+    "license": "Public domain",
+    "commercialUseAllowed": true,
+    "region": "russian",
+    "tags": [
+      "russian",
+      "realism",
+      "landscape",
+      "nature"
+    ],
+    "description": "This 1889 forest scene is associated with Ivan Shishkin, one of Russia's most exact observers of nature. Shishkin constructed the monumental pine forest, while Konstantin Savitsky painted the playful bears that give the landscape its story and scale. Morning mist separates the tree trunks into layers, and a fallen pine creates a natural stage in the centre. The animals do not dominate the forest; instead, they make its height and age easier to feel. Pavel Tretyakov removed Savitsky's signature after purchasing the picture, so for many years it was credited only to Shishkin. Today both artists' contributions are acknowledged.",
+    "descriptionRu": "Лесной пейзаж 1889 года связан прежде всего с Иваном Шишкиным, одним из самых внимательных наблюдателей русской природы. Шишкин создал монументальный сосновый бор, а Константин Савицкий написал играющих медведей, которые добавили картине сюжет и помогли почувствовать масштаб деревьев. Утренний туман разделяет стволы на несколько пространственных планов, а поваленная сосна становится естественной сценой в центре композиции. Животные не заслоняют лес, а подчеркивают его высоту и древность. После покупки картины Павел Третьяков удалил подпись Савицкого, поэтому долгое время работу приписывали только Шишкину. Сейчас вклад обоих художников признается.",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified"
+  },
+  {
+    "id": "ru-repin-barge-haulers",
+    "title": "Barge Haulers on the Volga",
+    "titleRu": "Бурлаки на Волге",
+    "artist": "Ilya Repin",
+    "artistRu": "Илья Репин",
+    "year": "1870–1873",
+    "museum": "State Russian Museum, Saint Petersburg",
+    "museumRu": "Государственный Русский музей, Санкт-Петербург",
+    "image": "img/paintings/ru-repin-barge-haulers.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_-_Barge_Haulers_on_the_Volga_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "commercialUseAllowed": true,
+    "region": "russian",
+    "tags": [
+      "russian",
+      "realism",
+      "history",
+      "people"
+    ],
+    "description": "Repin developed Barge Haulers on the Volga after travelling along the river and meeting men who pulled cargo boats against the current. The eleven figures are not anonymous symbols: he studied individual workers and gave each a distinct posture and expression. Their bent bodies form a slow, uneven rhythm across the wide canvas. Near the centre, a younger man straightens and loosens his strap, creating a small sign of resistance. A distant steamship hints that this exhausting labour could already be replaced by technology. Completed in 1873, the painting established Repin's reputation and became a landmark of Russian critical realism.",
+    "descriptionRu": "Репин задумал «Бурлаков на Волге» после путешествия по реке и знакомства с людьми, которые тянули грузовые суда против течения. Одиннадцать персонажей здесь не являются безликими символами: художник изучал конкретных работников и каждому придал собственную позу и выражение лица. Их согнутые тела образуют медленный, неровный ритм вдоль широкого холста. Ближе к центру молодой бурлак выпрямляется и ослабляет лямку, создавая небольшой, но важный знак сопротивления. Вдали виден пароход, напоминающий, что тяжелый труд уже могла заменить техника. Завершенная в 1873 году картина принесла Репину известность и стала важнейшим произведением русского критического реализма.",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified"
+  },
+  {
+    "id": "ru-vasnetsov-bogatyrs",
+    "title": "Bogatyrs",
+    "titleRu": "Богатыри",
+    "artist": "Viktor Vasnetsov",
+    "artistRu": "Виктор Васнецов",
+    "year": "1881–1898",
+    "museum": "State Tretyakov Gallery, Moscow",
+    "museumRu": "Государственная Третьяковская галерея, Москва",
+    "image": "img/paintings/ru-vasnetsov-bogatyrs.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viktor_Vasnetsov_-_%D0%91%D0%BE%D0%B3%D0%B0%D1%82%D1%8B%D1%80%D0%B8_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "commercialUseAllowed": true,
+    "region": "russian",
+    "tags": [
+      "russian",
+      "folklore",
+      "history",
+      "people"
+    ],
+    "description": "Vasnetsov worked on Bogatyrs for almost two decades. The three mounted heroes come from Russian epic poetry: Dobrynya Nikitich, Ilya Muromets and Alyosha Popovich. They pause on the open steppe and search the horizon for danger. Each hero has a separate temperament, expressed through armour, weapon, horse and posture: authority in the centre, experience on the left and alert cleverness on the right. The low horizon makes the figures monumental, while the windswept grass and distant hills create a believable landscape rather than a theatrical backdrop. The painting joined folklore, historical research and national Romanticism in a single iconic image.",
+    "descriptionRu": "Васнецов работал над «Богатырями» почти два десятилетия. Три всадника пришли из русских былин: Добрыня Никитич, Илья Муромец и Алеша Попович. Они остановились в открытой степи и внимательно осматривают горизонт. У каждого героя собственный характер, выраженный через доспехи, оружие, коня и посадку: в центре чувствуется сила и спокойная власть, слева опыт, справа подвижность и настороженность. Низкая линия горизонта делает фигуры монументальными, а трава и дальние холмы создают убедительный пейзаж, а не условную декорацию. Картина объединила фольклор, интерес к истории и национальный романтизм в одном узнаваемом образе.",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified"
+  },
+  {
+    "id": "ru-serov-girl-with-peaches",
+    "title": "Girl with Peaches",
+    "titleRu": "Девочка с персиками",
+    "artist": "Valentin Serov",
+    "artistRu": "Валентин Серов",
+    "year": "1887",
+    "museum": "State Tretyakov Gallery, Moscow",
+    "museumRu": "Государственная Третьяковская галерея, Москва",
+    "image": "img/paintings/ru-serov-girl-with-peaches.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Valentin_Serov_-_%D0%94%D0%B5%D0%B2%D0%BE%D1%87%D0%BA%D0%B0_%D1%81_%D0%BF%D0%B5%D1%80%D1%81%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8._%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%92.%D0%A1.%D0%9C%D0%B0%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%BE%D0%B9_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "commercialUseAllowed": true,
+    "region": "russian",
+    "tags": [
+      "russian",
+      "impressionism",
+      "portrait",
+      "people"
+    ],
+    "description": "Serov painted twelve-year-old Vera Mamontova in the dining room of the Abramtsevo estate. Although the portrait appears spontaneous, the model posed over many sessions. Daylight moves across the white tablecloth, pink blouse, fruit and leaves, giving the room an unusually fresh atmosphere. Vera leans forward as if she has only just sat down and may leave again at any moment. This sense of movement distinguishes the work from formal nineteenth-century portraiture. Serov combined careful drawing with loose, light-filled brushwork learned from European painting, creating one of the earliest and most beloved achievements of Russian Impressionism.",
+    "descriptionRu": "Серов написал двенадцатилетнюю Веру Мамонтову в столовой усадьбы Абрамцево. Хотя портрет кажется мгновенным и непринужденным, модель позировала художнику во время многих сеансов. Дневной свет проходит по белой скатерти, розовой блузе, фруктам и листьям, создавая ощущение свежего воздуха внутри комнаты. Вера наклонилась вперед, словно только что села и через мгновение снова убежит. Это чувство движения отличает картину от парадных портретов XIX века. Серов соединил точный рисунок со свободным, наполненным светом мазком и создал одно из самых ранних и любимых произведений русского импрессионизма.",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified"
+  },
+  {
+    "id": "ru-kuindzhi-moonlit-dnieper",
+    "title": "Moonlit Night on the Dnieper",
+    "titleRu": "Лунная ночь на Днепре",
+    "artist": "Arkhip Kuindzhi",
+    "artistRu": "Архип Куинджи",
+    "year": "1880",
+    "museum": "State Russian Museum, Saint Petersburg",
+    "museumRu": "Государственный Русский музей, Санкт-Петербург",
+    "image": "img/paintings/ru-kuindzhi-moonlit-dnieper.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arkhip_Kuindzhi_-_%D0%9D%D0%BE%D1%87%D1%8C_%D0%BD%D0%B0_%D0%94%D0%BD%D0%B5%D0%BF%D1%80%D0%B5_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "commercialUseAllowed": true,
+    "region": "russian",
+    "tags": [
+      "russian",
+      "romanticism",
+      "landscape",
+      "night",
+      "romantic"
+    ],
+    "description": "Kuindzhi presented this painting alone in a darkened exhibition room in 1880, directing light toward the canvas. Visitors suspected that a lamp or phosphorescent paint was hidden behind the image because the moonlit river appeared to glow. The effect came from an extremely controlled contrast: a narrow band of greenish light lies between a nearly black sky and shore. The landscape is simplified, almost abstract, but small houses and paths retain a sense of real space. Kuindzhi treated light as the main subject rather than a detail of the landscape, creating an immersive experience that anticipated later experiments with installation and display.",
+    "descriptionRu": "В 1880 году Куинджи показал эту картину одну в затемненном выставочном зале, направив свет на холст. Посетители подозревали, что за изображением спрятана лампа или художник использовал светящуюся краску: настолько яркой казалась лунная дорожка на реке. Эффект возник благодаря точно выстроенному контрасту. Узкая полоса зеленоватого света находится между почти черными небом и берегом. Пейзаж сильно упрощен и почти абстрактен, но маленькие дома и дороги сохраняют ощущение реального пространства. Куинджи сделал свет главным героем произведения и создал впечатление полного погружения, предвосхитив более поздние эксперименты с выставочным пространством.",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified"
+  },
+  {
+    "id": "ru-savrasov-rooks",
+    "title": "The Rooks Have Returned",
+    "titleRu": "Грачи прилетели",
+    "artist": "Alexei Savrasov",
+    "artistRu": "Алексей Саврасов",
+    "year": "1871",
+    "museum": "State Tretyakov Gallery, Moscow",
+    "museumRu": "Государственная Третьяковская галерея, Москва",
+    "image": "img/paintings/ru-savrasov-rooks.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aleksey_Savrasov_-_%D0%93%D1%80%D0%B0%D1%87%D0%B8_%D0%BF%D1%80%D0%B8%D0%BB%D0%B5%D1%82%D0%B5%D0%BB%D0%B8_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "commercialUseAllowed": true,
+    "region": "russian",
+    "tags": [
+      "russian",
+      "realism",
+      "landscape",
+      "spring"
+    ],
+    "description": "Savrasov found poetry in an ordinary early-spring village. Snow still covers the ground, but water has begun to collect in the thawed patches and rooks are repairing nests in bare birch trees. The modest church, leaning fences and distant fields create a recognisable central Russian landscape. Nothing dramatic happens, yet the repeated curves of nests, branches and clouds give the scene quiet movement. Painted in 1871 and shown at the first exhibition of the Peredvizhniki, the work changed expectations of landscape painting. It demonstrated that atmosphere, season and emotional memory could make an unremarkable place feel deeply significant.",
+    "descriptionRu": "Саврасов увидел поэзию в обычной деревне ранней весной. Снег еще лежит на земле, но в проталинах уже собирается вода, а грачи чинят гнезда на голых березах. Небольшая церковь, покосившиеся заборы и дальние поля создают узнаваемый пейзаж средней полосы России. В картине не происходит ничего драматического, однако повторяющиеся линии гнезд, ветвей и облаков придают ей тихое движение. Работа была написана в 1871 году и показана на первой выставке передвижников. Она изменила представление о пейзаже, доказав, что состояние природы, время года и личная память способны сделать непримечательное место глубоко значимым.",
+    "rightsVerifiedAt": "2026-07-16",
+    "rightsStatus": "verified"
   }
 ];

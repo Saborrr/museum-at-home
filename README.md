@@ -1,322 +1,208 @@
 <div align="center">
 
-# 🎨 Art Gallery Screensaver
+<img src="img/icon512x512.png" width="150" alt="Museum at Home logo">
 
-**Красивая заставка с шедеврами мировой живописи для телевизоров LG (webOS) и Android**
+# Museum at Home
 
-<p>
-  <img src="https://img.shields.io/badge/webOS-3.0+-blue" alt="webOS">
-  <img src="https://img.shields.io/badge/Android-5.0+-green" alt="Android">
-  <img src="https://img.shields.io/badge/картин-50-orange" alt="50 картин">
-  <img src="https://img.shields.io/badge/лицензия-Все_права_защищены-red" alt="Лицензия">
-</p>
+### A quiet, curated museum experience for LG webOS televisions
+
+[![webOS 3.x+](https://img.shields.io/badge/webOS-3.x%2B-8b6b32?style=for-the-badge&logo=lg)](https://webostv.developer.lge.com/)
+[![Chromium 38](https://img.shields.io/badge/legacy-Chromium_38-4f5944?style=for-the-badge)](https://webostv.developer.lge.com/develop/specifications/web-api-and-web-engine)
+[![CI](https://img.shields.io/github/actions/workflow/status/Saborrr/art-screensaver-webos/ci.yml?style=for-the-badge&label=build)](https://github.com/Saborrr/art-screensaver-webos/actions)
+[![License](https://img.shields.io/badge/code-all_rights_reserved-3b3328?style=for-the-badge)](LICENSE)
+
+<img src="img/splash.png" alt="Museum at Home splash screen">
 
 </div>
 
-## 🖼️ Что это?
+## About
 
-Экранная заставка, которая показывает 50 самых известных картин мира — Мона Лиза, Звёздная ночь, Рождение Венеры, Крик и другие. Картины плавно сменяются с эффектом Ken Burns (плавный наезд камеры, как в Apple TV).
+Museum at Home turns a television into a calm, full-screen art gallery. It is
+built specifically for the ten-foot TV experience: large readable typography,
+simple remote control, offline fallbacks and restrained animation.
 
-**Две версии:**
-- 📺 **webOS** (LG телевизоры) — папка корня репозитория
-- 📱 **Android** (телефоны, планшеты, Android TV) — папка `android/`
+The commercial catalog currently generates **55 rights-checked artworks**:
 
----
+- 7 Russian masterpieces with detailed Russian and English stories;
+- 48 works from the world collection;
+- disputed Dalí and Magritte records excluded until licensing is documented;
+- one CC BY-SA reproduction held back until its attribution flow is finalized.
 
-## ✨ Что умеет
+## Highlights
 
-- 🖼️ 50 шедевров в высоком разрешении (HD, 4K, 8K)
-- 🎬 Эффект Ken Burns — плавный наезд/панорама как в Apple TV
-- 🏛️ Картины из лучших музеев мира (Метрополитен, Лувр, Рейксмюзеум и др.)
-- 📴 Работает без интернета (все картины в комплекте)
-- ⏱️ Настраиваемый интервал смены (15 сек — 5 мин)
-- ❤️ Избранное — сохраняйте любимые картины
-- 🕐 Часы на экране
-- 🎮 Управление пультом ТВ или касанием
-- 🌍 Двуязычный интерфейс (EN/RU) с автоматическим определением языка
-- 📝 Описания каждой картины на двух языках
-- 🏷️ Фильтрация по стилям: Impressionism, Renaissance, Baroque, Modern, Romantic
-- 🎯 Множественный выбор коллекций в настройках
+- Russian art and world art collections;
+- genres and periods: landscape, portrait, realism, Romanticism,
+  Impressionism, Renaissance, Baroque and modern art;
+- favorites with migration from the previous storage format;
+- calm dual-image crossfade without a black flash;
+- optional gentle Ken Burns movement;
+- detailed descriptions revealed in three lightweight stages;
+- Russian and English interface;
+- fully offline 1920 px image fallbacks;
+- immediate remote handling while the first artwork loads;
+- separate 1080p and 720p webOS builds;
+- ES5 runtime tested for webOS 3.x / Chromium 38.
 
----
+## Remote control
 
-## 🧪 Как запустить (пошагово)
+| Key | Action |
+|:---:|---|
+| `←` / `→` | Previous / next artwork |
+| `↑` or red | Add or remove favorite |
+| `↓` or yellow | Open the artwork story |
+| `OK`, green or blue | Open collections and settings |
+| `Back` | Close the current panel or exit |
 
-### Вариант 1: Просто в браузере (самый быстрый способ)
+The same controls can be used with the Magic Remote pointer.
 
-Это самый простой способ — не нужно ничего устанавливать, работает на любом компьютере.
+## Image quality on UHD televisions
 
-1. Скачайте репозиторий:
-   - Нажмите зелёную кнопку **Code** → **Download ZIP** на этой странице
-   - Или через терминал (нужен Git):
-   ```
-   git clone https://github.com/Saborrr/art-screensaver-webos.git
-   ```
+LG officially supports a maximum graphics display resolution of 1920×1080 for
+web apps on UHD models; 3840×2160 is available for video playback, not the HTML
+graphics layer. Museum at Home therefore uses clean, color-managed 1920 px
+reproductions instead of wasting memory on files the webOS graphics compositor
+would downscale.
 
-2. Откройте файл `index.html` в любом браузере (Chrome, Firefox, Safari):
-   - **Windows:** два раза кликните по файлу `index.html`
-   - **Mac:** то же самое, или перетащите файл на иконку браузера
-   - **Linux:** выполните в терминале:
-   ```
-   xdg-open index.html
-   ```
+For older Full HD models, LG recommends a separate 1280×720 package. The build
+pipeline produces both profiles.
 
-3. Готово! Картины будут сменяться автоматически.
+## Quick browser preview
 
-> ⚠️ Если открыли просто файлом — коллекция загрузится из локального файла. Для работы с API музеев нужен HTTP-сервер (см. ниже).
+Requires Node.js 18 or newer:
 
-### Вариант 2: Через HTTP-сервер (для полного функционала)
-
-Если хотите, чтобы приложение подгружало картины из API музеев (интернет):
-
-1. Установите Python (если нет): [python.org](https://python.org)
-2. Откройте терминал в папке проекта
-3. Запустите сервер:
-   ```
-   python -m http.server 8080
-   ```
-4. Откройте в браузере: `http://localhost:8080`
-
-### Вариант 3: На телевизоре LG (webOS)
-
-**Что нужно:**
-- Телевизор LG с webOS 3.0 или новее
-- Компьютер с Node.js (версия 16+)
-- Кабель интернета (желательно)
-
-**Шаг 1 — установите инструменты разработчика:**
-
-Откройте терминал на компьютере и выполните:
+```bash
+git clone https://github.com/Saborrr/art-screensaver-webos.git
+cd art-screensaver-webos
+npm test
+npm run catalog
+npx --yes http-server . -p 8080
 ```
+
+Open `http://localhost:8080`.
+
+## Install on an LG TV
+
+Install the current official CLI:
+
+```bash
 npm install -g @webos-tools/cli
-```
-*(нужен Node.js — скачайте с [nodejs.org](https://nodejs.org))*
-
-**Шаг 2 — включите режим разработчика на ТВ:**
-
-1. На телевизоре откройте **LG Content Store**
-2. Найдите и установите приложение **Developer Mode**
-3. Запустите его и запомните IP адрес телевизора
-4. На компьютере выполните:
-```
-webos-cli device --add YOUR_TV_IP
-```
-*(замените YOUR_TV_IP на IP вашего телевизора)*
-
-**Шаг 3 — соберите приложение:**
-
-В папке проекта (где файл `appinfo.json`):
-```
-webos-cli package .
-```
-Эта команда создаст файл `com.artscreen.gallery_1.0.0_all.ipk`
-
-**Шаг 4 — установите на телевизор:**
-```
-webos-cli install --device YOUR_TV com.artscreen.gallery_1.0.0_all.ipk
+ares -V
 ```
 
-**Шаг 5 — запустите:**
+On the TV, install **Developer Mode**, sign in, enable Developer Mode, reboot,
+enable **Key Server** and note the TV IP address. The computer and TV must be on
+the same network.
 
-Найдите приложение "Art Gallery Screensaver" в списке приложений на ТВ.
-
-### Вариант 4: На Android
-
-**Что нужно:**
-- Компьютер с Node.js (16+)
-- Android телефон/планшет (для теста)
-- Или аккаунт Google Play (для публикации)
-
-**Шаг 1 — установите зависимости:**
-
-Откройте терминал и выполните:
+```bash
+ares-setup-device
 ```
-cd android
-npm install
+
+Use:
+
+```text
+Name: myTV
+Port: 9922
+User: prisoner
 ```
-*(это скачает все нужные библиотеки — потребуется интернет, ~1 минута)*
 
-**Шаг 2 — проверьте на телефоне (через Expo Go):**
+Get the key and verify the connection:
 
-1. Установите приложение **Expo Go** на телефон из Google Play
-2. Запустите сервер:
-   ```
-   npx expo start
-   ```
-3. Отсканируйте QR-код из терминала приложением Expo Go
-4. Приложение откроется на телефоне!
-
-**Шаг 3 — соберите APK (для установки без Google Play):**
+```bash
+ares-novacom --device myTV --getkey
+ares-device --device myTV --system-info
 ```
-npx expo export --platform android
+
+Build, package, install and launch:
+
+```bash
+chmod +x deploy.sh
+./deploy.sh myTV 1080
 ```
-*(создаст файл в папке `android/dist/`)*
 
-**Шаг 4 — опубликуйте в Google Play (опционально):**
+For an older Full HD model:
 
-Зарегистрируйтесь на [Google Play Console](https://play.google.com/console) ($25 разово), загрузите APK/AAB.
-
----
-
-## 🎮 Управление
-
-### На телевизоре (пульт):
-| Кнопка | Действие |
-|:---:|:---|
-| ◀️ / ▶️ | Предыдущая / Следующая картина |
-| ⬆️ | ❤️ Сохранить в избранное |
-| ⬇️ | Показать информацию |
-| OK / Назад | Открыть настройки |
-
-### На телефоне (касания):
-| Действие | Результат |
-|:---|:---|
-| Тап слева / справа | Предыдущая / Следующая |
-| Тап сверху | Сохранить в избранное |
-| Тап снизу | Показать информацию |
-| Долгое нажатие центр | Настройки |
-
----
-
-## 📁 Структура проекта
-
+```bash
+./deploy.sh myTV 720
 ```
-art-screensaver-webos/
-├── index.html              ← Версия для webOS (главная страница)
-├── appinfo.json            ← Манифест приложения webOS
-├── deploy.sh               ← 1-click скрипт сборки и деплоя
-├── css/
-│   └── style.css           ← Стили (тёмная тема, анимации, адаптивность)
+
+For rapid development without packaging:
+
+```bash
+npm run catalog
+ares-launch -H . -d myTV
+```
+
+Open the inspector while the app is running:
+
+```bash
+ares-inspect -d myTV --app com.saborrr.museumathome --open
+```
+
+Developer Mode sessions expire. When the session expires, LG removes
+developer-installed apps; extend it in the Developer Mode app before the timer
+runs out.
+
+## Development
+
+```bash
+npm test          # logic, catalog and ES5 compatibility tests
+npm run audit:rights         # use the cached rights report where possible
+npm run audit:rights:refresh # recheck every source API and update metadata
+npm run validate  # strict source, rights and local-asset checks
+npm run build     # creates dist/webos-1080 and dist/webos-720
+```
+
+The runtime uses a single source of truth:
+
+```text
+data/*.json
+    ↓ validated generator
+js/catalog.es5.js
+    ↓ tested ES5 runtime
+dist/webos-1080 + dist/webos-720
+    ↓ official ares-package
+installable .ipk files
+```
+
+GitHub Actions runs the tests, validates all local fallbacks, builds both
+profiles and uploads both `.ipk` files as workflow artifacts.
+
+## Content safety
+
+Every release artwork must include a source page, rights statement, local
+fallback and an explicit commercial-use decision. See
+[the content and rights policy](docs/CONTENT_POLICY.md).
+
+Images found through a search engine are not accepted automatically. Museum at
+Home rejects installation photos, visitors, reflections, unrelated frames and
+watermarks.
+
+## Repository layout
+
+```text
+├── index.html
+├── appinfo.json
+├── css/style.css
 ├── js/
-│   ├── museum-api.js       ← Подключение к API музеев
-│   ├── cache.js            ← Кэширование + избранное
-│   ├── app.js              ← Главная логика приложения
-│   ├── bundled.js          ← Встроенная коллекция (50 картин)
-│   └── *.es5.js            ← ES5-транспилированные версии (webOS 3.x)
-├── img/
-│   ├── icon80x80.png       ← Иконка приложения (webOS)
-│   ├── icon130x130.png     ← Большая иконка (webOS)
-│   ├── splash.png          ← Заставка при запуске (webOS)
-│   └── paintings/          ← Локальные копии картин (Met Museum)
+│   ├── app.es5.js
+│   ├── core.es5.js
+│   └── catalog.es5.js
 ├── data/
-│   └── collection.json     ← 50 картин с описаниями (EN/RU) и тегами
+│   ├── collection.json
+│   └── russian-collection.json
+├── img/paintings/
+├── scripts/
 ├── tests/
-│   └── museum-api.test.js  ← Юнит-тесты
-├── docs/
-│   └── plans/              ← Документация и планы развития
-├── art-gallery-android/    ← Нативная Android-версия (Kotlin + Jetpack Compose)
-│   ├── app/src/main/       ← Исходный код Android
-│   ├── build.gradle.kts    ← Конфиг сборки Gradle
-│   └── gradlew             ← Gradle wrapper
-│
-└── android/                ← Версия на React Native (Expo)
-    ├── App.js              ← Точка входа
-    ├── app.json            ← Настройки Expo
-    ├── components/
-    │   └── Screensaver.js  ← Экран заставки (React Native)
-    ├── data/
-    │   └── collection.json ← Та же коллекция картин
-    └── package.json        ← Зависимости Android-версии
+└── .github/workflows/ci.yml
 ```
 
----
+The older Expo and Android experiments remain in the repository for reference,
+but the release pipeline currently targets LG webOS.
 
-## 🏛️ Откуда картины
+## Author
 
-| Источник | Разрешение | Нужен ключ? |
-|:---|:---:|:---:|
-| Wikimedia Commons / Google Art Project | до 8K | ❌ |
-| Metropolitan Museum (Нью-Йорк) | до 4K | ❌ |
+Created and maintained by **[Saborrr](https://github.com/Saborrr)**.
 
-Все картины — общественное достояние (public domain / CC0). Используются легально.
-
-**Некоторые из 50 картин:**
-- 🌌 Звёздная ночь — Ван Гог
-- 👩 Мона Лиза — Леонардо да Винчи
-- 🌊 Рождение Венеры — Боттичелли
-- 😱 Крик — Мунк
-- 💋 Поцелуй — Климт
-- 🌊 Большая волна в Канагаве — Хокусай
-- 🏛️ Сотворение Адама — Микеланджело
-- 🌻 Подсолнухи — Ван Гог
-- 🦉 Ночные ястребы — Хоппер
-- 🎭 Герника — Пикассо
-- + ещё 40 шедевров
-
----
-
-## 📺 Публикация
-
-### LG Content Store (бесплатно)
-1. Зарегистрируйтесь на [seller.lgappstv.com](https://seller.lgappstv.com)
-2. Загрузите `.ipk` файл
-3. LG проверяет ~1-2 недели
-4. Если прошло — появится в магазине LG
-
-### Google Play ($25 разово)
-1. Зарегистрируйтесь на [play.google.com/console](https://play.google.com/console)
-2. Загрузите AAB файл (собирается через Expo EAS)
-3. Проверка ~1-7 дней
-4. Публикация в Google Play
-
----
-
-## 🗺️ Что планируется
-
-- [x] Основная заставка с анимациями
-- [x] 50 шедевров из лучших музеев
-- [x] Офлайн-коллекция
-- [x] Эффект Ken Burns
-- [x] Избранное
-- [x] Версия для webOS
-- [x] Версия для Android (React Native + нативная Kotlin)
-- [x] Двуязычный интерфейс (EN/RU)
-- [x] Описания картин на двух языках
-- [x] Фильтрация по стилям живописи
-- [x] ES5-транспиляция для webOS 3.x (Chromium 38)
-- [x] Юнит-тесты
-- [ ] Фоновая музыка
-- [ ] Больше музеев (Europeana, WikiArt)
-- [ ] Премиум-коллекции (монетизация)
-- [ ] Публикация в LG Content Store
-- [ ] Публикация в Google Play
-
----
-
-## 🔧 Для разработчиков
-
-### Как добавить свои картины
-
-Откройте файл `data/collection.json` и добавьте запись:
-```json
-{
-  "id": "custom-1",
-  "title": "Название картины",
-  "artist": "Имя художника",
-  "year": "Год",
-  "museum": "Название музея",
-  "image": "https://ссылка-на-картину-в-высоком-качестве.jpg",
-  "thumb": "https://ссылка-на-превью.jpg",
-  "source": "custom",
-  "description": "Description in English",
-  "descriptionRu": "Описание на русском",
-  "tags": ["impressionism", "wikimedia"]
-}
-```
-
-**Доступные теги:** `impressionism`, `renaissance`, `baroque`, `modern`, `romantic`, `wikimedia`, `met`
-
-### Как получить ключ Rijksmuseum API (опционально)
-
-Бесплатный ключ даёт доступ к 800,000+ объектов из Рейксмюзеума (Амстердам):
-1. Перейдите на [data.rijksmuseum.nl](https://data.rijksmuseum.nl/)
-2. Зарегистрируйтесь (бесплатно)
-3. Вставьте ключ в файл `js/museum-api.js` → поле `RIJKS_KEY`
-
----
-
-## ⚖️ Лицензия
-
-Все права защищены. Проект и исходный код принадлежат автору. Копирование, распространение и модификация без письменного разрешения запрещены.
-
-Изображения картин принадлежат соответствующим музеям и используются на условиях open access / public domain.
+The application code is distributed under the repository's all-rights-reserved
+license. Artwork and reproduction rights are tracked separately for every
+catalog record.

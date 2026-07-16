@@ -1,0 +1,21 @@
+{
+  "name": "museum-at-home-webos",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Museum-quality ambient art gallery for LG webOS TVs",
+  "scripts": {
+    "catalog": "node scripts/generate-catalog.js",
+    "audit:rights": "node scripts/audit-rights.js",
+    "audit:rights:write": "node scripts/audit-rights.js --write",
+    "audit:rights:refresh": "node scripts/audit-rights.js --write --refresh",
+    "validate": "node scripts/generate-catalog.js --strict-assets",
+    "build": "node scripts/build-webos.js",
+    "build:1080": "node scripts/build-webos.js --1080",
+    "build:720": "node scripts/build-webos.js --720",
+    "test": "node --test tests/core.test.js tests/catalog.test.js tests/compatibility.test.js",
+    "check": "npm run test && npm run catalog && node --check js/core.es5.js && node --check js/app.es5.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
