@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -47,5 +47,53 @@ jobs:
         with:
           name: museum-at-home-webos
           path: artifacts/**/*.ipk
+          if-no-files-found: error
+          retention-days: 14
+
+  universal-and-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Set up Java for Android
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+
+      - name: Test and build universal web assets
+        run: |
+          npm test
+          npm run build:platforms:strict
+
+      - name: Build Android TV and Fire TV APK
+        working-directory: art-gallery-android
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
+
+      - name: Package browser, Samsung and Android builds
+        run: |
+          mkdir -p artifacts
+          (cd dist/web && zip -qr ../../artifacts/museum-at-home-web.zip .)
+          (cd dist/tizen && zip -qr ../../artifacts/museum-at-home-tizen-unsigned.zip .)
+          cp art-gallery-android/app/build/outputs/apk/debug/app-debug.apk artifacts/museum-at-home-android-tv-debug.apk
+          test "$(find artifacts -type f | wc -l)" -eq 3
+
+      - name: Upload cross-platform packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: museum-at-home-cross-platform
+          path: artifacts/*
           if-no-files-found: error
           retention-days: 14

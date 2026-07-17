@@ -31,6 +31,9 @@
       interval: 'Смена картины',
       motion: 'Движение',
       language: 'Язык',
+      chrome: 'Информация',
+      chromeAuto: 'Авто',
+      chromeAlways: 'Всегда',
       loading: 'Готовим вашу галерею…',
       emptyTitle: 'В избранном пока ничего нет',
       emptyText: 'Вернитесь к картинам и нажмите кнопку вверх.',
@@ -66,6 +69,9 @@
       interval: 'Change artwork',
       motion: 'Motion',
       language: 'Language',
+      chrome: 'Information',
+      chromeAuto: 'Auto-hide',
+      chromeAlways: 'Always',
       loading: 'Preparing your gallery…',
       emptyTitle: 'No favorites yet',
       emptyText: 'Return to the gallery and press the Up button.',
@@ -107,6 +113,7 @@
     clockTimer: null,
     toastTimer: null,
     detailTimers: [],
+    chromeTimer: null,
     preloads: [],
     focusables: [],
     focusIndex: 0,
@@ -128,7 +135,11 @@
       this.updateClock();
       this.clockTimer = setInterval(this.updateClock.bind(this), 30000);
       this.applyCategory(this.settings.category, true);
+      window.MuseumAppBack = function () {
+        return App.handlePlatformBack();
+      };
       document.body.focus();
+      this.showChrome();
       setTimeout(function () {
         App.el.controlsHint.classList.add('is-dimmed');
       }, 9000);
@@ -166,6 +177,7 @@
         intervalHeading: document.getElementById('interval-heading'),
         motionHeading: document.getElementById('motion-heading'),
         languageHeading: document.getElementById('language-heading'),
+        chromeHeading: document.getElementById('chrome-heading'),
         artCount: document.getElementById('art-count'),
         toast: document.getElementById('toast'),
         loading: document.getElementById('loading'),
@@ -177,6 +189,10 @@
       document.addEventListener('keydown', function (event) {
         App.handleKey(event);
       }, true);
+
+      document.addEventListener('mousemove', function () {
+        App.showChrome();
+      });
 
       this.el.favoriteButton.addEventListener('click', function (event) {
         event.stopPropagation();
@@ -224,13 +240,14 @@
     handleKey: function (event) {
       var code = event.keyCode || event.which;
       var handled = true;
+      this.showChrome();
 
       if (this.detailsOpen) {
         if (code === 38) {
           this.el.detailsScroll.scrollTop -= 130;
         } else if (code === 40) {
           this.el.detailsScroll.scrollTop += 130;
-        } else if (code === 461 || code === 1003 || code === 13) {
+        } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27 || code === 13) {
           this.closeDetails();
         } else {
           handled = false;
@@ -246,7 +263,7 @@
           this.moveFocus(0, 1);
         } else if (code === 13) {
           this.activateFocus();
-        } else if (code === 461 || code === 1003) {
+        } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27) {
           this.closeMenu();
         } else {
           handled = false;
@@ -261,7 +278,7 @@
         this.openDetails();
       } else if (code === 13 || code === 404 || code === 406) {
         this.openMenu();
-      } else if (code === 461 || code === 1003) {
+      } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27) {
         this.exitApp();
       } else {
         handled = false;
@@ -274,11 +291,29 @@
     },
 
     exitApp: function () {
+      if (typeof window.tizen !== 'undefined' &&
+          window.tizen.application &&
+          window.tizen.application.getCurrentApplication) {
+        window.tizen.application.getCurrentApplication().exit();
+        return;
+      }
       try {
         window.close();
       } catch (ignore) {
         history.back();
       }
+    },
+
+    handlePlatformBack: function () {
+      if (this.detailsOpen) {
+        this.closeDetails();
+        return true;
+      }
+      if (this.menuOpen) {
+        this.closeMenu();
+        return true;
+      }
+      return false;
     },
 
     loadSettings: function () {
@@ -390,6 +425,7 @@
       this.updateArtworkText(artwork);
       this.updateFavoriteButton();
       this.closeDetails();
+      this.showChrome();
 
       nextLayer.onload = function () {
         if (token !== App.loadToken) {
@@ -409,9 +445,9 @@
         setTimeout(function () {
           if (!oldLayer.classList.contains('active')) {
             App.removeMotionClasses(oldLayer);
-      oldLayer.onload = null;
-      oldLayer.onerror = null;
-      oldLayer.removeAttribute('src');
+            oldLayer.onload = null;
+            oldLayer.onerror = null;
+            oldLayer.removeAttribute('src');
           }
         }, immediate ? 50 : 1100);
       };
@@ -536,6 +572,7 @@
 
     restartSlideshow: function () {
       this.stopSlideshow();
+      this.showChrome();
       this.slideTimer = setTimeout(function () {
         App.changeArtwork(1);
       }, this.settings.interval * 1000);
@@ -606,6 +643,7 @@
       if (this.artworks.length) {
         this.restartSlideshow();
       }
+      this.showChrome();
     },
 
     openMenu: function () {
@@ -615,6 +653,7 @@
         this.closeDetails();
       }
       this.stopSlideshow();
+      this.showChrome();
       this.menuOpen = true;
       this.el.menu.classList.add('open');
       this.el.menu.setAttribute('aria-hidden', 'false');
@@ -648,6 +687,7 @@
       if (this.artworks.length) {
         this.restartSlideshow();
       }
+      this.showChrome();
       document.body.focus();
     },
 
@@ -724,6 +764,11 @@
         );
         this.updateLanguage();
         this.updateMenuSelection();
+      } else if (action === 'chrome') {
+        this.settings.chrome = value;
+        this.saveSettings();
+        this.updateMenuSelection();
+        this.showChrome();
       }
     },
 
@@ -740,7 +785,8 @@
           (action === 'category' && value === this.settings.category) ||
           (action === 'interval' && Number(value) === this.settings.interval) ||
           (action === 'motion' && value === this.settings.motion) ||
-          (action === 'language' && value === this.settings.language)
+          (action === 'language' && value === this.settings.language) ||
+          (action === 'chrome' && value === this.settings.chrome)
         );
       }
     },
@@ -760,6 +806,7 @@
       this.el.intervalHeading.textContent = t.interval;
       this.el.motionHeading.textContent = t.motion;
       this.el.languageHeading.textContent = t.language;
+      this.el.chromeHeading.textContent = t.chrome;
       this.el.emptyTitle.textContent = t.emptyTitle;
       this.el.emptyText.textContent = t.emptyText;
       document.querySelector('#empty-state [data-value="all"]').textContent = t.showAll;
@@ -772,6 +819,8 @@
       for (i = 0; i < labels.length; i += 1) {
         labels[i].textContent = t.controls[i];
       }
+      document.querySelector('[data-action="chrome"][data-value="auto"]').textContent = t.chromeAuto;
+      document.querySelector('[data-action="chrome"][data-value="always"]').textContent = t.chromeAlways;
       this.updateCategoryName();
       if (this.currentArtwork()) {
         this.updateArtworkText(this.currentArtwork());
@@ -796,6 +845,16 @@
       this.toastTimer = setTimeout(function () {
         App.el.toast.classList.remove('show');
       }, 1800);
+    },
+
+    showChrome: function () {
+      clearTimeout(this.chromeTimer);
+      document.getElementById('app').classList.remove('chrome-hidden');
+      if (this.settings && this.settings.chrome === 'auto' && !this.menuOpen && !this.detailsOpen) {
+        this.chromeTimer = setTimeout(function () {
+          document.getElementById('app').classList.add('chrome-hidden');
+        }, 12000);
+      }
     }
   };
 
