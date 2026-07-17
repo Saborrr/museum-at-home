@@ -46,9 +46,11 @@ for (const resolution of requested) {
 
   for (const relative of [
     'index.html',
+    'manifest.webmanifest',
     'css/style.css',
     'js/catalog.es5.js',
     'js/core.es5.js',
+    'js/platform.es5.js',
     'js/app.es5.js'
   ]) {
     copyFile(relative, out);

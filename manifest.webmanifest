@@ -1,0 +1,36 @@
+{
+  "name": "Museum at Home",
+  "short_name": "Museum",
+  "description": "A calm, curated art gallery for televisions and large screens.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#080807",
+  "theme_color": "#080807",
+  "categories": ["art", "entertainment", "education"],
+  "icons": [
+    {
+      "src": "img/icon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "docs/images/app-preview.jpg",
+      "sizes": "1920x1080",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Museum at Home gallery on a television"
+    }
+  ]
+}

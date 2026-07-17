@@ -12,7 +12,8 @@
     category: 'all',
     language: 'auto',
     showClock: true,
-    motion: 'gentle'
+    motion: 'gentle',
+    chrome: 'auto'
   };
 
   function cloneObject(source) {
@@ -33,6 +34,7 @@
     var allowedIntervals = [15, 30, 60, 120, 300];
     var allowedLanguages = ['auto', 'ru', 'en'];
     var allowedMotion = ['off', 'gentle'];
+    var allowedChrome = ['auto', 'always'];
 
     if (allowedIntervals.indexOf(Number(input.interval)) !== -1) {
       result.interval = Number(input.interval);
@@ -45,6 +47,9 @@
     }
     if (allowedMotion.indexOf(input.motion) !== -1) {
       result.motion = input.motion;
+    }
+    if (allowedChrome.indexOf(input.chrome) !== -1) {
+      result.chrome = input.chrome;
     }
     if (typeof input.showClock === 'boolean') {
       result.showClock = input.showClock;

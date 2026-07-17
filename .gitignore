@@ -17,3 +17,4 @@ android/.expo/
 android/dist/
 art-gallery-android/.gradle/
 art-gallery-android/app/build/
+art-gallery-android/app/src/main/assets/

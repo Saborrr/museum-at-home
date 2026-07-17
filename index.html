@@ -5,7 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=1920, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#080807">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title>Museum at Home</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="img/icon512x512.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body tabindex="0">
@@ -134,6 +139,13 @@
               <button class="segment focusable" data-action="language" data-value="en" data-row="5" data-col="2">English</button>
             </div>
           </div>
+          <div class="setting-block">
+            <h3 id="chrome-heading">Информация</h3>
+            <div class="segmented">
+              <button class="segment focusable" data-action="chrome" data-value="auto" data-row="6" data-col="0">Авто</button>
+              <button class="segment focusable" data-action="chrome" data-value="always" data-row="6" data-col="1">Всегда</button>
+            </div>
+          </div>
         </div>
 
         <div class="overlay-hint">Стрелки Выбор · OK Применить · Back Закрыть</div>
@@ -153,6 +165,7 @@
 
   <script src="js/catalog.es5.js"></script>
   <script src="js/core.es5.js"></script>
+  <script src="js/platform.es5.js"></script>
   <script src="js/app.es5.js"></script>
 </body>
 </html>

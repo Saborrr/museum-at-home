@@ -138,6 +138,8 @@ button {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   pointer-events: none;
+  -webkit-transition: opacity 420ms ease, -webkit-transform 420ms ease;
+  transition: opacity 420ms ease, transform 420ms ease;
 }
 
 .brand {
@@ -328,6 +330,18 @@ button {
 
 .controls-hint.is-dimmed {
   opacity: 0.28;
+}
+
+.chrome-hidden .topbar {
+  opacity: 0;
+  -webkit-transform: translateY(-16px);
+  transform: translateY(-16px);
+}
+
+.chrome-hidden .art-info,
+.chrome-hidden .controls-hint {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .overlay {
@@ -559,7 +573,7 @@ button {
 }
 
 .setting-block {
-  width: 31.5%;
+  width: 24%;
 }
 
 .empty-state {

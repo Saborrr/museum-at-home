@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="topShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#050504" stop-opacity=".68"/>
+      <stop offset=".24" stop-color="#050504" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bottomShade" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#050504" stop-opacity=".92"/>
+      <stop offset=".42" stop-color="#050504" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="copyShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#080807" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#080807" stop-opacity=".28"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="7" result="blur"/>
+      <feOffset dy="3" result="offset"/>
+      <feColorMatrix in="offset" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .75 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#080807"/>
+  <image xlink:href="../../img/paintings/ru-aivazovsky-ninth-wave.jpg" x="156" y="0" width="1608" height="1080" preserveAspectRatio="xMidYMid meet"/>
+  <rect width="1920" height="1080" fill="url(#topShade)"/>
+  <rect width="1920" height="1080" fill="url(#bottomShade)"/>
+
+  <g transform="translate(52 43)">
+    <path fill="#d8b56c" d="M3 20 29 3l26 17H3zm5 5h42v6H8v-6zm5 10h7v18h-7V35zm13 0h7v18h-7V35zm13 0h7v18h-7V35zM4 57h50v5H4z"/>
+    <text x="76" y="30" fill="#f7f3e9" font-family="Georgia,serif" font-size="29">Museum at Home</text>
+    <text x="76" y="58" fill="#fff" fill-opacity=".74" font-family="Arial,sans-serif" font-size="18">Русское искусство</text>
+  </g>
+  <text x="1767" y="91" fill="#fff" fill-opacity=".84" text-anchor="end" font-family="Arial,sans-serif" font-size="34" letter-spacing="2">21:47</text>
+
+  <g transform="translate(52 785)">
+    <rect x="0" y="0" width="1270" height="207" fill="url(#copyShade)"/>
+    <rect x="0" y="0" width="4" height="207" fill="#d8b56c"/>
+    <text x="30" y="64" fill="#f7f3e9" font-family="Georgia,serif" font-size="47">Девятый вал</text>
+    <text x="30" y="111" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="bold">Иван Айвазовский</text>
+    <text x="30" y="151" fill="#fff" fill-opacity=".76" font-family="Arial,sans-serif" font-size="21">1850 · Государственный Русский музей, Санкт-Петербург</text>
+  </g>
+
+  <g transform="translate(1526 855)">
+    <rect x="0" y="0" width="290" height="84" rx="42" fill="#080807" fill-opacity=".69" stroke="#fff" stroke-opacity=".34" stroke-width="2"/>
+    <path d="M45 56S24 44 24 29c0-8 5-12 12-12 4 0 8 3 9 6 1-3 5-6 10-6 7 0 12 4 12 12 0 15-22 27-22 27z" fill="none" stroke="#fff" stroke-width="3"/>
+    <text x="82" y="52" fill="#fff" font-family="Arial,sans-serif" font-size="21">В избранное</text>
+  </g>
+
+  <g fill="#fff" fill-opacity=".72" font-family="Arial,sans-serif" font-size="17">
+    <text x="52" y="1041">← →  Картины</text>
+    <text x="218" y="1041">↑  Избранное</text>
+    <text x="390" y="1041">↓  О картине</text>
+    <text x="565" y="1041">OK  Коллекции</text>
+  </g>
+</svg>

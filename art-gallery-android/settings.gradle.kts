@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ArtGalleryScreensaver"
+rootProject.name = "MuseumAtHome"
 include(":app")

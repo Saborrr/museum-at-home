@@ -8,7 +8,7 @@ const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
 
 test('TV runtime stays ES5-friendly for webOS 3.x Chromium 38', () => {
-  const files = ['js/core.es5.js', 'js/app.es5.js'];
+  const files = ['js/core.es5.js', 'js/platform.es5.js', 'js/app.es5.js'];
   for (const file of files) {
     const source = fs.readFileSync(path.join(root, file), 'utf8');
     assert.doesNotMatch(source, /\b(?:const|let|class|async|await)\b/);
@@ -30,4 +30,5 @@ test('app manifest uses Museum at Home identity and 1080 graphics mode', () => {
   assert.equal(appInfo.title, 'Museum at Home');
   assert.equal(appInfo.resolution, '1920x1080');
   assert.equal(appInfo.disableBackHistoryAPI, true);
+  assert.equal(appInfo.version, '2.1.0');
 });
