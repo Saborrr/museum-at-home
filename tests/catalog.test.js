@@ -24,7 +24,7 @@ test('a review-only reproduction is not shipped commercially', () => {
 });
 
 test('every commercial artwork has source, rights and local fallback metadata', () => {
-  const result = validateCatalog(catalog);
+  const result = validateCatalog(catalog, { strictAssets: true });
   assert.deepEqual(result.errors, []);
   for (const artwork of catalog) {
     assert.match(artwork.image, /^img\/paintings\//);

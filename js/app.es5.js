@@ -43,6 +43,7 @@
       noDescription: 'Подробное описание для этой картины готовится.',
       license: 'Источник и права',
       publicDomain: 'Общественное достояние. Источник репродукции указан в каталоге.',
+      menuHint: 'Стрелки — выбор · OK — применить/снять · Back — закрыть',
       controls: ['← → Картины', '↑ Избранное', '↓ О картине', 'OK Коллекции']
     },
     en: {
@@ -81,6 +82,7 @@
       noDescription: 'A detailed story for this artwork is being prepared.',
       license: 'Source and rights',
       publicDomain: 'Public domain. The reproduction source is documented in the catalog.',
+      menuHint: 'Arrows — select · OK — apply/remove · Back — close',
       controls: ['← → Artworks', '↑ Favorite', '↓ Story', 'OK Collections']
     }
   };
@@ -178,6 +180,7 @@
         motionHeading: document.getElementById('motion-heading'),
         languageHeading: document.getElementById('language-heading'),
         chromeHeading: document.getElementById('chrome-heading'),
+        menuHint: document.getElementById('menu-hint'),
         artCount: document.getElementById('art-count'),
         toast: document.getElementById('toast'),
         loading: document.getElementById('loading'),
@@ -380,7 +383,12 @@
       var filtered;
       this.settings.category = category || 'all';
       this.saveSettings();
-      filtered = MuseumCore.filterCatalog(this.catalog, this.settings.category, this.favorites);
+      filtered = MuseumCore.filterCatalog(
+        this.catalog,
+        this.settings.category,
+        this.favorites,
+        this.settings.styles
+      );
       this.artworks = this.shuffle(filtered);
       this.index = 0;
       this.updateCategoryName();
@@ -402,7 +410,17 @@
 
     updateCategoryName: function () {
       var key = CATEGORY_KEYS[this.settings.category] || 'all';
-      this.el.categoryName.textContent = I18N[this.language][key] || I18N[this.language].all;
+      var name = I18N[this.language][key] || I18N[this.language].all;
+      var styles = this.settings.styles || [];
+      var labels = [];
+      var i;
+      for (i = 0; i < styles.length && i < 2; i += 1) {
+        labels.push(I18N[this.language][styles[i]] || styles[i]);
+      }
+      if (styles.length > 2) {
+        labels.push('+' + (styles.length - 2));
+      }
+      this.el.categoryName.textContent = name + (labels.length ? ' · ' + labels.join(', ') : '');
     },
 
     currentArtwork: function () {
@@ -745,7 +763,13 @@
       var value = element.getAttribute('data-value');
       if (action === 'category') {
         this.applyCategory(value, false);
-        this.closeMenu();
+      } else if (action === 'style') {
+        if (this.settings.styles.indexOf(value) === -1) {
+          this.settings.styles.push(value);
+        } else {
+          this.settings.styles.splice(this.settings.styles.indexOf(value), 1);
+        }
+        this.applyCategory(this.settings.category, false);
       } else if (action === 'interval') {
         this.settings.interval = Number(value);
         this.saveSettings();
@@ -783,6 +807,7 @@
         buttons[i].classList.toggle(
           'selected',
           (action === 'category' && value === this.settings.category) ||
+          (action === 'style' && this.settings.styles.indexOf(value) !== -1) ||
           (action === 'interval' && Number(value) === this.settings.interval) ||
           (action === 'motion' && value === this.settings.motion) ||
           (action === 'language' && value === this.settings.language) ||
@@ -793,7 +818,7 @@
 
     updateLanguage: function () {
       var t = I18N[this.language];
-      var labels = document.querySelectorAll('[data-action="category"]');
+      var labels = document.querySelectorAll('[data-action="category"], [data-action="style"]');
       var i;
       var value;
       var key;
@@ -807,12 +832,13 @@
       this.el.motionHeading.textContent = t.motion;
       this.el.languageHeading.textContent = t.language;
       this.el.chromeHeading.textContent = t.chrome;
+      this.el.menuHint.textContent = t.menuHint;
       this.el.emptyTitle.textContent = t.emptyTitle;
       this.el.emptyText.textContent = t.emptyText;
       document.querySelector('#empty-state [data-value="all"]').textContent = t.showAll;
       for (i = 0; i < labels.length; i += 1) {
         value = labels[i].getAttribute('data-value');
-        key = CATEGORY_KEYS[value] || 'all';
+        key = labels[i].getAttribute('data-action') === 'style' ? value : (CATEGORY_KEYS[value] || 'all');
         labels[i].textContent = t[key] || value;
       }
       labels = this.el.controlsHint.getElementsByTagName('span');

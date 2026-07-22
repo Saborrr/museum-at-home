@@ -41,6 +41,14 @@ test('filters Russian, world and style collections', () => {
     Core.filterCatalog(catalog, 'style:impressionism', {}).map((a) => a.id),
     ['world-1']
   );
+  assert.deepEqual(
+    Core.filterCatalog(catalog, 'world', {}, ['impressionism', 'baroque']).map((a) => a.id),
+    ['world-1', 'world-2']
+  );
+  assert.deepEqual(
+    Core.filterCatalog(catalog, 'russian', {}, ['landscape', 'baroque']).map((a) => a.id),
+    ['ru-1']
+  );
 });
 
 test('wraps artwork navigation in both directions', () => {
@@ -56,6 +64,15 @@ test('normalizes invalid persisted settings', () => {
     motion: 'fast',
     showClock: 'yes'
   }), Core.DEFAULT_SETTINGS);
+});
+
+test('migrates a legacy single-style selection and normalizes multiple styles', () => {
+  assert.deepEqual(Core.normalizeSettings({ category: 'style:realism' }).styles, ['realism']);
+  assert.equal(Core.normalizeSettings({ category: 'style:realism' }).category, 'all');
+  assert.deepEqual(
+    Core.normalizeSettings({ styles: ['portrait', 'portrait', 'unknown', 'baroque'] }).styles,
+    ['portrait', 'baroque']
+  );
 });
 
 test('localizes only when translated content exists', () => {

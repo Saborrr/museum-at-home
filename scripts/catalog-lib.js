@@ -94,6 +94,15 @@ function jpegDimensions(file) {
   return null;
 }
 
+function hasCompleteJpegData(file) {
+  const buffer = fs.readFileSync(file);
+  if (buffer.length < 4 || buffer[0] !== 0xff || buffer[1] !== 0xd8) return false;
+  for (let offset = buffer.length - 2; offset >= Math.max(2, buffer.length - 32); offset -= 1) {
+    if (buffer[offset] === 0xff && buffer[offset + 1] === 0xd9) return true;
+  }
+  return false;
+}
+
 function validateCatalog(catalog, options = {}) {
   const errors = [];
   const warnings = [];
@@ -131,6 +140,8 @@ function validateCatalog(catalog, options = {}) {
         errors.push(artwork.id + ': missing local fallback ' + artwork.image);
       } else if (fs.statSync(imageFile).size > 5 * 1024 * 1024) {
         errors.push(artwork.id + ': image exceeds 5 MB');
+      } else if (!hasCompleteJpegData(imageFile)) {
+        errors.push(artwork.id + ': local fallback is truncated or not a complete JPEG');
       } else if (artwork.region === 'russian') {
         const dimensions = jpegDimensions(imageFile);
         if (!dimensions || Math.max(dimensions.width, dimensions.height) < 1900) {

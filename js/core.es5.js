@@ -10,6 +10,7 @@
   var DEFAULT_SETTINGS = {
     interval: 30,
     category: 'all',
+    styles: [],
     language: 'auto',
     showClock: true,
     motion: 'gentle',
@@ -35,12 +36,33 @@
     var allowedLanguages = ['auto', 'ru', 'en'];
     var allowedMotion = ['off', 'gentle'];
     var allowedChrome = ['auto', 'always'];
+    var allowedCategories = ['all', 'russian', 'world', 'favorites'];
+    var allowedStyles = [
+      'landscape', 'impressionism', 'renaissance', 'baroque',
+      'romantic', 'realism', 'modern', 'portrait'
+    ];
+    var legacyStyle = '';
+
+    result.styles = [];
 
     if (allowedIntervals.indexOf(Number(input.interval)) !== -1) {
       result.interval = Number(input.interval);
     }
-    if (typeof input.category === 'string' && input.category.length < 80) {
+    if (allowedCategories.indexOf(input.category) !== -1) {
       result.category = input.category;
+    } else if (typeof input.category === 'string' && input.category.indexOf('style:') === 0) {
+      legacyStyle = input.category.substring(6);
+      if (allowedStyles.indexOf(legacyStyle) !== -1) {
+        result.category = 'all';
+        result.styles.push(legacyStyle);
+      }
+    }
+    if (Array.isArray(input.styles)) {
+      input.styles.forEach(function (style) {
+        if (allowedStyles.indexOf(style) !== -1 && result.styles.indexOf(style) === -1) {
+          result.styles.push(style);
+        }
+      });
     }
     if (allowedLanguages.indexOf(input.language) !== -1) {
       result.language = input.language;
@@ -124,29 +146,36 @@
     return Array.isArray(artwork.tags) && artwork.tags.indexOf(tag) !== -1;
   }
 
-  function filterCatalog(catalog, category, favorites) {
+  function filterCatalog(catalog, category, favorites, styles) {
     var result = [];
     var i;
     var artwork;
-    var style;
+    var activeStyles = Array.isArray(styles) ? styles.slice(0) : [];
+    var baseMatch;
+    var styleMatch;
+    var j;
     category = category || 'all';
     favorites = favorites || {};
 
+    if (category.indexOf('style:') === 0) {
+      activeStyles.push(category.substring(6));
+      category = 'all';
+    }
+
     for (i = 0; i < catalog.length; i += 1) {
       artwork = catalog[i];
-      if (category === 'all') {
-        result.push(artwork);
-      } else if (category === 'russian' && artwork.region === 'russian') {
-        result.push(artwork);
-      } else if (category === 'world' && artwork.region !== 'russian') {
-        result.push(artwork);
-      } else if (category === 'favorites' && favorites[artwork.id]) {
-        result.push(artwork);
-      } else if (category.indexOf('style:') === 0) {
-        style = category.substring(6);
-        if (hasTag(artwork, style)) {
-          result.push(artwork);
+      baseMatch = category === 'all' ||
+        (category === 'russian' && artwork.region === 'russian') ||
+        (category === 'world' && artwork.region !== 'russian') ||
+        (category === 'favorites' && favorites[artwork.id]);
+      styleMatch = activeStyles.length === 0;
+      for (j = 0; j < activeStyles.length && !styleMatch; j += 1) {
+        if (hasTag(artwork, activeStyles[j])) {
+          styleMatch = true;
         }
+      }
+      if (baseMatch && styleMatch) {
+        result.push(artwork);
       }
     }
     return result;
