@@ -3,6 +3,7 @@ package com.saborrr.museumathome
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.view.WindowManager
@@ -59,15 +60,19 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         webView.onResume()
+        webView.evaluateJavascript("window.MuseumAppResume && window.MuseumAppResume()", null)
         hideSystemUi()
     }
 
     override fun onPause() {
+        webView.evaluateJavascript("window.MuseumAppPause && window.MuseumAppPause()", null)
         webView.onPause()
         super.onPause()
     }
 
     override fun onDestroy() {
+        (webView.parent as? ViewGroup)?.removeView(webView)
+        webView.stopLoading()
         webView.destroy()
         super.onDestroy()
     }

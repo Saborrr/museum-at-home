@@ -56,6 +56,66 @@ test('wraps artwork navigation in both directions', () => {
   assert.equal(Core.nextIndex(3, 0, -1), 2);
 });
 
+test('selects the next artwork that has not failed and terminates when all failed', () => {
+  const artworks = [{ id: 'a' }, { id: 'b' }, { id: 'c' }];
+  assert.equal(Core.nextAvailableIndex(artworks, 0, 1, { b: true }), 2);
+  assert.equal(Core.nextAvailableIndex(artworks, 2, 1, { a: true, b: true, c: true }), -1);
+});
+
+test('spatial navigation follows rendered geometry', () => {
+  const rects = [
+    { left: 0, top: 0, width: 100, height: 40 },
+    { left: 120, top: 0, width: 100, height: 40 },
+    { left: 0, top: 100, width: 40, height: 40 },
+    { left: 60, top: 100, width: 40, height: 40 }
+  ];
+  assert.equal(Core.spatialIndex(rects, 1, 0, 1), 3);
+  assert.equal(Core.spatialIndex(rects, 3, 0, -1), 0);
+  assert.equal(Core.spatialIndex(rects, 2, 1, 0), 3);
+});
+
+test('spatial navigation stays at true horizontal row boundaries', () => {
+  const rects = [
+    { left: 0, top: 0, width: 100, height: 40 }, // All collections
+    { left: 360, top: 0, width: 100, height: 40 }, // Favorites
+    { left: -20, top: 200, width: 80, height: 40 }, // 30 sec
+    { left: 440, top: 200, width: 100, height: 40 } // Always
+  ];
+  assert.equal(Core.spatialIndex(rects, 0, -1, 0), 0);
+  assert.equal(Core.spatialIndex(rects, 1, 1, 0), 1);
+});
+
+test('horizontal navigation stays in the rendered style row above settings', () => {
+  // Measured from the real 1280x577 menu. Lower settings are diagonally closer
+  // than adjacent 266px style buttons and must not steal horizontal movement.
+  const rects = [
+    { left: 84, top: 240.42, width: 266, height: 44 }, // Romanticism
+    { left: 357, top: 240.42, width: 266, height: 44 }, // Realism
+    { left: 630, top: 240.42, width: 266, height: 44 }, // Modern art
+    { left: 903, top: 240.42, width: 266, height: 44 }, // Portrait
+    { left: 256, top: 383.42, width: 80, height: 43 }, // 1 min
+    { left: 365.70, top: 383.42, width: 80, height: 43 }, // Gentle
+    { left: 819.42, top: 383.42, width: 80, height: 43 } // English
+  ];
+
+  assert.equal(Core.spatialIndex(rects, 0, 1, 0), 1, 'Romanticism Right selects Realism');
+  assert.equal(Core.spatialIndex(rects, 1, -1, 0), 0, 'Realism Left selects Romanticism');
+  assert.equal(Core.spatialIndex(rects, 3, -1, 0), 2, 'Portrait Left selects Modern art');
+});
+
+test('vertical navigation prefers projection overlap before a bounded cone fallback', () => {
+  const rects = [
+    { left: 100, top: 0, width: 100, height: 40 },
+    { left: 190, top: 180, width: 80, height: 40 }, // overlaps by 10px
+    { left: 210, top: 90, width: 80, height: 40 }, // nearer, but outside projection
+    { left: 500, top: 80, width: 80, height: 40 } // outside the directional cone
+  ];
+  assert.equal(Core.spatialIndex(rects, 0, 0, 1), 1);
+
+  const withoutOverlap = [rects[0], rects[2], rects[3]];
+  assert.equal(Core.spatialIndex(withoutOverlap, 0, 0, 1), 1);
+});
+
 test('normalizes invalid persisted settings', () => {
   assert.deepEqual(Core.normalizeSettings({
     interval: 999,
@@ -64,6 +124,13 @@ test('normalizes invalid persisted settings', () => {
     motion: 'fast',
     showClock: 'yes'
   }), Core.DEFAULT_SETTINGS);
+});
+
+test('supports long intervals, pause and clock preferences', () => {
+  const settings = Core.normalizeSettings({ interval: 1800, paused: true, showClock: false });
+  assert.equal(settings.interval, 1800);
+  assert.equal(settings.paused, true);
+  assert.equal(settings.showClock, false);
 });
 
 test('migrates a legacy single-style selection and normalizes multiple styles', () => {

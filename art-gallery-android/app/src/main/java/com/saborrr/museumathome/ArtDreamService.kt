@@ -1,6 +1,7 @@
 package com.saborrr.museumathome
 
 import android.service.dreams.DreamService
+import android.view.ViewGroup
 import android.webkit.WebView
 
 class ArtDreamService : DreamService() {
@@ -21,15 +22,21 @@ class ArtDreamService : DreamService() {
     override fun onDreamingStarted() {
         super.onDreamingStarted()
         webView?.onResume()
+        webView?.evaluateJavascript("window.MuseumAppResume && window.MuseumAppResume()", null)
     }
 
     override fun onDreamingStopped() {
+        webView?.evaluateJavascript("window.MuseumAppPause && window.MuseumAppPause()", null)
         webView?.onPause()
         super.onDreamingStopped()
     }
 
     override fun onDetachedFromWindow() {
-        webView?.destroy()
+        webView?.let { view ->
+            (view.parent as? ViewGroup)?.removeView(view)
+            view.stopLoading()
+            view.destroy()
+        }
         webView = null
         super.onDetachedFromWindow()
     }

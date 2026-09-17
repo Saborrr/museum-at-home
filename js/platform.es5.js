@@ -16,10 +16,16 @@
   }
 
   function registerServiceWorker() {
-    if ('serviceWorker' in navigator &&
+    // The packaged Android WebView serves assets from appassets.androidplatform.net; the APK
+    // already contains every file, and a cached shell could survive an app update.
+    var packaged = location.hostname === 'appassets.androidplatform.net';
+    if (!packaged &&
+        'serviceWorker' in navigator &&
         (location.protocol === 'https:' || location.hostname === 'localhost')) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('sw.js').catch(function () {
+        navigator.serviceWorker.register('sw.js').then(function (registration) {
+          return registration.update();
+        }).catch(function () {
           // Packaged TV applications already contain every required asset.
         });
       });

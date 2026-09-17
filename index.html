@@ -64,7 +64,7 @@
       <button class="focusable" data-action="category" data-value="all" data-row="0" data-col="0">Показать все картины</button>
     </section>
 
-    <section id="details-panel" class="overlay details-panel" aria-hidden="true">
+    <section id="details-panel" class="overlay details-panel" role="dialog" aria-modal="true" aria-labelledby="details-title" aria-hidden="true" tabindex="-1">
       <div class="details-card">
         <div class="details-heading">
           <span id="details-kicker" class="details-kicker">История картины</span>
@@ -80,7 +80,7 @@
       </div>
     </section>
 
-    <section id="menu-panel" class="overlay menu-panel" aria-hidden="true">
+    <section id="menu-panel" class="overlay menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title" aria-hidden="true">
       <div class="menu-card">
         <div class="menu-header">
           <div>
@@ -110,7 +110,8 @@
             <button class="menu-button focusable" data-action="style" data-value="romantic" data-row="2" data-col="0">Романтизм</button>
             <button class="menu-button focusable" data-action="style" data-value="realism" data-row="2" data-col="1">Реализм</button>
             <button class="menu-button focusable" data-action="style" data-value="modern" data-row="2" data-col="2">Модернизм</button>
-            <button class="menu-button focusable" data-action="style" data-value="portrait" data-row="2" data-col="3">Портрет</button>
+            <button class="menu-button focusable" data-action="style" data-value="portrait">Портрет</button>
+            <button class="menu-button focusable clear-filters" data-action="clearFilters" data-value="all">Сбросить фильтры</button>
           </div>
         </div>
 
@@ -118,10 +119,14 @@
           <div class="setting-block">
             <h3 id="interval-heading">Смена картины</h3>
             <div class="segmented">
-              <button class="segment focusable" data-action="interval" data-value="15" data-row="3" data-col="0">15 с</button>
-              <button class="segment focusable" data-action="interval" data-value="30" data-row="3" data-col="1">30 с</button>
-              <button class="segment focusable" data-action="interval" data-value="60" data-row="3" data-col="2">1 мин</button>
-              <button class="segment focusable" data-action="interval" data-value="120" data-row="3" data-col="3">2 мин</button>
+              <button class="segment focusable" data-action="interval" data-value="15">15 с</button>
+              <button class="segment focusable" data-action="interval" data-value="30">30 с</button>
+              <button class="segment focusable" data-action="interval" data-value="60">1 мин</button>
+              <button class="segment focusable" data-action="interval" data-value="120">2 мин</button>
+              <button class="segment focusable" data-action="interval" data-value="300">5 мин</button>
+              <button class="segment focusable" data-action="interval" data-value="900">15 мин</button>
+              <button class="segment focusable" data-action="interval" data-value="1800">30 мин</button>
+              <button class="segment focusable" data-action="paused" data-value="true">Оставить картину</button>
             </div>
           </div>
           <div class="setting-block">
@@ -142,8 +147,9 @@
           <div class="setting-block">
             <h3 id="chrome-heading">Информация</h3>
             <div class="segmented">
-              <button class="segment focusable" data-action="chrome" data-value="auto" data-row="6" data-col="0">Авто</button>
-              <button class="segment focusable" data-action="chrome" data-value="always" data-row="6" data-col="1">Всегда</button>
+              <button class="segment focusable" data-action="chrome" data-value="auto">Авто</button>
+              <button class="segment focusable" data-action="chrome" data-value="always">Всегда</button>
+              <button class="segment focusable" data-action="clock" data-value="toggle">Часы</button>
             </div>
           </div>
         </div>
@@ -160,6 +166,7 @@
       </svg>
       <h2>Museum at Home</h2>
       <p id="loading-text">Готовим вашу галерею…</p>
+      <button id="loading-retry" class="focusable hidden" data-action="retry" type="button">Повторить</button>
     </section>
   </main>
 

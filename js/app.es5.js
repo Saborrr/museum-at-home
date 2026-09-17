@@ -29,8 +29,25 @@
       menuTitle: 'Выберите коллекцию',
       styles: 'Жанры и эпохи',
       interval: 'Смена картины',
+      interval15s: '15 с',
+      interval30s: '30 с',
+      interval1m: '1 мин',
+      interval2m: '2 мин',
+      interval5m: '5 мин',
+      interval15m: '15 мин',
+      interval30m: '30 мин',
+      keepArtwork: 'Оставить картину',
       motion: 'Движение',
+      motionGentle: 'Плавное',
+      motionOff: 'Выключено',
       language: 'Язык',
+      languageAuto: 'Авто',
+      languageRu: 'Русский',
+      languageEn: 'English',
+      clearFilters: 'Сбросить фильтры',
+      clock: 'Часы',
+      retry: 'Повторить',
+      loadFailed: 'Не удалось загрузить картины.',
       chrome: 'Информация',
       chromeAuto: 'Авто',
       chromeAlways: 'Всегда',
@@ -68,8 +85,25 @@
       menuTitle: 'Choose a collection',
       styles: 'Genres and periods',
       interval: 'Change artwork',
+      interval15s: '15 sec',
+      interval30s: '30 sec',
+      interval1m: '1 min',
+      interval2m: '2 min',
+      interval5m: '5 min',
+      interval15m: '15 min',
+      interval30m: '30 min',
+      keepArtwork: 'Keep artwork',
       motion: 'Motion',
+      motionGentle: 'Gentle',
+      motionOff: 'Off',
       language: 'Language',
+      languageAuto: 'Auto',
+      languageRu: 'Russian',
+      languageEn: 'English',
+      clearFilters: 'Clear filters',
+      clock: 'Clock',
+      retry: 'Retry',
+      loadFailed: 'Could not load any artwork.',
       chrome: 'Information',
       chromeAuto: 'Auto-hide',
       chromeAlways: 'Always',
@@ -122,6 +156,9 @@
     menuOpen: false,
     detailsOpen: false,
     imageFailures: {},
+    previousFocus: null,
+    pendingLoadError: false,
+    lifecyclePaused: false,
 
     init: function () {
       this.cacheElements();
@@ -139,6 +176,16 @@
       this.applyCategory(this.settings.category, true);
       window.MuseumAppBack = function () {
         return App.handlePlatformBack();
+      };
+      window.MuseumAppPause = function () {
+        App.lifecyclePaused = true;
+        App.stopSlideshow();
+      };
+      window.MuseumAppResume = function () {
+        App.lifecyclePaused = false;
+        if (App.artworks.length && !App.menuOpen && !App.detailsOpen) {
+          App.restartSlideshow();
+        }
       };
       document.body.focus();
       this.showChrome();
@@ -184,7 +231,8 @@
         artCount: document.getElementById('art-count'),
         toast: document.getElementById('toast'),
         loading: document.getElementById('loading'),
-        loadingText: document.getElementById('loading-text')
+        loadingText: document.getElementById('loading-text'),
+        loadingRetry: document.getElementById('loading-retry')
       };
     },
 
@@ -228,6 +276,10 @@
           App.handleMenuAction(target);
         }
       });
+
+      this.el.loadingRetry.addEventListener('click', function () {
+        App.retryImages();
+      });
     },
 
     findActionTarget: function (target) {
@@ -246,17 +298,27 @@
       this.showChrome();
 
       if (this.detailsOpen) {
-        if (code === 38) {
+        if (code === 9) {
+          this.el.details.focus();
+        } else if (code === 38) {
           this.el.detailsScroll.scrollTop -= 130;
         } else if (code === 40) {
           this.el.detailsScroll.scrollTop += 130;
+        } else if (code === 37 || code === 39) {
+          // Consume horizontal D-pad input so native spatial navigation cannot escape the dialog.
         } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27 || code === 13) {
           this.closeDetails();
         } else {
           handled = false;
         }
       } else if (this.menuOpen) {
-        if (code === 37) {
+        if (code === 9) {
+          if (this.focusables.length) {
+            this.focusIndex = (this.focusIndex + (event.shiftKey ? -1 : 1) + this.focusables.length) %
+              this.focusables.length;
+            this.paintFocus();
+          }
+        } else if (code === 37) {
           this.moveFocus(-1, 0);
         } else if (code === 39) {
           this.moveFocus(1, 0);
@@ -271,6 +333,13 @@
         } else {
           handled = false;
         }
+      } else if (this.el.loading.classList.contains('is-error')) {
+        if (code === 13 || code === 404 || code === 406) {
+          this.retryImages();
+        } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27) {
+          this.exitApp();
+        }
+        // The opaque error layer covers the gallery: swallow other keys instead of acting blindly.
       } else if (code === 37) {
         this.changeArtwork(-1);
       } else if (code === 39) {
@@ -397,6 +466,9 @@
 
       if (!this.artworks.length) {
         this.stopSlideshow();
+        this.pendingLoadError = false;
+        this.el.loading.classList.remove('is-error');
+        this.el.loadingRetry.classList.add('hidden');
         this.el.info.classList.add('is-hidden');
         this.el.empty.classList.remove('hidden');
         this.el.loading.classList.add('hidden');
@@ -404,6 +476,9 @@
       } else {
         this.el.empty.classList.add('hidden');
         this.el.info.classList.remove('is-hidden');
+        // Every selection checks the collection afresh: marks left by an earlier outage are stale,
+        // so drop them and allow images that still fail to re-mark themselves.
+        this.imageFailures = {};
         this.showCurrent(Boolean(initial));
       }
     },
@@ -440,6 +515,9 @@
 
       this.loadToken += 1;
       token = this.loadToken;
+      // A fresh load attempt invalidates a failure deferred from a previous collection: should this
+      // image fail too, onerror raises the error again (deferred while a dialog is open).
+      this.pendingLoadError = false;
       this.updateArtworkText(artwork);
       this.updateFavoriteButton();
       this.closeDetails();
@@ -457,7 +535,15 @@
         nextLayer.classList.add('active');
         oldLayer.classList.remove('active');
         App.activeLayer = App.activeLayer === 0 ? 1 : 0;
+        // This image just loaded, so it is no longer a failure candidate.
+        delete App.imageFailures[artwork.id];
+        App.pendingLoadError = false;
         App.el.loading.classList.add('hidden');
+        App.el.loading.classList.remove('is-error');
+        App.el.loadingRetry.classList.add('hidden');
+        if (document.activeElement === App.el.loadingRetry) {
+          document.body.focus();
+        }
         App.restartSlideshow();
         App.preloadUpcoming();
         setTimeout(function () {
@@ -476,9 +562,12 @@
         }
         App.imageFailures[artwork.id] = true;
         App.showToast(I18N[App.language].imageError);
-        if (App.artworks.length > 1) {
-          App.index = MuseumCore.nextIndex(App.artworks.length, App.index, 1);
+        var nextIndex = MuseumCore.nextAvailableIndex(App.artworks, App.index, 1, App.imageFailures);
+        if (nextIndex !== -1) {
+          App.index = nextIndex;
           App.showCurrent(false);
+        } else {
+          App.showLoadError();
         }
       };
 
@@ -487,6 +576,53 @@
         oldLayer.classList.remove('active');
       }
       nextLayer.src = artwork.image;
+    },
+
+    showLoadError: function () {
+      this.stopSlideshow();
+      if (this.menuOpen || this.detailsOpen) {
+        this.pendingLoadError = true;
+        return;
+      }
+      this.displayLoadError();
+    },
+
+    displayLoadError: function () {
+      this.pendingLoadError = false;
+      this.el.loading.classList.remove('hidden');
+      this.el.loading.classList.add('is-error');
+      this.el.loadingText.textContent = I18N[this.language].loadFailed;
+      this.el.loadingRetry.textContent = I18N[this.language].retry;
+      this.el.loadingRetry.classList.remove('hidden');
+      this.el.loadingRetry.focus();
+      if (document.activeElement !== this.el.loadingRetry) {
+        // The overlay fades in over 450ms and stays visibility:hidden until then, so the
+        // synchronous focus above is ignored: retry once the element is really visible.
+        setTimeout(function () {
+          if (App.el.loading.classList.contains('is-error')) {
+            App.el.loadingRetry.focus();
+          }
+        }, 500);
+      }
+    },
+
+    retryImages: function () {
+      this.imageFailures = {};
+      this.pendingLoadError = false;
+      this.el.loading.classList.remove('is-error');
+      if (document.activeElement === this.el.loadingRetry) {
+        document.body.focus();
+      }
+      this.el.loadingRetry.classList.add('hidden');
+      this.el.loadingText.textContent = I18N[this.language].loading;
+      this.index = 0;
+      if (!this.artworks.length) {
+        // Nothing left to retry: fall back to the empty state instead of a loading screen.
+        this.el.loading.classList.add('hidden');
+        this.el.empty.classList.remove('hidden');
+        return;
+      }
+      this.showCurrent(true);
     },
 
     clearLayers: function () {
@@ -509,10 +645,12 @@
       if (this.artworks.length < 2) {
         return;
       }
-      next = MuseumCore.nextIndex(this.artworks.length, this.index, delta);
+      next = MuseumCore.nextAvailableIndex(this.artworks, this.index, delta, this.imageFailures);
       if (next !== -1) {
         this.index = next;
         this.showCurrent(false);
+      } else {
+        this.showLoadError();
       }
     },
 
@@ -577,6 +715,7 @@
         I18N[this.language].removeFavorite :
         I18N[this.language].addFavorite;
       this.el.favoriteButton.setAttribute('aria-label', this.el.favoriteLabel.textContent);
+      this.el.favoriteButton.setAttribute('aria-pressed', active ? 'true' : 'false');
 
       if (animate) {
         this.el.favoriteButton.classList.remove('pop');
@@ -590,6 +729,9 @@
 
     restartSlideshow: function () {
       this.stopSlideshow();
+      if (this.lifecyclePaused || this.settings.paused || this.menuOpen || this.detailsOpen) {
+        return;
+      }
       this.showChrome();
       this.slideTimer = setTimeout(function () {
         App.changeArtwork(1);
@@ -613,6 +755,7 @@
         return;
       }
       this.stopSlideshow();
+      this.previousFocus = document.activeElement;
       this.detailsOpen = true;
       description = this.localized(artwork, 'description') || I18N[this.language].noDescription;
       museum = this.localized(artwork, 'museum');
@@ -627,6 +770,7 @@
       this.el.detailsScroll.scrollTop = 0;
       this.el.details.classList.add('open');
       this.el.details.setAttribute('aria-hidden', 'false');
+      this.el.details.focus();
 
       for (i = 0; i < this.detailTimers.length; i += 1) {
         clearTimeout(this.detailTimers[i]);
@@ -658,10 +802,16 @@
       this.detailsOpen = false;
       this.el.details.classList.remove('open');
       this.el.details.setAttribute('aria-hidden', 'true');
-      if (this.artworks.length) {
+      if (this.artworks.length && !this.pendingLoadError) {
         this.restartSlideshow();
       }
       this.showChrome();
+      if (this.previousFocus && this.previousFocus.focus) {
+        this.previousFocus.focus();
+      }
+      if (this.pendingLoadError) {
+        this.displayLoadError();
+      }
     },
 
     openMenu: function () {
@@ -670,6 +820,7 @@
       if (this.detailsOpen) {
         this.closeDetails();
       }
+      this.previousFocus = document.activeElement;
       this.stopSlideshow();
       this.showChrome();
       this.menuOpen = true;
@@ -702,43 +853,27 @@
       for (i = 0; i < this.focusables.length; i += 1) {
         this.focusables[i].classList.remove('focused');
       }
-      if (this.artworks.length) {
+      if (this.artworks.length && !this.pendingLoadError) {
         this.restartSlideshow();
       }
       this.showChrome();
-      document.body.focus();
+      if (this.previousFocus && this.previousFocus.focus) {
+        this.previousFocus.focus();
+      } else {
+        document.body.focus();
+      }
+      if (this.pendingLoadError) {
+        this.displayLoadError();
+      }
     },
 
     moveFocus: function (dx, dy) {
-      var current = this.focusables[this.focusIndex];
-      var row = Number(current.getAttribute('data-row'));
-      var col = Number(current.getAttribute('data-col'));
-      var bestIndex = this.focusIndex;
-      var bestDistance = 999;
+      var rects = [];
       var i;
-      var candidate;
-      var candidateRow;
-      var candidateCol;
-      var distance;
-
       for (i = 0; i < this.focusables.length; i += 1) {
-        candidate = this.focusables[i];
-        candidateRow = Number(candidate.getAttribute('data-row'));
-        candidateCol = Number(candidate.getAttribute('data-col'));
-        if (dx && candidateRow === row && ((dx > 0 && candidateCol > col) || (dx < 0 && candidateCol < col))) {
-          distance = Math.abs(candidateCol - col);
-        } else if (dy && ((dy > 0 && candidateRow > row) || (dy < 0 && candidateRow < row))) {
-          distance = Math.abs(candidateRow - row) * 10 + Math.abs(candidateCol - col);
-        } else {
-          continue;
-        }
-        if (distance < bestDistance) {
-          bestDistance = distance;
-          bestIndex = i;
-        }
+        rects.push(this.focusables[i].getBoundingClientRect());
       }
-
-      this.focusIndex = bestIndex;
+      this.focusIndex = MuseumCore.spatialIndex(rects, this.focusIndex, dx, dy);
       this.paintFocus();
     },
 
@@ -763,6 +898,9 @@
       var value = element.getAttribute('data-value');
       if (action === 'category') {
         this.applyCategory(value, false);
+      } else if (action === 'clearFilters') {
+        this.settings.styles = [];
+        this.applyCategory('all', false);
       } else if (action === 'style') {
         if (this.settings.styles.indexOf(value) === -1) {
           this.settings.styles.push(value);
@@ -772,8 +910,15 @@
         this.applyCategory(this.settings.category, false);
       } else if (action === 'interval') {
         this.settings.interval = Number(value);
+        this.settings.paused = false;
         this.saveSettings();
         this.updateMenuSelection();
+        this.restartSlideshow();
+      } else if (action === 'paused') {
+        this.settings.paused = !this.settings.paused;
+        this.saveSettings();
+        this.updateMenuSelection();
+        this.restartSlideshow();
       } else if (action === 'motion') {
         this.settings.motion = value;
         this.saveSettings();
@@ -788,6 +933,11 @@
         );
         this.updateLanguage();
         this.updateMenuSelection();
+      } else if (action === 'clock') {
+        this.settings.showClock = !this.settings.showClock;
+        this.saveSettings();
+        this.updateClock();
+        this.updateMenuSelection();
       } else if (action === 'chrome') {
         this.settings.chrome = value;
         this.saveSettings();
@@ -801,18 +951,21 @@
       var i;
       var action;
       var value;
+      var selected;
       for (i = 0; i < buttons.length; i += 1) {
         action = buttons[i].getAttribute('data-action');
         value = buttons[i].getAttribute('data-value');
-        buttons[i].classList.toggle(
-          'selected',
-          (action === 'category' && value === this.settings.category) ||
+        selected = (action === 'category' && value === this.settings.category) ||
+          (action === 'clearFilters' && this.settings.category === 'all' && this.settings.styles.length === 0) ||
           (action === 'style' && this.settings.styles.indexOf(value) !== -1) ||
-          (action === 'interval' && Number(value) === this.settings.interval) ||
+          (action === 'interval' && !this.settings.paused && Number(value) === this.settings.interval) ||
+          (action === 'paused' && this.settings.paused) ||
           (action === 'motion' && value === this.settings.motion) ||
           (action === 'language' && value === this.settings.language) ||
-          (action === 'chrome' && value === this.settings.chrome)
-        );
+          (action === 'clock' && this.settings.showClock) ||
+          (action === 'chrome' && value === this.settings.chrome);
+        buttons[i].classList.toggle('selected', Boolean(selected));
+        buttons[i].setAttribute('aria-pressed', selected ? 'true' : 'false');
       }
     },
 
@@ -822,6 +975,10 @@
       var i;
       var value;
       var key;
+      var intervalKeys = {
+        15: 'interval15s', 30: 'interval30s', 60: 'interval1m', 120: 'interval2m',
+        300: 'interval5m', 900: 'interval15m', 1800: 'interval30m'
+      };
       document.documentElement.lang = this.language;
       this.el.loadingText.textContent = t.loading;
       this.el.detailsKicker.textContent = t.story;
@@ -841,6 +998,19 @@
         key = labels[i].getAttribute('data-action') === 'style' ? value : (CATEGORY_KEYS[value] || 'all');
         labels[i].textContent = t[key] || value;
       }
+      labels = document.querySelectorAll('[data-action="interval"]');
+      for (i = 0; i < labels.length; i += 1) {
+        labels[i].textContent = t[intervalKeys[Number(labels[i].getAttribute('data-value'))]];
+      }
+      document.querySelector('[data-action="paused"]').textContent = t.keepArtwork;
+      document.querySelector('[data-action="motion"][data-value="gentle"]').textContent = t.motionGentle;
+      document.querySelector('[data-action="motion"][data-value="off"]').textContent = t.motionOff;
+      document.querySelector('[data-action="language"][data-value="auto"]').textContent = t.languageAuto;
+      document.querySelector('[data-action="language"][data-value="ru"]').textContent = t.languageRu;
+      document.querySelector('[data-action="language"][data-value="en"]').textContent = t.languageEn;
+      document.querySelector('[data-action="clearFilters"]').textContent = t.clearFilters;
+      document.querySelector('[data-action="clock"]').textContent = t.clock;
+      this.el.loadingRetry.textContent = t.retry;
       labels = this.el.controlsHint.getElementsByTagName('span');
       for (i = 0; i < labels.length; i += 1) {
         labels[i].textContent = t.controls[i];

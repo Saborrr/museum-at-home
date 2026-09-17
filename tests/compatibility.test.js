@@ -25,6 +25,14 @@ test('CSS avoids unsupported layout primitives and img pseudo-elements', () => {
   assert.doesNotMatch(css, /#art-image[^\n]*::(?:before|after)/);
 });
 
+test('CSS supports reduced motion, visible focus and TV safe areas', () => {
+  const css = fs.readFileSync(path.join(root, 'css/style.css'), 'utf8');
+  assert.match(css, /prefers-reduced-motion:\s*reduce/);
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /safe-area-inset-left/);
+  assert.match(css, /platform-(?:tizen|webos|android)/);
+});
+
 test('app manifest uses Museum at Home identity and 1080 graphics mode', () => {
   const appInfo = JSON.parse(fs.readFileSync(path.join(root, 'appinfo.json'), 'utf8'));
   assert.equal(appInfo.title, 'Museum at Home');

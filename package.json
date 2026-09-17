@@ -14,7 +14,7 @@
     "build:720": "node scripts/build-webos.js --720",
     "build:platforms": "node scripts/build-platforms.js",
     "build:platforms:strict": "node scripts/build-platforms.js --strict-assets",
-    "test": "node --test tests/core.test.js tests/catalog.test.js tests/compatibility.test.js tests/platforms.test.js",
+    "test": "node --test tests/core.test.js tests/catalog.test.js tests/compatibility.test.js tests/platforms.test.js tests/app.test.js tests/service-worker.test.js",
     "check": "npm run test && npm run catalog && node --check js/core.es5.js && node --check js/platform.es5.js && node --check js/app.es5.js && node --check sw.js"
   },
   "engines": {

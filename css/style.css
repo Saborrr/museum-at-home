@@ -742,3 +742,57 @@ button {
   .menu-section h3, .setting-block h3 { margin-bottom: 6px; font-size: 14px; }
   .overlay-hint { bottom: 10px; font-size: 13px; }
 }
+
+/* Browser safe areas and conservative TV overscan bounds. */
+.topbar,
+.art-info,
+.controls-hint {
+  margin-left: env(safe-area-inset-left);
+  margin-right: env(safe-area-inset-right);
+}
+
+.platform-tizen #app,
+.platform-webos #app,
+.platform-android #app {
+  top: 2%;
+  right: 2%;
+  bottom: 2%;
+  left: 2%;
+  width: 96%;
+  height: 96%;
+}
+
+button:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 3px;
+}
+
+.loading .hidden {
+  display: none;
+}
+
+#loading-retry {
+  min-width: 220px;
+  height: 62px;
+  margin-top: 26px;
+  border: 2px solid #d8b56c;
+  border-radius: 10px;
+  background: #302817;
+  color: #fff;
+}
+
+.loading.is-error .loading-mark {
+  -webkit-animation: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation: none !important;
+    animation: none !important;
+    -webkit-transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -9,6 +9,7 @@
                      required_version="2.3"/>
   <content src="index.html"/>
   <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+  <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
   <icon src="icon.png"/>
   <name>Museum at Home</name>
   <tizen:profile name="tv-samsung"/>
