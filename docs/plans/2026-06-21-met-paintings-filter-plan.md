@@ -70,7 +70,7 @@ test('isPainting rejects objects missing both fields', () => {
 
 **Step 2: Run test — confirm it fails**
 
-Command: `cd /home/alex/art-screensaver-webos && node --test tests/museum-api.test.js`
+Command: `cd <repo> && node --test tests/museum-api.test.js`
 Expected: FAIL with `TypeError: sandbox.MuseumAPI.isPainting is not a function`.
 
 **Step 3: Implement `isPainting()` in `js/museum-api.es5.js`**
@@ -96,7 +96,7 @@ Expected: 5 tests pass, 0 fail.
 
 **Step 5: Commit**
 
-`cd /home/alex/art-screensaver-webos && git add js/museum-api.es5.js tests/museum-api.test.js && git commit -m "feat(museum-api): add isPainting guard with unit tests"`
+`cd <repo> && git add js/museum-api.es5.js tests/museum-api.test.js && git commit -m "feat(museum-api): add isPainting guard with unit tests"`
 
 ---
 
@@ -258,7 +258,7 @@ overlay".
 
 The repo has a `deploy.sh` helper. Use it.
 
-Command: `cd /home/alex/art-screensaver-webos && ./deploy.sh`
+Command: `cd <repo> && ./deploy.sh`
 Expected: script reports a new package + a copy step into `/var/www/art/`.
 If the script is interactive (asks for confirmation), say "yes".
 
@@ -275,7 +275,7 @@ If the script is interactive (asks for confirmation), say "yes".
 
 **Step 3: Roll back if anything looks wrong**
 
-`cd /home/alex/art-screensaver-webos && git revert --no-edit HEAD~4..HEAD && ./deploy.sh`
+`cd <repo> && git revert --no-edit HEAD~4..HEAD && ./deploy.sh`
 
 ---
 

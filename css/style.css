@@ -360,6 +360,9 @@ button {
 }
 
 .overlay.open {
+  /* Open dialogs must remain visually above a loading transition. Terminal errors cannot open a
+     dialog (guarded in app.es5.js), so the Retry screen remains the top-level blocking state. */
+  z-index: 300;
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
@@ -675,12 +678,19 @@ button {
   background: #080807;
   -webkit-transition: opacity 450ms ease, visibility 0s linear 450ms;
   transition: opacity 450ms ease, visibility 0s linear 450ms;
+  /* The loading state must never swallow input meant for the gallery or an open menu; the error
+     state below does block the screen, because there is nothing else to do until Retry. */
+  pointer-events: none;
 }
 
 .loading.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.loading.is-error {
+  pointer-events: auto;
 }
 
 .loading-mark {

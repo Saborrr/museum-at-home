@@ -102,7 +102,7 @@ ares-device --device myTV --system-info
 Use the 1080 package on UHD televisions such as the LG 49UH610V:
 
 ```bash
-ares-install --device myTV path/to/1080/com.saborrr.museumathome_2.1.0_all.ipk
+ares-install --device myTV path/to/1080/com.saborrr.museumathome_2.1.1_all.ipk
 ares-launch --device myTV com.saborrr.museumathome
 ```
 

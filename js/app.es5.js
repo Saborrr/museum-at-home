@@ -5,6 +5,11 @@
   var FAVORITES_KEY = 'museumAtHome.favorites.v2';
   var LEGACY_FAVORITES_KEY = 'artscreen-favorites';
   var MOTION_CLASSES = ['motion-a', 'motion-b', 'motion-c'];
+  // Artwork files are large and TVs can sit on slow Wi-Fi. This remains well below the 200s+
+  // browser-network hang observed in testing without declaring a healthy 17s response broken.
+  var STALLED_LOAD_MS = 45000;
+  // Two stalled loads in a row mean the connection is dead, not that one artwork is broken.
+  var MAX_CONSECUTIVE_STALLS = 2;
 
   var I18N = {
     ru: {
@@ -158,6 +163,8 @@
     imageFailures: {},
     previousFocus: null,
     pendingLoadError: false,
+    loadWatchdogTimer: null,
+    consecutiveStalls: 0,
     lifecyclePaused: false,
 
     init: function () {
@@ -479,6 +486,14 @@
         // Every selection checks the collection afresh: marks left by an earlier outage are stale,
         // so drop them and allow images that still fail to re-mark themselves.
         this.imageFailures = {};
+        this.consecutiveStalls = 0;
+        if (!this.menuOpen && !this.detailsOpen &&
+            !this.el.layerA.classList.contains('active') &&
+            !this.el.layerB.classList.contains('active')) {
+          // Coming back from an empty collection leaves a blank stage: show the loading state until
+          // the first artwork of the new collection arrives.
+          this.showLoadingState();
+        }
         this.showCurrent(Boolean(initial));
       }
     },
@@ -527,6 +542,7 @@
         if (token !== App.loadToken) {
           return;
         }
+        App.clearLoadWatchdog();
         App.removeMotionClasses(nextLayer);
         motionClass = MOTION_CLASSES[App.index % MOTION_CLASSES.length];
         if (App.settings.motion === 'gentle') {
@@ -537,6 +553,7 @@
         App.activeLayer = App.activeLayer === 0 ? 1 : 0;
         // This image just loaded, so it is no longer a failure candidate.
         delete App.imageFailures[artwork.id];
+        App.consecutiveStalls = 0;
         App.pendingLoadError = false;
         App.el.loading.classList.add('hidden');
         App.el.loading.classList.remove('is-error');
@@ -547,7 +564,9 @@
         App.restartSlideshow();
         App.preloadUpcoming();
         setTimeout(function () {
-          if (!oldLayer.classList.contains('active')) {
+          // Only tear the old image down when that layer is neither visible nor already carrying a
+          // newer load: this timer can outlive the layer it was scheduled for.
+          if (!oldLayer.classList.contains('active') && oldLayer.museumLoadToken !== App.loadToken) {
             App.removeMotionClasses(oldLayer);
             oldLayer.onload = null;
             oldLayer.onerror = null;
@@ -557,21 +576,14 @@
       };
 
       nextLayer.onerror = function () {
-        if (token !== App.loadToken) {
-          return;
-        }
-        App.imageFailures[artwork.id] = true;
-        App.showToast(I18N[App.language].imageError);
-        var nextIndex = MuseumCore.nextAvailableIndex(App.artworks, App.index, 1, App.imageFailures);
-        if (nextIndex !== -1) {
-          App.index = nextIndex;
-          App.showCurrent(false);
-        } else {
-          App.showLoadError();
-        }
+        App.failCurrentLoad(artwork, token);
       };
 
       nextLayer.alt = this.localized(artwork, 'title');
+      // Which load this element is serving, so a delayed cleanup can tell a stale image apart from a
+      // newer load already in flight on the same layer.
+      nextLayer.museumLoadToken = token;
+      this.armLoadWatchdog(token);
       if (immediate) {
         oldLayer.classList.remove('active');
       }
@@ -582,6 +594,10 @@
       this.stopSlideshow();
       if (this.menuOpen || this.detailsOpen) {
         this.pendingLoadError = true;
+        // While a dialog is open the gallery stays clear: the deferred error is displayed when the
+        // dialog closes, so the loading state must not sit over the dialog in the meantime.
+        this.el.loading.classList.remove('is-error');
+        this.el.loading.classList.add('hidden');
         return;
       }
       this.displayLoadError();
@@ -606,8 +622,88 @@
       }
     },
 
+    showLoadingState: function () {
+      this.el.loadingText.textContent = I18N[this.language].loading;
+      this.el.loadingRetry.classList.add('hidden');
+      this.el.loading.classList.remove('is-error');
+      this.el.loading.classList.remove('hidden');
+    },
+
+    armLoadWatchdog: function (token) {
+      this.clearLoadWatchdog();
+      this.loadWatchdogTimer = setTimeout(function () {
+        App.loadWatchdogTimer = null;
+        if (token !== App.loadToken || !App.artworks.length) {
+          return;
+        }
+        if (App.lifecyclePaused) {
+          // A TV screensaver can be suspended mid-load: keep waiting instead of blaming the image.
+          App.armLoadWatchdog(token);
+          return;
+        }
+        App.failCurrentLoad(App.currentArtwork(), token, true);
+      }, STALLED_LOAD_MS);
+    },
+
+    clearLoadWatchdog: function () {
+      if (this.loadWatchdogTimer) {
+        clearTimeout(this.loadWatchdogTimer);
+        this.loadWatchdogTimer = null;
+      }
+    },
+
+    abortStalledLoad: function (token) {
+      var layers;
+      var i;
+      var layer;
+      if (!this.el) {
+        return;
+      }
+      layers = [this.el.layerA, this.el.layerB];
+      for (i = 0; i < layers.length; i += 1) {
+        layer = layers[i];
+        if (layer && layer.museumLoadToken === token) {
+          // This exact request timed out. Detach callbacks before removing src so a late completion
+          // cannot revive the layer or dismiss a terminal error on its own.
+          layer.onload = null;
+          layer.onerror = null;
+          layer.museumLoadToken = 0;
+          layer.removeAttribute('src');
+          this.loadToken += 1;
+          return;
+        }
+      }
+    },
+
+    failCurrentLoad: function (artwork, token, stalled) {
+      var nextIndex;
+      if (token !== this.loadToken || !artwork) {
+        return;
+      }
+      this.clearLoadWatchdog();
+      if (stalled) {
+        this.abortStalledLoad(token);
+      }
+      this.consecutiveStalls = stalled ? this.consecutiveStalls + 1 : 0;
+      this.imageFailures[artwork.id] = true;
+      this.showToast(I18N[this.language].imageError);
+      if (this.consecutiveStalls >= MAX_CONSECUTIVE_STALLS) {
+        // The images are not broken, the network is: stop walking the catalogue and offer a retry.
+        this.showLoadError();
+        return;
+      }
+      nextIndex = MuseumCore.nextAvailableIndex(this.artworks, this.index, 1, this.imageFailures);
+      if (nextIndex !== -1) {
+        this.index = nextIndex;
+        this.showCurrent(false);
+      } else {
+        this.showLoadError();
+      }
+    },
+
     retryImages: function () {
       this.imageFailures = {};
+      this.consecutiveStalls = 0;
       this.pendingLoadError = false;
       this.el.loading.classList.remove('is-error');
       if (document.activeElement === this.el.loadingRetry) {
@@ -627,6 +723,7 @@
 
     clearLayers: function () {
       this.loadToken += 1;
+      this.clearLoadWatchdog();
       this.el.layerA.classList.remove('active');
       this.el.layerB.classList.remove('active');
       this.el.layerA.removeAttribute('src');
@@ -751,8 +848,13 @@
       var museum;
       var rights;
       var i;
-      if (!artwork || this.menuOpen) {
+      if (!artwork || this.menuOpen || this.el.loading.classList.contains('is-error')) {
         return;
+      }
+      if (!this.el.loading.classList.contains('is-error')) {
+        // A dialog must never sit invisibly below the opaque loading state. Terminal errors remain
+        // blocking; ordinary in-flight loading is restored on close if no artwork is visible yet.
+        this.el.loading.classList.add('hidden');
       }
       this.stopSlideshow();
       this.previousFocus = document.activeElement;
@@ -811,14 +913,26 @@
       }
       if (this.pendingLoadError) {
         this.displayLoadError();
+      } else if (this.artworks.length &&
+          !this.el.layerA.classList.contains('active') &&
+          !this.el.layerB.classList.contains('active')) {
+        this.showLoadingState();
       }
     },
 
     openMenu: function () {
       var selected;
       var i;
+      if (this.el.loading.classList.contains('is-error')) {
+        return;
+      }
       if (this.detailsOpen) {
         this.closeDetails();
+      }
+      if (!this.el.loading.classList.contains('is-error')) {
+        // The menu is above the gallery logically but below loading visually, so clear ordinary
+        // loading before opening it. closeMenu restores loading when the stage is still blank.
+        this.el.loading.classList.add('hidden');
       }
       this.previousFocus = document.activeElement;
       this.stopSlideshow();
@@ -864,6 +978,10 @@
       }
       if (this.pendingLoadError) {
         this.displayLoadError();
+      } else if (this.artworks.length &&
+          !this.el.layerA.classList.contains('active') &&
+          !this.el.layerB.classList.contains('active')) {
+        this.showLoadingState();
       }
     },
 
