@@ -62,6 +62,8 @@ test('release version 2.1.1 is consistent across every platform manifest', () =>
   assert.match(tizen, /version="2\.1\.1"/);
   assert.match(android, /versionCode\s*=\s*3/);
   assert.match(android, /versionName\s*=\s*"2\.1\.1"/);
-  assert.match(readmeEn, /com\.saborrr\.museumathome_2\.1\.1_all\.ipk/);
-  assert.match(readmeRu, /com\.saborrr\.museumathome_2\.1\.1_all\.ipk/);
+  assert.match(readmeEn, /releases\/tag\/v2\.1\.1/);
+  assert.match(readmeRu, /releases\/tag\/v2\.1\.1/);
+  assert.match(readmeEn, /museum-at-home-webos-1080-unsigned\.ipk/);
+  assert.match(readmeRu, /museum-at-home-webos-1080-unsigned\.ipk/);
 });

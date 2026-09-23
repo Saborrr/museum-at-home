@@ -8,7 +8,7 @@
 
 [Home](README.md) · **English** · [Русский](README.ru.md)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/Saborrr/art-screensaver-webos/ci.yml?branch=main&style=for-the-badge&label=multi-platform%20build)](https://github.com/Saborrr/art-screensaver-webos/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/Saborrr/museum-at-home/ci.yml?branch=main&style=for-the-badge&label=multi-platform%20build)](https://github.com/Saborrr/museum-at-home/actions)
 [![Artworks](https://img.shields.io/badge/rights--checked_artworks-55-d8b56c?style=for-the-badge)](docs/CONTENT_POLICY.md)
 [![Legacy webOS](https://img.shields.io/badge/legacy_runtime-Chromium_38-4f5944?style=for-the-badge)](https://webostv.developer.lge.com/develop/specifications/web-api-and-web-engine)
 
@@ -76,17 +76,27 @@ ratio with `object-fit: contain`.
 | `OK`, green or blue | Open collections and settings |
 | `Back`, `Return` or `Esc` | Close the panel or exit |
 
-## Download CI builds
+## Download test builds
 
-Open [GitHub Actions](https://github.com/Saborrr/art-screensaver-webos/actions),
-select the newest successful **Museum at Home CI** run and download:
+The [v2.1.1 release](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.1)
+has individual files for download:
+
+- `museum-at-home-android-tv-debug.apk` — Android TV test build;
+- `museum-at-home-webos-1080-unsigned.ipk` and
+  `museum-at-home-webos-720-unsigned.ipk` — LG developer-mode test builds;
+- `museum-at-home-tizen-unsigned.zip` — Samsung project requiring device signing;
+- `museum-at-home-web.zip` — static web/PWA files.
+
+Alternatively, open [GitHub Actions](https://github.com/Saborrr/museum-at-home/actions),
+select a successful **Museum at Home CI** run and download its short-lived artifacts:
 
 - `museum-at-home-webos` — LG 1080p and 720p `.ipk` packages;
 - `museum-at-home-cross-platform` — Android TV debug APK, browser/PWA ZIP and
   unsigned Samsung Tizen ZIP.
 
-Artifacts are intended for testing. Store releases require your own signing
-keys and seller accounts.
+These builds are for testing, not app-store installation. No official TV-store
+listing or checkout is available. Store releases require signing keys, seller
+accounts and device-specific review.
 
 ## Install on LG webOS
 
@@ -99,20 +109,22 @@ ares-novacom --device myTV --getkey
 ares-device --device myTV --system-info
 ```
 
-Use the 1080 package on UHD televisions such as the LG 49UH610V:
+Use the downloaded 1080 package on UHD televisions such as the LG 49UH610V:
 
 ```bash
-ares-install --device myTV path/to/1080/com.saborrr.museumathome_2.1.1_all.ipk
+ares-install --device myTV museum-at-home-webos-1080-unsigned.ipk
 ares-launch --device myTV com.saborrr.museumathome
 ```
 
 Developer Mode sessions expire, so extend the session in LG's Developer Mode
-app before its timer reaches zero.
+app before its timer reaches zero. On OLED models, system brightness protection
+and the system screensaver may interrupt a static gallery; do not assume this
+app replaces the TV's built-in screensaver on every model.
 
 ## Install on Android TV / Google TV / Fire TV
 
 Enable developer options and ADB on the television, then install the APK from
-the cross-platform artifact:
+the release or cross-platform CI artifact:
 
 ```bash
 adb connect TV_IP_ADDRESS
@@ -182,5 +194,8 @@ proof of permission. See [Content and rights policy](docs/CONTENT_POLICY.md).
 
 Created and maintained by **[Saborrr](https://github.com/Saborrr)**.
 
-The application code is distributed under the repository's all-rights-reserved
-license. Artwork and reproduction rights are tracked separately per record.
+No open-source license is currently granted for the application code. Public
+availability of this repository does not grant permission to redistribute it.
+Artwork and reproduction rights are tracked separately per record; see the
+[content policy](docs/CONTENT_POLICY.md). Choose and publish explicit code and
+binary distribution terms before selling or licensing the application.

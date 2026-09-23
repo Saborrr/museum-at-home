@@ -8,7 +8,7 @@
 
 [Главная](README.md) · [English](README.en.md) · **Русский**
 
-[![CI](https://img.shields.io/github/actions/workflow/status/Saborrr/art-screensaver-webos/ci.yml?branch=main&style=for-the-badge&label=сборка%20для%20всех%20платформ)](https://github.com/Saborrr/art-screensaver-webos/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/Saborrr/museum-at-home/ci.yml?branch=main&style=for-the-badge&label=сборка%20для%20всех%20платформ)](https://github.com/Saborrr/museum-at-home/actions)
 [![Картины](https://img.shields.io/badge/проверено_прав-55-d8b56c?style=for-the-badge)](docs/CONTENT_POLICY.md)
 [![Старый webOS](https://img.shields.io/badge/совместимость-Chromium_38-4f5944?style=for-the-badge)](https://webostv.developer.lge.com/develop/specifications/web-api-and-web-engine)
 
@@ -77,17 +77,27 @@ LG ограничивает графику web-приложений разреш
 | `OK`, зеленая или синяя | Коллекции и настройки |
 | `Back`, `Return` или `Esc` | Закрыть окно или выйти |
 
-## Где скачать готовые сборки
+## Где скачать тестовые сборки
 
-Откройте [GitHub Actions](https://github.com/Saborrr/art-screensaver-webos/actions),
-выберите последний успешный запуск **Museum at Home CI** и скачайте:
+В [релизе v2.1.1](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.1)
+файлы доступны по отдельности:
+
+- `museum-at-home-android-tv-debug.apk` — тестовая сборка Android TV;
+- `museum-at-home-webos-1080-unsigned.ipk` и
+  `museum-at-home-webos-720-unsigned.ipk` — сборки LG для режима разработчика;
+- `museum-at-home-tizen-unsigned.zip` — проект Samsung для подписи под устройство;
+- `museum-at-home-web.zip` — статическая веб-версия/PWA.
+
+Либо откройте [GitHub Actions](https://github.com/Saborrr/museum-at-home/actions),
+выберите успешный запуск **Museum at Home CI** и скачайте временные артефакты:
 
 - `museum-at-home-webos` — два файла `.ipk` для LG, 1080p и 720p;
 - `museum-at-home-cross-platform` — тестовый APK для Android TV, ZIP с
   браузерной/PWA-версией и неподписанный ZIP для Samsung Tizen.
 
-Эти артефакты предназначены для проверки. Для публикации в магазинах нужны
-личные ключи подписи и аккаунты продавца.
+Эти сборки предназначены для проверки, а не для установки из магазина.
+Публикации в магазинах и оплаты пока нет; для них потребуются ключи подписи,
+аккаунты продавца и проверка на устройствах.
 
 ## Установка на LG webOS
 
@@ -100,20 +110,22 @@ ares-novacom --device myTV --getkey
 ares-device --device myTV --system-info
 ```
 
-На UHD-телевизорах, включая LG 49UH610V, используйте пакет 1080p:
+На UHD-телевизорах, включая LG 49UH610V, используйте скачанный пакет 1080p:
 
 ```bash
-ares-install --device myTV путь/к/1080/com.saborrr.museumathome_2.1.1_all.ipk
+ares-install --device myTV museum-at-home-webos-1080-unsigned.ipk
 ares-launch --device myTV com.saborrr.museumathome
 ```
 
 Сессия Developer Mode имеет срок действия. Продлевайте ее в приложении
-Developer Mode до окончания таймера.
+Developer Mode до окончания таймера. На OLED-моделях защита яркости и системная
+заставка могут прервать показ: приложение не заменяет гарантированно
+встроенную заставку на каждом телевизоре.
 
 ## Установка на Android TV / Google TV / Fire TV
 
 Включите на телевизоре параметры разработчика и ADB, после чего установите APK
-из кроссплатформенного артефакта:
+из релиза или кроссплатформенного артефакта CI:
 
 ```bash
 adb connect IP_АДРЕС_ТЕЛЕВИЗОРА
@@ -183,6 +195,8 @@ data/*.json + img/paintings/*
 
 Создатель и разработчик проекта: **[Saborrr](https://github.com/Saborrr)**.
 
-Код приложения распространяется на условиях действующей лицензии репозитория
-«все права защищены». Права на картины и репродукции учитываются отдельно для
-каждой записи каталога.
+Открытая лицензия на код приложения сейчас не предоставлена. Публичный доступ
+к репозиторию сам по себе не разрешает распространять код. Права на картины и
+репродукции учитываются отдельно для каждой записи каталога; см.
+[политику контента](docs/CONTENT_POLICY.md). Перед продажей или лицензированием
+нужно явно определить условия распространения кода и готовых сборок.
