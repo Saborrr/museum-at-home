@@ -62,8 +62,11 @@ test('release version 2.1.2 is consistent across every platform manifest', () =>
   assert.match(tizen, /version="2\.1\.2"/);
   assert.match(android, /versionCode\s*=\s*4/);
   assert.match(android, /versionName\s*=\s*"2\.1\.2"/);
-  assert.match(readmeEn, /releases\/tag\/v2\.1\.1/);
-  assert.match(readmeRu, /releases\/tag\/v2\.1\.1/);
-  assert.match(readmeEn, /museum-at-home-webos-1080-unsigned\.ipk/);
-  assert.match(readmeRu, /museum-at-home-webos-1080-unsigned\.ipk/);
+  for (const readme of [readmeEn, readmeRu]) {
+    assert.match(readme, /releases\/tag\/v2\.1\.2/);
+    assert.match(readme, /ares-install --device myTV museum-at-home-webos-1080-2\.1\.2\.ipk/);
+    // Preserve the explicitly older release listing as well as current guidance.
+    assert.match(readme, /releases\/tag\/v2\.1\.1/);
+    assert.match(readme, /museum-at-home-webos-1080-unsigned\.ipk/);
+  }
 });

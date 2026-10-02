@@ -9,7 +9,7 @@
 [Home](README.md) · **English** · [Русский](README.ru.md)
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Saborrr/museum-at-home/ci.yml?branch=main&style=for-the-badge&label=multi-platform%20build)](https://github.com/Saborrr/museum-at-home/actions)
-[![Artworks](https://img.shields.io/badge/rights--checked_artworks-55-d8b56c?style=for-the-badge)](docs/CONTENT_POLICY.md)
+[![Artworks](https://img.shields.io/badge/rights--checked_artworks-80-d8b56c?style=for-the-badge)](docs/CONTENT_POLICY.md)
 [![Legacy webOS](https://img.shields.io/badge/legacy_runtime-Chromium_38-4f5944?style=for-the-badge)](https://webostv.developer.lge.com/develop/specifications/web-api-and-web-engine)
 
 <img src="docs/images/app-preview.jpg" alt="Museum at Home gallery interface">
@@ -20,8 +20,13 @@
 
 Museum at Home transforms a television into an unobtrusive full-screen museum.
 It was designed from the start for a remote control and viewing from across the
-room: readable type, safe margins, predictable focus, no tiny controls and no
-network dependency in packaged builds.
+room: readable type, safe margins, predictable focus and no tiny controls.
+Packaged TV builds include local reproductions. The full-screen gallery is not
+the system screensaver: activation and behavior depend on device firmware.
+
+**v2.1.2:** the user confirmed installation with webOS Dev Manager on a Mac
+and working gallery operation on **LG49UH610V, webOS 3.4**. This does not
+confirm all devices, hours-long stability or a separate hardware offline test.
 
 After twelve seconds of inactivity, artwork information and the clock fade
 away. Any remote or pointer input brings them back. The behavior can be set to
@@ -29,11 +34,15 @@ away. Any remote or pointer input brings them back. The behavior can be set to
 
 ## Features
 
-- Russian art and world art collections;
+- 80 artworks: 32 Russian and 48 world works; v2.1.2 adds 25 Russian paintings;
 - filters for landscape, portrait, realism, Romanticism, Impressionism,
   Renaissance, Baroque and modern art;
 - durable favorites with migration from the original storage format;
-- detailed Russian and English descriptions;
+- complete RU/EN titles, artists, museums, dates, stories, rights and key hints;
+- cached focus geometry and removed button transitions for older TV engines;
+- three reproductions replaced with higher-quality sources; Van Gogh’s
+  *Café Terrace at Night* now uses the correct painting rather than a drawing;
+- Kuindzhi’s 1882 Tretyakov Gallery repetition correctly identified;
 - dual-image crossfade without a black frame;
 - optional restrained Ken Burns movement;
 - complete offline image fallbacks in packaged apps;
@@ -45,7 +54,7 @@ away. Any remote or pointer input brings them back. The behavior can be set to
 
 | Platform / common brands | Delivery | Support and limitations |
 |---|---|---|
-| **LG webOS 3+** | Two `.ipk` packages | Full app support. Gallery screensaver extensions activate only on LG models that expose them. |
+| **LG webOS 3+** | v2.1.2: 1080p `.ipk`; 720p via CI | Gallery confirmed on LG49UH610V / webOS 3.4. System screensaver operation is not separately confirmed and depends on firmware. |
 | **Android TV / Google TV** — Sony, Philips, TCL, Xiaomi, selected Hisense models, Nvidia Shield | Android `.apk` | Full remote UI and a registered Android DreamService. Availability of third-party system screensavers depends on the device firmware. |
 | **Amazon Fire TV** | The same Android `.apk` | Full-screen gallery and remote support. Install through ADB for testing; DreamService availability varies by Fire OS version. |
 | **Samsung Smart TV / Tizen** | Unsigned Tizen web project | UI and Samsung Return key are supported. Samsung requires a developer certificate tied to the TV before a `.wgt` can be installed. |
@@ -54,17 +63,21 @@ away. Any remote or pointer input brings them back. The behavior can be set to
 | **Roku** | Not yet | Roku requires a separate SceneGraph / BrightScript application. |
 | **VIDAA and proprietary systems** | Browser fallback where available | Native store submission requires the vendor SDK and partner process. |
 
+Except for the LG device confirmation above, these entries describe code and
+packaging support, not verified behavior on every listed brand or model.
+
 The web interface is shared, while each platform wrapper handles its launcher,
 remote Back behavior, packaging and store requirements.
 
 ## Image quality on 4K televisions
 
-LG web applications render graphics at up to 1920×1080 even on UHD models;
-native 3840×2160 is reserved for video. Museum at Home therefore uses clean,
-carefully compressed 1920-pixel reproductions instead of wasting memory on
-files the web compositor will downscale. Android, Samsung and browser builds
-use the same source-quality artwork set and preserve each painting's aspect
-ratio with `object-fit: contain`.
+LG web apps use a graphics layer of up to 1920×1080 on UHD models; native
+3840×2160 applies to video. This is not a native 4K gallery. New reproductions
+are 2000–2560 pixels on the long side: better source images with careful
+compression, no AI upscaling or generative reconstruction. This range is not
+a claim that every existing image was replaced. The shared set preserves
+painting proportions with `object-fit: contain`; package size and decoded
+image memory remain important on older TVs.
 
 ## Remote control
 
@@ -78,8 +91,18 @@ ratio with `object-fit: contain`.
 
 ## Download test builds
 
+### Current v2.1.2 release — LG 1080p only
+
+[v2.1.2](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.2):
+[`museum-at-home-webos-1080-2.1.2.ipk`](https://github.com/Saborrr/museum-at-home/releases/download/v2.1.2/museum-at-home-webos-1080-2.1.2.ipk)
+— 73,141,544 bytes, built with the official `ares-package`. This release has
+no 720p package, Android APK, Tizen or web ZIP. It is a Developer Mode package,
+not a store build.
+
+### Older v2.1.1 builds — not the current version
+
 The [v2.1.1 release](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.1)
-has individual files for download:
+has the older files below; they do not include the v2.1.2 changes:
 
 - `museum-at-home-android-tv-debug.apk` — Android TV test build;
 - `museum-at-home-webos-1080-unsigned.ipk` and
@@ -87,8 +110,11 @@ has individual files for download:
 - `museum-at-home-tizen-unsigned.zip` — Samsung project requiring device signing;
 - `museum-at-home-web.zip` — static web/PWA files.
 
-Alternatively, open [GitHub Actions](https://github.com/Saborrr/museum-at-home/actions),
-select a successful **Museum at Home CI** run and download its short-lived artifacts:
+### Current builds for other platforms — CI artifacts
+
+For current source builds, open [GitHub Actions](https://github.com/Saborrr/museum-at-home/actions),
+select a successful **Museum at Home CI** run for the desired main commit and
+download its short-lived artifacts (GitHub sign-in may be required):
 
 - `museum-at-home-webos` — LG 1080p and 720p `.ipk` packages;
 - `museum-at-home-cross-platform` — Android TV debug APK, browser/PWA ZIP and
@@ -100,7 +126,20 @@ accounts and device-specific review.
 
 ## Install on LG webOS
 
-Install the official LG CLI:
+### Mac: webOS Dev Manager
+
+1. Install LG Developer Mode on the TV, sign in to your LG account, enable
+   Developer Mode and Key Server, and restart if prompted.
+2. Connect the Mac and TV to the same network. Download the macOS build of
+   [webOS Dev Manager](https://github.com/webosbrew/dev-manager-desktop/releases/latest).
+3. Add the TV using its IP and the connection details shown in Developer Mode.
+4. Click **Install**, select `museum-at-home-webos-1080-2.1.2.ipk`, wait for
+   installation and launch Museum at Home. Do not uninstall the existing app
+   beforehand. The user confirmed this path on LG49UH610V / webOS 3.4.
+
+### Alternative: official LG CLI
+
+Install the LG tools; `myTV` is the device name chosen during setup:
 
 ```bash
 npm install -g @webos-tools/cli
@@ -112,7 +151,7 @@ ares-device --device myTV --system-info
 Use the downloaded 1080 package on UHD televisions such as the LG 49UH610V:
 
 ```bash
-ares-install --device myTV museum-at-home-webos-1080-unsigned.ipk
+ares-install --device myTV museum-at-home-webos-1080-2.1.2.ipk
 ares-launch --device myTV com.saborrr.museumathome
 ```
 
@@ -124,7 +163,7 @@ app replaces the TV's built-in screensaver on every model.
 ## Install on Android TV / Google TV / Fire TV
 
 Enable developer options and ADB on the television, then install the APK from
-the release or cross-platform CI artifact:
+the current cross-platform CI artifact (or the explicitly older v2.1.1 build):
 
 ```bash
 adb connect TV_IP_ADDRESS
@@ -176,19 +215,23 @@ data/*.json + img/paintings/*
 
 ## Content and rights
 
-The commercial catalog contains 55 verified works. Two disputed reproductions
+The release catalog contains 80 rights-checked works. Two disputed reproductions
 are blocked and one CC BY-SA reproduction remains outside the release until its
 attribution flow is finalized. Search-engine results are never accepted as
 proof of permission. See [Content and rights policy](docs/CONTENT_POLICY.md).
 
-## Roadmap
+## Commercial plan and roadmap
 
-- signed release automation through encrypted repository secrets;
-- app-store-ready Android TV / Fire TV bundles;
-- Samsung device testing and signed `.wgt` release;
-- larger curated collections and optional downloadable packs;
-- native Apple TV, Roku and VIDAA ports after the shared catalog API is stable;
-- optional subscriptions and premium museum packs.
+The **80-work base gallery is free**; future paid thematic collections are
+planned. Store distribution, payments, entitlement delivery and purchase
+restoration are **not implemented**. A subscription is not a decided model.
+
+1. LG first: store requirements, seller eligibility and payout availability for
+   the developer’s country/status, then prepare a store-ready build.
+2. Downloadable thematic packs: delivery, entitlements, restoration after
+   reinstall and offline-access rules.
+3. Other platforms later: Android TV / Fire TV and Samsung signing, real-device
+   tests and store processes; native Apple TV, Roku and VIDAA ports further on.
 
 ## Author
 
