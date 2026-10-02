@@ -22,7 +22,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Звёздная ночь",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1889",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-bedroom",
@@ -44,7 +49,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Спальня в Арле",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1888",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-sunflowers",
@@ -66,29 +76,40 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_127.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Подсолнухи",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1888",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-cafe-terrace-at-night",
       "title": "Café Terrace at Night",
       "artist": "Vincent van Gogh",
       "year": "1888",
-      "museum": "Wikimedia Commons / Google Art Project",
+      "museum": "Kröller-Müller Museum, Otterlo",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Vincent_van_Gogh_-_Cafe_Terrace_at_Night_%281888%29.jpg/1920px-Vincent_van_Gogh_-_Cafe_Terrace_at_Night_%281888%29.jpg",
       "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Vincent_van_Gogh_-_Cafe_Terrace_at_Night_%281888%29.jpg/500px-Vincent_van_Gogh_-_Cafe_Terrace_at_Night_%281888%29.jpg",
       "source": "wikimedia",
       "quality": "Ultra HD (up to 8K)",
-      "description": "Painted in September 1888 in Arles. The café is now called Café Van Gogh. Van Gogh wrote to his sister Willemien: \"It amuses me enormously to paint the night right on the spot.\" It is the first painting in which he used a starry background without a sky overhead.",
-      "descriptionRu": "Написана в сентябре 1888 в Арле. Сейчас это кафе называется «Кафе Ван Гог». Ван Гог писал сестре Виллемиен: «Меня невероятно увлекает писать ночь прямо на месте». Это первая картина, где он использовал звёздный фон без неба над головой.",
+      "description": "Van Gogh painted this night-time café scene in Arles in 1888. Warm yellow light fills the terrace while the street and sky are built from contrasting blues. The paving stones lead into the distance, and scattered figures give the illuminated space a human scale. The painting belongs to the Kröller-Müller Museum in Otterlo. It is distinct from the pen-and-chalk drawing of the same subject held in Dallas. Look at how the café canopy and the receding street organise the composition without breaking the continuous rhythm of colour.",
+      "descriptionRu": "Ван Гог написал ночную сцену кафе в Арле в 1888 году. Теплый желтый свет заполняет террасу, тогда как улица и небо построены на противопоставленных синих оттенках. Линии мостовой уходят в глубину, а отдельные фигуры придают освещенному пространству человеческий масштаб. Картина принадлежит музею Крёллер-Мюллер в Оттерло. Ее следует отличать от рисунка пером и мелом на тот же сюжет, который хранится в Далласе. Рассмотрите, как навес кафе и удаляющаяся улица организуют композицию, не нарушая непрерывного цветового ритма.",
       "tags": [
         "wikimedia",
         "impressionism"
       ],
       "commercialUseAllowed": true,
       "license": "Public domain",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Cafe_Terrace_at_Night_(1888).jpg",
-      "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Terrasse_des_Caf%C3%A9s_an_der_Place_du_Forum_in_Arles_am_Abend1.jpeg",
+      "rightsVerifiedAt": "2026-10-01",
+      "rightsStatus": "verified",
+      "titleRu": "Ночная терраса кафе",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Музей Крёллер-Мюллер, Оттерло",
+      "yearRu": "1888",
+      "licenseRu": "Общественное достояние",
+      "catalogueNumber": "F467"
     },
     {
       "id": "wiki-the-night-cafe",
@@ -110,7 +131,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Le_caf%C3%A9_de_nuit_(The_Night_Caf%C3%A9)_by_Vincent_van_Gogh.jpeg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Ночное кафе",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1888",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-almond-blossoms",
@@ -132,7 +158,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Цветущие ветки миндаля",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1890",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-mona-lisa",
@@ -155,7 +186,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Мона Лиза",
+      "artistRu": "Леонардо да Винчи",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1503–1519",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-last-supper",
@@ -178,7 +214,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Тайная вечеря",
+      "artistRu": "Леонардо да Винчи",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1495–1498",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-creation-of-adam",
@@ -201,7 +242,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Creation_of_Adam_perspective_fix.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Сотворение Адама",
+      "artistRu": "Микеланджело",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1508–1512",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-birth-of-venus",
@@ -224,7 +270,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Рождение Венеры",
+      "artistRu": "Сандро Боттичелли",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1485",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-primavera",
@@ -247,7 +298,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_Primavera_-_Google_Art_Project.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Весна",
+      "artistRu": "Сандро Боттичелли",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1480",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-scream",
@@ -270,7 +326,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Крик",
+      "artistRu": "Эдвард Мунк",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1893",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-girl-with-a-pearl-earring",
@@ -293,7 +354,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meisje_met_de_parel.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Девушка с жемчужной серёжкой",
+      "artistRu": "Ян Вермеер",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1665",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-great-wave-off-kanagawa",
@@ -316,7 +382,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsunami_by_hokusai_19th_century.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Большая волна в Канагаве",
+      "artistRu": "Кацусика Хокусай",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1831",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-kiss",
@@ -339,7 +410,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Поцелуй",
+      "artistRu": "Густав Климт",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1907–1908",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-persistence-of-memory",
@@ -362,7 +438,12 @@
       "license": "Separate artwork license required",
       "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png/1920px-Dargenta_%26_Salvador_Dali_The_persistance_of_Memory.png",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "blocked"
+      "rightsStatus": "blocked",
+      "titleRu": "Постоянство памяти",
+      "artistRu": "Сальвадор Дали",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1931",
+      "licenseRu": "Требуется отдельная лицензия на произведение"
     },
     {
       "id": "wiki-american-gothic",
@@ -384,7 +465,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grant_DeVolson_Wood_-_American_Gothic.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Американская готика",
+      "artistRu": "Грант Вуд",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1930",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-impression-sunrise",
@@ -406,7 +492,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Впечатление. Восход солнца",
+      "artistRu": "Клод Моне",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1872",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-water-lilies-(nympheas)",
@@ -429,7 +520,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Кувшинки",
+      "artistRu": "Клод Моне",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1906",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-school-of-athens",
@@ -452,7 +548,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Афинская школа",
+      "artistRu": "Рафаэль",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1509–1511",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-third-of-may-1808",
@@ -474,7 +575,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Tres_de_Mayo,_by_Francisco_de_Goya,_from_Prado_thin_black_margin.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Третье мая 1808 года",
+      "artistRu": "Франсиско Гойя",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1814",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-fighting-temeraire",
@@ -496,7 +602,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Fighting_Temeraire,_JMW_Turner,_National_Gallery.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Последний рейс корабля «Отважный»",
+      "artistRu": "Уильям Тёрнер",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1839",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-wanderer-above-the-sea-of-fog",
@@ -518,7 +629,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Странник над морем тумана",
+      "artistRu": "Каспар Давид Фридрих",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "ок. 1818",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-composition-vii",
@@ -540,7 +656,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Composition_VII_-_Wassily_Kandinsky,_GAC.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Композиция VII",
+      "artistRu": "Василий Кандинский",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1913",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-composition-with-red-blue-and-",
@@ -562,7 +683,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Композиция с красным, синим и жёлтым",
+      "artistRu": "Пит Мондриан",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1930",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-son-of-man",
@@ -586,7 +712,12 @@
       "license": "Separate artwork license required",
       "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Noun_project_-_The_Son_of_Man_-_in_frame_colored.png/1920px-Noun_project_-_The_Son_of_Man_-_in_frame_colored.png",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "blocked"
+      "rightsStatus": "blocked",
+      "titleRu": "Сын человеческий",
+      "artistRu": "Рене Магритт",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1964",
+      "licenseRu": "Требуется отдельная лицензия на произведение"
     },
     {
       "id": "wiki-bal-du-moulin-de-la-galette",
@@ -608,7 +739,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Renoir,_Pierre-Auguste_-_Dance_at_Le_Moulin_de_la_Galette,_1876.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Бал в Мулен де ла Галетт",
+      "artistRu": "Пьер Огюст Ренуар",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1876",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-the-sleeping-gypsy",
@@ -630,7 +766,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Boh%C3%A9mienne_endormie.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Спящая цыганка",
+      "artistRu": "Анри Руссо",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1897",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "wiki-whistler's-mother",
@@ -652,7 +793,12 @@
       "license": "Public domain",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whistlers_Mother_high_res.jpg",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Мать Уистлера",
+      "artistRu": "Джеймс Эббот Макнейл Уистлер",
+      "museumRu": "Викисклад / Художественный проект Google",
+      "yearRu": "1871",
+      "licenseRu": "Общественное достояние"
     },
     {
       "id": "met-436535",
@@ -674,7 +820,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436535",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Пшеничное поле с кипарисами",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1889",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-436528",
@@ -696,7 +847,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436528",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Ирисы",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1890",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-436532",
@@ -718,7 +874,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436532",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Автопортрет в соломенной шляпе (оборот: Чистильщик картофеля)",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1887",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-437394",
@@ -741,7 +902,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/437394",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Аристотель с бюстом Гомера",
+      "artistRu": "Рембрандт ван Рейн",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1653",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-437397",
@@ -764,7 +930,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/437397",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Автопортрет",
+      "artistRu": "Рембрандт ван Рейн",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1660",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-437881",
@@ -787,7 +958,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/437881",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Молодая женщина с кувшином воды",
+      "artistRu": "Ян Вермеер",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "ок. 1662",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-436575",
@@ -809,7 +985,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436575",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Вид Толедо",
+      "artistRu": "Эль Греко (Доменикос Теотокопулос)",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "ок. 1599–1600",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-436573",
@@ -831,7 +1012,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436573",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Кардинал Фернандо Ниньо де Гевара (1541–1609)",
+      "artistRu": "Эль Греко (Доменикос Теотокопулос)",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "ок. 1600",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-436105",
@@ -853,7 +1039,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436105",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Смерть Сократа",
+      "artistRu": "Жак Луи Давид",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1787",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-436106",
@@ -875,7 +1066,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436106",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Антуан Лоран Лавуазье (1743–1794) и Мари Анн Лавуазье (Мари Анн Пьерретта Польз, 1758–1836)",
+      "artistRu": "Жак Луи Давид",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1788",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-435844",
@@ -898,7 +1094,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/435844",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Музыканты",
+      "artistRu": "Караваджо (Микеланджело Меризи)",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1597",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-435809",
@@ -920,7 +1121,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/435809",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Жнецы",
+      "artistRu": "Питер Брейгель Старший",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1565",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-435868",
@@ -942,7 +1148,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/435868",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Игроки в карты",
+      "artistRu": "Поль Сезанн",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1890–92",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-435882",
@@ -964,7 +1175,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/435882",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Натюрморт с яблоками и горшком первоцветов",
+      "artistRu": "Поль Сезанн",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "ок. 1890",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-438817",
@@ -986,7 +1202,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/438817",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Танцевальный класс",
+      "artistRu": "Эдгар Дега",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1874",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-436947",
@@ -1008,7 +1229,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/436947",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "В лодке",
+      "artistRu": "Эдуард Мане",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1874",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-437430",
@@ -1030,7 +1256,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/437430",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "На берегу моря",
+      "artistRu": "Огюст Ренуар",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1883",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-437654",
@@ -1052,7 +1283,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/437654",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Цирковой парад",
+      "artistRu": "Жорж Сёра",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1887–88",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-437998",
@@ -1073,7 +1309,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/437998",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Оливковые деревья",
+      "artistRu": "Винсент ван Гог",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1889",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-437852",
@@ -1094,7 +1335,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/437852",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Солташ с речным паромом, Корнуолл",
+      "artistRu": "Джозеф Мэллорд Уильям Тёрнер",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1811",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     },
     {
       "id": "met-459092",
@@ -1115,7 +1361,12 @@
       "license": "CC0 — The Met Open Access",
       "sourceUrl": "https://www.metmuseum.org/art/collection/search/459092",
       "rightsVerifiedAt": "2026-07-16",
-      "rightsStatus": "verified"
+      "rightsStatus": "verified",
+      "titleRu": "Деревья и дома возле Жа-де-Буффан",
+      "artistRu": "Поль Сезанн",
+      "museumRu": "Метрополитен-музей, Нью-Йорк",
+      "yearRu": "1885–86",
+      "licenseRu": "CC0 — Открытая коллекция Метрополитен-музея"
     }
   ]
 }

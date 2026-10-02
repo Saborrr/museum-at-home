@@ -32,6 +32,8 @@ function copyDirectory(source, target) {
   if (!fs.existsSync(source)) return;
   fs.mkdirSync(target, { recursive: true });
   for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
+    if (source === path.join(ROOT, 'img', 'paintings') &&
+        !catalog.some((artwork) => artwork.image === 'img/paintings/' + entry.name)) continue;
     const from = path.join(source, entry.name);
     const to = path.join(target, entry.name);
     if (entry.isDirectory()) copyDirectory(from, to);

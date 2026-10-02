@@ -32,7 +32,7 @@ function loadApp() {
   sandbox.window = sandbox;
   sandbox.globalThis = sandbox;
   let source = fs.readFileSync(path.join(root, 'js/app.es5.js'), 'utf8');
-  source = source.replace(/\}\(\)\);\s*$/, 'globalThis.__MuseumApp = App;\n}());');
+  source = source.replace(/\}\(\)\);\s*$/, 'globalThis.__MuseumApp = App; globalThis.__MuseumI18N = I18N;\n}());');
   vm.runInNewContext(source, sandbox, { filename: 'js/app.es5.js' });
   return { App: sandbox.__MuseumApp, document, sandbox };
 }
@@ -68,6 +68,86 @@ function classList(initial) {
     }
   };
 }
+
+test('UI dictionaries contain the same complete keys and no Russian text in English', () => {
+  const { sandbox } = loadApp();
+  const { ru, en } = sandbox.__MuseumI18N;
+  assert.deepEqual(Object.keys(ru).sort(), Object.keys(en).sort());
+  for (const lang of ['ru', 'en']) {
+    for (const [key, value] of Object.entries(sandbox.__MuseumI18N[lang])) {
+      for (const text of Array.isArray(value) ? value : [value]) {
+        assert.equal(typeof text, 'string', lang + ': ' + key);
+        assert.ok(text.trim(), lang + ': empty ' + key);
+        if (lang === 'en') assert.doesNotMatch(text, /[А-Яа-яЁё]/, key);
+      }
+    }
+  }
+});
+
+test('menu navigation reuses rendered geometry and writes only changed focus states', () => {
+  const { App, document } = loadApp();
+  let reads = 0;
+  let writes = 0;
+  App.focusables = [0, 1, 2].map((i) => ({
+    classList: { add() { writes += 1; }, remove() { writes += 1; }, toggle() { writes += 1; } },
+    focus() { document.activeElement = this; },
+    getBoundingClientRect() { reads += 1; return { left: i * 100, top: 0, width: 90, height: 40 }; }
+  }));
+  App.paintFocus();
+  writes = 0;
+  App.moveFocus(1, 0);
+  App.moveFocus(1, 0);
+  assert.equal(reads, 3, 'one geometry read per control, not per key');
+  assert.equal(writes, 4, 'only old and new control are written');
+  assert.equal(document.activeElement, App.focusables[2]);
+  App.moveFocus(1, 0);
+  assert.equal(writes, 4, 'boundary key does not repaint focus');
+  App.invalidateFocusGeometry();
+  App.moveFocus(-1, 0);
+  assert.equal(reads, 6, 'layout changes refresh geometry');
+  assert.equal(document.activeElement, App.focusables[1]);
+});
+
+test('changing language localizes hints, accessibility, errors and artwork dates', () => {
+  const { App, document, sandbox } = loadApp();
+  const nodes = {};
+  const node = (id) => nodes[id] || (nodes[id] = {
+    textContent: '', classList: classList(), setAttribute(key, value) { this[key] = value; },
+    getElementsByTagName() { return []; }
+  });
+  document.getElementById = node;
+  document.querySelector = node;
+  document.documentElement = {};
+  App.cacheElements();
+  App.settings = { category: 'all', styles: [] };
+  App.artworks = [{ title: 'Mona Lisa', titleRu: 'Мона Лиза', artist: 'Leonardo', artistRu: 'Леонардо', year: 'c. 1503', yearRu: 'ок. 1503', museum: 'Museum', museumRu: 'Музей' }];
+  App.language = 'en';
+  App.updateLanguage();
+  assert.equal(node('details-hint').textContent, '↑ ↓ Scroll · Back Close');
+  assert.equal(node('favorite-button')['aria-label'], 'Add favorite');
+  App.language = 'ru';
+  App.updateLanguage();
+  assert.equal(node('art-meta').textContent, 'ок. 1503 · Музей');
+  assert.equal(node('details-hint').textContent, '↑ ↓ Прокрутка · Back Закрыть');
+  assert.equal(node('[data-action="language"][data-value="en"]').textContent, 'Английский');
+  sandbox.localStorage.setItem = () => { throw new Error('full'); };
+  App.showToast = (text) => { node('toast').textContent = text; };
+  App.saveSettings();
+  assert.equal(node('toast').textContent, 'Не удалось сохранить настройки');
+});
+
+test('details localize source rights and dates instead of rendering raw English metadata', () => {
+  const { App } = loadApp();
+  App.language = 'ru';
+  App.artworks = [{ titleRu: 'Картина', artistRu: 'Художник', museumRu: 'Музей', descriptionRu: 'История', year: 'c. 1500', yearRu: 'ок. 1500', license: 'Public domain', licenseRu: 'Общественное достояние' }];
+  const el = () => ({ classList: classList(), setAttribute() {}, focus() {} });
+  App.el = {};
+  for (const key of ['loading', 'details', 'detailsKicker', 'detailsTitle', 'detailsByline', 'detailsDescription', 'detailsMuseum', 'detailsRights', 'detailsScroll']) App.el[key] = el();
+  App.stopSlideshow = () => {};
+  App.openDetails();
+  assert.equal(App.el.detailsByline.textContent, 'Художник · ок. 1500');
+  assert.equal(App.el.detailsRights.textContent, 'Источник и права: Общественное достояние');
+});
 
 test('Tab and Shift+Tab stay trapped in menu and restore prior focus', () => {
   const { App, document } = loadApp();
@@ -135,6 +215,29 @@ test('Tab and Shift+Tab stay trapped in details and restore prior focus', () => 
 
   App.closeDetails();
   assert.equal(document.activeElement, prior);
+});
+
+test('platform OK variants activate the visible menu or close the visible story', () => {
+  const { App } = loadApp();
+  let activated = 0;
+  let closed = 0;
+  App.showChrome = () => {};
+  App.activateFocus = () => { activated += 1; };
+  App.closeDetails = () => { closed += 1; };
+  for (const code of [13, 404, 406]) {
+    App.menuOpen = true;
+    App.detailsOpen = false;
+    const menuKey = keyEvent(code);
+    App.handleKey(menuKey);
+    assert.equal(menuKey.prevented, true);
+    App.menuOpen = false;
+    App.detailsOpen = true;
+    const detailKey = keyEvent(code);
+    App.handleKey(detailKey);
+    assert.equal(detailKey.prevented, true);
+  }
+  assert.equal(activated, 3);
+  assert.equal(closed, 3);
 });
 
 test('details dialog consumes Left and Right without moving or closing', () => {

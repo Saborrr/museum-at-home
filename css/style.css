@@ -537,8 +537,9 @@ button {
   color: #fff;
   font-size: 20px;
   outline: none;
-  -webkit-transition: border-color 130ms ease, background 130ms ease, -webkit-transform 130ms ease;
-  transition: border-color 130ms ease, background 130ms ease, transform 130ms ease;
+  /* Immediate feedback avoids repainting colour/scale transitions on older TV engines. */
+  -webkit-transition: none;
+  transition: none;
 }
 
 .menu-button {
@@ -562,8 +563,9 @@ button {
   border-color: #fff;
   background: #5a4a2e;
   box-shadow: 0 0 0 4px rgba(216, 181, 108, 0.33);
-  -webkit-transform: scale(1.035);
-  transform: scale(1.035);
+  /* A stable focus rectangle keeps cached spatial geometry exact. */
+  -webkit-transform: none;
+  transform: none;
 }
 
 .settings-row {

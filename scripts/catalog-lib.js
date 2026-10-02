@@ -114,7 +114,7 @@ function validateCatalog(catalog, options = {}) {
     }
     ids.add(artwork.id);
 
-    for (const field of ['title', 'artist', 'year', 'image', 'description', 'descriptionRu']) {
+    for (const field of ['title', 'titleRu', 'artist', 'artistRu', 'year', 'yearRu', 'museum', 'museumRu', 'image', 'description', 'descriptionRu', 'licenseRu']) {
       if (!artwork[field]) errors.push(artwork.id + ': missing ' + field);
     }
     if (!artwork.sourceUrl) errors.push(artwork.id + ': missing sourceUrl');

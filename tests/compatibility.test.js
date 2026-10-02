@@ -45,10 +45,10 @@ test('app manifest uses Museum at Home identity and 1080 graphics mode', () => {
   assert.equal(appInfo.title, 'Museum at Home');
   assert.equal(appInfo.resolution, '1920x1080');
   assert.equal(appInfo.disableBackHistoryAPI, true);
-  assert.equal(appInfo.version, '2.1.1');
+  assert.equal(appInfo.version, '2.1.2');
 });
 
-test('release version 2.1.1 is consistent across every platform manifest', () => {
+test('release version 2.1.2 is consistent across every platform manifest', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   const tizen = fs.readFileSync(path.join(root, 'platforms/tizen/config.xml'), 'utf8');
@@ -56,12 +56,12 @@ test('release version 2.1.1 is consistent across every platform manifest', () =>
   const readmeEn = fs.readFileSync(path.join(root, 'README.en.md'), 'utf8');
   const readmeRu = fs.readFileSync(path.join(root, 'README.ru.md'), 'utf8');
 
-  assert.equal(pkg.version, '2.1.1');
-  assert.equal(lock.version, '2.1.1');
-  assert.equal(lock.packages[''].version, '2.1.1');
-  assert.match(tizen, /version="2\.1\.1"/);
-  assert.match(android, /versionCode\s*=\s*3/);
-  assert.match(android, /versionName\s*=\s*"2\.1\.1"/);
+  assert.equal(pkg.version, '2.1.2');
+  assert.equal(lock.version, '2.1.2');
+  assert.equal(lock.packages[''].version, '2.1.2');
+  assert.match(tizen, /version="2\.1\.2"/);
+  assert.match(android, /versionCode\s*=\s*4/);
+  assert.match(android, /versionName\s*=\s*"2\.1\.2"/);
   assert.match(readmeEn, /releases\/tag\/v2\.1\.1/);
   assert.match(readmeRu, /releases\/tag\/v2\.1\.1/);
   assert.match(readmeEn, /museum-at-home-webos-1080-unsigned\.ipk/);

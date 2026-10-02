@@ -1,0 +1,846 @@
+{
+  "verifiedAt": "2026-10-01",
+  "items": [
+    {
+      "id": "ru-shishkin-rye",
+      "commonsPageId": 13502218,
+      "commonsFilename": "File:Ivan Shishkin - Рожь - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Shishkin_-_%D0%A0%D0%BE%D0%B6%D1%8C_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Ivan_Shishkin_-_%D0%A0%D0%BE%D0%B6%D1%8C_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        4000,
+        2254
+      ],
+      "sourceSha256": "1039884667a3180bbabf3a8e1c979af6e1ea286df0fae7f554874b4df4b46390",
+      "assetDimensions": [
+        2560,
+        1443
+      ],
+      "assetBytes": 1059351,
+      "assetSha256": "2a4aa0ad7164d49715c4a0fd96e2753e24a53f8960863e5bc681f7a231c28b70",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ivan Shishkin — Rye (1878). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-13502218.json",
+        "evidence/category-Ivan-Shishkin.json",
+        "evidence/broad-Ilya-Repin.json",
+        "evidence/search-Ivan-Shishkin.json",
+        "evidence/broad-Ivan-Shishkin.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-shishkin-mast-tree-grove",
+      "commonsPageId": 21854238,
+      "commonsFilename": "File:Ivan Shishkin - Mast-Tree grove - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Shishkin_-_Mast-Tree_grove_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Ivan_Shishkin_-_Mast-Tree_grove_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        4624,
+        3041
+      ],
+      "sourceSha256": "ca78848f24fb4238c64b455619108334b25b8b19493fa8ab360d83895a6c7eb7",
+      "assetDimensions": [
+        2560,
+        1684
+      ],
+      "assetBytes": 1137057,
+      "assetSha256": "405f047eaf5026bb462d8d7015ba4a7dcc4211dddd551742ca1854826ea8009f",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ivan Shishkin — Mast-Tree Grove (1898). State Russian Museum, Saint Petersburg. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-21854238.json",
+        "evidence/category-Ivan-Shishkin.json",
+        "evidence/search-Ivan-Shishkin.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-shishkin-oak-grove",
+      "commonsPageId": 158798,
+      "commonsFilename": "File:Ivan Ivanovich Shishkin - Oak Grove, 1887.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Ivanovich_Shishkin_-_Oak_Grove,_1887.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Ivan_Ivanovich_Shishkin_-_Oak_Grove%2C_1887.jpg",
+      "sourceDimensions": [
+        2056,
+        1300
+      ],
+      "sourceSha256": "b03f22ae1423cb150c273d3b6e6cc2c9fceda9f20b3fd271206aa2360c734941",
+      "assetDimensions": [
+        2056,
+        1300
+      ],
+      "assetBytes": 790338,
+      "assetSha256": "9dedc83b9836cc287db9ad3ef55ca83d39fc2415063d4c42be741cf081b68659",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ivan Shishkin — Oak Grove (1887). National Museum Kyiv Picture Gallery, Kyiv. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-158798.json",
+        "evidence/rendered-158798.json",
+        "evidence/target-10.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-shishkin-forest-distant-views",
+      "commonsPageId": 158799,
+      "commonsFilename": "File:Ivan Ivanovich Shishkin - Forest distant views, 1884.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Ivanovich_Shishkin_-_Forest_distant_views,_1884.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Ivan_Ivanovich_Shishkin_-_Forest_distant_views%2C_1884.jpg",
+      "sourceDimensions": [
+        2000,
+        1407
+      ],
+      "sourceSha256": "a1a1760bf6b527c1ead199c8d5efd348d9e8f4b234a6d35c2f666d0723773873",
+      "assetDimensions": [
+        2000,
+        1407
+      ],
+      "assetBytes": 480945,
+      "assetSha256": "cb8a294581655c4f77538429b042faac4c7521b32a8c181a6959e98dad48fab7",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ivan Shishkin — Forest Distances (1884). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-158799.json",
+        "evidence/broad-Ivan-Shishkin.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-levitan-golden-autumn-slobodka",
+      "commonsPageId": 21854116,
+      "commonsFilename": "File:Isaac Levitan - Golden autumn. Slobodka - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Isaac_Levitan_-_Golden_autumn._Slobodka_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Isaac_Levitan_-_Golden_autumn._Slobodka_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        7158,
+        4465
+      ],
+      "sourceSha256": "447362f849614583cc1c58c6fc986fdf570d61431da8b5e242452b860a9d5dc2",
+      "assetDimensions": [
+        2560,
+        1597
+      ],
+      "assetBytes": 976403,
+      "assetSha256": "00c7e5b06e9cee7e2297f8f38a39e2fa6e2fd994e1e5d08f87885fb9b4e5e903",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Isaac Levitan — Golden Autumn. Slobodka (1889). State Russian Museum, Saint Petersburg. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-21854116.json",
+        "evidence/search-Isaac-Levitan.json",
+        "evidence/category-Isaac-Levitan.json",
+        "evidence/broad-Isaac-Levitan.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-levitan-above-eternal-peace",
+      "commonsPageId": 3782418,
+      "commonsFilename": "File:Levitan nad vech pok28.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Levitan_nad_vech_pok28.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Levitan_nad_vech_pok28.jpg",
+      "sourceDimensions": [
+        2000,
+        1434
+      ],
+      "sourceSha256": "85fe6fe058bd1259245c8b4913ab391257b60c8f7d3392380a20917c9290fa10",
+      "assetDimensions": [
+        2000,
+        1434
+      ],
+      "assetBytes": 427081,
+      "assetSha256": "78b0ee60dca5b552293bd7d8fa82a5e4c0ecbb0dbcc88b9d7da0684f57344be4",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Isaac Levitan — Above Eternal Peace (1894). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-3782418.json",
+        "evidence/rendered-3782418.json",
+        "evidence/target-0.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-levitan-march",
+      "commonsPageId": 2543103,
+      "commonsFilename": "File:Mart levitan.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mart_levitan.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Mart_levitan.jpg",
+      "sourceDimensions": [
+        2000,
+        1639
+      ],
+      "sourceSha256": "da0345d8da37689eb1a79dcbf0987f56b605dbea04acb5503b57949086d38e41",
+      "assetDimensions": [
+        2000,
+        1639
+      ],
+      "assetBytes": 1585073,
+      "assetSha256": "0134dc12f0b50c6cb89c3f30ca945ff610e6e94cb7bbf4ef93d60a95cd6708fd",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Isaac Levitan — March (1895). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/target-1.json",
+        "evidence/page-2543103.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-levitan-vladimirka",
+      "commonsPageId": 20439679,
+      "commonsFilename": "File:Vladimirka without frame.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vladimirka_without_frame.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Vladimirka_without_frame.jpg",
+      "sourceDimensions": [
+        3456,
+        2223
+      ],
+      "sourceSha256": "495bf80d556c635c9c6ffc4f4f430b40aade16a36ad1ce4bd1146cd940b13ab0",
+      "assetDimensions": [
+        2560,
+        1647
+      ],
+      "assetBytes": 828152,
+      "assetSha256": "023828f5740b37611ec4c1408c1b1e422a4c70615ac5cc891446a06200e935b5",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Isaac Levitan — Vladimirka (1892). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-20439679.json",
+        "evidence/rendered-20439679.json",
+        "evidence/target-4.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-aivazovsky-shipwreck-stormy-morning",
+      "commonsPageId": 75749680,
+      "commonsFilename": "File:Ivan Konstantinovich Aivazovsky - Shipwreck on a Stormy Morning, 1895.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ivan_Konstantinovich_Aivazovsky_-_Shipwreck_on_a_Stormy_Morning,_1895.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Ivan_Konstantinovich_Aivazovsky_-_Shipwreck_on_a_Stormy_Morning%2C_1895.jpg",
+      "sourceDimensions": [
+        2000,
+        1212
+      ],
+      "sourceSha256": "4cb446dd8fc8d7e5ec6fe6044088c532df63d132b653098d62165c9b3c3038e5",
+      "assetDimensions": [
+        2000,
+        1212
+      ],
+      "assetBytes": 431672,
+      "assetSha256": "3f41ace3efd52cea0418baf51c5c235ada8f2396bda94c5d142fbcc173508fbc",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ivan Aivazovsky — Shipwreck on a Stormy Morning (1895). Private collection, Europe; precise location not disclosed by the source. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/broad-Ivan-Aivazovsky.json",
+        "evidence/page-75749680.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-repin-sadko",
+      "commonsPageId": 21854005,
+      "commonsFilename": "File:Ilya Repin - Sadko - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_-_Sadko_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Ilya_Repin_-_Sadko_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        5444,
+        7660
+      ],
+      "sourceSha256": "cd3ee1bfce75529fb211b563410a8c5aea96fa972458304e87b498333e2ac1d7",
+      "assetDimensions": [
+        1819,
+        2560
+      ],
+      "assetBytes": 943133,
+      "assetSha256": "ec5b8d0d05d4df0b05fe3f5ca7049bac9ee524cc837c5f6b4a397999638e5fe7",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ilya Repin — Sadko (1876). State Russian Museum, Saint Petersburg. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/rendered-21854005.json",
+        "evidence/page-21854005.json",
+        "evidence/category-Ilya-Repin.json",
+        "evidence/broad-Ilya-Repin.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-repin-religious-procession-kursk",
+      "commonsPageId": 13499681,
+      "commonsFilename": "File:Ilya Repin - Крестный ход в Курской губернии - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_-_%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B9_%D1%85%D0%BE%D0%B4_%D0%B2_%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%BE%D0%B9_%D0%B3%D1%83%D0%B1%D0%B5%D1%80%D0%BD%D0%B8%D0%B8_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Ilya_Repin_-_%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B9_%D1%85%D0%BE%D0%B4_%D0%B2_%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%BE%D0%B9_%D0%B3%D1%83%D0%B1%D0%B5%D1%80%D0%BD%D0%B8%D0%B8_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        5191,
+        3256
+      ],
+      "sourceSha256": "76b8a0aa6908e91e81fed554b8bebd34c3625795f1d0501c74eef44a2ab5b47e",
+      "assetDimensions": [
+        2560,
+        1606
+      ],
+      "assetBytes": 944964,
+      "assetSha256": "ec157ebce3a71773dd3087cd052afea7e1b0fd599824cb8b9e9b50659a5c9d7f",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ilya Repin — Religious Procession in Kursk Province (1880–1883). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-13499681.json",
+        "evidence/category-Ilya-Repin.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-repin-mussorgsky-portrait",
+      "commonsPageId": 13499712,
+      "commonsFilename": "File:Ilya Repin - Портрет композитора М.П.Мусоргского - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B0_%D0%9C.%D0%9F.%D0%9C%D1%83%D1%81%D0%BE%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ilya_Repin_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B0_%D0%9C.%D0%9F.%D0%9C%D1%83%D1%81%D0%BE%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        3205,
+        4000
+      ],
+      "sourceSha256": "569c4cc9f98b5818dae79a10b4b83a073d6ffeda0e4c1550defbf709c188d0d8",
+      "assetDimensions": [
+        2051,
+        2560
+      ],
+      "assetBytes": 870038,
+      "assetSha256": "878a1530d8069bbbb07472cc9f27cfe69046c31a49df00fb323f70b2447ec5ca",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ilya Repin — Portrait of Modest Mussorgsky (1881). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/category-Ilya-Repin.json",
+        "evidence/page-13499712.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-repin-dragonfly",
+      "commonsPageId": 13499632,
+      "commonsFilename": "File:Ilya Repin - Dragonfly. Painter's daughter portrait - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_-_Dragonfly._Painter%27s_daughter_portrait_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Ilya_Repin_-_Dragonfly._Painter%27s_daughter_portrait_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        3023,
+        4000
+      ],
+      "sourceSha256": "946b133d6fd3016f2c01f16349d69e704dd67d96539bd24866d46592c8648d12",
+      "assetDimensions": [
+        1935,
+        2560
+      ],
+      "assetBytes": 1101379,
+      "assetSha256": "af77787c390fe204fa26d459210e60f9c84648f0370d02a0895da61070587436",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ilya Repin — Dragonfly. Portrait of the Artist's Daughter (1884). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/category-Ilya-Repin.json",
+        "evidence/rendered-13499632.json",
+        "evidence/page-13499632.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-repin-tolstoy-barefoot",
+      "commonsPageId": 21854099,
+      "commonsFilename": "File:Ilya Repin - Leo Tolstoy Barefoot - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_-_Leo_Tolstoy_Barefoot_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Ilya_Repin_-_Leo_Tolstoy_Barefoot_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        2281,
+        6490
+      ],
+      "sourceSha256": "53739bef14a6796eca75ca51209fb5ef7930e8d72d7f3099c6081d38e6b13756",
+      "assetDimensions": [
+        900,
+        2560
+      ],
+      "assetBytes": 531914,
+      "assetSha256": "65e5ec6d028f61240674a419e0fd16c324ab820e42ac569a0a59e0e7c1589823",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Ilya Repin — Leo Tolstoy Barefoot (1901). State Russian Museum, Saint Petersburg. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-21854099.json",
+        "evidence/category-Ilya-Repin.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-kuindzhi-north",
+      "commonsPageId": 17822009,
+      "commonsFilename": "File:Arkhip Kuindzhi - North.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arkhip_Kuindzhi_-_North.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Arkhip_Kuindzhi_-_North.jpg",
+      "sourceDimensions": [
+        2651,
+        3504
+      ],
+      "sourceSha256": "f7101fc699afa7bedd035b5c2de0bf24bf2d4e2ac885c4dfa1d24a04a48d6170",
+      "assetDimensions": [
+        1937,
+        2560
+      ],
+      "assetBytes": 1128348,
+      "assetSha256": "6bbb63e99b9f6d75e74dd8662d0a1adf208f8dd1b72f871252e2e17eaa56f593",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Arkhip Kuindzhi — The North (1879). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-17822009.json",
+        "evidence/rendered-17822009.json",
+        "evidence/broad-Arkhip-Kuindzhi.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-kuindzhi-red-sunset-dnieper",
+      "commonsPageId": 8947771,
+      "commonsFilename": "File:WLA metmuseum Red Sunset on the Dnieper Arkhip Ivanovich Kuindzhi.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:WLA_metmuseum_Red_Sunset_on_the_Dnieper_Arkhip_Ivanovich_Kuindzhi.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/WLA_metmuseum_Red_Sunset_on_the_Dnieper_Arkhip_Ivanovich_Kuindzhi.jpg",
+      "sourceDimensions": [
+        3811,
+        2764
+      ],
+      "sourceSha256": "156d7d517371e5bf5fcee7a368be5c42534e6a33acdb02530a49c4a591d86cb0",
+      "assetDimensions": [
+        2560,
+        1857
+      ],
+      "assetBytes": 527056,
+      "assetSha256": "40532019f2f28009ff2b485e0a846932dcc6dd59d932c44bf7729bf8065ad6bf",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Arkhip Kuindzhi — Red Sunset on the Dnieper (1905). The Metropolitan Museum of Art, New York. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/category-Arkhip-Kuindzhi.json",
+        "evidence/page-8947771.json",
+        "evidence/broad-Arkhip-Kuindzhi.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-savrasov-volga-flood-yaroslavl",
+      "commonsPageId": 6900642,
+      "commonsFilename": "File:A spill on the Volga.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_spill_on_the_Volga.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/A_spill_on_the_Volga.jpg",
+      "sourceDimensions": [
+        4929,
+        3273
+      ],
+      "sourceSha256": "74f34daf5100db60173423a44c7ed09e5b413f9bbf8f9a5fa3e564f3952aa413",
+      "assetDimensions": [
+        2560,
+        1700
+      ],
+      "assetBytes": 1074780,
+      "assetSha256": "b923085df7b084629c272514c41945d4df5e19651be9c269085f208ded118ede",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Alexei Savrasov — Flooding of the Volga near Yaroslavl (1871). State Russian Museum, Saint Petersburg. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-6900642.json",
+        "evidence/broad-Alexey-Savrasov.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-polenov-moscow-courtyard",
+      "commonsPageId": 13499550,
+      "commonsFilename": "File:Moscow Courtyard (Polenov, 1878) - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moscow_Courtyard_(Polenov,_1878)_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Moscow_Courtyard_%28Polenov%2C_1878%29_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        4000,
+        3298
+      ],
+      "sourceSha256": "1a618d34fde057ea632352461db0e6e46d361643383afa7dca927534f14f81bc",
+      "assetDimensions": [
+        2560,
+        2111
+      ],
+      "assetBytes": 1868889,
+      "assetSha256": "53790c035fefdea9ffe9c96983799769493ad2b5066995d40ea4844182edb573",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Vasily Polenov — Moscow Courtyard (1878). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-13499550.json",
+        "evidence/broad-Vasily-Polenov.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-polenov-overgrown-pond",
+      "commonsPageId": 461926,
+      "commonsFilename": "File:Wassilij Dimitriewitsch Polenow 004.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wassilij_Dimitriewitsch_Polenow_004.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Wassilij_Dimitriewitsch_Polenow_004.jpg",
+      "sourceDimensions": [
+        2048,
+        1322
+      ],
+      "sourceSha256": "eb1d605e9b8434f27919e9c55a0044fd09253a9e329071c37891d8444fc66bb7",
+      "assetDimensions": [
+        2048,
+        1322
+      ],
+      "assetBytes": 891022,
+      "assetSha256": "0f6c743a8554e515b17202df61914d9ca691b4c117e844e20052361ddfde5e8f",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Vasily Polenov — Overgrown Pond (1879). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/rendered-461926.json",
+        "evidence/page-461926.json",
+        "evidence/target-8.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-polenov-golden-autumn",
+      "commonsPageId": 10354764,
+      "commonsFilename": "File:Zolotaja osen by Vasiliy Polenov.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zolotaja_osen_by_Vasiliy_Polenov.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Zolotaja_osen_by_Vasiliy_Polenov.jpg",
+      "sourceDimensions": [
+        2125,
+        1300
+      ],
+      "sourceSha256": "84f2e95391f4ea5c828ae9239d39d2562975126ef3f4abd9e3b0a60dae184ebc",
+      "assetDimensions": [
+        2125,
+        1300
+      ],
+      "assetBytes": 895144,
+      "assetSha256": "26be5a9f3e701cae1200035c981604326d01d30ad99f5923c934fd58fd605f49",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Vasily Polenov — Golden Autumn (1893). V. D. Polenov State Memorial History, Art and Natural Museum-Reserve, Tula Region. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-10354764.json",
+        "evidence/target-9.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-vasnetsov-alyonushka",
+      "commonsPageId": 13507062,
+      "commonsFilename": "File:Viktor Vasnetsov - Аленушка - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viktor_Vasnetsov_-_%D0%90%D0%BB%D0%B5%D0%BD%D1%83%D1%88%D0%BA%D0%B0_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Viktor_Vasnetsov_-_%D0%90%D0%BB%D0%B5%D0%BD%D1%83%D1%88%D0%BA%D0%B0_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        1440,
+        2048
+      ],
+      "sourceSha256": "019cf60abf2f822a568d1019c0cc2da6ca275fcf8cb7d7bf6e8044e941b3027a",
+      "assetDimensions": [
+        1440,
+        2048
+      ],
+      "assetBytes": 1060265,
+      "assetSha256": "f298becc35811e796bb3fe625f1e5c95b7522533167f88dfe612c81baf4556a9",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Viktor Vasnetsov — Alyonushka (1881). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/broad-Viktor-Vasnetsov.json",
+        "evidence/page-13507062.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-vasnetsov-flying-carpet",
+      "commonsPageId": 1374733,
+      "commonsFilename": "File:Vasnetsov samolet.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vasnetsov_samolet.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Vasnetsov_samolet.jpg",
+      "sourceDimensions": [
+        2362,
+        1300
+      ],
+      "sourceSha256": "70e95bc005f7ae7fbffc34498c089c818ee3d73154394a72dbf85a435c1f0565",
+      "assetDimensions": [
+        2362,
+        1300
+      ],
+      "assetBytes": 497316,
+      "assetSha256": "576d7ff3eb021c4b40a0377bed4d155bcf55ca8329595d55ada910918f056f83",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Viktor Vasnetsov — The Flying Carpet (1880). Nizhny Novgorod State Art Museum, Nizhny Novgorod. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/broad-Viktor-Vasnetsov.json",
+        "evidence/page-1374733.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-serov-ida-rubinstein",
+      "commonsPageId": 21853883,
+      "commonsFilename": "File:Valentin Serov - Ida Rubenstein - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Valentin_Serov_-_Ida_Rubenstein_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Valentin_Serov_-_Ida_Rubenstein_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        5155,
+        3180
+      ],
+      "sourceSha256": "3a732c242a0b02fc4b9cc4ef93467da1f567ee2ccf834a9077d194f22c3cc380",
+      "assetDimensions": [
+        2560,
+        1579
+      ],
+      "assetBytes": 637563,
+      "assetSha256": "9dd966404cfac8bcf9f4ed88bc03e6241d030c13693ff935ecafd674694499ca",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Valentin Serov — Portrait of Ida Rubinstein (1910). State Russian Museum, Saint Petersburg. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/broad-Valentin-Serov.json",
+        "evidence/page-21853883.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-serov-princess-olga-orlova",
+      "commonsPageId": 21854256,
+      "commonsFilename": "File:Valentin Serov - Portrait of Princess Olga Orlova - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Valentin_Serov_-_Portrait_of_Princess_Olga_Orlova_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Valentin_Serov_-_Portrait_of_Princess_Olga_Orlova_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        3266,
+        4940
+      ],
+      "sourceSha256": "ac2aeb669d5f86f5b82d090ebbd3f28942a3d10b8e426419fb14843e127f4066",
+      "assetDimensions": [
+        1693,
+        2560
+      ],
+      "assetBytes": 868564,
+      "assetSha256": "a68a4c868c91039f936dc0061d905789f44f464cea580798f3dc8db0e5a23328",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Valentin Serov — Portrait of Princess Olga Orlova (1911). State Russian Museum, Saint Petersburg. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-21854256.json",
+        "evidence/broad-Valentin-Serov.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    },
+    {
+      "id": "ru-serov-henrietta-girshman",
+      "commonsPageId": 13501275,
+      "commonsFilename": "File:Valentin Serov - Портрет Г.Л.Гиршман - Google Art Project.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Valentin_Serov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%93.%D0%9B.%D0%93%D0%B8%D1%80%D1%88%D0%BC%D0%B0%D0%BD_-_Google_Art_Project.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Valentin_Serov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%93.%D0%9B.%D0%93%D0%B8%D1%80%D1%88%D0%BC%D0%B0%D0%BD_-_Google_Art_Project.jpg",
+      "sourceDimensions": [
+        3945,
+        4000
+      ],
+      "sourceSha256": "417c56cfb075918a27e0a24ec5d53b99f4e1be3eb6d5722f2ab56ef3e165023d",
+      "assetDimensions": [
+        2525,
+        2560
+      ],
+      "assetBytes": 1601501,
+      "assetSha256": "d217d6e9de818e46cb75c9512e272b2ae257c56371314aeb65060f749f107428",
+      "licenseMetadata": {
+        "LicenseShortName": "Public domain",
+        "Copyrighted": "False",
+        "AttributionRequired": "false",
+        "Restrictions": "",
+        "License": "pd"
+      },
+      "credit": "Valentin Serov — Portrait of Henrietta Girshman (1907). State Tretyakov Gallery, Moscow. Public domain; reproduction via Wikimedia Commons.",
+      "evidenceFiles": [
+        "evidence/page-13501275.json",
+        "evidence/broad-Valentin-Serov.json"
+      ],
+      "editorialBasis": "Verified creator/title/date/collection plus original visual interpretation; no unsupported biographical anecdotes.",
+      "visualReview": "Painting-only reproduction; no gallery visitors or external display frames.",
+      "processing": "EXIF orientation; RGB; downsample only to long edge <=2560; baseline JPEG quality 88, 4:2:0, no AI, sharpening, or colour grading."
+    }
+  ],
+  "jurisdictionNote": "Commons PD-Art position for faithful reproductions of public-domain 2D works; museum terms can differ by jurisdiction. Integration owner must review commercial policy; PD is not an individual museum endorsement."
+}

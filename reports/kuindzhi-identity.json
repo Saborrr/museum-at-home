@@ -1,0 +1,20 @@
+{
+  "id": "ru-kuindzhi-moonlit-dnieper",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arkhip_Kuindzhi_-_%D0%9D%D0%BE%D1%87%D1%8C_%D0%BD%D0%B0_%D0%94%D0%BD%D0%B5%D0%BF%D1%80%D0%B5_-_Google_Art_Project.jpg",
+  "museumUrl": "https://my.tretyakov.ru/app/masterpiece/10935",
+  "accessionNumber": "15129",
+  "year": "1882",
+  "medium": "oil on canvas",
+  "dimensionsCm": [
+    104,
+    143
+  ],
+  "commonsOriginalSha256": "50ae1ea85c2ecb4132ea4cb817fed0804de42b4334c155c39f95a4deb704d7bd",
+  "localImageSha256": "d857afa88847d133380334a1356bcf85abb64ccb0fd99434a178819a3c70d8cf",
+  "comparisonMeanAbsoluteRgbError": [
+    1.571396766832622,
+    0.9531272226173542,
+    1.1704647492887625
+  ],
+  "decision": "Confirmed Tretyakov repetition; corrected bilingual title, year, museum and story. Original 1880 exhibition story is not attributed to this version."
+}

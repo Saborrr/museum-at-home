@@ -1,6 +1,6 @@
 'use strict';
 
-var VERSION = 'v3';
+var VERSION = 'v4';
 var CACHE_PREFIX = 'museum-at-home-';
 var SHELL_CACHE = CACHE_PREFIX + 'shell-' + VERSION;
 var ARTWORK_CACHE = CACHE_PREFIX + 'artwork-' + VERSION;

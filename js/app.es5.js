@@ -48,7 +48,7 @@
       language: 'Язык',
       languageAuto: 'Авто',
       languageRu: 'Русский',
-      languageEn: 'English',
+      languageEn: 'Английский',
       clearFilters: 'Сбросить фильтры',
       clock: 'Часы',
       retry: 'Повторить',
@@ -66,6 +66,9 @@
       license: 'Источник и права',
       publicDomain: 'Общественное достояние. Источник репродукции указан в каталоге.',
       menuHint: 'Стрелки — выбор · OK — применить/снять · Back — закрыть',
+      detailsHint: '↑ ↓ Прокрутка · Back Закрыть',
+      settingsError: 'Не удалось сохранить настройки',
+      storageError: 'Хранилище недоступно',
       controls: ['← → Картины', '↑ Избранное', '↓ О картине', 'OK Коллекции']
     },
     en: {
@@ -122,6 +125,9 @@
       license: 'Source and rights',
       publicDomain: 'Public domain. The reproduction source is documented in the catalog.',
       menuHint: 'Arrows — select · OK — apply/remove · Back — close',
+      detailsHint: '↑ ↓ Scroll · Back Close',
+      settingsError: 'Settings could not be saved',
+      storageError: 'Storage unavailable',
       controls: ['← → Artworks', '↑ Favorite', '↓ Story', 'OK Collections']
     }
   };
@@ -158,6 +164,8 @@
     preloads: [],
     focusables: [],
     focusIndex: 0,
+    focusRects: null,
+    focusedElement: null,
     menuOpen: false,
     detailsOpen: false,
     imageFailures: {},
@@ -220,6 +228,7 @@
         emptyText: document.getElementById('empty-text'),
         details: document.getElementById('details-panel'),
         detailsKicker: document.getElementById('details-kicker'),
+        detailsHint: document.getElementById('details-hint'),
         detailsTitle: document.getElementById('details-title'),
         detailsByline: document.getElementById('details-byline'),
         detailsScroll: document.getElementById('details-scroll'),
@@ -244,6 +253,9 @@
     },
 
     bindInputImmediately: function () {
+      window.addEventListener('resize', function () {
+        App.invalidateFocusGeometry();
+      });
       document.addEventListener('keydown', function (event) {
         App.handleKey(event);
       }, true);
@@ -313,7 +325,7 @@
           this.el.detailsScroll.scrollTop += 130;
         } else if (code === 37 || code === 39) {
           // Consume horizontal D-pad input so native spatial navigation cannot escape the dialog.
-        } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27 || code === 13) {
+        } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27 || code === 13 || code === 404 || code === 406) {
           this.closeDetails();
         } else {
           handled = false;
@@ -333,7 +345,7 @@
           this.moveFocus(0, -1);
         } else if (code === 40) {
           this.moveFocus(0, 1);
-        } else if (code === 13) {
+        } else if (code === 13 || code === 404 || code === 406) {
           this.activateFocus();
         } else if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27) {
           this.closeMenu();
@@ -409,7 +421,7 @@
       try {
         localStorage.setItem(SETTINGS_KEY, JSON.stringify(this.settings));
       } catch (ignore) {
-        this.showToast('Settings could not be saved');
+        this.showToast(I18N[this.language].settingsError);
       }
     },
 
@@ -777,7 +789,7 @@
       var museum = this.localized(artwork, 'museum');
       this.el.title.textContent = title;
       this.el.artist.textContent = artist;
-      this.el.meta.textContent = artwork.year + (museum ? ' · ' + museum : '');
+      this.el.meta.textContent = this.localized(artwork, 'year') + (museum ? ' · ' + museum : '');
     },
 
     localized: function (artwork, field) {
@@ -793,7 +805,7 @@
       isNowFavorite = MuseumCore.toggleFavorite(this.favorites, artwork.id);
       if (!this.saveFavorites()) {
         MuseumCore.toggleFavorite(this.favorites, artwork.id);
-        this.showToast('Storage unavailable');
+        this.showToast(I18N[this.language].storageError);
         return;
       }
       this.updateFavoriteButton(true);
@@ -861,11 +873,11 @@
       this.detailsOpen = true;
       description = this.localized(artwork, 'description') || I18N[this.language].noDescription;
       museum = this.localized(artwork, 'museum');
-      rights = artwork.license || I18N[this.language].publicDomain;
+      rights = this.localized(artwork, 'license') || I18N[this.language].publicDomain;
       this.el.detailsKicker.textContent = I18N[this.language].story;
       this.el.detailsTitle.textContent = this.localized(artwork, 'title');
       this.el.detailsByline.textContent =
-        this.localized(artwork, 'artist') + ' · ' + artwork.year;
+        this.localized(artwork, 'artist') + ' · ' + this.localized(artwork, 'year');
       this.el.detailsDescription.textContent = description;
       this.el.detailsMuseum.textContent = museum;
       this.el.detailsRights.textContent = I18N[this.language].license + ': ' + rights;
@@ -942,6 +954,8 @@
       this.el.menu.setAttribute('aria-hidden', 'false');
       this.updateMenuSelection();
       this.focusables = this.el.menu.querySelectorAll('.focusable');
+      this.focusedElement = null;
+      this.invalidateFocusGeometry();
       this.focusIndex = 0;
       selected = this.el.menu.querySelector('[data-action="category"][data-value="' +
         this.settings.category + '"]');
@@ -962,6 +976,8 @@
         return;
       }
       this.menuOpen = false;
+      this.focusedElement = null;
+      this.invalidateFocusGeometry();
       this.el.menu.classList.remove('open');
       this.el.menu.setAttribute('aria-hidden', 'true');
       for (i = 0; i < this.focusables.length; i += 1) {
@@ -985,23 +1001,39 @@
       }
     },
 
+    invalidateFocusGeometry: function () {
+      this.focusRects = null;
+    },
+
     moveFocus: function (dx, dy) {
-      var rects = [];
       var i;
-      for (i = 0; i < this.focusables.length; i += 1) {
-        rects.push(this.focusables[i].getBoundingClientRect());
+      var rect;
+      if (!this.focusRects) {
+        this.focusRects = [];
+        // Read the real layout once, before focus writes. Uniform dialog translation does not
+        // change relative geometry. Rebuild after opening, changing language or resizing.
+        for (i = 0; i < this.focusables.length; i += 1) {
+          rect = this.focusables[i].getBoundingClientRect();
+          this.focusRects.push({ left: rect.left, top: rect.top, width: rect.width, height: rect.height });
+        }
       }
-      this.focusIndex = MuseumCore.spatialIndex(rects, this.focusIndex, dx, dy);
+      this.focusIndex = MuseumCore.spatialIndex(this.focusRects, this.focusIndex, dx, dy);
       this.paintFocus();
     },
 
     paintFocus: function () {
-      var i;
-      for (i = 0; i < this.focusables.length; i += 1) {
-        this.focusables[i].classList.toggle('focused', i === this.focusIndex);
+      var target = this.focusables[this.focusIndex];
+      if (this.focusedElement !== target) {
+        if (this.focusedElement) {
+          this.focusedElement.classList.remove('focused');
+        }
+        if (target) {
+          target.classList.toggle('focused', true);
+        }
+        this.focusedElement = target;
       }
-      if (this.focusables[this.focusIndex]) {
-        this.focusables[this.focusIndex].focus();
+      if (target && document.activeElement !== target) {
+        target.focus();
       }
     },
 
@@ -1089,6 +1121,7 @@
 
     updateLanguage: function () {
       var t = I18N[this.language];
+      this.invalidateFocusGeometry();
       var labels = document.querySelectorAll('[data-action="category"], [data-action="style"]');
       var i;
       var value;
@@ -1098,7 +1131,11 @@
         300: 'interval5m', 900: 'interval15m', 1800: 'interval30m'
       };
       document.documentElement.lang = this.language;
-      this.el.loadingText.textContent = t.loading;
+      this.el.loadingText.textContent = this.el.loading.classList.contains('is-error') ? t.loadFailed : t.loading;
+      this.el.detailsHint.textContent = t.detailsHint;
+      this.updateFavoriteButton();
+      this.el.layerA.alt = this.currentArtwork() ? this.localized(this.currentArtwork(), 'title') : '';
+      this.el.layerB.alt = this.el.layerA.alt;
       this.el.detailsKicker.textContent = t.story;
       this.el.menuTitle.textContent = t.menuTitle;
       this.el.collectionsHeading.textContent = t.collections;
