@@ -370,6 +370,28 @@ button {
   transition-delay: 0s;
 }
 
+.exit-dialog.open {
+  z-index: 400;
+}
+
+.exit-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 850px;
+  padding: 60px;
+  background: #121210;
+  border: 1px solid #d8b56c;
+  text-align: center;
+}
+
+.exit-card h2 { font-size: 42px; }
+.exit-card p { margin: 28px 0 38px; font-size: 26px; }
+.exit-card button { margin: 0 12px; min-width: 220px; }
+.exit-card button:focus { outline: 4px solid #d8b56c; outline-offset: 5px; }
+
 .details-card,
 .menu-card {
   position: absolute;

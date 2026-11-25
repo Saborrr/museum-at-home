@@ -11,7 +11,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Saborrr/museum-at-home/ci.yml?branch=main&style=flat-square&label=build)](https://github.com/Saborrr/museum-at-home/actions)
 [![80 artworks](https://img.shields.io/badge/rights--checked_artworks-80-d8b56c?style=flat-square)](docs/CONTENT_POLICY.md)
-[![v2.1.2 LG](https://img.shields.io/badge/release-v2.1.2_LG_1080p-4f5944?style=flat-square)](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.2)
+[![v2.1.3 candidate](https://img.shields.io/badge/candidate-v2.1.3_LG_1080p-4f5944?style=flat-square)](docs/LG_QA_RESUBMISSION.md)
 [![webOS 3+](https://img.shields.io/badge/LG_webOS-3%2B-a50034?style=flat-square&logo=lg)](README.en.md#platform-support)
 [![Android TV](https://img.shields.io/badge/Android_TV-API_21%2B-3ddc84?style=flat-square&logo=android)](README.en.md#platform-support)
 [![Samsung Tizen](https://img.shields.io/badge/Samsung-Tizen-1428a0?style=flat-square&logo=samsung)](README.en.md#platform-support)
@@ -28,13 +28,18 @@ webOS, Android TV / Google TV, Amazon Fire TV, Samsung Tizen and web browsers.
 Packaged builds bundle local reproductions; platform wrappers and installation
 requirements differ. A gallery app is not a guaranteed system screensaver.
 
-**v2.1.2:** the user confirmed installation through webOS Dev Manager on a Mac
+**v2.1.3 candidate:** fixes Back behavior: the gallery opens an exit confirmation
+with **Stay** selected by default; Back cancels it. Back in the menu or artwork
+details only dismisses that panel. Physical LG testing of v2.1.3 is **not yet done**.
+See the [LG QA resubmission checklist](docs/LG_QA_RESUBMISSION.md).
+
+**Historical v2.1.2 confirmation:** the user confirmed installation through webOS Dev Manager on a Mac
 and working gallery operation on **LG49UH610V, webOS 3.4**. This is not proof of
 universal device compatibility, hours-long stability or hardware offline testing.
 
 | Platform | Package | Status |
 |---|---|---|
-| LG webOS 3+ | v2.1.2 1080p `.ipk`; 720p via CI | Gallery confirmed on LG49UH610V / webOS 3.4; system screensaver not confirmed |
+| LG webOS 3+ | v2.1.3 local 1080p and 720p `.ipk` | v2.1.3 hardware test pending; v2.1.2 gallery confirmed on LG49UH610V / webOS 3.4; system screensaver not confirmed |
 | Android TV / Google TV | Debug `.apk` | Sideload testing; DreamService selection varies by firmware |
 | Amazon Fire TV | Android `.apk` | Supported for sideload testing |
 | Samsung Smart TV / Tizen | Unsigned Tizen web project | Requires TV certificate and device testing |
@@ -64,11 +69,16 @@ documentation:
 
 ## Download and next steps
 
-The [v2.1.2 release](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.2)
+Both v2.1.3 LG packages are built with official `ares-package` 3.2.6:
+`dist/museum-at-home-webos-1080-2.1.3.ipk` (73,142,360 bytes) and
+`dist/museum-at-home-webos-720-2.1.3.ipk` (73,142,418 bytes).
+Not published yet; checksums and submission status: [LG QA](docs/LG_QA_RESUBMISSION.md).
+
+Historical package: the [v2.1.2 release](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.2)
 contains **only LG 1080p**:
 [`museum-at-home-webos-1080-2.1.2.ipk`](https://github.com/Saborrr/museum-at-home/releases/download/v2.1.2/museum-at-home-webos-1080-2.1.2.ipk),
 73,141,544 bytes, built with the official `ares-package`. This is a Developer Mode
-test package, not a store release. Current builds for the other platforms are
+test package, not a store release; it does not include the v2.1.3 Back fix. Builds for the other platforms are
 [CI artifacts](https://github.com/Saborrr/museum-at-home/actions);
 [older v2.1.1 builds](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.1)
 are separate and do not include the v2.1.2 changes. See the language guides for

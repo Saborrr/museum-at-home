@@ -24,7 +24,12 @@ room: readable type, safe margins, predictable focus and no tiny controls.
 Packaged TV builds include local reproductions. The full-screen gallery is not
 the system screensaver: activation and behavior depend on device firmware.
 
-**v2.1.2:** the user confirmed installation with webOS Dev Manager on a Mac
+**v2.1.3 candidate:** fixes Back behavior. On the gallery, Back opens a custom
+exit confirmation with **Stay** selected by default; another Back cancels it.
+Back in the menu or artwork details only dismisses that panel. Physical LG testing
+of v2.1.3 is **not yet done**. See the [LG QA checklist](docs/LG_QA_RESUBMISSION.md).
+
+**Historical v2.1.2 confirmation:** the user confirmed installation with webOS Dev Manager on a Mac
 and working gallery operation on **LG49UH610V, webOS 3.4**. This does not
 confirm all devices, hours-long stability or a separate hardware offline test.
 
@@ -54,7 +59,7 @@ away. Any remote or pointer input brings them back. The behavior can be set to
 
 | Platform / common brands | Delivery | Support and limitations |
 |---|---|---|
-| **LG webOS 3+** | v2.1.2: 1080p `.ipk`; 720p via CI | Gallery confirmed on LG49UH610V / webOS 3.4. System screensaver operation is not separately confirmed and depends on firmware. |
+| **LG webOS 3+** | v2.1.3: local 1080p and 720p `.ipk` | v2.1.3 hardware test pending. Historical v2.1.2 gallery confirmed on LG49UH610V / webOS 3.4. System screensaver operation is not separately confirmed and depends on firmware. |
 | **Android TV / Google TV** — Sony, Philips, TCL, Xiaomi, selected Hisense models, Nvidia Shield | Android `.apk` | Full remote UI and a registered Android DreamService. Availability of third-party system screensavers depends on the device firmware. |
 | **Amazon Fire TV** | The same Android `.apk` | Full-screen gallery and remote support. Install through ADB for testing; DreamService availability varies by Fire OS version. |
 | **Samsung Smart TV / Tizen** | Unsigned Tizen web project | UI and Samsung Return key are supported. Samsung requires a developer certificate tied to the TV before a `.wgt` can be installed. |
@@ -87,17 +92,25 @@ image memory remain important on older TVs.
 | `↑` or red | Add or remove favorite |
 | `↓` or yellow | Open the artwork story |
 | `OK`, green or blue | Open collections and settings |
-| `Back`, `Return` or `Esc` | Close the panel or exit |
+| `Back`, `Return` or `Esc` | Dismiss menu/details; on gallery open exit confirmation (Stay default); in confirmation cancel |
 
 ## Download test builds
 
-### Current v2.1.2 release — LG 1080p only
+### v2.1.3 candidate — LG 1080p and 720p packages
+
+Both v2.1.3 LG packages are built with official `ares-package` 3.2.6:
+`dist/museum-at-home-webos-1080-2.1.3.ipk` (73,142,360 bytes) and
+`dist/museum-at-home-webos-720-2.1.3.ipk` (73,142,418 bytes).
+Not published yet. Physical LG testing remains pending.
+Checksums and submission status: [LG QA](docs/LG_QA_RESUBMISSION.md).
+
+### Historical v2.1.2 release — LG 1080p only
 
 [v2.1.2](https://github.com/Saborrr/museum-at-home/releases/tag/v2.1.2):
 [`museum-at-home-webos-1080-2.1.2.ipk`](https://github.com/Saborrr/museum-at-home/releases/download/v2.1.2/museum-at-home-webos-1080-2.1.2.ipk)
 — 73,141,544 bytes, built with the official `ares-package`. This release has
 no 720p package, Android APK, Tizen or web ZIP. It is a Developer Mode package,
-not a store build.
+not a store build. It does not include the v2.1.3 Back fix.
 
 ### Older v2.1.1 builds — not the current version
 
@@ -126,6 +139,9 @@ accounts and device-specific review.
 
 ## Install on LG webOS
 
+The steps below target the locally built v2.1.3 package.
+The prior installation confirmation is for v2.1.2 only, not v2.1.3.
+
 ### Mac: webOS Dev Manager
 
 1. Install LG Developer Mode on the TV, sign in to your LG account, enable
@@ -133,9 +149,9 @@ accounts and device-specific review.
 2. Connect the Mac and TV to the same network. Download the macOS build of
    [webOS Dev Manager](https://github.com/webosbrew/dev-manager-desktop/releases/latest).
 3. Add the TV using its IP and the connection details shown in Developer Mode.
-4. Click **Install**, select `museum-at-home-webos-1080-2.1.2.ipk`, wait for
+4. Click **Install**, select `museum-at-home-webos-1080-2.1.3.ipk`, wait for
    installation and launch Museum at Home. Do not uninstall the existing app
-   beforehand. The user confirmed this path on LG49UH610V / webOS 3.4.
+   beforehand. The user confirmed this path for v2.1.2 on LG49UH610V / webOS 3.4.
 
 ### Alternative: official LG CLI
 
@@ -151,7 +167,7 @@ ares-device --device myTV --system-info
 Use the downloaded 1080 package on UHD televisions such as the LG 49UH610V:
 
 ```bash
-ares-install --device myTV museum-at-home-webos-1080-2.1.2.ipk
+ares-install --device myTV museum-at-home-webos-1080-2.1.3.ipk
 ares-launch --device myTV com.saborrr.museumathome
 ```
 

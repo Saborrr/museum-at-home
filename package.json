@@ -1,6 +1,6 @@
 {
   "name": "museum-at-home-webos",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "private": true,
   "description": "Museum-quality ambient art gallery for LG webOS TVs",
   "scripts": {

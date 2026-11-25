@@ -7,7 +7,8 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const files = ['README.md', 'README.en.md', 'README.ru.md'];
-const currentAsset = 'museum-at-home-webos-1080-2.1.2.ipk';
+const currentAsset = 'museum-at-home-webos-1080-2.1.3.ipk';
+const historicalAsset = 'museum-at-home-webos-1080-2.1.2.ipk';
 const legacyAssets = [
   'museum-at-home-android-tv-debug.apk',
   'museum-at-home-webos-1080-unsigned.ipk',
@@ -17,11 +18,19 @@ const legacyAssets = [
 ];
 
 for (const filename of files) {
-  test(`${filename} points to the current LG release and 80-work catalog`, () => {
+  test(`${filename} documents the LG candidate honestly and preserves historical evidence`, () => {
     const text = fs.readFileSync(path.join(root, filename), 'utf8');
     assert.doesNotMatch(text, /Saborrr\/art-screensaver-webos/i);
     assert.match(text, /https:\/\/github\.com\/Saborrr\/museum-at-home\/releases\/tag\/v2\.1\.2/);
-    assert.ok(text.includes(`/releases/download/v2.1.2/${currentAsset}`));
+    assert.ok(text.includes(`/releases/download/v2.1.2/${historicalAsset}`));
+    assert.ok(text.includes(`dist/${currentAsset}`));
+    assert.doesNotMatch(text, /releases\/(?:tag|download)\/v2\.1\.3/);
+    assert.ok(text.includes("museum-at-home-webos-720-2.1.3.ipk"));
+    assert.match(text, /(?:Both v2.1.3 LG packages are built|Оба пакета v2.1.3 собраны)/);
+    assert.match(text, /(?:Physical LG testing|физическом LG)/);
+    assert.match(text, /(?:Historical|Историческ)/);
+    assert.match(text, /docs\/LG_QA_RESUBMISSION\.md/);
+    assert.match(text, /(?:Stay|Остаться)/);
     assert.match(text, /80 (?:rights-checked artworks|artworks|картин)/);
     assert.match(text, /32 (?:Russian|русские)/);
     assert.match(text, /48 (?:world works|мировые)/);

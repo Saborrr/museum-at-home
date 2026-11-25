@@ -69,6 +69,10 @@
       detailsHint: '↑ ↓ Прокрутка · Back Закрыть',
       settingsError: 'Не удалось сохранить настройки',
       storageError: 'Хранилище недоступно',
+      exitTitle: 'Выйти из галереи?',
+      exitText: 'Вы можете остаться и продолжить просмотр картин.',
+      exitCancel: 'Остаться',
+      exitConfirm: 'Выйти',
       controls: ['← → Картины', '↑ Избранное', '↓ О картине', 'OK Коллекции']
     },
     en: {
@@ -128,6 +132,10 @@
       detailsHint: '↑ ↓ Scroll · Back Close',
       settingsError: 'Settings could not be saved',
       storageError: 'Storage unavailable',
+      exitTitle: 'Leave the gallery?',
+      exitText: 'You can stay and continue enjoying the artworks.',
+      exitCancel: 'Stay',
+      exitConfirm: 'Exit',
       controls: ['← → Artworks', '↑ Favorite', '↓ Story', 'OK Collections']
     }
   };
@@ -168,6 +176,8 @@
     focusedElement: null,
     menuOpen: false,
     detailsOpen: false,
+    exitOpen: false,
+    exitPreviousFocus: null,
     imageFailures: {},
     previousFocus: null,
     pendingLoadError: false,
@@ -248,15 +258,37 @@
         toast: document.getElementById('toast'),
         loading: document.getElementById('loading'),
         loadingText: document.getElementById('loading-text'),
-        loadingRetry: document.getElementById('loading-retry')
+        loadingRetry: document.getElementById('loading-retry'),
+        exitDialog: document.getElementById('exit-dialog'),
+        exitTitle: document.getElementById('exit-title'),
+        exitText: document.getElementById('exit-text'),
+        exitCancel: document.getElementById('exit-cancel'),
+        exitConfirm: document.getElementById('exit-confirm')
       };
     },
 
     bindInputImmediately: function () {
+      var backHeld = false;
       window.addEventListener('resize', function () {
         App.invalidateFocusGeometry();
       });
+      window.addEventListener('blur', function () {
+        backHeld = false;
+      });
+      document.addEventListener('keyup', function (event) {
+        if (App.isBackKey(event.keyCode || event.which)) {
+          backHeld = false;
+        }
+      }, true);
       document.addEventListener('keydown', function (event) {
+        if (App.isBackKey(event.keyCode || event.which)) {
+          if (backHeld) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          backHeld = true;
+        }
         App.handleKey(event);
       }, true);
 
@@ -270,7 +302,7 @@
       });
 
       this.el.stage.addEventListener('click', function (event) {
-        if (App.menuOpen || App.detailsOpen || !App.artworks.length) {
+        if (App.menuOpen || App.detailsOpen || App.exitOpen || !App.artworks.length) {
           return;
         }
         if (event.clientX < window.innerWidth * 0.34) {
@@ -299,6 +331,12 @@
       this.el.loadingRetry.addEventListener('click', function () {
         App.retryImages();
       });
+      this.el.exitCancel.addEventListener('click', function () {
+        App.closeExit();
+      });
+      this.el.exitConfirm.addEventListener('click', function () {
+        App.confirmExit();
+      });
     },
 
     findActionTarget: function (target) {
@@ -314,9 +352,31 @@
     handleKey: function (event) {
       var code = event.keyCode || event.which;
       var handled = true;
+      if (event.repeat && this.isBackKey(code)) {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
       this.showChrome();
 
-      if (this.detailsOpen) {
+      if (this.exitOpen) {
+        if (code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27) {
+          this.closeExit();
+        } else if (code === 37 || code === 38) {
+          this.el.exitCancel.focus();
+        } else if (code === 39 || code === 40) {
+          this.el.exitConfirm.focus();
+        } else if (code === 9) {
+          (document.activeElement === this.el.exitCancel ? this.el.exitConfirm : this.el.exitCancel).focus();
+        } else if ((code === 13 || code === 404 || code === 406) && !event.repeat) {
+          if (document.activeElement === this.el.exitConfirm) {
+            this.confirmExit();
+          } else {
+            this.closeExit();
+          }
+        }
+        // All keys belong to the modal, never the covered gallery or retry screen.
+      } else if (this.detailsOpen) {
         if (code === 9) {
           this.el.details.focus();
         } else if (code === 38) {
@@ -381,7 +441,15 @@
       }
     },
 
+    isBackKey: function (code) {
+      return code === 461 || code === 1003 || code === 10009 || code === 4 || code === 27;
+    },
+
     exitApp: function () {
+      if (window.MUSEUM_PLATFORM === 'webos') {
+        this.openExit();
+        return;
+      }
       if (typeof window.tizen !== 'undefined' &&
           window.tizen.application &&
           window.tizen.application.getCurrentApplication) {
@@ -396,6 +464,10 @@
     },
 
     handlePlatformBack: function () {
+      if (this.exitOpen) {
+        this.closeExit();
+        return true;
+      }
       if (this.detailsOpen) {
         this.closeDetails();
         return true;
@@ -404,7 +476,48 @@
         this.closeMenu();
         return true;
       }
+      if (window.MUSEUM_PLATFORM === 'webos') {
+        this.openExit();
+        return true;
+      }
       return false;
+    },
+
+    openExit: function () {
+      if (this.exitOpen) {
+        return;
+      }
+      this.exitPreviousFocus = document.activeElement;
+      this.exitOpen = true;
+      this.stopSlideshow();
+      this.showChrome();
+      this.el.exitDialog.classList.add('open');
+      this.el.exitDialog.setAttribute('aria-hidden', 'false');
+      this.el.exitCancel.focus();
+    },
+
+    closeExit: function () {
+      this.exitOpen = false;
+      this.el.exitDialog.classList.remove('open');
+      this.el.exitDialog.setAttribute('aria-hidden', 'true');
+      if (this.pendingLoadError) {
+        this.displayLoadError();
+      } else if (this.el.loading.classList.contains('is-error')) {
+        this.el.loadingRetry.focus();
+      } else if (this.exitPreviousFocus && this.exitPreviousFocus.focus &&
+          this.exitPreviousFocus !== this.el.loadingRetry) {
+        this.exitPreviousFocus.focus();
+      } else {
+        document.body.focus();
+      }
+      this.restartSlideshow();
+    },
+
+    confirmExit: function () {
+      if (this.exitOpen) {
+        // LG permits window.close only after the user confirms the custom exit popup.
+        window.close();
+      }
     },
 
     loadSettings: function () {
@@ -604,7 +717,7 @@
 
     showLoadError: function () {
       this.stopSlideshow();
-      if (this.menuOpen || this.detailsOpen) {
+      if (this.menuOpen || this.detailsOpen || this.exitOpen) {
         this.pendingLoadError = true;
         // While a dialog is open the gallery stays clear: the deferred error is displayed when the
         // dialog closes, so the loading state must not sit over the dialog in the meantime.
@@ -627,7 +740,7 @@
         // The overlay fades in over 450ms and stays visibility:hidden until then, so the
         // synchronous focus above is ignored: retry once the element is really visible.
         setTimeout(function () {
-          if (App.el.loading.classList.contains('is-error')) {
+          if (App.el.loading.classList.contains('is-error') && !App.exitOpen) {
             App.el.loadingRetry.focus();
           }
         }, 500);
@@ -838,7 +951,9 @@
 
     restartSlideshow: function () {
       this.stopSlideshow();
-      if (this.lifecyclePaused || this.settings.paused || this.menuOpen || this.detailsOpen) {
+      if (this.lifecyclePaused || this.settings.paused || this.menuOpen || this.detailsOpen ||
+          this.exitOpen || this.pendingLoadError || !this.artworks.length ||
+          this.el.loading.classList.contains('is-error')) {
         return;
       }
       this.showChrome();
@@ -1121,6 +1236,10 @@
 
     updateLanguage: function () {
       var t = I18N[this.language];
+      this.el.exitTitle.textContent = t.exitTitle;
+      this.el.exitText.textContent = t.exitText;
+      this.el.exitCancel.textContent = t.exitCancel;
+      this.el.exitConfirm.textContent = t.exitConfirm;
       this.invalidateFocusGeometry();
       var labels = document.querySelectorAll('[data-action="category"], [data-action="style"]');
       var i;
@@ -1201,7 +1320,7 @@
     showChrome: function () {
       clearTimeout(this.chromeTimer);
       document.getElementById('app').classList.remove('chrome-hidden');
-      if (this.settings && this.settings.chrome === 'auto' && !this.menuOpen && !this.detailsOpen) {
+      if (this.settings && this.settings.chrome === 'auto' && !this.menuOpen && !this.detailsOpen && !this.exitOpen) {
         this.chromeTimer = setTimeout(function () {
           document.getElementById('app').classList.add('chrome-hidden');
         }, 12000);

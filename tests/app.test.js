@@ -37,6 +37,169 @@ function loadApp() {
   return { App: sandbox.__MuseumApp, document, sandbox };
 }
 
+function backFixture(platform) {
+  const fixture = loadApp();
+  const { App, document, sandbox } = fixture;
+  const nodes = {};
+  document.getElementById = (id) => nodes[id] || (nodes[id] = {
+    ...focusable(document, id), classList: classList(),
+    setAttribute(key, value) { this[key] = value; }, addEventListener() {}
+  });
+  App.cacheElements();
+  App.settings = { chrome: 'auto', interval: 30, paused: false };
+  App.artworks = [{ id: 'art' }];
+  App.el.layerA.classList.add('active');
+  App.el.loading.classList.add('hidden');
+  sandbox.MUSEUM_PLATFORM = platform || 'webos';
+  fixture.closes = 0;
+  sandbox.close = () => { fixture.closes += 1; };
+  document.body.focus();
+  return fixture;
+}
+
+test('webOS entry Back asks for confirmation instead of closing the app', () => {
+  const fixture = backFixture();
+  const { App, document } = fixture;
+  const event = keyEvent(461);
+  App.handleKey(event);
+  assert.equal(fixture.closes, 0, 'Back must not call window.close');
+  assert.equal(App.exitOpen, true);
+  assert.equal(App.el.exitDialog['aria-hidden'], 'false');
+  assert.equal(document.activeElement, App.el.exitCancel, 'safe default is Stay');
+  assert.equal(event.prevented, true);
+  assert.equal(event.stopped, true);
+});
+
+test('exit dialog traps focus, cancels with Back or Stay, and closes only on explicit Exit', () => {
+  const fixture = backFixture();
+  const { App, document } = fixture;
+  App.openMenu = () => { App.menuOpen = true; };
+  App.handleKey(keyEvent(461));
+  App.handleKey(keyEvent(13));
+  assert.equal(App.exitOpen, false, 'default OK stays in app');
+  assert.equal(document.activeElement, document.body);
+  assert.equal(fixture.closes, 0);
+  App.handleKey(keyEvent(461));
+  App.handleKey(keyEvent(39));
+  assert.equal(document.activeElement, App.el.exitConfirm);
+  App.handleKey(keyEvent(9));
+  assert.equal(document.activeElement, App.el.exitCancel);
+  App.handleKey(keyEvent(9, true));
+  assert.equal(document.activeElement, App.el.exitConfirm);
+  App.handleKey(keyEvent(461));
+  assert.equal(App.exitOpen, false, 'Back cancels even when Exit was selected');
+  assert.equal(fixture.closes, 0);
+  App.handleKey(keyEvent(461));
+  App.handleKey(keyEvent(39));
+  App.handleKey(keyEvent(13));
+  assert.equal(fixture.closes, 1);
+});
+
+test('held Back cannot cascade from a panel into exit or repeatedly toggle exit', () => {
+  const { App } = backFixture();
+  App.menuOpen = true;
+  App.handleKey(keyEvent(461));
+  const repeat = keyEvent(461);
+  repeat.repeat = true;
+  App.handleKey(repeat);
+  assert.equal(App.menuOpen, false);
+  assert.equal(App.exitOpen, false, 'held Back only dismisses the panel');
+  assert.equal(repeat.prevented, true);
+  App.handleKey(keyEvent(461));
+  App.handleKey(repeat);
+  assert.equal(App.exitOpen, true, 'held Back cannot cancel the popup it just opened');
+});
+
+test('exit modal pauses ambient playback and defers load-error focus until cancel', () => {
+  const { App, document } = backFixture();
+  App.handleKey(keyEvent(461));
+  App.restartSlideshow(); // image onload and native resume both use this path
+  assert.equal(App.slideTimer, null, 'no artwork advances under the exit dialog');
+  App.showLoadError();
+  assert.equal(App.pendingLoadError, true);
+  assert.equal(document.activeElement, App.el.exitCancel);
+  App.handleKey(keyEvent(461));
+  assert.equal(App.exitOpen, false);
+  assert.equal(App.el.loading.classList.contains('is-error'), true);
+  assert.equal(document.activeElement, App.el.loadingRetry);
+  assert.equal(App.slideTimer, null, 'error screen never restarts slideshow');
+});
+
+test('platform Back returns through panels then confirms webOS exit, preserving Android handoff', () => {
+  for (const panel of ['menu', 'details']) {
+    const { App } = backFixture();
+    App[panel + 'Open'] = true;
+    App.handlePlatformBack();
+    assert.equal(App[panel + 'Open'], false);
+    assert.equal(App.exitOpen, false);
+    assert.equal(App.handlePlatformBack(), true);
+    assert.equal(App.exitOpen, true);
+    assert.equal(App.handlePlatformBack(), true);
+    assert.equal(App.exitOpen, false);
+  }
+  assert.equal(backFixture('android').App.handlePlatformBack(), false);
+  const samsung = backFixture('tizen');
+  let exited = 0;
+  samsung.sandbox.tizen = { application: { getCurrentApplication: () => ({ exit() { exited += 1; } }) } };
+  samsung.App.handleKey(keyEvent(10009));
+  assert.equal(exited, 1);
+  assert.equal(samsung.App.exitOpen, false);
+});
+
+test('legacy remotes without repeat metadata act once per Back key release', () => {
+  const { App, document, sandbox } = backFixture();
+  const listeners = {};
+  document.addEventListener = (name, fn) => { listeners[name] = fn; };
+  sandbox.addEventListener = () => {};
+  App.bindInputImmediately();
+  App.menuOpen = true;
+  listeners.keydown(keyEvent(461));
+  listeners.keydown(keyEvent(461));
+  assert.equal(App.exitOpen, false);
+  listeners.keyup(keyEvent(461));
+  listeners.keydown(keyEvent(461));
+  assert.equal(App.exitOpen, true);
+  listeners.keydown(keyEvent(461));
+  assert.equal(App.exitOpen, true);
+  listeners.keyup(keyEvent(461));
+  listeners.keydown(keyEvent(461));
+  assert.equal(App.exitOpen, false);
+});
+
+test('TVAPPQA-67425_74309: main-screen Back always shows exit popup, including ambient and loading states', () => {
+  for (const state of ['gallery', 'ambient', 'loading', 'error', 'empty', 'paused']) {
+    const fixture = backFixture();
+    const { App, document } = fixture;
+    if (state === 'ambient') document.getElementById('app').classList.add('chrome-hidden');
+    if (state === 'loading') App.el.loading.classList.remove('hidden');
+    if (state === 'error') App.el.loading.classList.add('is-error');
+    if (state === 'empty') App.artworks = [];
+    if (state === 'paused') App.lifecyclePaused = true;
+    App.handleKey(keyEvent(461));
+    assert.equal(App.exitOpen, true, state);
+    assert.equal(document.activeElement, App.el.exitCancel, state);
+    assert.equal(fixture.closes, 0, state);
+    App.handleKey(keyEvent(461));
+    assert.equal(App.exitOpen, false, state);
+    assert.equal(fixture.closes, 0, state);
+    if (state === 'paused' || state === 'empty' || state === 'error') assert.equal(App.slideTimer, null, state);
+  }
+});
+
+test('all remote Back variants dismiss menu and info before requesting exit', () => {
+  for (const code of [461, 1003, 10009, 4, 27]) {
+    for (const panel of ['menu', 'details']) {
+      const { App } = backFixture();
+      App[panel + 'Open'] = true;
+      App.handleKey(keyEvent(code));
+      assert.equal(App[panel + 'Open'], false);
+      assert.equal(App.exitOpen, false);
+      App.handleKey(keyEvent(code));
+      assert.equal(App.exitOpen, true);
+    }
+  }
+});
+
 function keyEvent(code, shiftKey) {
   return {
     keyCode: code,
